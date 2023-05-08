@@ -1,0 +1,5 @@
+git clone git@github.com:yingchangliu/dotfile.git
+sh install.sh
+vim README.md
+cat histfile.sh
+cat histfile.zsh

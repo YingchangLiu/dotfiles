@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+
+while true; do
+    feh --bg-fill $(find ~/dotfile/wallpaper/. -type f | shuf -n 1) &
+    sleep 29m
+done
+sleep 1m

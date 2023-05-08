@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+sleep 2
+internet=~/".cache/conky-vision/internet.json"
+ippath="www.baidu.com"
+echo "Testing" > $internet
+rm $internet
+if ping -c 1 -W 1 $ippath > /dev/null; then
+    echo "Success" > $internet
+else
+    echo "Fail" > /dev/null
+    fi
+
