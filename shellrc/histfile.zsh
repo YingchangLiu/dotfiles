@@ -21,13 +21,11 @@ git clone git@github.com:kelen51215/dotfiles.git
 git clone git@github.com:kelen51215/seismostory.git
 git clone git@github.com:kelen51215/sucklessbuild.git
 git clone git@github.com:yingchangliu/sourcecode.git
-git clone https://aur.archlinux.org/matlab.git
 git clone https://git.suckless.org/dmenu
 git clone https://git.suckless.org/dwm
 git clone https://git.suckless.org/slock
 git clone https://git.suckless.org/slstatus
 git clone https://git.suckless.org/st
-git clone https://github.com/Dal-mzhang/LOC-FLOW
 git clone https://github.com/JohnWStockwellJr/SeisUnix
 git clone https://github.com/LukeSmithxyz/dwm.git
 git clone https://github.com/ahay/src
@@ -96,11 +94,8 @@ echo $HISTFILE
 bash
 pacman -S libreoffice-still-zh-cn
 pacman -Syyu
-aurupgrade
 vim aliasrc.sh
 paru -S gnome-shell-extension-arch-update
-update
-upgrade
 wget https://download.pytorch.org/libtorch/cu118/libtorch-cxx11-abi-shared-with-deps-2.0.0%2Bcu118.zip
 curl
 curl -h
@@ -112,19 +107,15 @@ cd pytorch-cpp
 cd notebooks
 conda -v
 conda --version
-cd ~
-cd dotfile
 cd shellrc
 pacman -Qme
 pacman -Qenq
 pacman -S zsh-completions zsh-syntax-highlighting zsh-theme-powerlevel10k
-pacman -S zsh-history-substring-search
 cd /etc/zsh
 vim ~/dotfile/shellrc/zshplugin.zsh
 cd /usr/share/zsh/plugins
 cd zsh-history-substring-search
 vim zsh-history-substring-search.zsh
-pwd
 cd ~/dotfile/shellrc
 pacman -Ss per-directory
 pacman -S paru
@@ -132,7 +123,6 @@ paru -Ss zsh-
 vim commonplugin.sh
 vim zshplugin.zsh
 vim ~/.zshrc
-source ~/.zshrc
 git history-substring-search-up
 history-substring-search-up
 bindkey -l
@@ -147,69 +137,331 @@ bindkey -M '^[[1'
 zle -al
 cat -v
 cd dotfile/shellrc
-LS
-neofetch
 vim zshsetting.zsh
-cd ..
 vim README.md
-source script/gitclean.sh
+cd ~/dotfile
+cat README.md
+Q
+rm -rf dotfile.bak
 git clone git@github.com:yingchangliu/dotfile.git
+rm ../.README.md
+rm ../.LICENSE
+pacman -S zsh-history-substring-search
+rm .aliasrc .bash_history .bashrc .README.md
+cd dotfile/
+sh ./install.sh
+cd dotfile
+source script/gitclean.sh
+cd /data
+cd package
+cd The_Road_to_Research
+checkkernel
+conda list
+conda env list
+conda create -n torch python=3.10
+conda create -n phasenet python=3.7
+reboot
+conda activate phasenet
+python software_download.py
+rm -rf LOC-FLOW
+vim run_install.sh
+cd ../FDTCC
+git clone https://github.com/YingchangLiu/geosrc
+sudo mkdir sac
+sudo chmod 777 -R sac
+cd s
+git clone git@github.com:YingchangLiu/geosrc.git
+cp -r ~/bin/geosrc/sac ./
+ex sac-102.0-linux_x86_64.tar.gz
+cd sac
+vm sac src
+mv sac src
+ex sac-102.0-linux_x86_64.tar.gz ../
+mv sac/* ../
+rm -rf sac
+sudo mkdir -h
+sudo mkdir -m 777 locflow
+rm -rf bin
+mv ~/code/myLOC-FLOW.rar ./
+pacman -S unrar
+ex myLOC-FLOW.rar
+cd FDTCC
+cd /bin
+cd /usr/bin
+cd /usr/local
+sudo ln -s /opt/sac /usr/local/sac
+cd ../GaMMA
+vim requirements.txt
+vim setup.py
+conda create -n locflow
+conda create -n locflow python=3.6
+conda remove -n phasenet --all
+conda deactivate
+conda remove -n locflow --all
+conda create -n locflow python=3.8
+python setup.py
+cd build
+cd GrowClust
+cd SRC
+make install
+make makefile
+vim makefile
+mkdir ~/bin
+rm -rf *.o
+cd src/hyp1.40
+cd ../HYPODD
+make all
+cd hista2ddsta
+vim Makefile
+cd MatchLocate2
+pacman -S gcc10
+cd ../../PhaseNet
+cd ../QuakeFlow
+cd DeepDenoiser
+pip install -r requirements.txt
+python setup.py install
+cd deepdenoiser
+cd docs
+aurupgrade
+cd /opt/locflow/LOC-FLOW
+vim software_download.py
+git clone https://github.com/Dal-mzhang/REAL.git
+cd pick2real
+make clean
+make
+mv bin bin.bak
+sh run_install.sh
+cd /opt/locflow/LOC-FLOW/bin.bak
+cp ~/bin/hyp1.40 ./
+cd ../bin
+vim run_all.sh
+mv 20161014 20161014.bak
+pacman -S flameshot
+cd /opt/locflow/LOC-FLOW/Data
+cd waveform_
+mv 20161125 ../
+cd 20161014
+python waveform_download.py
+ph plot_sta_eq.sh
+ph
+pacman -S gmt
+pacman -S bc
+cd waveform_sac/20161014
+ipick =1
+ipick=1
+picker=1
+cd /opt/locflow
+sl
+vim picks.csv
+ittable=1
+ireal=1
+cat ttdb.txt
+mv ttdb.txt ttdb.txt.bak
+diff ttdb.txt ttdb.txt.bak
+cd ../src
+cd source
+cd ../../../Data
+cd REAL/tt_db
+perl
+vim vel_model_P.crh
+cd /opt/locflow/myLOC-FLOW
+cd Pick/STALTA
+vim station.dat
+cd waveform_mseed
+mv waveform_mseed bak.waveform_download_mseed
+cd ../Pick/STALTA
+vim catalog_download.py
+pip install protobuf
+pip install protobuf==3.20
+conda list | grep proto
+vim station_all.dat
+cd bak.waveform_download_mseed/20161125
+cd ../20161125
+cd ../../waveform_sac
+cd ../../Pick
+cd Pick/PhaseNet
+cd REAL
+vim taup_tt.py
+cat mymodel.nd
+neofetch
+pacman -S hyprland
+hypo=2
+mode=1
+vim velest.pha
+bash run_velest.sh
+cd location
+bash run_hypoDD_dtct.sh
+cd /opt
+cp -r LOC-FLOW ./l
+cd l
+rm bin
+mv bin ../bin
+mv src ../src
+mv cleanup.sh ../
+mv LOCFLOW-CookBook.pdf ../
+mv README.md ../
+rm -rf l
+vim ~/dotfile/shellrc/pathrc.sh
+source ~/.zshrc
+cd bin
+cd hyp1.40
+vim source/makefile
+vim src/pick2real/Makefile
+cd
+cd code
+cd myloc
+rm -rf ./*
+rm -rf myloc
+mkdir LOC-FLOW
+cd LOC-FLOW
+mv /opt/locflow/LOC-FLOW ./
+mv /opt/locflow/myLOC-FLOW ./
+mv /opt/locflow/myLOC-FLOW\ \(1\) ./
+mv /opt/locflow/myLOC-FLOW.rar ./
+cd myLOC-FLOW
+rm -rf .history
+cd locflow
+cd ahay
+cd cwp
+cd ahay/src
+cd ../../cwp
+cd src
+cd code/LOC-FLOW/myLOC-FLOW/hypoDD_dtct
+bash run_growclust.sh
+cd hypoinverse
+bash run_hypoinverse.sh
+cd ../GrowClust
+sh run_growclust.sh
+cd ../location/hypoinverse_corr
+bash run_velest.sh 0
+cd ../hypoinverse_corr
+bash run_hypoinverse_corr.sh
+bash run_hypoinverse_corr.sh 0
+vim run_hypoinverse_corr.sh
+cd ../VELEST
+cat final.CNV
+cd ~
+cd Plot
+cd ../../myLOC-FLOW.bak
+cd myLOC-FLOW/Plot
+sh plot_3dgmt.sh
+./GrowClust.jpg
+cd waveform_sac
+sh plot_sta_eq.sh
+python catalog_download.py
+vim plot_sta_eq.sh
+vim waveform_download.py
+cd waveform_sac/20161125
+cat
+cd 20161125
+cat 5B.1107.P.txt
+cd ../REAL
+lls
+cd tt_db
+rm ttdb.txt
+python taup_tt.py
+rm -rf 20161125.*
+rm *all
+rm *alld*
+perl runREAL.pl 1
+cat phase_allday.txt
+cat phase_best_allday.txt
+cd ../location
+cd VELEST
+vim run_velest.sh
+rm velest.*
+rm initial.cat
+sh run_velest.sh
+cat velest.cmn
+perl convertformat.pl
+vim convertformat.pl
+perl convertoutput.pl
+bash run_velest.sh 1
+cd ../../hypoDD_dtct
+bash run_hypoDD_dtct.sh 1
+cat hypoDD.pha
+source /opt/miniconda/bin/activate locflow
+cd LOC-FLOW/LOC-FLOW
+cd ~/code
+git clone https://github.com/Dal-mzhang/LOC-FLOW
+git clone https://github.com/Dal-mzhang/LOC-FLOW mylocflow
+cd mylocflow
+l
+cd waveform_mseed/20161030
+cd ../..
+cd code/mylocflow/Data/waveform_
+cd code/mylocflow/Data/
+cd ../../myLOC-FLOW/Data
+rm -rf waveform_mseed
+cd ../LOC-FLOW/myLOC-FLOW
+cd Data
+pwd
+vim waveform_download_mseed.py
+python waveform_download_mseed.py
+cd .cache/paru/clone
+mkdir matlab
+cd mat
+git clone https://aur.archlinux.org/matlab.git
+wget https://esd.mathworks.com/R2023a/Release/1/licensed_software/installers/matlab_R2023a_glnxa64.zip?__gda__=1684329147_7f9f4c8b9a1ea7c19e76e0b8f5daef6b&dl_id=aAa61VMx&ext=.zip
+wget "https://esd.mathworks.com/R2023a/Release/1/licensed_software/installers/matlab_R2023a_glnxa64.zip?__gda__=1684329147_7f9f4c8b9a1ea7c19e76e0b8f5daef6b&dl_id=aAa61VMx&ext=.zip"
+mv matlab_R2023a_glnxa64.zip\?__gda__=1684329147_7f9f4c8b9a1ea7c19e76e0b8f5daef6b\&dl_id=aAa61VMx\&ext=.zip matlab.zip
+mv matlab matlab1
+mv matlab1/matlab ./
+cd matlab1
+mv matlab.zip ../matlab
+rm -rf matlab1
+cd matlab
+cd .cache/paru/clone/matlab
+vim install.sh
+mv matlab.zip matlab_2023a_glnxa64.zip
+sh install.sh
+cd hypoDD_dtct
+python hypoinverse2hypoDD.py
+python hypoinverse2hypoDD.py 2
+bash run_hypoDD_dtct.sh 2
+cd ../hypoDD_dtcc
+bash run_hypoDD_dtcc.sh
+cat ./station_all.dat
+mv station.dat station.dat.bak
+cd waveform_sac/20161115
+cd results
+rm -rf 20161125 results
+cd ..
+cd ../
+cd STALTA
+rm -rf 20161125
+vim trigger_p_amp.py
+vim trigger_s_amp.py
+python trigger_s_amp.py
+python trigger_p_amp.py
+cd ../PhaseNet
+vim runphasenet.py
+cd ../../Data
+vim fname.csv
+cat station
+cat station_all.dat
+cp station_all.dat station.dat
+cat station.dat
+vim phasenet_input.py
+python phasenet_input.py
+cat fname.csv
+cd code/LOC-FLOW/myLOC-FLOW
+cd Pick
+update
+upgrade
+cd ../Pick
+conda activate locflow
+cd code/LOC-FLOW/myLOC-FLOW/Pick
+LS
+cd PhaseNet
+python runphasenet.py
+exxit
 exit
-: 1683529822:0;cd ~/dotfile
-: 1683529826:0;cat README.md
-: 1683529828:0;Q
-: 1683529833:0;source script/gitclean.sh
-: 1683564894:0;rm -rf dotfile.bak
-: 1683564923:12;git clone git@github.com:yingchangliu/dotfile.git
-: 1683564938:0;cd dotfile
-: 1683564941:0;sh ./install.sh
-: 1683564957:0;vim install.sh
-: 1683565678:0;rm ../.README.md
-: 1683565682:0;rm ../.LICENSE
-: 1683565684:0;sh ./install.sh
-: 1683565691:0;vim install.sh
-: 1683565761:0;rm ../.README.md
-: 1683565763:0;rm ../.LICENSE
-: 1683565781:0;pacman -S zsh-history-substring-search
-: 1683565792:0;source ~/.zshrc
-: 1683565804:0;vim install.sh
-: 1683566010:0;sh ./install.sh
-: 1683566017:0;vim install.sh
-: 1683566097:0;sh ./install.sh
-: 1683566105:0;vim install.sh
-: 1683566210:0;sh ./install.sh
-: 1683566213:0;vim install.sh
-: 1683566237:0;cd ..
-: 1683566258:0;rm .aliasrc .bash_history .bashrc .README.md
-: 1683566262:0;cd dotfile
-: 1683566264:0;sh ./install.sh
-: 1683566271:0;cd ..
-: 1683566282:0;cd dotfile
-: 1683566283:0;vim install.sh
-: 1683566305:0;sh ./install.sh
-: 1683566308:0;cd ..
-: 1683566323:0;cd dotfile
-: 1683566325:0;vim install.sh
-: 1683566364:0;sh ./install.sh
-: 1683566367:0;cd ..
-: 1683566372:0;cd dotfile
-: 1683566373:0;vim install.sh
-: 1683566411:0;sh ./install.sh
-: 1683566416:0;vim install.sh
-: 1683566512:0;sh ./install.sh
-: 1683566514:0;cd ..
-: 1683566520:0;cd dotfile/
-: 1683566521:0;vim install.sh
-: 1683566541:0;sh ./install.sh
-: 1683566550:0;cd ..
-: 1683566559:0;cd dotfile
-: 1683566563:0;vim install.sh
-: 1683566579:0;sh ./install.sh
-: 1683566589:0;cd ..
-: 1683566596:0;cd dotfile
-: 1683566598:0;vim install.sh
-: 1683566641:0;source script/gitclean.sh
-: 1683566905:0;update
-: 1683566908:0;upgrade
-: 1683566913:0;cd dotfile
-: 1683566917:0;source script/gitclean.sh
+: 1684294767:0;update
+: 1684294793:0;upgrade
+: 1684294804:0;neofetch
+: 1684294812:0;cd dotfile/shellrc
+: 1684294815:0;vim aliasrc.sh
+: 1684294878:0;vim histfile.zsh
+: 1684294905:0;cd ..
+: 1684294912:0;git add .

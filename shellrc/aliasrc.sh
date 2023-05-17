@@ -83,6 +83,7 @@ alias hist='history 1 | grep'         # requires an argument
 alias openports='ss --all --numeric --processes --ipv4 --ipv6'
 alias pgg='ps -Af | grep'           # requires an argument
 alias cd='cd'
+alias CD='cd'
 alias cd..='cd ..'
 alias ..=' cd ..'
 alias ...=' cd ../..'
@@ -104,6 +105,7 @@ alias lz='ll -rS'                   # sort by size
 alias lt='ll -rt'                   # sort by date
 alias lm='la | more'
 alias l.='ls -d .* --color=auto'
+alias LS='ls'
 
 
 
