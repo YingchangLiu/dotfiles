@@ -5,7 +5,6 @@ feh
 feh --bg-fill  dotfile/config/background/Anmi.jpg   dotfile/config/background/archlinuxchan.png\
 gi push --set-upstream origin dev
 git add -A
-git add .
 git branch
 git branch -D main
 git branch -D master
@@ -77,7 +76,6 @@ uppdate
 upudate
 v2raya
 v2raya --lite
-
 sh ./script/gitclean.sh
 vim histfile
 vim shellrc/history.sh
@@ -86,7 +84,6 @@ vim bashrc
 vim zshrc
 mv histfile histfile.zsh
 rm histfile
-vim histfile.zsh
 vim histfile.sh
 vim history.sh
 vim history.zsh
@@ -94,7 +91,6 @@ echo $HISTFILE
 bash
 pacman -S libreoffice-still-zh-cn
 pacman -Syyu
-vim aliasrc.sh
 paru -S gnome-shell-extension-arch-update
 wget https://download.pytorch.org/libtorch/cu118/libtorch-cxx11-abi-shared-with-deps-2.0.0%2Bcu118.zip
 curl
@@ -136,7 +132,6 @@ bindkey -M '^[[A'
 bindkey -M '^[[1'
 zle -al
 cat -v
-cd dotfile/shellrc
 vim zshsetting.zsh
 vim README.md
 cd ~/dotfile
@@ -150,7 +145,6 @@ pacman -S zsh-history-substring-search
 rm .aliasrc .bash_history .bashrc .README.md
 cd dotfile/
 sh ./install.sh
-cd dotfile
 source script/gitclean.sh
 cd /data
 cd package
@@ -160,7 +154,6 @@ conda list
 conda env list
 conda create -n torch python=3.10
 conda create -n phasenet python=3.7
-reboot
 conda activate phasenet
 python software_download.py
 rm -rf LOC-FLOW
@@ -222,7 +215,6 @@ pip install -r requirements.txt
 python setup.py install
 cd deepdenoiser
 cd docs
-aurupgrade
 cd /opt/locflow/LOC-FLOW
 vim software_download.py
 git clone https://github.com/Dal-mzhang/REAL.git
@@ -281,14 +273,11 @@ cd ../../waveform_sac
 cd ../../Pick
 cd Pick/PhaseNet
 cd REAL
-vim taup_tt.py
 cat mymodel.nd
-neofetch
 pacman -S hyprland
 hypo=2
 mode=1
 vim velest.pha
-bash run_velest.sh
 cd location
 bash run_hypoDD_dtct.sh
 cd /opt
@@ -301,7 +290,6 @@ mv cleanup.sh ../
 mv LOCFLOW-CookBook.pdf ../
 mv README.md ../
 rm -rf l
-vim ~/dotfile/shellrc/pathrc.sh
 source ~/.zshrc
 cd bin
 cd hyp1.40
@@ -329,14 +317,9 @@ cd src
 cd code/LOC-FLOW/myLOC-FLOW/hypoDD_dtct
 bash run_growclust.sh
 cd hypoinverse
-bash run_hypoinverse.sh
 cd ../GrowClust
 sh run_growclust.sh
 cd ../location/hypoinverse_corr
-bash run_velest.sh 0
-cd ../hypoinverse_corr
-bash run_hypoinverse_corr.sh
-bash run_hypoinverse_corr.sh 0
 vim run_hypoinverse_corr.sh
 cd ../VELEST
 cat final.CNV
@@ -355,19 +338,14 @@ cd waveform_sac/20161125
 cat
 cd 20161125
 cat 5B.1107.P.txt
-cd ../REAL
 lls
-cd tt_db
 rm ttdb.txt
-python taup_tt.py
 rm -rf 20161125.*
 rm *all
 rm *alld*
 perl runREAL.pl 1
 cat phase_allday.txt
 cat phase_best_allday.txt
-cd ../location
-cd VELEST
 vim run_velest.sh
 rm velest.*
 rm initial.cat
@@ -376,17 +354,14 @@ cat velest.cmn
 perl convertformat.pl
 vim convertformat.pl
 perl convertoutput.pl
-bash run_velest.sh 1
 cd ../../hypoDD_dtct
 bash run_hypoDD_dtct.sh 1
 cat hypoDD.pha
-source /opt/miniconda/bin/activate locflow
 cd LOC-FLOW/LOC-FLOW
 cd ~/code
 git clone https://github.com/Dal-mzhang/LOC-FLOW
 git clone https://github.com/Dal-mzhang/LOC-FLOW mylocflow
 cd mylocflow
-l
 cd waveform_mseed/20161030
 cd ../..
 cd code/mylocflow/Data/waveform_
@@ -426,14 +401,8 @@ mv station.dat station.dat.bak
 cd waveform_sac/20161115
 cd results
 rm -rf 20161125 results
-cd ..
-cd ../
-cd STALTA
-rm -rf 20161125
 vim trigger_p_amp.py
 vim trigger_s_amp.py
-python trigger_s_amp.py
-python trigger_p_amp.py
 cd ../PhaseNet
 vim runphasenet.py
 cd ../../Data
@@ -447,21 +416,63 @@ python phasenet_input.py
 cat fname.csv
 cd code/LOC-FLOW/myLOC-FLOW
 cd Pick
-update
-upgrade
 cd ../Pick
-conda activate locflow
-cd code/LOC-FLOW/myLOC-FLOW/Pick
 LS
 cd PhaseNet
 python runphasenet.py
 exxit
+neofetch
+cd dotfile/shellrc
+vim aliasrc.sh
+vim histfile.zsh
+git add .
+git commit -m 'Add CD and LS alias'
+code
+git status
+vim ~/dotfile/shellrc/pathrc.sh
+
+git push
+git push --set-upstream origin master
+cd dotfile
+git push --set-upstream origin dev
+reboot
+aurupgrade
+update
+upgrade
+vim ~/dotfile/shellrc/aliasrc.sh
+cd code/LOC-FLOW/myLOC-FLOW/Pick
+cd STALTA
+python trigger_p_amp.py
+conda activate locflow
+cd code/LOC-FLOW/myLOC-FLOW/Pick/STALTA
+python trigger_s_amp.py
+rm -rf 20161125
+source /opt/miniconda/bin/activate locflow
+cd ../REAL
+python taup_tt.py
+cd ../t_dist
+vim pha_t-dist.awk
+l
+cd tt_db
+vim taup_tt.py
+cd ..
+perl runREAL.pl 0
+cd ../location
+cd VELEST
+python run_velest.sh
+bash run_velest.sh
+bash run_velest.sh 0
+bash run_velest.sh 1
+cd ../hypoinverse
+bash run_hypoinverse.sh
+cd ../hypoinverse_corr
+bash run_hypoinverse_corr.sh
+cd ../
+cd hypoinverse_corr
+bash run_hypoinverse_corr.sh 1
+bash run_hypoinverse_corr.sh 0
 exit
-: 1684294767:0;update
-: 1684294793:0;upgrade
-: 1684294804:0;neofetch
-: 1684294812:0;cd dotfile/shellrc
-: 1684294815:0;vim aliasrc.sh
-: 1684294878:0;vim histfile.zsh
-: 1684294905:0;cd ..
-: 1684294912:0;git add .
+: 1684301502:0;cd /opt
+: 1684301518:0;reboot
+: 1684303747:0;cd dotfile
+: 1684303750:0;git add .
