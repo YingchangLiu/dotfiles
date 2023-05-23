@@ -66,7 +66,6 @@ umount /document
 uname
 uname -a
 updat e
-update-grub
 updatee
 updatrer
 upower
@@ -84,13 +83,10 @@ vim bashrc
 vim zshrc
 mv histfile histfile.zsh
 rm histfile
-vim histfile.sh
-vim history.sh
 vim history.zsh
 echo $HISTFILE
 bash
 pacman -S libreoffice-still-zh-cn
-pacman -Syyu
 paru -S gnome-shell-extension-arch-update
 wget https://download.pytorch.org/libtorch/cu118/libtorch-cxx11-abi-shared-with-deps-2.0.0%2Bcu118.zip
 curl
@@ -103,7 +99,6 @@ cd pytorch-cpp
 cd notebooks
 conda -v
 conda --version
-cd shellrc
 pacman -Qme
 pacman -Qenq
 pacman -S zsh-completions zsh-syntax-highlighting zsh-theme-powerlevel10k
@@ -163,7 +158,6 @@ git clone https://github.com/YingchangLiu/geosrc
 sudo mkdir sac
 sudo chmod 777 -R sac
 cd s
-git clone git@github.com:YingchangLiu/geosrc.git
 cp -r ~/bin/geosrc/sac ./
 ex sac-102.0-linux_x86_64.tar.gz
 cd sac
@@ -250,7 +244,6 @@ ireal=1
 cat ttdb.txt
 mv ttdb.txt ttdb.txt.bak
 diff ttdb.txt ttdb.txt.bak
-cd ../src
 cd source
 cd ../../../Data
 cd REAL/tt_db
@@ -280,7 +273,6 @@ mode=1
 vim velest.pha
 cd location
 bash run_hypoDD_dtct.sh
-cd /opt
 cp -r LOC-FLOW ./l
 cd l
 rm bin
@@ -291,7 +283,6 @@ mv LOCFLOW-CookBook.pdf ../
 mv README.md ../
 rm -rf l
 source ~/.zshrc
-cd bin
 cd hyp1.40
 vim source/makefile
 vim src/pick2real/Makefile
@@ -358,7 +349,6 @@ cd ../../hypoDD_dtct
 bash run_hypoDD_dtct.sh 1
 cat hypoDD.pha
 cd LOC-FLOW/LOC-FLOW
-cd ~/code
 git clone https://github.com/Dal-mzhang/LOC-FLOW
 git clone https://github.com/Dal-mzhang/LOC-FLOW mylocflow
 cd mylocflow
@@ -374,7 +364,6 @@ pwd
 vim waveform_download_mseed.py
 python waveform_download_mseed.py
 cd .cache/paru/clone
-mkdir matlab
 cd mat
 git clone https://aur.archlinux.org/matlab.git
 wget https://esd.mathworks.com/R2023a/Release/1/licensed_software/installers/matlab_R2023a_glnxa64.zip?__gda__=1684329147_7f9f4c8b9a1ea7c19e76e0b8f5daef6b&dl_id=aAa61VMx&ext=.zip
@@ -382,14 +371,9 @@ wget "https://esd.mathworks.com/R2023a/Release/1/licensed_software/installers/ma
 mv matlab_R2023a_glnxa64.zip\?__gda__=1684329147_7f9f4c8b9a1ea7c19e76e0b8f5daef6b\&dl_id=aAa61VMx\&ext=.zip matlab.zip
 mv matlab matlab1
 mv matlab1/matlab ./
-cd matlab1
 mv matlab.zip ../matlab
 rm -rf matlab1
-cd matlab
-cd .cache/paru/clone/matlab
-vim install.sh
 mv matlab.zip matlab_2023a_glnxa64.zip
-sh install.sh
 cd hypoDD_dtct
 python hypoinverse2hypoDD.py
 python hypoinverse2hypoDD.py 2
@@ -424,21 +408,13 @@ exxit
 neofetch
 cd dotfile/shellrc
 vim aliasrc.sh
-vim histfile.zsh
-git add .
 git commit -m 'Add CD and LS alias'
 code
 git status
 vim ~/dotfile/shellrc/pathrc.sh
 
-git push
 git push --set-upstream origin master
-cd dotfile
 git push --set-upstream origin dev
-reboot
-aurupgrade
-update
-upgrade
 vim ~/dotfile/shellrc/aliasrc.sh
 cd code/LOC-FLOW/myLOC-FLOW/Pick
 cd STALTA
@@ -452,10 +428,8 @@ cd ../REAL
 python taup_tt.py
 cd ../t_dist
 vim pha_t-dist.awk
-l
 cd tt_db
 vim taup_tt.py
-cd ..
 perl runREAL.pl 0
 cd ../location
 cd VELEST
@@ -471,8 +445,127 @@ cd ../
 cd hypoinverse_corr
 bash run_hypoinverse_corr.sh 1
 bash run_hypoinverse_corr.sh 0
+git commit -m 'Add Arch logo for gnome shell'
+cd pkgbuilds
+rm -r matlab
+git clone https://github.com/joelsgp-pkgbuild/matlab
+rm -rf .git .gitignore .SRCINFO
+cd clone
+cp -r ~/dotfile/pkgbuilds/matlab/* ./
+rm -rf matlabroot
+pacman -S freetype2 libxcrypt-compat
+login
+help login
+whoami
+gethostid
+hostid
+ip addr | grep ether
+/sbin/ifconfg
+ifconfig
+pacman -S net-tools
+sudo ip addr | grep ether
+ifconfig eth0
+sudo ifconfig eth0
+sudo ifconfig eth1
+sudo ifconfig eth2
+ifconfig wlan
+ifconfig wlan0
+ifconfig enp7s0
+ip addr
+cp ~/Downloads/Compressed/license.lic ./
+vim matlab.fix
+mv license.lic matlab.lic
+cd .cache/paru/clone/matlab
+vim PKGBUILD
+cd 2023_05_17_14_42_18
+mv 2023_05_17_14_42_18 matlab
+mkdir matlab1
+mv matlab/2023_05_17_14_42_18/* matlab1
+cd matlab1
+rm -rf matlab
+mv matlab1 matlab
+paru -S matlab-meta
+mv matlab.fix matlab.fik
+mkdir 2023_05_17_14_42_18/
+mv ./* 2023_05_17_14_42_18
+vim install.sh
+sh install.sh
+cp matlab.fik matlab.lic ~/code/
+cd ~/code
+git clone git@github.com:YingchangLiu/geosrc.git
+cd geosrc
+l
+mkdir matlab
+cp ~/code/matlab.fik ~/code/matlab.lic ./
+git add .
+git commit -m 'add matlab license key'
+git push
+glxinfo
+pacman -S mesa-utils
+glxinfo| grep "direct rendering"
+matlab
+cd ~/.cache/paru
+cd clone/matlab
+cd opt
+cd MATLAB
+cd R2023a
+cd bin
+makepkg -sri
+cd /opt
+matlab -nodesktop -nosplash -r "opengl info; exit" | grep Software
+export LD_PRELOAD=/usr/lib/libstdc++.so
+export LD_LIBRARY_PATH=/usr/lib/xorg/modules/drivers:
+env MESA_LOADER_DRIVER_OVERRIDE=i965 matlab -nodesktop -nosplash -r "opengl info; exit" | grep Software
+export LD_PRELOAD=/usr/lib/libstdc++.so; export LD_LIBRARY_PATH=/usr/lib/xorg/modules/dri/; matlab -nodesktop -nosplash -r "opengl info; exit" | grep Software
+cd pkg
+cd matlab
+cd ../matlabroot
+cd ../src
+rm -rf pkg
+df
+df ./
+aurupgrade
+reboot
+updattte
+pacman -Syu "pacman>=6.0.2-7"
+pacman -Syu "devtools>=1:1.0.0-1"
+cd /etc/pacman.d
+pacman -Syyu
+vim mirrorlist
+vim mirrorlist.pacnew
+cd gnupg
+vim pacman.conf.pacnew
+diff pacman.conf.pacnew pacman.conf
+sudo mv pacman.conf.pacnew pacman.conf
+sudo vim pacman.conf.pacnew
+sudo vim pacman.conf
+pacman -Ss winapp
+paru -Ss winapp
+pacman -S xorg-xclock
+xclock
+gmt
+cd dotfile
+cd config
+mkdir history
+cd ..
+cd shellrc
+vim history.sh
+vim histfile.sh
+vim histfile.zsh
+vim pathrc.sh
+update
+upgrade
+cd /etc
+sudo vim default/grub
+update-grub
 exit
-: 1684301502:0;cd /opt
-: 1684301518:0;reboot
-: 1684303747:0;cd dotfile
-: 1684303750:0;git add .
+: 1684854560:0;cd dotfile
+: 1684854563:0;cd ..
+: 1684854569:0;mkdir src
+: 1684854989:0;cd bin
+: 1684854991:0;cd ..
+: 1684855041:0;echo $LD_LIBRARY_PATH
+: 1684855423:0;cd dotfile
+: 1684855432:0;git tag v1.0
+: 1684855435:0;git tag
+: 1684855441:0;git add .
