@@ -128,7 +128,6 @@ bindkey -M '^[[1'
 zle -al
 cat -v
 vim zshsetting.zsh
-vim README.md
 cd ~/dotfile
 cat README.md
 Q
@@ -160,7 +159,6 @@ sudo chmod 777 -R sac
 cd s
 cp -r ~/bin/geosrc/sac ./
 ex sac-102.0-linux_x86_64.tar.gz
-cd sac
 vm sac src
 mv sac src
 ex sac-102.0-linux_x86_64.tar.gz ../
@@ -300,11 +298,8 @@ mv /opt/locflow/myLOC-FLOW.rar ./
 cd myLOC-FLOW
 rm -rf .history
 cd locflow
-cd ahay
-cd cwp
 cd ahay/src
 cd ../../cwp
-cd src
 cd code/LOC-FLOW/myLOC-FLOW/hypoDD_dtct
 bash run_growclust.sh
 cd hypoinverse
@@ -314,7 +309,6 @@ cd ../location/hypoinverse_corr
 vim run_hypoinverse_corr.sh
 cd ../VELEST
 cat final.CNV
-cd ~
 cd Plot
 cd ../../myLOC-FLOW.bak
 cd myLOC-FLOW/Plot
@@ -329,7 +323,6 @@ cd waveform_sac/20161125
 cat
 cd 20161125
 cat 5B.1107.P.txt
-lls
 rm ttdb.txt
 rm -rf 20161125.*
 rm *all
@@ -353,7 +346,6 @@ git clone https://github.com/Dal-mzhang/LOC-FLOW
 git clone https://github.com/Dal-mzhang/LOC-FLOW mylocflow
 cd mylocflow
 cd waveform_mseed/20161030
-cd ../..
 cd code/mylocflow/Data/waveform_
 cd code/mylocflow/Data/
 cd ../../myLOC-FLOW/Data
@@ -441,7 +433,6 @@ cd ../hypoinverse
 bash run_hypoinverse.sh
 cd ../hypoinverse_corr
 bash run_hypoinverse_corr.sh
-cd ../
 cd hypoinverse_corr
 bash run_hypoinverse_corr.sh 1
 bash run_hypoinverse_corr.sh 0
@@ -494,22 +485,17 @@ cp matlab.fik matlab.lic ~/code/
 cd ~/code
 git clone git@github.com:YingchangLiu/geosrc.git
 cd geosrc
-l
 mkdir matlab
 cp ~/code/matlab.fik ~/code/matlab.lic ./
-git add .
 git commit -m 'add matlab license key'
-git push
 glxinfo
 pacman -S mesa-utils
 glxinfo| grep "direct rendering"
 matlab
 cd ~/.cache/paru
 cd clone/matlab
-cd opt
 cd MATLAB
 cd R2023a
-cd bin
 makepkg -sri
 cd /opt
 matlab -nodesktop -nosplash -r "opengl info; exit" | grep Software
@@ -520,7 +506,6 @@ export LD_PRELOAD=/usr/lib/libstdc++.so; export LD_LIBRARY_PATH=/usr/lib/xorg/mo
 cd pkg
 cd matlab
 cd ../matlabroot
-cd ../src
 rm -rf pkg
 df
 df ./
@@ -544,10 +529,8 @@ paru -Ss winapp
 pacman -S xorg-xclock
 xclock
 gmt
-cd dotfile
 cd config
 mkdir history
-cd ..
 cd shellrc
 vim history.sh
 vim histfile.sh
@@ -559,13 +542,315 @@ cd /etc
 sudo vim default/grub
 update-grub
 exit
-: 1684854560:0;cd dotfile
-: 1684854563:0;cd ..
-: 1684854569:0;mkdir src
-: 1684854989:0;cd bin
-: 1684854991:0;cd ..
-: 1684855041:0;echo $LD_LIBRARY_PATH
-: 1684855423:0;cd dotfile
-: 1684855432:0;git tag v1.0
-: 1684855435:0;git tag
-: 1684855441:0;git add .
+cd bin
+echo $LD_LIBRARY_PATH
+cd dotfile
+git tag v1.0
+git tag
+git add .
+git commit -m 'add tag'
+git push
+git lfs
+pacman -Ss lfs
+pacman -S git-lfs
+git lfs install
+git init
+git submodule add /opt/cwp/src
+git submodule add /opt/cwp
+git submodule add /opt/ahay
+git submodule add /opt/ahay/src
+git submodule add https://github.com/JohnWStockwellJr/SeisUnix ./cwp
+git clone git@github.com:YingchangLiu/seismostory.git
+cd geophysics
+mv software ./install_guide
+mv ../src/cwp ./
+mkdir opt
+mv cwp opt/cwp
+cd opt/cwp
+mkdir software
+mkdir codes
+mkdir bin
+mkdir data
+mkdir projects
+mkdir workspace
+mv bin codes data projects software workspace ../
+cd opt
+mkdir sac
+cd sac
+cp /opt/sac/src/* ./
+l
+cd cwp
+mkdir src
+git submodule add https://github.com/ahay/src
+cd seismostory
+cd src
+git submodule add https://github.com/ahay/src ./ahay
+cd ahay
+wget https://www.eas.slu.edu/People/LZhu/downloads/
+rm index.html
+wget https://www.eas.slu.edu/People/LZhu/downloads/*
+curl https://www.eas.slu.edu/People/LZhu/downloads
+lls
+wget -r -np -nH -R index.html https://www.eas.slu.edu/People/LZhu/downloads/
+cd People
+cd LZhu
+cd downloads
+wget -r -np -nH -R index.html https://www.eas.slu.edu/People/LZhu/downloads/fk3.4.tar
+cd ../..
+wget -r -np -nH -R index.html https://www.eas.slu.edu/People/LZhu/downloads/*
+wget -r -np -nH -R index.html https://www.eas.slu.edu/People/LZhu/
+cat index.html.tmp
+d ..
+rm -rf People robots.txt
+cd People/LZhu/downloads
+curl -O https://www.eas.slu.edu/People/LZhu/downloads/*
+curl -O https://www.eas.slu.edu/People/LZhu/downloads/
+rm \*
+curl -O https://www.eas.slu.edu/People/LZhu/downloads
+rm downloads
+curl -O https://www.eas.slu.edu/People/LZhu/downloads/*.tar
+curl -O https://www.eas.slu.edu/People/LZhu/downloads/[*].tar
+curl -O https://www.eas.slu.edu/People/LZhu/downloads/{*.tar}
+curl -O https://www.eas.slu.edu/People/LZhu/downloads/[*.tar]
+rm -rf \*.tar
+wget -r -np -nH https://www.eas.slu.edu/People/LZhu/
+cd People/LZhu
+rm -rf People
+rm -rf robots.txt
+curl -O "https://www.eas.slu.edu/People/LZhu/downloads/*"
+curl -L -O "https://www.eas.slu.edu/People/LZhu/downloads/*"
+curl -L -O "https://www.eas.slu.edu/People/LZhu/downloads/"
+curl -L -O "https://www.eas.slu.edu/People/LZhu/downloads"
+rm -rf fk
+mkdir fk
+cd fk
+wget https://www.eas.slu.edu/People/LZhu/downloads/fk3.4.tar
+git submodule add https://github.com/Dal-mzhang/LOC-FLOW ./locflow
+cd ../software/
+mkdir libtorch
+wget https://download.pytorch.org/libtorch/cu118/libtorch-cxx11-abi-shared-with-deps-2.0.1%2Bcu118.zip
+cd seismostory/software/fk
+mv fk LZhu
+cd libtorch
+mv libtorch-cxx11-abi-shared-with-deps-2.0.1+cu118.zip libtorch/
+mkdir sod
+wget https://github.com/crotwell/sod/releases/download/v3.2.10/sod-3.2.10.tgz
+cd sod
+ex sod-3.2.10.tgz
+cd sod-3.2.10
+cd ~
+cd -
+cd .vim
+cd ../.steam
+rm -rf sod-3.2.10
+cd ../sac
+mkdir obspy
+cd obspy
+wget https://github.com/obspy/obspy/releases/download/1.4.0/obspy-1.4.0-documentation.tgz
+cd ../libtorch
+wget https://github.com/pytorch/pytorch/releases/download/v2.0.1/pytorch-v2.0.1.tar.gz
+cd ../obspy
+vim README.md
+cd ../
+git submodule add https://git.scc.kit.edu/GPIAG-Software/SOFI2D
+git submodule add https://git.scc.kit.edu/GPIAG-Software/SOFI2D sofi2d
+git show
+git config http.postBuffer 524288000
+git submodule add https://git.scc.kit.edu/GPIAG-Software/SOFI2D ./sofi2d
+git submodule add https://git.scc.kit.edu/GPIAG-Software/SOFI3D ./sofi3d
+git submodule add https://git.scc.kit.edu/GPIAG-Software/IFOS2D ./ifos2d
+git submodule add https://git.scc.kit.edu/GPIAG-Software/IFOS3D ./ifos3d
+git submodule add https://git.scc.kit.edu/GPIAG-Software/SOFI2D_sh ./sofi2d_sh
+cd sofi2d
+cd ..
+tar -zcvf ../software/cwp.tgz cwp
+tar -zcvf ifos2d ../software/ifos2d/ifos2d.tgz
+tar -zcvf ../software/ifos2d/ifos2d.tgz ifos2d
+tar -zcvf ../software/ifos2d.tgz ifos2d
+tar -zcvf ../software/ifos3d.tgz ifos3d
+tar -zcvf ../software/sofi3d.tgz sofi3d
+tar -zcvf ../software/sofi2d.tgz sofi2d
+tar -zcvf ../software/sofi2d_sh.tgz sofi2d_sh
+tar -zcvf ../software/locflow.tgz locflow
+mkdir sofi
+mv ifos* sofi* ./sofi
+mkdir locflow
+mv locflow.tgz locflow
+tar -zcvf ../software/ahay.tgz ahay
+mkdir ahay
+mv ahay.tgz ahay
+cd ../src
+git submodule add https://github.com/geodynamics/seismic_cpml
+tar -zcvf ../software/seismic_cpml.tgz seismic_cpml
+cd ../software
+mkdir seismic_cpml
+mv seismic_cpml.tgz seismic_cpml
+cd ../opt
+cd ~/seismostory
+cd software
+mkdir sw4
+git config http.postBuffer 1048576000
+git submodule add https://github.com/geodynamics/sw4
+tar -zcvf ../software/sw4 ../software/sw4/sw4.tgz
+tar -zcvf ../software/sw4.tgz sw4
+: 1684861291:0;neofetch
+: 1684897230:0;conda env list
+: 1684897243:0;conda activate tensorflow
+: 1684897246:0;python
+: 1684897383:0;cd seismostory
+: 1684897386:0;neofetch
+: 1684897392:0;cd software
+: 1684897464:0;cd ../src
+: 1684905842:0;cd seismostory/opt
+: 1684905863:0;git clone https://github.com/daniel-koehn/DENISE-Black-Edition ./denise_black
+: 1684905983:0;tar -zcvf ../software/denise_black.tgz denise_black
+: 1684907164:0;update
+: 1684907172:0;upgrade
+: 1684907212:0;pacman -Syyu
+: 1684907556:0;git clone https://github.com/daniel-koehn/SAVA ./sava
+: 1684907573:0;tar -zcvf ../software/sava.tgz ./sava
+: 1684907619:0;git clone https://github.com/daniel-koehn/DENISE-SH ./denise_sh
+: 1684907636:0;tar -zcvf ../software/denise_sh.tgz ./denise_sh
+: 1684907652:0;cd ../software
+: 1684907665:0;mkdir denise
+: 1684907678:0;mv denise_black.tgz denise_sh.tgz denise
+: 1684908027:0;cd ../software
+: 1684908037:0;mv sava.tgz denise
+: 1684908041:0;cd sofi
+: 1684908043:0;cd ..
+: 1684908264:0;git branch -r
+: 1684908270:0;git branch -a
+: 1684908341:0;git branch -m main master
+: 1684908424:0;git status
+: 1684908455:0;git branch
+: 1684908476:0;git checkout master
+: 1684908518:0;cd ..
+: 1684908523:0;git lfs install
+: 1684908548:0;git add .
+: 1684908578:0;cd opt/denise_
+: 1684908583:0;cd opt/denise_black
+: 1684908585:0;cd ..
+: 1684908589:0;cd .
+: 1684908612:0;git lfs track *
+: 1684908619:0;cd ..
+: 1684908620:0;git lfs track *
+: 1684908862:0;git add .
+: 1684908978:0;cd dotfile/script
+: 1684908981:0;vim gitclean.sh
+: 1684908994:0;git checkout --orphan tmp
+: 1684908999:0;git add -A
+: 1684909012:0;git commit -m "first commit"
+: 1684909026:0;git branch -D master
+: 1684909034:0;git branch -m master
+: 1684909041:0;git push -f origin master
+: 1684909500:0;paru -S steam++
+: 1684909507:0;paru -S watt
+: 1684909513:0;paru -S watt-toolkit
+: 1684910305:0;git push -f origin master
+: 1684910393:0;cd ~/
+: 1684910396:0;mkdir test
+: 1684910398:0;cd test
+: 1684910402:0;git clone https://github.com/daniel-koehn/DENISE-SH ./denise_sh
+: 1684910419:0;git clone https://github.com/ahay/src
+: 1684910543:0;cd ../seismostory
+: 1684910545:0;git push -f origin master
+: 1684910562:0;paru -S watt-toolkit
+: 1684910613:0;git status
+: 1684910625:0;paru -S watt-toolkit
+: 1684910922:0;cd seismostory
+: 1684910924:0;git push -f origin master
+: 1684910971:0;paru -S watt-toolkit-bin
+: 1684911361:0;cd dotfile/shellrc
+: 1684911365:0;vim pathrc.sh
+: 1684911417:0;cd ..
+: 1684911422:0;cd shellrc
+: 1684911424:0;vim pathrc.sh
+: 1684911439:0;source ~/.zshrc
+: 1684911449:0;cd ../script
+: 1684911464:0;vim gitclean.sh
+: 1684911497:0;vim .gitignore
+: 1684911520:0;git add -A
+: 1684911526:0;git commit -m "first commit"
+: 1684911529:0;git push -f origin master
+: 1684911585:0;cd seismostory
+: 1684911599:0;vim .gitignore
+: 1684911611:0;git add -A
+: 1684911613:0;git commit -m "first commit"
+: 1684911631:0;source ~/dotfile/script/gitclean.sh
+: 1684911688:0;vim .gitignore
+: 1684911697:0;source ~/dotfile/script/gitclean.sh
+: 1684911719:0;cd opt/denise_sh
+: 1684911721:0;cd ../
+: 1684911731:0;vim .gitignore
+: 1684911745:0;source ~/dotfile/script/gitclean.sh
+: 1684911760:0;cd ../.git
+: 1684911767:0;cd ..
+: 1684911771:0;vim .gitmodules
+: 1684911908:0;vim .gitignore
+: 1684911964:0;source ~/dotfile/script/gitclean.sh
+: 1684913298:0;vim .gitignore
+: 1684913360:0;source ~/dotfile/script/gitclean.sh
+: 1684913722:0;pacman -Ss github
+: 1684913758:0;pacman -S github-desktop-bin
+: 1684930078:0;update
+: 1684930089:0;upgrade
+: 1684930097:0;neofetch
+: 1684930115:0;cd seismostory
+: 1684930314:0;paru -S watt-toolkit-bin
+: 1684930328:0;paru -S watt-toolkit-git
+: 1684930381:0;vim .gitignore
+: 1684930391:0;source ~/dotfile/script/gitclean.sh
+: 1684931903:0;vim .gitattributes
+: 1684934931:0;cd dotfile/shellrc
+: 1684934932:0;vim aliasrc.sh
+: 1684934958:0;cd ../script
+: 1684934967:0;cd ..
+: 1684935137:0;cd /opt/MATLAB/R2023a/bin/glnxa64
+: 1684935146:0;vim java.opts
+: 1684935180:0;sudo vim java.opts
+: 1684936441:0;update
+: 1684936447:0;upgrade
+: 1684936460:0;aurupgrade
+: 1684936678:0;cd ../seismostory
+: 1684936694:0;neofetch
+: 1684937980:0;cd seismostory
+: 1684937992:0;git submodule deinit
+: 1684937995:0;git submodule deinit --all
+: 1684938005:0;cd src/ahay
+: 1684938007:0;cd ~
+: 1684938019:0;cd seismostory
+: 1684938029:0;mv software ../software
+: 1684938038:0;source ~/dotfile/script/gitclean.sh
+: 1684938217:0;vim .gitattributes
+: 1684938222:0;vim .gitignore
+: 1684938226:0;git add .
+: 1684938229:0;git commit -m "first commit"
+: 1684938233:0;git push
+: 1684938242:0;git push --set-upstream origin master
+: 1684938260:0;git push
+: 1685083022:0;upgrade
+: 1685083116:0;checkkernel
+: 1685083137:0;aurupgrade
+: 1685083151:0;neofetch
+: 1685083154:0;reboot
+: 1685084833:0;update
+: 1685084997:0;pacman -Syyu
+: 1685085133:0;sudo rm /var/lib/pacman/sync/*.sig
+: 1685085137:0;update
+: 1685085170:0;cd /var/lib/pacman/sync
+: 1685085183:0;vim community.db
+: 1685085187:0;rm community.db
+: 1685085193:0;cd ..
+: 1685085198:0;sudo mv sync sync.bak
+: 1685085200:0;update
+: 1685085208:0;sudo rm -rf sync.bak
+: 1685085211:0;cd sync
+: 1685085213:0;cd ~
+: 1685097362:0;update
+: 1685097368:0;upgrade
+: 1685097394:0;pacman -Syyu
+: 1685097400:0;reboot
+: 1685100283:0;upgrade
+: 1685100301:0;vim dotfile/shellrc/aliasrc.sh
+: 1685100328:0;cd dotfile
+: 1685100331:0;git add .

@@ -25,3 +25,6 @@ source $RSFROOT/share/madagascar/etc/env.sh 2>/dev/null
 export PATH="${PATH}:${CWPROOT}/bin:${SACROOT}/bin:${RSFROOT}/bin" 2>/dev/null
 export PATH="$PATH:${SOFI2DROOT}/bin:${SOFI3DROOT}/bin:${IFOS2DROOT}/bin:${IFOS3DROOT}/bin" 2>/dev/null
 export PATH="${PATH}:${LOCFLOWROOT}/bin" 2>/dev/null
+
+
+export PATH="$PATH:~/dotfile/script"

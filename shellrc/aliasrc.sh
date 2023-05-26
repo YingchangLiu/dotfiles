@@ -134,7 +134,7 @@ DISTRO=`lsb_release -d | awk -F"\t" '{print $2}'`
 case $DISTRO in
     *Arch*)
         alias update='sudo pacman -Syy'
-        alias upgrade='sudo pacman -Syu'
+        alias upgrade='sudo pacman -Syyu'
         ;;
     *Debian*|*Ubuntu*)
         alias update='sudo apt-get update'
