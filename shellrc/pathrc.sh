@@ -11,6 +11,7 @@ source ~/opt/miniconda3/etc/profile.d/conda.sh 2>/dev/null
 ## Seisunix   madagascar   sac  and other geosoftwares
 export OPTROOT='/opt'
 # export OPTROOT='~/opt'
+
 export RSFROOT="${OPTROOT}/ahay"
 export CWPROOT="${OPTROOT}/cwp"
 export SACROOT="${OPTROOT}/sac"
