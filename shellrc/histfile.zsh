@@ -4,14 +4,9 @@ fcitx5-configtool
 feh
 feh --bg-fill  dotfile/config/background/Anmi.jpg   dotfile/config/background/archlinuxchan.png\
 gi push --set-upstream origin dev
-git add -A
-git branch
 git branch -D main
-git branch -D master
 git branch -m dwm_awesomebar dwm_barpatches
 git branch -m main
-git branch -m master
-git checkout --orphan tmp
 git clean
 git clone git://git.suckless.org/dwm
 git clone git@github.com:Almamu/linux-wallpaperengine.git
@@ -27,7 +22,6 @@ git clone https://git.suckless.org/slstatus
 git clone https://git.suckless.org/st
 git clone https://github.com/JohnWStockwellJr/SeisUnix
 git clone https://github.com/LukeSmithxyz/dwm.git
-git clone https://github.com/ahay/src
 git clone https://github.com/bakkeby/dwm-flexipatch
 git clone https://github.com/bakkeby/flexipatch-finalizer
 git clone https://github.com/bakkeby/patches.git
@@ -143,9 +137,7 @@ source script/gitclean.sh
 cd /data
 cd package
 cd The_Road_to_Research
-checkkernel
 conda list
-conda env list
 conda create -n torch python=3.10
 conda create -n phasenet python=3.7
 conda activate phasenet
@@ -280,7 +272,6 @@ mv cleanup.sh ../
 mv LOCFLOW-CookBook.pdf ../
 mv README.md ../
 rm -rf l
-source ~/.zshrc
 cd hyp1.40
 vim source/makefile
 vim src/pick2real/Makefile
@@ -397,15 +388,10 @@ LS
 cd PhaseNet
 python runphasenet.py
 exxit
-neofetch
-cd dotfile/shellrc
-vim aliasrc.sh
 git commit -m 'Add CD and LS alias'
 code
-git status
 vim ~/dotfile/shellrc/pathrc.sh
 
-git push --set-upstream origin master
 git push --set-upstream origin dev
 vim ~/dotfile/shellrc/aliasrc.sh
 cd code/LOC-FLOW/myLOC-FLOW/Pick
@@ -509,13 +495,10 @@ cd ../matlabroot
 rm -rf pkg
 df
 df ./
-aurupgrade
-reboot
 updattte
 pacman -Syu "pacman>=6.0.2-7"
 pacman -Syu "devtools>=1:1.0.0-1"
 cd /etc/pacman.d
-pacman -Syyu
 vim mirrorlist
 vim mirrorlist.pacnew
 cd gnupg
@@ -531,29 +514,20 @@ xclock
 gmt
 cd config
 mkdir history
-cd shellrc
 vim history.sh
 vim histfile.sh
 vim histfile.zsh
-vim pathrc.sh
-update
-upgrade
 cd /etc
 sudo vim default/grub
 update-grub
-exit
 cd bin
 echo $LD_LIBRARY_PATH
-cd dotfile
 git tag v1.0
 git tag
-git add .
 git commit -m 'add tag'
-git push
 git lfs
 pacman -Ss lfs
 pacman -S git-lfs
-git lfs install
 git init
 git submodule add /opt/cwp/src
 git submodule add /opt/cwp
@@ -582,7 +556,6 @@ l
 cd cwp
 mkdir src
 git submodule add https://github.com/ahay/src
-cd seismostory
 cd src
 git submodule add https://github.com/ahay/src ./ahay
 cd ahay
@@ -638,7 +611,6 @@ wget https://github.com/crotwell/sod/releases/download/v3.2.10/sod-3.2.10.tgz
 cd sod
 ex sod-3.2.10.tgz
 cd sod-3.2.10
-cd ~
 cd -
 cd .vim
 cd ../.steam
@@ -651,7 +623,6 @@ cd ../libtorch
 wget https://github.com/pytorch/pytorch/releases/download/v2.0.1/pytorch-v2.0.1.tar.gz
 cd ../obspy
 vim README.md
-cd ../
 git submodule add https://git.scc.kit.edu/GPIAG-Software/SOFI2D
 git submodule add https://git.scc.kit.edu/GPIAG-Software/SOFI2D sofi2d
 git show
@@ -662,7 +633,6 @@ git submodule add https://git.scc.kit.edu/GPIAG-Software/IFOS2D ./ifos2d
 git submodule add https://git.scc.kit.edu/GPIAG-Software/IFOS3D ./ifos3d
 git submodule add https://git.scc.kit.edu/GPIAG-Software/SOFI2D_sh ./sofi2d_sh
 cd sofi2d
-cd ..
 tar -zcvf ../software/cwp.tgz cwp
 tar -zcvf ifos2d ../software/ifos2d/ifos2d.tgz
 tar -zcvf ../software/ifos2d/ifos2d.tgz ifos2d
@@ -679,178 +649,424 @@ mv locflow.tgz locflow
 tar -zcvf ../software/ahay.tgz ahay
 mkdir ahay
 mv ahay.tgz ahay
-cd ../src
 git submodule add https://github.com/geodynamics/seismic_cpml
 tar -zcvf ../software/seismic_cpml.tgz seismic_cpml
-cd ../software
 mkdir seismic_cpml
 mv seismic_cpml.tgz seismic_cpml
 cd ../opt
 cd ~/seismostory
-cd software
 mkdir sw4
 git config http.postBuffer 1048576000
 git submodule add https://github.com/geodynamics/sw4
 tar -zcvf ../software/sw4 ../software/sw4/sw4.tgz
 tar -zcvf ../software/sw4.tgz sw4
-: 1684861291:0;neofetch
-: 1684897230:0;conda env list
-: 1684897243:0;conda activate tensorflow
-: 1684897246:0;python
-: 1684897383:0;cd seismostory
-: 1684897386:0;neofetch
-: 1684897392:0;cd software
-: 1684897464:0;cd ../src
-: 1684905842:0;cd seismostory/opt
-: 1684905863:0;git clone https://github.com/daniel-koehn/DENISE-Black-Edition ./denise_black
-: 1684905983:0;tar -zcvf ../software/denise_black.tgz denise_black
-: 1684907164:0;update
-: 1684907172:0;upgrade
-: 1684907212:0;pacman -Syyu
-: 1684907556:0;git clone https://github.com/daniel-koehn/SAVA ./sava
-: 1684907573:0;tar -zcvf ../software/sava.tgz ./sava
-: 1684907619:0;git clone https://github.com/daniel-koehn/DENISE-SH ./denise_sh
-: 1684907636:0;tar -zcvf ../software/denise_sh.tgz ./denise_sh
-: 1684907652:0;cd ../software
-: 1684907665:0;mkdir denise
-: 1684907678:0;mv denise_black.tgz denise_sh.tgz denise
-: 1684908027:0;cd ../software
-: 1684908037:0;mv sava.tgz denise
-: 1684908041:0;cd sofi
-: 1684908043:0;cd ..
-: 1684908264:0;git branch -r
-: 1684908270:0;git branch -a
-: 1684908341:0;git branch -m main master
-: 1684908424:0;git status
-: 1684908455:0;git branch
-: 1684908476:0;git checkout master
-: 1684908518:0;cd ..
-: 1684908523:0;git lfs install
-: 1684908548:0;git add .
-: 1684908578:0;cd opt/denise_
-: 1684908583:0;cd opt/denise_black
-: 1684908585:0;cd ..
-: 1684908589:0;cd .
-: 1684908612:0;git lfs track *
-: 1684908619:0;cd ..
-: 1684908620:0;git lfs track *
-: 1684908862:0;git add .
-: 1684908978:0;cd dotfile/script
-: 1684908981:0;vim gitclean.sh
-: 1684908994:0;git checkout --orphan tmp
-: 1684908999:0;git add -A
-: 1684909012:0;git commit -m "first commit"
-: 1684909026:0;git branch -D master
-: 1684909034:0;git branch -m master
-: 1684909041:0;git push -f origin master
-: 1684909500:0;paru -S steam++
-: 1684909507:0;paru -S watt
-: 1684909513:0;paru -S watt-toolkit
-: 1684910305:0;git push -f origin master
-: 1684910393:0;cd ~/
-: 1684910396:0;mkdir test
-: 1684910398:0;cd test
-: 1684910402:0;git clone https://github.com/daniel-koehn/DENISE-SH ./denise_sh
-: 1684910419:0;git clone https://github.com/ahay/src
-: 1684910543:0;cd ../seismostory
-: 1684910545:0;git push -f origin master
-: 1684910562:0;paru -S watt-toolkit
-: 1684910613:0;git status
-: 1684910625:0;paru -S watt-toolkit
-: 1684910922:0;cd seismostory
-: 1684910924:0;git push -f origin master
-: 1684910971:0;paru -S watt-toolkit-bin
-: 1684911361:0;cd dotfile/shellrc
-: 1684911365:0;vim pathrc.sh
-: 1684911417:0;cd ..
-: 1684911422:0;cd shellrc
-: 1684911424:0;vim pathrc.sh
-: 1684911439:0;source ~/.zshrc
-: 1684911449:0;cd ../script
-: 1684911464:0;vim gitclean.sh
-: 1684911497:0;vim .gitignore
-: 1684911520:0;git add -A
-: 1684911526:0;git commit -m "first commit"
-: 1684911529:0;git push -f origin master
-: 1684911585:0;cd seismostory
-: 1684911599:0;vim .gitignore
-: 1684911611:0;git add -A
-: 1684911613:0;git commit -m "first commit"
-: 1684911631:0;source ~/dotfile/script/gitclean.sh
-: 1684911688:0;vim .gitignore
-: 1684911697:0;source ~/dotfile/script/gitclean.sh
-: 1684911719:0;cd opt/denise_sh
-: 1684911721:0;cd ../
-: 1684911731:0;vim .gitignore
-: 1684911745:0;source ~/dotfile/script/gitclean.sh
-: 1684911760:0;cd ../.git
-: 1684911767:0;cd ..
-: 1684911771:0;vim .gitmodules
-: 1684911908:0;vim .gitignore
-: 1684911964:0;source ~/dotfile/script/gitclean.sh
-: 1684913298:0;vim .gitignore
-: 1684913360:0;source ~/dotfile/script/gitclean.sh
-: 1684913722:0;pacman -Ss github
-: 1684913758:0;pacman -S github-desktop-bin
-: 1684930078:0;update
-: 1684930089:0;upgrade
-: 1684930097:0;neofetch
-: 1684930115:0;cd seismostory
-: 1684930314:0;paru -S watt-toolkit-bin
-: 1684930328:0;paru -S watt-toolkit-git
-: 1684930381:0;vim .gitignore
-: 1684930391:0;source ~/dotfile/script/gitclean.sh
-: 1684931903:0;vim .gitattributes
-: 1684934931:0;cd dotfile/shellrc
-: 1684934932:0;vim aliasrc.sh
-: 1684934958:0;cd ../script
-: 1684934967:0;cd ..
-: 1684935137:0;cd /opt/MATLAB/R2023a/bin/glnxa64
-: 1684935146:0;vim java.opts
-: 1684935180:0;sudo vim java.opts
-: 1684936441:0;update
-: 1684936447:0;upgrade
-: 1684936460:0;aurupgrade
-: 1684936678:0;cd ../seismostory
-: 1684936694:0;neofetch
-: 1684937980:0;cd seismostory
-: 1684937992:0;git submodule deinit
-: 1684937995:0;git submodule deinit --all
-: 1684938005:0;cd src/ahay
-: 1684938007:0;cd ~
-: 1684938019:0;cd seismostory
-: 1684938029:0;mv software ../software
-: 1684938038:0;source ~/dotfile/script/gitclean.sh
-: 1684938217:0;vim .gitattributes
-: 1684938222:0;vim .gitignore
-: 1684938226:0;git add .
-: 1684938229:0;git commit -m "first commit"
-: 1684938233:0;git push
-: 1684938242:0;git push --set-upstream origin master
-: 1684938260:0;git push
-: 1685083022:0;upgrade
-: 1685083116:0;checkkernel
-: 1685083137:0;aurupgrade
-: 1685083151:0;neofetch
-: 1685083154:0;reboot
-: 1685084833:0;update
-: 1685084997:0;pacman -Syyu
-: 1685085133:0;sudo rm /var/lib/pacman/sync/*.sig
-: 1685085137:0;update
-: 1685085170:0;cd /var/lib/pacman/sync
-: 1685085183:0;vim community.db
-: 1685085187:0;rm community.db
-: 1685085193:0;cd ..
-: 1685085198:0;sudo mv sync sync.bak
-: 1685085200:0;update
-: 1685085208:0;sudo rm -rf sync.bak
-: 1685085211:0;cd sync
-: 1685085213:0;cd ~
-: 1685097362:0;update
-: 1685097368:0;upgrade
-: 1685097394:0;pacman -Syyu
-: 1685097400:0;reboot
-: 1685100283:0;upgrade
-: 1685100301:0;vim dotfile/shellrc/aliasrc.sh
-: 1685100328:0;cd dotfile
-: 1685100331:0;git add .
+conda env list
+conda activate tensorflow
+python
+cd software
+cd ../src
+cd seismostory/opt
+git clone https://github.com/daniel-koehn/DENISE-Black-Edition ./denise_black
+tar -zcvf ../software/denise_black.tgz denise_black
+git clone https://github.com/daniel-koehn/SAVA ./sava
+tar -zcvf ../software/sava.tgz ./sava
+tar -zcvf ../software/denise_sh.tgz ./denise_sh
+mkdir denise
+mv denise_black.tgz denise_sh.tgz denise
+cd ../software
+mv sava.tgz denise
+cd sofi
+git branch -r
+git branch -a
+git branch -m main master
+git branch
+git checkout master
+git lfs install
+cd opt/denise_
+cd opt/denise_black
+cd .
+git lfs track *
+cd dotfile/script
+git checkout --orphan tmp
+git branch -D master
+git branch -m master
+paru -S steam++
+paru -S watt
+cd ~/
+mkdir test
+cd test
+git clone https://github.com/daniel-koehn/DENISE-SH ./denise_sh
+git clone https://github.com/ahay/src
+git status
+paru -S watt-toolkit
+cd shellrc
+vim pathrc.sh
+source ~/.zshrc
+vim gitclean.sh
+git push -f origin master
+git add -A
+cd opt/denise_sh
+cd ../
+cd ../.git
+vim .gitmodules
+pacman -Ss github
+pacman -S github-desktop-bin
+paru -S watt-toolkit-bin
+paru -S watt-toolkit-git
+cd dotfile/shellrc
+vim aliasrc.sh
+cd ../script
+cd /opt/MATLAB/R2023a/bin/glnxa64
+vim java.opts
+sudo vim java.opts
+cd ../seismostory
+git submodule deinit
+git submodule deinit --all
+cd src/ahay
+cd seismostory
+mv software ../software
+source ~/dotfile/script/gitclean.sh
+vim .gitattributes
+vim .gitignore
+git commit -m "first commit"
+git push --set-upstream origin master
+checkkernel
+aurupgrade
+neofetch
+sudo rm /var/lib/pacman/sync/*.sig
+cd /var/lib/pacman/sync
+vim community.db
+rm community.db
+cd ..
+sudo mv sync sync.bak
+sudo rm -rf sync.bak
+cd sync
+cd ~
+update
+pacman -Syyu
+reboot
+vim dotfile/shellrc/aliasrc.sh
+cd dotfile
+git add .
+git commit -m "change upgrade alias"
+git push
+upgrade
+exit
+: 1685111562:0;sudo vim /etc/default/grub
+: 1685111573:0;update-grub
+: 1685111597:0;sudo vim /etc/default/grub
+: 1687358237:0;cd software/ahay
+: 1687358242:0;cd ../..
+: 1687358226:0;cd /opt/ahay
+: 1687358232:0;cd src/book
+: 1687358240:0;cd xjtu/gpufwi
+: 1687358246:0;scons
+: 1687358263:0;vim SConstruct
+: 1687358267:0;scons
+: 1687358274:0;vim SConstruct
+: 1687358287:0;cd marmtest
+: 1687358288:0;scons
+: 1687358353:0;update
+: 1687358358:0;upgrade
+: 1687358404:0;cd /opt/ahay/src/book
+: 1687358497:0;cd xjtu/gpufwi
+: 1687358502:0;cd fbrec
+: 1687358504:0;scons
+: 1687358521:0;sffbre
+: 1687358523:0;sffbrec
+: 1687358536:0;cd /opt/ahay
+: 1687358540:0;cd src
+: 1687358549:0;./configure
+: 1687358579:0;vim ./configure
+: 1687358635:0;export LINKFLAGS="-llapack -lblas -ltirpc -pthread -fopenmp"
+: 1687358642:0;vim ./configure
+: 1687358646:0;./configure
+: 1687358672:0;vim ./configure
+: 1687358696:0;vim Makefile
+: 1687358719:0;vim config.py
+: 1687358745:0;cd /opt/
+: 1687358750:0;cd cuda
+: 1687358760:0;vim CUDA_Toolkit_Release_Notes.txt
+: 1687358783:0;cd /opt/ahay/src
+: 1687358789:0;vim SConstruct
+: 1687359007:0;echo $LD_LIBRARY_PATH
+: 1687359034:0;cd /usr/local
+: 1687359051:0;sudo ln /opt/cuda /usr/local/cuda
+: 1687359057:0;sudo ln -s /opt/cuda /usr/local/cuda
+: 1687359067:0;./configure
+: 1687359085:0;cd /opt/ahay/src
+: 1687359108:0;make install
+: 1687359366:0;make
+: 1687359910:0;paru -S cuda11.1
+: 1687359952:0;git pull
+: 1687359991:0;reboot
+: 1687360135:0;cd /opt/ahay/src
+: 1687360138:0;git pull
+: 1687360179:0;./configure
+: 1687360197:0;vim Makefile.in
+: 1687360215:0;vim INSTALL.txt
+: 1687360219:0;make
+: 1687360471:0;cd /opt/ahay/src/build/user/cuda
+: 1687360493:0;scons
+: 1687360501:0;bldutil
+: 1687360549:0;nvcc -o /opt/ahay/build/user/cuda/gpuktmig.o -c --x=cu -I/usr/include/cblas -Ibuild/include build/user/cuda/gpuktmig.c
+: 1687360561:0;nvcc -o /opt/ahay/build/user/cuda/gpuktmig.o -c --x=cu -I/usr/include/cblas -I/opt/ahay/build/include build/user/cuda/gpuktmig.c
+: 1687360570:0;nvcc -o /opt/ahay/build/user/cuda/gpuktmig.o -c --x=cu -I/usr/include/cblas -I/opt/ahay/build/include /opt/ahay/build/user/cuda/gpuktmig.c
+: 1687360616:0;pwd
+: 1687360631:0;nvcc -o /opt/ahay/src/build/user/cuda/gpuktmig.o -c --x=cu -I/usr/include/cblas -I/opt/ahay/src/build/include /opt/ahay/src/build/user/cuda/gpuktmig.c
+: 1687361001:0;paru -S cuda11.1
+: 1687361405:0;pacman -Rns cudnn
+: 1687361411:0;paru -S cuda11.1
+: 1687361666:0;cd .cache/paru/clone/cuda11.1
+: 1687361678:0;paru -S cuda11.1
+: 1687361729:0;makepkg -sri
+: 1687361764:0;paru -S cuda11.1
+: 1687361816:0;makepkg -si
+: 1687362220:0;nvcc -o /opt/ahay/src/build/user/cuda/gpuktmig.o -c --x=cu -I/usr/include/cblas -I/opt/ahay/src/build/include /opt/ahay/src/build/user/cuda/gpuktmig.c
+: 1687362368:0;nvcc --version
+: 1687362370:0;nvcc -o /opt/ahay/src/build/user/cuda/gpuktmig.o -c --x=cu -I/usr/include/cblas -I/opt/ahay/src/build/include /opt/ahay/src/build/user/cuda/gpuktmig.c
+: 1687362378:0;make
+: 1687362956:0;make install
+: 1687362993:0;cd /opt/ahay/src/book/xjtu
+: 1687362998:0;cd gpufwi
+: 1687363001:0;cd fbrec
+: 1687363004:0;scons
+: 1687363094:0;sfpen snap1b.vpl
+: 1687364014:0;pacman -S cudnn cuda-tools
+: 1687364037:0;pacman -S cudnn
+: 1687365395:0;export CUDA_HOME="/opt/cuda"
+: 1687365403:0;cd /opt/ahay/src/
+: 1687365410:0;sudo rm /usr/local/cuda
+: 1687365415:0;./configure
+: 1687365426:0;sudo ln -s /opt/cuda /usr/local/cuda
+: 1687365445:0;cd ~/.cache
+: 1687365446:0;cd ..
+: 1687365464:0;git clone https://gitlab.archlinux.org/archlinux/packaging/packages/cuda.git
+: 1687365472:0;cd cuda
+: 1687365484:0;git tag --list
+: 1687365512:0;git switch --detach 11.8.0-1
+: 1687365520:0;vim PKGBUILD
+: 1687365911:0;makepkg
+: 1687365930:0;pacman -Rns cuda11.1-tools
+: 1687365940:0;pacman -Rns cuda
+: 1687365942:0;pacman -Rns cuda11.1
+: 1687365946:0;makepkg
+: 1687365953:0;sudo makepkg
+: 1687365959:0;makepkg
+: 1687365982:0;pacman -S gcc opencl-nvidia
+: 1687365987:0;makepkg
+: 1687365993:0;vim PKGBUILD
+: 1687366012:0;makepkg
+: 1687366180:0;pacman -S cudnn
+: 1687366187:0;pacman -S cudnn cuda-tools
+: 1687366228:0;cd /opt/ahay/src/book/xjtu
+: 1687366233:0;cd gpufwi/fbrec
+: 1687366235:0;scons
+: 1687366593:0;vim PKGBUILD
+: 1687366839:0;makepkg
+: 1687366844:0;makepkg -f
+: 1687366945:0;rm -rf src pkg
+: 1687366949:0;makepkg
+: 1687366958:0;makepkg -f
+: 1687367137:0;pacman -U cuda11.8-11.8.0-1-x86_64.pkg.tar.zst
+: 1687367155:0;pacman -U cuda-tools11.8-11.8.0-1-x86_64.pkg.tar.zst
+: 1687367164:0;cd /opt
+: 1687367168:0;cd cuda11.8
+: 1687446839:0;paru -S downgrade
+: 1687446848:0;downgrade cuda
+: 1687446853:0;sudo downgrade cuda
+: 1687446969:0;sudo downgrade --ala-url https://mirrors.bfsu.edu.cn/archlinux-archive/ cuda
+: 1687446986:0;sudo downgrade --ala-url https://mirrors.bfsu.edu.cn/archlinux-archive cuda
+: 1687447008:0;sudo downgrade --ala-url --maxdepth 5 https://mirrors.bfsu.edu.cn/archlinux-archive cuda
+: 1687447048:0;sudo downgrade --ala-url https://mirrors.bfsu.edu.cn/archlinux-archive --maxdepth 5 cuda
+: 1687447059:0;sudo downgrade --ala-url https://mirrors.bfsu.edu.cn/archlinux-archive/2022 --maxdepth 5 cuda
+: 1687447063:0;sudo downgrade --ala-url https://mirrors.bfsu.edu.cn/archlinux-archive/2021 --maxdepth 5 cuda
+: 1687447088:0;sudo downgrade --ala-url https://mirrors.bfsu.edu.cn/archlinux-archive/2021 --maxdepth 10 cuda
+: 1687447099:0;sudo downgrade --ala-url https://mirrors.bfsu.edu.cn/archlinux-archive/ cuda
+: 1687447124:0;sudo downgrade --ala-url https://mirrors.bfsu.edu.cn/ cuda
+: 1687447248:0;sudo downgrade --ala-url https://asia.archive.pkgbuild.com/ cuda
+: 1687447316:0;sudo downgrade --ala-url https://arch-archive.tuna.tsinghua.edu.cn/ cuda
+: 1687447335:0;sudo downgrade --ala-url https://arch-archive.tuna.tsinghua.edu.cn/2020/01-27/
+: 1687447338:0;sudo downgrade --ala-url https://arch-archive.tuna.tsinghua.edu.cn/2020/01-27/ cuda
+: 1687447478:0;sudo downgrade --ala-url https://asia.archive.pkgbuild.com/ cuda
+: 1687447504:0;sudo downgrade --ala-url https://arch-archive.tuna.tsinghua.edu.cn/2020/01-27/ --maxdepth 5 cuda
+: 1687447522:0;sudo downgrade --ala-url https://arch-archive.tuna.tsinghua.edu.cn/2020/01-27/ --ala-only cuda
+: 1687447598:0;sudo downgrade --ala-url https://arch-archive.tuna.tsinghua.edu.cn/2020/ --ala-only cuda
+: 1687447606:0;sudo downgrade --ala-url https://arch-archive.tuna.tsinghua.edu.cn/2020/ --maxdepth 15 --ala-only cuda
+: 1687447629:0;sudo downgrade cuda
+: 1687447685:0;update
+: 1687447689:0;upgrade
+: 1687447878:0;cd /opt
+: 1687447987:0;pacman -Rns cuda-tools11.8
+: 1687447994:0;pacman -Rns cuda11.8
+: 1687448008:0;cd ~
+: 1687448011:0;cd cuda
+: 1687448021:0;pacman -U cuda11.8-11.8.0-1-x86_64.pkg.tar.zst cuda-tools11.8-11.8.0-1-x86_64.pkg.tar.zst
+: 1687448127:0;cd /opt
+: 1687448131:0;poweroff
+: 1687540172:0;cd /opt/ahay/src
+: 1687540175:0;./configure
+: 1687540205:0;plplot
+: 1687540219:0;ffmpeg
+: 1687540230:0;whereis ffmpeg
+: 1687540254:0;sudo ln -s /usr/bin/ffmpeg /usr/local/ffmpeg
+: 1687540258:0;./configure
+: 1687540278:0;vim SConstruct
+: 1687540381:0;pacman -Ss plplot
+: 1687540388:0;paru -Ss plplot
+: 1687540400:0;paru -S plplot
+: 1687540536:0;./configure
+: 1687540554:0;paru -Ss ffmpeg
+: 1687540621:0;pacman -S lib32-ffmpeg
+: 1687540645:0;pacman -S rpc
+: 1687540679:0;pacman -S libtirpc
+: 1687540690:0;vim config.py
+: 1687540711:0;vim configure
+: 1687540735:0;vim Makefile
+: 1687540752:0;vim Makefile.in
+: 1687540776:0;vim config.py
+: 1687540786:0;vim env.sh
+: 1687540804:0;vim SConstruct
+: 1687540840:0;vim codecov.yml
+: 1687541285:0;cd /opt/ahay/src
+: 1687541290:0;cd framework
+: 1687541294:0;vim configure.py
+: 1687541342:0;paru -Ss ffmpeg
+: 1687541394:0;cd /usr/include
+: 1687541450:0;pkgfile -U ffmpeg
+: 1687541453:0;pkgfile
+: 1687541457:0;pkgfile -h
+: 1687541468:0;pkgfile -s ffmpeg
+: 1687541479:0;pkgfile -s libavcodec
+: 1687541483:0;pkgfile -s avcodec
+: 1687541484:0;pkgfile -s avcode
+: 1687541487:0;pkgfile -s code
+: 1687541519:0;pkgfile -s avcode
+: 1687541573:0;pacman -Ss libav
+: 1687541589:0;pacman -S lib32-libffmpeg
+: 1687541597:0;update
+: 1687541602:0;upgrade
+: 1687541616:0;pacman -S lib32-libffmpeg
+: 1687541772:0;pacman -S ffms2
+: 1687541782:0;cd /opt/ahay/src
+: 1687541784:0;./configure
+: 1687541838:0;cd /usr/include
+: 1687541902:0;./configure
+: 1687542036:0;cd tirpc
+: 1687542039:0;cd rpc
+: 1687542053:0;./configure
+: 1687542062:0;cd ../
+: 1687542063:0;cd ..
+: 1687542077:0;cd rpc
+: 1687542079:0;cd ..
+: 1687542097:0;./configure
+: 1687542185:0;cd /opt
+: 1687542189:0;cd cwp
+: 1687542193:0;cd src
+: 1687542201:0;vim Makefile.config
+: 1687542269:0;./configure
+: 1687542552:0;vim setenv.py
+: 1687542579:0;vim setup.py
+: 1687542695:0;pkgfile avcodec.h
+: 1687542709:0;pacman -S ffmpeg-vulkan
+: 1687542718:0;pacman -S ffmpeg4.4
+: 1687542737:0;pkgfile libavcodec
+: 1687542740:0;pkgfile libavcod
+: 1687542747:0;pkgfile avcodec.h
+: 1687542762:0;vim bldutil.py
+: 1687542771:0;vim configure.py
+: 1687542831:0;pacman -Ql avcodec.h
+: 1687542834:0;pacman -Ql avcodec
+: 1687542840:0;pacman -Ql ffmpeg4.4
+: 1687542874:0;pacman -Ql ffmpeg4.4 | grep avcodec.h
+: 1687542886:0;pacman -Ql ffmpeg | grep avcodec.h
+: 1687542961:0;./configure
+: 1687543004:0;pacman -Ql ffmpeg
+: 1687543060:0;./configure
+: 1687543111:0;pacman -Ql ffmpeg4.4
+: 1687543130:0;cd /usr/include/ffmpeg4.4
+: 1687543141:0;./configure
+: 1687543205:0;pkgfile ffmpeg
+: 1687543224:0;pacman -S ffmpeg-vulkan
+: 1687543229:0;pacman -Syyu
+: 1687543234:0;pacman -S ffmpeg-vulkan
+: 1687543242:0;pacman -Ss ffmpeg
+: 1687543329:0;pkgfile -u
+: 1687543333:0;sudo pkgfile -u
+: 1687543373:0;pacman -S ffmpeg-vulkan
+: 1687543380:0;pkgfile ffmpeg
+: 1687543438:0;./configure
+: 1687543683:0;cd /opt/ahay/src/framework
+: 1687543691:0;vim rsf/SConscript
+: 1687543896:0;vim configure.py
+: 1687544018:0;cd ..
+: 1687544026:0;vim config.log
+: 1687544107:0;cd /usr/include/libavcodec
+: 1687544130:0;less avcodec.h
+: 1687544182:0;pacman -Ss ffmpeg
+: 1687544190:0;pacman -Ss avcode
+: 1687544213:0;pacman -S lib32-libffmpeg
+: 1687544256:0;pacman -Rns ffmpeg4.4
+: 1687544259:0;pacman -Rns ffmpeg
+: 1687708561:0;update
+: 1687708567:0;upgrade
+: 1687708584:0;checkkernel
+: 1687708678:0;sudo vim /etc/pacman.conf
+: 1687708691:0;pacman-key --recv-keys 7931B6D628C8D3BA
+: 1687708695:0;sudo pacman-key --recv-keys 7931B6D628C8D3BA
+: 1687708702:0;pacman-key --finger 7931B6D628C8D3BA
+: 1687708711:0;sudo pacman-key --lsign-key 7931B6D628C8D3BA
+: 1687708717:0;update
+: 1687708719:0;upgrade
+: 1687708747:0;pkgfile visual-stu
+: 1687708755:0;pacman -Ss visual
+: 1687708781:0;paru -Ss freefilesync
+: 1687708798:0;paru -S freefilesync-bin
+: 1687853711:0;update
+: 1687853715:0;upgrade
+: 1687853737:0;aurupgrade
+: 1687854013:0;checkkernel
+: 1687854061:0;pacman -S plasma5-im
+: 1687854066:0;pacman -S plasma5
+: 1687854076:0;pacman -S kde-plasma
+: 1687854084:0;pacman -S plasma-im
+: 1687854111:0;pacman -S plasma-meta
+: 1687854123:0;pacman -Rns gnome
+: 1687882858:0;update
+: 1687882862:0;upgrade
+: 1688536032:0;update
+: 1688536030:0;upgrade
+: 1688536077:0;cd /opt
+: 1688536095:0;cd ~
+: 1688536102:0;mkdir opt
+: 1688536128:0;cd software
+: 1688536142:0;cd ../src
+: 1688536146:0;cd ..
+: 1688536151:0;cd code
+: 1688536154:0;cd ..
+: 1688536213:0;rm -rf /opt/ahay /opt/cwp /opt/locflow /opt/sac
+: 1688536220:0;cd /opt
+: 1688536226:0;rm -rf ahay
+: 1688536235:0;sudo rm -rf ahay locflow cwp sac
+: 1688536250:0;cd ~
+: 1688536253:0;cd bin
+: 1688536254:0;cd ..
+: 1688536267:0;mkdir pkgbuild
+: 1688536271:0;mv cuda pkgbuild
+: 1688536279:0;cd software
+: 1688536288:0;cd ..
+: 1688536296:0;cd software/libtorch
+: 1688536301:0;cd ..
+: 1688536412:0;which nvcc
+: 1688536422:0;cd seismostory
+: 1688536425:0;cd codes
+: 1688536429:0;cd ../opt
+: 1688536441:0;cd locflow
+: 1688536443:0;cd ..
+: 1688536580:0;cd ~/dotfile
+: 1688536587:0;git pull
+: 1688536616:0;git checkout dev
+: 1688536618:0;git pull
+: 1688536633:0;vim shellrc/pathrc.sh
+: 1688536743:0;git push
+: 1688536751:0;git add .
