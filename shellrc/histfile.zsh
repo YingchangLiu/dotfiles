@@ -1078,3 +1078,75 @@ exit
 : 1688536909:0;git pull
 : 1688536926:0;git checkout master
 : 1688536932:0;git add .
+: 1688537160:0;cd /etc
+: 1688537169:0;find --name *.pac*
+: 1688537172:0;find -name *.pac*
+: 1688537179:0;sudo find -name *.pac*
+: 1688537196:0;sudo vim pacman.conf
+: 1688537207:0;cd pacman.d
+: 1688537211:0;vim mirrorlist
+: 1688537219:0;vim mirrorlist.pacnew
+: 1688537224:0;vim mirrorlist
+: 1688537240:0;sudo mv mirrorlist.pacnew mirrorlist
+: 1688537246:0;sudo vim mirrorlist
+: 1688537261:0;update
+: 1688537264:0;upgrade
+: 1688537268:0;aurupgrade
+: 1688537330:0;pacman -Rns $(pacman -Qenq)
+: 1688537404:0;vim ~/dotfile/script
+: 1688537425:0;sudo pacman -Rns $(sudo pacman -Qdtq)
+: 1688542219:0;rm -rf hypoDD_dtc*
+: 1688542227:0;cd code
+: 1688542283:0;git clone https://github.com/Tony-Tan/CUDA_Freshman
+: 1688542288:0;cd CUDA_Freshman
+: 1688542299:0;vim CMakeLists.txt
+: 1688542309:0;cmake
+: 1688542313:0;pacman -S cmanke
+: 1688542321:0;pacman -S cmake
+: 1688542327:0;cmake
+: 1688542337:0;cmake ./
+: 1688542575:0;cd 4_sum_arrays_timer
+: 1688542579:0;cmake
+: 1688542581:0;cmake ./
+: 1688542618:0;make
+: 1688542621:0;make install
+: 1688542625:0;vim Makefile
+: 1688542648:0;nvcc sum_arrays_timer.cu -o sum_arrays_timer
+: 1688542653:0;cd ../
+: 1688542808:0;cd ..
+: 1688542812:0;rm -rf CUDA_Freshman
+: 1688542814:0;git clone https://github.com/Tony-Tan/CUDA_Freshman
+: 1688542894:0;cd CUDA_Freshman/4_sum_arrays_timer
+: 1688542906:0;nvcc sum_arrays_timer.cu -o sum_arrays_timer -I../include
+: 1688542910:0;./sum_arrays_timer
+: 1688542919:0;nvprof ./sum_arrays_timer
+: 1688543005:0;cd ../
+: 1688543032:0;mkdir build
+: 1688543035:0;cd build
+: 1688543038:0;cmake ../
+: 1688543087:0;vim ../CMakeLists.txt
+: 1688543125:0;make
+: 1688543140:0;vim ../CMakeLists.txt
+: 1688543252:0;cmake ../
+: 1688543310:0;vim ../CMakeLists.txt
+: 1688543354:0;cmake ../
+: 1688543393:0;make
+: 1688543525:0;cd 4_sum_arrays_timer
+: 1688543528:0;./sum_arrays_timer
+: 1688543532:0;nvprof ./sum_arrays_timer
+: 1688544049:0;upgrade
+: 1688544106:0;vim ~/dotfile/shellrc/aliasrc.sh
+: 1688544239:0;source ~/.zshrc
+: 1688544243:0;install-grub
+: 1688544249:0;update-grub
+: 1688545324:0;nvprof ./sum_arrays_timer
+: 1688547755:0;cd ../../10_reduceInteger
+: 1688547757:0;vim reduceInteger.cu
+: 1688549242:0;neofetch
+: 1688549826:0;cd ../4_sum_arrays_timer
+: 1688549830:0;vim sum_arrays_timer.cu
+: 1688559342:0;update
+: 1688559362:0;pacman -Syyu
+: 1688559379:0;aurupgrade
+: 1688559388:0;cd dotfile
+: 1688559391:0;git add .

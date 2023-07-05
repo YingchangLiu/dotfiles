@@ -117,6 +117,7 @@ if (( UID != 0 )); then
     alias reboot='sudo systemctl reboot'
     alias poweroff='sudo systemctl poweroff'
     alias dmesg='sudo dmesg -HL'
+    alias install-grub='sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ARCH'
     alias update-grub='sudo env LANG=en_US.UTF-8 grub-mkconfig -o /boot/grub/grub.cfg'
     alias pacman='sudo pacman'
     alias apt='sudo apt'
