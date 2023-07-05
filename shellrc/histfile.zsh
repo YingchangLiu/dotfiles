@@ -1070,3 +1070,11 @@ exit
 : 1688536633:0;vim shellrc/pathrc.sh
 : 1688536743:0;git push
 : 1688536751:0;git add .
+: 1688536759:0;git commit -m "change opt path"
+: 1688536761:0;git push
+: 1688536888:0;git checkout master
+: 1688536898:0;git add .
+: 1688536902:0;git checkout master
+: 1688536909:0;git pull
+: 1688536926:0;git checkout master
+: 1688536932:0;git add .
