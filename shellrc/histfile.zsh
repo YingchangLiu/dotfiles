@@ -1150,3 +1150,13 @@ exit
 : 1688559379:0;aurupgrade
 : 1688559388:0;cd dotfile
 : 1688559391:0;git add .
+: 1688559415:0;git commit -m "add an alias for grub-install"
+: 1688559419:0;git push
+: 1688563544:0;neofetch
+: 1688563653:0;\
+
+: 1688563657:0;neofetch
+: 1688564163:0;dconf reset /com/github/repsac-by/quake-mode/accelerators/quake-mode-accelerator-2
+: 1688564168:0;dconf reset /com/github/repsac-by/quake-mode/apps/app-2
+: 1688565961:0;cd dotfile
+: 1688565963:0;git add .
