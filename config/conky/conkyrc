@@ -56,8 +56,7 @@
 conky.config = {
 
 	--Various settings
-
-	background = true, 							-- forked to background
+    background = true, 							-- forked to background
 	cpu_avg_samples = 2,						-- The number of samples to average for CPU monitoring.
 	diskio_avg_samples = 10,					-- The number of samples to average for disk I/O monitoring.
 	double_buffer = true,						-- Use the Xdbe extension? (eliminates flicker)
@@ -126,7 +125,7 @@ conky.config = {
 	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',  -- if own_window true - just hints - own_window_type sets it
 	own_window_transparent = true,				-- if own_window_argb_visual is true sets background opacity 0%
 	own_window_title = 'system_conky',			-- set the name manually  - default conky "hostname"
-	own_window_type = 'override',				-- if own_window true options are: normal/override/dock/desktop/panel
+	own_window_type = 'normal',				    -- if own_window true options are: normal/override/dock/desktop/panel
 
 	--Colours
 
@@ -245,7 +244,7 @@ ${color2}Packages:${color}${alignr} ${execi 600 pacman -Qq | wc -l} (${execi 600
 ${color2}Uptime:${color} ${alignr}${uptime}
 ${color2}Battery:${color}${goto 80}${battery_time}${alignr}${battery_bar}${alignr}
 ${color5}${voffset 4}${font Roboto:size=10}C P U  ${hr 2}${font}${color}${voffset 2}
-${color2}Name:${color}${alignr}${execp  lscpu | sed -nr '/Model name/ s/.*:\s*(.*) CPU .*/\1/p'}
+${color2}Name:${color}${alignr}${execp  env LANG=en_US.UTF-8 lscpu | sed -nr '/Model name/ s/.*:\s*(.*) CPU .*/\1/p'}
 ${color2}Frequency:${color} $alignr${freq_g (1)} GHz
 ${color2}Temperature:${color} $alignr${execi 30 sensors | grep 'Core 0' | awk {'print $3'}}
 ${color2}Usage:${color}${alignr}${cpu}% ${color} ${cpugraph 15,100}
@@ -285,12 +284,12 @@ ${voffset 4}\
      4  -  ${top_mem name 4}${alignr} ${goto 200}${top_mem mem_res 4} ${goto 260}${top_mem pid 4}
 ${color5}${voffset 4}${font Roboto:size=10}D I S K S   ${hr 2}${font}${color}${voffset 2}
 ${offset 20}${color2}Root:${color} ${alignr}${offset -10}${fs_used /} / ${fs_size /}${alignr}${fs_bar}
-${offset 30}${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/nvme0n1}${alignr}${diskiograph_read /dev/nvme0n1 8,100}
-${offset 30}${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /dev/nvme0n1}${alignr}${diskiograph_write /dev/nvme0n1 8,100}
+${offset 30}${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/nvme0n1}${alignr}${diskiograph_read /dev/nvme0n1 8,100 000000 FFFFFF}
+${offset 30}${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /dev/nvme0n1}${alignr}${diskiograph_write /dev/nvme0n1 8,100 000000 FFFFFF}
 ${voffset 5}\
-${offset 20}${color2}Document :${color} ${alignr}${offset -10}${fs_used /run/media/document} / ${fs_size /run/media/document}${alignr}${fs_bar /run/media/document}
-${offset 30}${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/sda3}${alignr}${diskiograph_read sda3 8,100}
-${offset 30}${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /dev/sda3}${alignr}${diskiograph_write sda3 8,100}
+${offset 20}${color2}Document :${color} ${alignr}${offset -10}${fs_used /data} / ${fs_size /data}${alignr}${fs_bar /data}
+${offset 30}${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/sda5}${alignr}${diskiograph_read /dev/sda5 8,100 000000 FFFFFF}
+${offset 30}${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /dev/sda5}${alignr}${diskiograph_write /dev/sda5 8,100 000000 FFFFFF}
 ${voffset 5}\
 #${offset 20}${color2}Code :${color} ${alignr}${offset -10}${fs_used /run/media/code} / ${fs_size /run/media/code}${alignr}${fs_bar /run/media/code}
 #${offset 30}${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/sda5}${alignr}${diskiograph_read sda5 8,100}
