@@ -1082,3 +1082,8 @@ echo $(head -n1 /var/log/pacman.log | cut -d " " -f 1,2) ä»¥æƒ½¥ä¸€åƒ¥±æ»ƒºäºƒ¦ 
 : 1690478564:0;vim ~/.config/conky/conkyrc
 : 1690478899:0;cd dotfile
 : 1690478903:0;git add .
+: 1690478913:0;git commit -m "change conkyrc for wayland"
+: 1690478915:0;git push
+: 1690478964:0;git checkout master
+: 1690479004:0;git add . && git commit "change conkyrc for wayland" && git push && git checkout master
+: 1690479022:0;git add . && git commit -m "change conkyrc for wayland" && git push && git checkout master
