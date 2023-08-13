@@ -1,0 +1,8 @@
+(defpoll weather :interval "1h" "scripts/weather.sh")
+
+(defwidget weather []
+  (box :class "weather"
+    :orientation "v" 
+    (label :class "weathertext" :text weather)
+  )
+)

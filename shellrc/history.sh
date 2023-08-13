@@ -1,0 +1,3 @@
+HISTFILE=~/dotfile/shellrc/histfile.sh
+HISTSIZE=1234567890
+SAVEHIST=1234567890

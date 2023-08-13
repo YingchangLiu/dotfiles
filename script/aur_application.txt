@@ -1,0 +1,8 @@
+gdm-settings
+linuxqq
+lunar-date
+mathpix-snipping-tool
+ocs-url
+qqmusic-bin
+sunloginclient
+visual-studio-code-bin

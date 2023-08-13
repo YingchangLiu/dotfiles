@@ -1,0 +1,70 @@
+colors:
+  primary:
+    background: '#1c1c1c'
+    #'#312d38'
+    foreground: '#eff0eb'
+  cursor:
+    text: CellBackground
+    cursor: '#ff6ac1'
+  selection:
+    text:  '#FF55FF'
+    background: '#0d0c0e'
+
+  normal:
+    black:   '#282a36'
+    red:     '#e71903'
+    green:   '#03e76c'
+    yellow:  '#e7e303'
+    blue:    '#036ee7'
+    magenta: '#e7039c'
+    cyan:    '#4fdefe'
+    white:   '#f1f1f0'
+
+  bright:
+    black:   '#545672'
+    red:     '#ff2121'
+    green:   '#12f45b'
+    yellow:  '#fcfa53'
+    blue:    '#53a3fc'
+    magenta: '#fb53c4'
+    cyan:    '#81faf5'
+    white:   '#eff0eb'
+
+
+window:
+  padding:
+    x: 10
+    y: 10 
+  opacity: 0.8
+cursor:
+  style:
+    shape: Beam
+    
+env:
+  TERM: xterm-256color
+
+scrolling:
+  history: 4000
+  auto_scroll: true 
+
+draw_bold_text_with_bright_colors: true
+
+font:
+  normal:
+    family: DejaVu Sans Mono
+    style: Light
+
+  bold:
+    family: DejaVu Sans Mono
+    style: Regular
+
+  italic:
+    family: DejaVu Sans Mono
+    style: Italic
+
+  bold_italic:
+    family: DejaVu Sans Mono
+    style: Bold Italic
+
+  size: 13
+
