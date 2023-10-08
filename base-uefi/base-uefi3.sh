@@ -20,7 +20,7 @@ echo 'root:passwd' | chpasswd
 
 pacman -S intel-ucode
 pacman -S grub efibootmgr os-prober
-grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ARCH
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
 systemctl enable dhcpcd
