@@ -15,6 +15,6 @@ source ~/.config/powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null
 # You should install "pkgfile" and exec 'sudo pkgfile -u' to use the cnf.zsh.
 source /usr/share/autojump/autojump.zsh 2>/dev/null
 autoload -Uz compinit
-compinit
+compinit -u
 
 

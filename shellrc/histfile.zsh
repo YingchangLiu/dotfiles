@@ -75,7 +75,6 @@ mv histfile histfile.zsh
 rm histfile
 vim history.zsh
 echo $HISTFILE
-bash
 pacman -S libreoffice-still-zh-cn
 paru -S gnome-shell-extension-arch-update
 wget https://download.pytorch.org/libtorch/cu118/libtorch-cxx11-abi-shared-with-deps-2.0.0%2Bcu118.zip
@@ -90,18 +89,13 @@ cd notebooks
 conda -v
 conda --version
 pacman -Qme
-pacman -S zsh-completions zsh-syntax-highlighting zsh-theme-powerlevel10k
 cd /etc/zsh
 cd /usr/share/zsh/plugins
 cd zsh-history-substring-search
 vim zsh-history-substring-search.zsh
-cd ~/dotfile/shellrc
 pacman -Ss per-directory
 pacman -S paru
 paru -Ss zsh-
-vim commonplugin.sh
-vim zshplugin.zsh
-vim ~/.zshrc
 git history-substring-search-up
 history-substring-search-up
 bindkey -l
@@ -115,7 +109,6 @@ bindkey -M '^[[A'
 bindkey -M '^[[1'
 zle -al
 cat -v
-vim zshsetting.zsh
 cat README.md
 Q
 rm -rf dotfile.bak
@@ -661,7 +654,6 @@ pacman -Ss github
 pacman -S github-desktop-bin
 paru -S watt-toolkit-bin
 paru -S watt-toolkit-git
-vim aliasrc.sh
 cd /opt/MATLAB/R2023a/bin/glnxa64
 vim java.opts
 sudo vim java.opts
@@ -715,7 +707,6 @@ cmake ../
 cd 4_sum_arrays_timer
 ./sum_arrays_timer
 vim ~/dotfile/shellrc/aliasrc.sh
-source ~/.zshrc
 install-grub
 nvprof ./sum_arrays_timer
 cd ../../10_reduceInteger
@@ -864,7 +855,6 @@ pacman -Ql ffmpeg | grep avcodec.h
 pacman -Ql ffmpeg
 pacman -Ql ffmpeg4.4
 cd /usr/include/ffmpeg4.4
-pkgfile -u
 pacman -S ffmpeg-vulkan
 pkgfile ffmpeg
 ./configure
@@ -925,7 +915,6 @@ pacman -Rns cudnn
 aa
 pkgfile fastfetch
 pacman -S fastfetch
-fastfetch
 pacman -Rns fastfetch
 update
 nvcc --version
@@ -977,7 +966,6 @@ git add . && git commit "change conkyrc for wayland" && git push && git checkout
 git add . && git commit -m "change conkyrc for wayland" && git push && git checkout master
 >>>>>>> dev
 git add . && git commit -m "change conkyrc for wayland" && git push
-cd dotfile/shellrc
 git config --global user.email 58721349+yingchangliu@users.noreply.github.com
 git config --global user.name yingchangliu
 vim README.md
@@ -995,20 +983,16 @@ lspci | grep -E 'VGA|3D'
 cd dotfile/wallpaper
 vim ~/dotfile/config/hypr.bak/hyprland.conf
 pacman -S fcitx5-im
-pacman -S pkgfile
-sudo pkgfile -u
 vim ~/dotfile/shellrc/zshplugin.zsh
 pacman -S btop
 pacman -S linux
 vim /etc/mkinitcpio.conf
 vim /etc/mkinitcpio.d/linux.preset
-pacman -Syyu
 pacman -S hyprland-git
 pacman -S hyprland
 hyprctl --versiojn
 hyprctl --version
 Hyprland --version
-hyprctl --help
 pacman -S hyprland-nvidia-hidpi-git
 pacman -Rns $(pacman -Qtdq)
 paru -S aur/hyprland-nvidia-git
@@ -1111,7 +1095,6 @@ brillo
 vim scripts/brightness
 whoami
 whoami -h
-whoami --help
 groups
 sudo usermod -aG video kelen
 vim scripts/volume
@@ -1203,7 +1186,6 @@ cd dotfile/q
 eww open -h
 eww open :q
 vim eww/eww/bar
-cd config
 vim eww
 vim get-window-title
 vim ../eww.yuck
@@ -1241,7 +1223,6 @@ eww open -c ~/.config/eww/ bar
 eww open -c ~/.config/eww
 eww open -c ~/.config/ewwbar
 cd dotfile/config/eww
-rm -rf eww
 mv eww.bak eww
 lds
 vim assets/ghost.png
@@ -1256,7 +1237,6 @@ JQ
 jq
 pacman -S socat jq
 sl
-cd ~/.config
 mv eww eww.bak
 mkdir scripts
 vim change-active-workspace
@@ -1316,11 +1296,8 @@ mkdir kitty
 cd kitty
 rm -rf ~/.config/kitty
 sh install.sh
-mv kitty.conf kitty.conf.bak
 mv kitty.conf.bak kitty.conf
 vim color.ini
-cd ~/.config/kitty
-vim kitty.conf
 cd dotfile
 pacman -S alacritty
 alacritty
@@ -1423,8 +1400,6 @@ cd configs
 mv hyprland.conf ../hyprland.conf
 mv display.conf monitors.conf
 mv simpleconfig.conf ../
-cd ~/dotfile
-sh ./script/gitclean.sh
 date
 poweroff
 aurupgrade
@@ -1446,10 +1421,7 @@ vim .config/hypr/configs/animation.conf
 vim .config/hypr/configs/color.conf
 run-help 9u
 vim .config/hypr/configs/keybinds.conf
-vim env.conf
 vim misc.conf
-vim ../hyprland.conf
-vim execs.conf
 vim monitors.conf
 vim keybinds.conf
 vim animation.conf
@@ -1460,7 +1432,6 @@ vim input.conf
 vim simpleconfig.conf
 cp hyprland.conf hyprland.conf.bak
 cp simpleconfig.conf hyprland.conf
-cd .config/hypr/configs
 cp hyprland.conf.bak hyprland.conf
 ne
 fetch
@@ -1487,7 +1458,6 @@ pacman -S ttf-ubuntu-nerd
 pacman -Rns ttf-nerd-fonts-symbols
 eww open -c ~/Downloads/dotfiles/.config/eww bar
 cd Downloads/dotfiles/.config
-cd eww
 vim scripts/weather
 vim setups/topbar.yuck
 eww open -c ~/Downloads/dotfiles/.config/eww osd
@@ -1507,9 +1477,7 @@ vim network
 vim scripts/apps
 vim yuck/windows.yuck
 vim setups/leftbar.yuck
-cd hypr
 vim configs/keybinds.conf
-vim binds.conf
 wlogout
 wllogout
 pacman -Ss logout
@@ -1539,7 +1507,6 @@ cd ../
 vim myshell/myshell
 vim hyprland
 vim theme
-cd ..
 cd setups
 vim leftbar.yuck
 cd ~/.config/hypr
@@ -1561,7 +1528,6 @@ vim hyprland.conf
 systemctl status v2raya.service
 upgrade
 sudo needrestart
-neofetch
 pacman -Rns v2raya
 pacman -S v2raya
 sudo systemctl restart v2ray.service
@@ -1575,8 +1541,6 @@ pacman -S v2raya-git
 sudo systemctl enable --now v2raya
 paru -S clash-for-windows-bin
 pacman -S nftables
-reboot
-Hyprland
 cd /usr/lib
 cd polkit-gnome
 ./polkit-gnome-authentication-agent-1
@@ -1584,38 +1548,79 @@ killall clash-linux
 cd .config/hypr
 vim configs/execs.conf
 pwd
+cd .config/hypr/configs
+vim xwayland.conf
+vim ../hyprland.conf
+hyprctl --help
+xprop
+hyprctl reload
+vim execs.conf
+vim env.conf
+cd config
+rm -rf eww
+cp ~/.config/eww ./eww
+cp -rf ~/.config/eww ./eww
+cd ..
+cd eww
+cd ~/Downloads/dotfiles
+cd .local/bin
+cd ../share
+cd ../../.config
+cd hypr
+vim binds.conf
+cd ~/dotfile
+sh ./script/gitclean.sh
+neofetch
+pacman -S pkgfile
+pacman -S lsb_release
+pacman -S lsb-release
+pacman -S zsh-completions zsh-syntax-highlighting zsh-theme-powerlevel10k
+lsb
+fastfetch
+pacman -Fy
+sudo pkgfile -u
+pkgfile -u
+pacman -S zsh-
+vim ~/.zshrc
+cd ~/.config
+vim commonplugin.sh
+pacman -Syyu
+reboot
+vim zshplugin.zsh
+pacman -S zsh-completion
+pacman -S zsh-completions
+pacman -S zsh-autosuggesstion
+pacman -S zsh-autosuggestion
+pacman -S zsh-autosuggestions
+cd ~/dotfile/shellrc
+vim zshsetting.zsh
+whoami --help
+echo $SHELL
+Hyprland
+cd ~/dotfile/config/kitty
+vim kitty.conf
+source ~/.zshrc
+bash
+cd dotfile/shellrc
+vim aliasrc.sh
+vim p10k.zsh
+cd ~/.config/kitty
+mv kitty.conf kitty.conf.bak
 exit
-: 1691940735:0;Hyprland
-: 1691940862:0;cd .config/hypr/configs
-: 1691940877:0;vim xwayland.conf
-: 1691940889:0;vim ../hyprland.conf
-: 1691940943:0;hyprctl --help
-: 1691940948:0;hyprctl reload
-: 1691940984:0;vim env.conf
-: 1691941012:0;hyprctl reload
-: 1691941203:0;vim env.conf
-: 1691941208:0;vim execs.conf
-: 1691941230:0;hyprctl reload
-: 1691941285:0;vim execs.conf
-: 1691941298:0;xprop
-: 1691941302:0;hyprctl reload
-: 1691941318:0;vim execs.conf
-: 1691941367:0;vim env.conf
-: 1691941379:0;cd ~/dotfile
-: 1691941386:0;cd config
-: 1691941390:0;cd eww
-: 1691941393:0;cd ..
-: 1691941396:0;rm -rf eww
-: 1691941407:0;cp ~/.config/eww ./eww
-: 1691941416:0;cp -rf ~/.config/eww ./eww
-: 1691941419:0;cd eww
-: 1691941422:0;cd ..
-: 1691941431:0;cd eww
-: 1691941446:0;cd ~/Downloads/dotfiles
-: 1691941458:0;cd .local/bin
-: 1691941462:0;cd ../share
-: 1691941468:0;cd ../../.config
-: 1691941472:0;cd hypr
-: 1691941477:0;vim binds.conf
-: 1691941504:0;cd ~/dotfile
-: 1691941512:0;sh ./script/gitclean.sh
+: 1698711693:0;cd ~/.config/kitty
+: 1698711696:0;mv kitty.conf.bak kitty.conf
+: 1698711708:0;cd ~/.config/kitty
+: 1698711711:0;vim kitty.conf
+: 1698711774:0;cd dotfile/config
+: 1698711789:0;vim hypr/configs/input.conf
+: 1698712031:0;pacman -S zsh-completions-git
+: 1698712046:0;pacman -S alacritty
+: 1698712057:0;vim hypr/configs/keybinds.conf
+: 1698712073:0;Hyprland
+: 1698712078:0;neofetch
+: 1698712098:0;pacman -Rns kitty
+: 1698712110:0;cd dotfile
+: 1698712132:0;git add . && git commit -m "change hypr display for mouse" && git push
+: 1698712144:0;git config --global user.name yingchangliu
+: 1698712158:0;git config --global user.email 58721349+yingchangliu@users.noreply.github.com
+: 1698712161:0;git add . && git commit -m "change hypr display for mouse" && git push
