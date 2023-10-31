@@ -16,5 +16,6 @@ source ~/.config/powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null
 source /usr/share/autojump/autojump.zsh 2>/dev/null
 autoload -Uz compinit
 compinit -u
+kitty + complete setup zsh | source /dev/stdin
 
 

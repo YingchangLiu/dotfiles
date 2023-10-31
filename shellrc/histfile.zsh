@@ -642,7 +642,6 @@ git clone https://github.com/daniel-koehn/DENISE-SH ./denise_sh
 git clone https://github.com/ahay/src
 git status
 paru -S watt-toolkit
-cd shellrc
 vim pathrc.sh
 vim gitclean.sh
 git push -f origin master
@@ -966,8 +965,6 @@ git add . && git commit "change conkyrc for wayland" && git push && git checkout
 git add . && git commit -m "change conkyrc for wayland" && git push && git checkout master
 >>>>>>> dev
 git add . && git commit -m "change conkyrc for wayland" && git push
-git config --global user.email 58721349+yingchangliu@users.noreply.github.com
-git config --global user.name yingchangliu
 vim README.md
 cd script
 vim ../README.md
@@ -1022,7 +1019,6 @@ cp -r ~/.config/hypr ./hypr
 rm -rf ~/.config/hypr
 pacman -S dunst
 pacman -S pipewire
-pacman -S xdg-desktop-portal-hyprland
 /usr/lib/xdg-desktop-portal
 vim ~/.config/autostart.sh
 cd ../script
@@ -1270,7 +1266,6 @@ pacman -S zsh-theme-powerlevel10k zsh-autosuggestions zsh-completions zsh-histor
 vim awesome/rc.lua
 vim river/init
 vim hypr/execs.conf
-cd dotfile/config
 cd eww.bak
 eww open -c ~/.config/eww.bak
 vim ~/.config/hypr/winrules.conf
@@ -1296,10 +1291,7 @@ mkdir kitty
 cd kitty
 rm -rf ~/.config/kitty
 sh install.sh
-mv kitty.conf.bak kitty.conf
 vim color.ini
-cd dotfile
-pacman -S alacritty
 alacritty
 dsg
 pac
@@ -1570,7 +1562,6 @@ cd hypr
 vim binds.conf
 cd ~/dotfile
 sh ./script/gitclean.sh
-neofetch
 pacman -S pkgfile
 pacman -S lsb_release
 pacman -S lsb-release
@@ -1581,46 +1572,66 @@ pacman -Fy
 sudo pkgfile -u
 pkgfile -u
 pacman -S zsh-
-vim ~/.zshrc
 cd ~/.config
 vim commonplugin.sh
 pacman -Syyu
 reboot
-vim zshplugin.zsh
 pacman -S zsh-completion
 pacman -S zsh-completions
 pacman -S zsh-autosuggesstion
 pacman -S zsh-autosuggestion
 pacman -S zsh-autosuggestions
 cd ~/dotfile/shellrc
-vim zshsetting.zsh
 whoami --help
 echo $SHELL
-Hyprland
 cd ~/dotfile/config/kitty
-vim kitty.conf
-source ~/.zshrc
 bash
 cd dotfile/shellrc
 vim aliasrc.sh
 vim p10k.zsh
-cd ~/.config/kitty
 mv kitty.conf kitty.conf.bak
+mv kitty.conf.bak kitty.conf
+cd ~/.config/kitty
+vim kitty.conf
+cd dotfile/config
+vim hypr/configs/input.conf
+pacman -S zsh-completions-git
+pacman -S alacritty
+vim hypr/configs/keybinds.conf
+neofetch
+cd dotfile
+git config --global user.name yingchangliu
+git config --global user.email 58721349+yingchangliu@users.noreply.github.com
+git add . && git commit -m "change hypr display for mouse" && git push
+pacman -Rns kitty
+pacman -S kitty
+vim ~/.zshrc
+cd shellrc
+vim zshsetting.zsh
+source ~/.zshrc
+vim zshplugin.zsh
+Hyprland
+pacman -Ss hyprland
+pacman -S xdg-desktop-portal-hyprland
+kitty
 exit
-: 1698711693:0;cd ~/.config/kitty
-: 1698711696:0;mv kitty.conf.bak kitty.conf
-: 1698711708:0;cd ~/.config/kitty
-: 1698711711:0;vim kitty.conf
-: 1698711774:0;cd dotfile/config
-: 1698711789:0;vim hypr/configs/input.conf
-: 1698712031:0;pacman -S zsh-completions-git
-: 1698712046:0;pacman -S alacritty
-: 1698712057:0;vim hypr/configs/keybinds.conf
-: 1698712073:0;Hyprland
-: 1698712078:0;neofetch
-: 1698712098:0;pacman -Rns kitty
-: 1698712110:0;cd dotfile
-: 1698712132:0;git add . && git commit -m "change hypr display for mouse" && git push
-: 1698712144:0;git config --global user.name yingchangliu
-: 1698712158:0;git config --global user.email 58721349+yingchangliu@users.noreply.github.com
-: 1698712161:0;git add . && git commit -m "change hypr display for mouse" && git push
+: 1698713092:0;Hyprland
+: 1698713095:0;kitty
+: 1698713109:0;pacman -Rns xdg-desktop-portal-hyprland
+: 1698713426:0;zsh
+: 1698713430:0;kitty
+: 1698713537:0;pacman -S less
+: 1698713655:0;vim .config/kitty/kitty.conf
+: 1698713748:0;kitty
+: 1698713759:0;pacman -S less
+: 1698713814:0;kitty --config NONE
+: 1698713876:0;vim .config/kitty/kitty.conf
+: 1698713986:0;pacman -Rns kitty
+: 1698713994:0;pacman -Qenq
+: 1698714015:0;poweroff
+: 1698793824:0;pacman -S kitty
+: 1698793836:0;pacman -Rns alacritty
+: 1698794173:0;vim .config/kitty/kitty.conf
+: 1698794190:0;vim .config/hypr/configs/keybinds.conf
+: 1698794205:0;cd dotfile
+: 1698794224:0;git add . && git commit -m "change terminal and kitty setting" && git push
