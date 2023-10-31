@@ -1635,3 +1635,5 @@ exit
 : 1698794190:0;vim .config/hypr/configs/keybinds.conf
 : 1698794205:0;cd dotfile
 : 1698794224:0;git add . && git commit -m "change terminal and kitty setting" && git push
+: 1698794248:0;sudo systemctl stop v2raya.service
+: 1698794252:0;git add . && git commit -m "change terminal and kitty setting" && git push
