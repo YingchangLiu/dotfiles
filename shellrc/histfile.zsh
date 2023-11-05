@@ -69,7 +69,6 @@ v2raya --lite
 vim histfile
 vim shellrc/history.sh
 cp history.sh history.zsh
-vim bashrc
 vim zshrc
 mv histfile histfile.zsh
 rm histfile
@@ -430,7 +429,6 @@ paru -S matlab-meta
 mv matlab.fix matlab.fik
 mkdir 2023_05_17_14_42_18/
 mv ./* 2023_05_17_14_42_18
-vim install.sh
 cp matlab.fik matlab.lic ~/code/
 git clone git@github.com:YingchangLiu/geosrc.git
 cd geosrc
@@ -526,7 +524,6 @@ rm -rf People robots.txt
 cd People/LZhu/downloads
 curl -O https://www.eas.slu.edu/People/LZhu/downloads/*
 curl -O https://www.eas.slu.edu/People/LZhu/downloads/
-rm \*
 curl -O https://www.eas.slu.edu/People/LZhu/downloads
 rm downloads
 curl -O https://www.eas.slu.edu/People/LZhu/downloads/*.tar
@@ -633,7 +630,6 @@ git branch -D master
 git branch -m master
 paru -S steam++
 paru -S watt
-cd ~/
 mkdir test
 cd test
 git clone https://github.com/daniel-koehn/DENISE-SH ./denise_sh
@@ -947,7 +943,6 @@ cp -r ~/code /data/code
 rm -rf code
 killall conky
 lsblk
-vim autostart.sh
 picom
 git add .
 git commit -m "change conkyrc for wayland"
@@ -1268,7 +1263,6 @@ dsg
 pac
 fcitx5
 pacman -Rns fcitx5-im
-pacman -S xdg-desktop-portal-wlr
 vim dotfile/environment/environment
 pacman -S fcitx5-im fcitx5-pinyin-moegirl
 pacman -S fcitx5-qt
@@ -1332,7 +1326,6 @@ sway
 vim ~/.config/sway/config
 pacman -Ss sway
 pkill -SIGUSR1 eww
-killall waybar
 pkill -SIGUSR1 waybar
 pacman -S vulkan-tools
 vkcube
@@ -1353,10 +1346,7 @@ aurupgrade
 checkkernel
 vim .config/hypr/hyprland.conf
 vim .config/hypr/configs/input.conf
-mv hypr hypr.bak
-mv hypr.bak hypr
 mv hypr/hypr.bak ..
-rm -rf hypr
 mv ../hypr.bak hypr
 vim .config/hypr/configs/decoration.conf
 cd /usr/share/hyprland
@@ -1443,7 +1433,6 @@ cd windows
 cd ../widgets
 cd assets
 cd wallpapers
-cd ../
 vim myshell/myshell
 vim hyprland
 vim theme
@@ -1464,7 +1453,6 @@ vim configs/animation.conf
 vim configs/layout.conf
 vim configs/misc.conf
 vim configs/monitors.conf
-vim hyprland.conf
 systemctl status v2raya.service
 pacman -Rns v2raya
 pacman -S v2raya
@@ -1479,13 +1467,10 @@ pacman -S v2raya-git
 sudo systemctl enable --now v2raya
 paru -S clash-for-windows-bin
 pacman -S nftables
-cd /usr/lib
 cd polkit-gnome
 ./polkit-gnome-authentication-agent-1
 killall clash-linux
-cd .config/hypr
 pwd
-cd .config/hypr/configs
 vim xwayland.conf
 vim ../hyprland.conf
 hyprctl --help
@@ -1638,17 +1623,13 @@ pacman -Ss dunst
 pacman -Qi rofi
 pacman -S dunst rofi
 pacman -S xdg-desktop-portal-hyprland
-cd dotfile/config
-cd hypr
 vim keybinds.conf
 cd dotfile/config/swhkd
 vim swhkdrc.wayland
 lspci
 cd dotfile/config/hypr
-cd configs
 lspci | grep -E 'VGA|3D'
 top | grep pts
-killall Hyprland
 vim env.conf
 pacman -Qi swkhd
 pacman -Qi cuda
@@ -1668,7 +1649,6 @@ pacman -Ss v2ray
 pacman -Qemq
 pacman -Qenq
 pacman -Ss udiske
-cd .config
 pacman -S ranger
 ranger
 pacman -Qi udiske
@@ -1686,7 +1666,6 @@ pacman -Qu
 pacman -S waybar
 fcitx5-config-qt
 env QT_QPA_PLATFORM=xcb fcitx5-configtool
-waybar
 pacman -S hyprland-nvidia-git
 pacman -Qen
 pacman -S linux
@@ -1708,7 +1687,6 @@ vim ~/.zshrc
 cd config/hypr
 pacman -S udiskie
 vim configs/execs.conf
-cd ~
 copyq --start-server
 copyq
 copyq show
@@ -1722,7 +1700,6 @@ copyq disable
 [200~fdf
 killall cliphist
 wl-paste
-exit
 reboot
 pacman -S clipman
 pacman -Rns clipman
@@ -1733,22 +1710,15 @@ wl-copy
 pacman -Rns cliphist
 pacman -S copyq
 cd dotfile/config/hypr/configs
-vim execs.conf
-Hyprland
 wl-clip-persist
 pacman -S obs-studio
-cd dotfile
-cd ~/.config
 cd copyq
 vim copyq.conf
 cd ...
 rm -rf copy
 rm -rf copyq
 mv fcitx fcitx5 ncmpcpp nekoray obs-studio ~/dotfile/config/
-cd ~/dotfile
-sh install.sh
 cd nekoray
-cd config
 vim neko.log
 rm -rf nekoray
 cd fcitx5
@@ -1759,25 +1729,58 @@ vim conf/chttrans.conf
 vim conf/notifications.conf
 vim conf/punctuation.conf
 vim conf/cached_layouts
-cd ..
 vim fcitx
-: 1699155620:0;cd dotfile
-: 1699155626:0;cd config
-: 1699155657:0;vim mpd/log
-: 1699155679:0;vim obs-studio/global.ini
-: 1699155697:0;vim obs-studio/basic/profiles/Untitled/basic.ini
-: 1699155710:0;rm -rf obs-studio
-: 1699155724:0;cd ..
-: 1699155730:0;cd ~/.config
-: 1699155741:0;rm -rf nekoray obs-studio
-: 1699155764:0;rm \*
-: 1699155773:0;cd ~/dotfile
-: 1699155781:0;cd config
-: 1699155787:0;cd ..
-: 1699155790:0;vim install.sh
-: 1699155801:0;sh install.sh
-: 1699155805:0;cd ~
-: 1699155814:0;cd .hyprland
-: 1699155818:0;cd ..
-: 1699155831:0;cd dotfile
-: 1699155857:0;git add . && git commit -m "update my settings for hyprland and wayland" && git push
+vim mpd/log
+vim obs-studio/global.ini
+vim obs-studio/basic/profiles/Untitled/basic.ini
+rm -rf obs-studio
+cd ~/.config
+rm -rf nekoray obs-studio
+rm \*
+vim install.sh
+sh install.sh
+cd .hyprland
+git add . && git commit -m "update my settings for hyprland and wayland" && git push
+vim hypr/hyprland.conf
+vim autostart.sh
+rm -rf eww.bak
+cd ../
+vim bashrc
+vim bash_profile
+mv powerlevel10k powerlevel10k.bak
+mv powerlevel10k.bak powerlevel10k
+cd ..
+cd ~/
+mv .config .config.bak
+rm -rf .config
+mv .config.bak .config
+cd dotfile
+killall hyprland
+killall Hyprland
+cd ~/dotfile
+cd config
+cd .config
+mv hypr hypr.bak
+rm -rf hypr
+mv hypr.bak hypr
+cd hypr
+cd .config/hypr
+vim hyprland.conf
+cd configs
+cd .config/hypr/configs
+vim ../scripts/xdph.sh
+cd /usr/lib
+pacman -S xdg-desktop-portal-wlr
+cd ~
+Hyprland
+cd dotfile/config
+killall waybar
+vim waybar/style.css
+vim waybar/config
+waybar
+cd hypr/configs
+vim execs.conf
+exit
+: 1699158489:0;Hyprland
+: 1699158497:0;cd dotfile
+: 1699158507:0;git add . && git commit -m "update waybar" && git push
