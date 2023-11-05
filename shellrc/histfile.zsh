@@ -2077,3 +2077,11 @@ exit
 : 1699196755:0;vim wlconkyrc
 : 1699198014:0;cd ~/dotfile
 : 1699198018:0;git add . && git commit -m "change the gaps of hyprland" && git push
+: 1699198048:0;conky --version
+: 1699198122:0;upgrade
+: 1699198127:0;poweroff
+: 1699198566:0;Hyprland
+: 1699198574:0;cd .config/conky
+: 1699198576:0;vim wlconkyrc
+: 1699199111:0;cd dotfile
+: 1699199123:0;git add . && git commit -m "change settings of conky on wayland" && git push

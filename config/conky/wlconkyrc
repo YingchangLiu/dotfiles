@@ -74,7 +74,7 @@ conky.config = {
 
 	--Placement
 
-	alignment = 'top_right',					-- top_left,top_middle,top_right,bottom_left,bottom_middle,bottom_right,
+	alignment = 'top_left',					-- top_left,top_middle,top_right,bottom_left,bottom_middle,bottom_right,
 												-- middle_left,middle_middle,middle_right,none
 	--Arch Duoscreen
 	gap_x = 10,									-- pixels between right or left border
