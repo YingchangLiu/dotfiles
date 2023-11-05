@@ -18,15 +18,24 @@
       "on-click": "activate",
       "all-outputs": true,
       "format-icons": {
-        "1": " ",
-        "2": " ",
-        "3": " ",
-        "4": " ",
-        "5": " ",
-        "6": " ",
-        "7": " ",
-        "8": " ",
-        "9": " ",
+        //"1": " ",
+        //"2": " ",
+        //"3": " ",
+        //"4": " ",
+        //"5": " ",
+        //"6": " ",
+        //"7": " ",
+        //"8": " ",
+        //"9": " ",
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8",
+        "9": "9",
         "urgent": " ",
         "active": " ",
         "default": " "
@@ -114,7 +123,7 @@
       "exec": "python3 ~/.config/waybar/scripts/weather.py",
       "restart-interval": 300,
       "return-type": "json",
-      "on-click": "xdg-open https://weather.com/en-IN/weather/today/l/a319796a4173829988d68c4e3a5f90c1b6832667ea7aaa201757a1c887ec667a"
+      "on-click": "xdg-open https://weather.com/en-IN/weather/today/l/11c24e55644a1b4dd4488aae2c4bbae14d0ba3817508bf7b5a2c7e54d84578d4"
     },   
 
    "custom/spotify": {

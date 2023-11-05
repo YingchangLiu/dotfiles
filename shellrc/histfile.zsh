@@ -1890,3 +1890,98 @@ exit
 : 1699182423:0;Hyprland
 : 1699182449:0;cd dotfile
 : 1699182467:0;git add . && git commit -m "set the waybar and weather script" && git push
+: 1699182517:0;killall waybar
+: 1699182519:0;waybar
+: 1699182552:0;cd config/waybar
+: 1699182558:0;vim config
+: 1699182570:0;xdg-open
+: 1699182658:0;waybar
+: 1699182822:0;upgrade
+: 1699182829:0;Hyprland
+: 1699183414:0;cd dotfile/config/waybar/
+: 1699183416:0;vim config
+: 1699183707:0;killall waybar
+: 1699183709:0;waybar
+: 1699183712:0;vim config
+: 1699183746:0;Hyprland
+: 1699185432:0;cd dotfile/config/hypr/configs
+: 1699185435:0;vim keybinds.conf
+: 1699185481:0;cd dotfile/config/swhkd
+: 1699185485:0;vim swhkdrc
+: 1699185722:0;Hyprland
+: 1699185726:0;cd dotfile/config/swhkd
+: 1699185728:0;vim swhkdrc
+: 1699185734:0;cd dotfile/config/hypr/configs
+: 1699185738:0;vim keybinds.conf
+: 1699185788:0;rofi --show drun
+: 1699185794:0;rofi drun
+: 1699185810:0;rofi --show run
+: 1699185819:0;rofi --show {drun}
+: 1699185836:0;rofi -show drun
+: 1699185932:0;wayout
+: 1699185965:0;pulsemixer
+: 1699186233:0;cd dotfile/config/hypr
+: 1699186238:0;cd scripts
+: 1699186257:0;cd ../../waybar
+: 1699186259:0;cd scripts
+: 1699186265:0;cd power-menu
+: 1699186269:0;vim powermenu.sh
+: 1699186284:0;vim shared/fonts.rasi
+: 1699186293:0;cd ..
+: 1699186326:0;cp -r power-menu ~/dotfile/script
+: 1699186369:0;Hyprland
+: 1699186409:0;cd dotfile/config/hypr
+: 1699186415:0;vim configs/keybinds.conf
+: 1699186457:0;Hyprland
+: 1699186471:0;sh ~/dotfile/script/power-menu/powermenu.sh
+: 1699186487:0;vim ~/.config/hypr/configs/keybinds.conf
+: 1699186510:0;Hyprland
+: 1699186531:0;cd dotfile/config/hypr
+: 1699186666:0;vim configs/decoration.conf
+: 1699186675:0;[A
+: 1699186685:0;Hyprland
+: 1699186700:0;cd dotfile/config/waybar
+: 1699186703:0;vim style.css
+: 1699186724:0;killall waybar
+: 1699186728:0;waybar
+: 1699186737:0;vim style.css
+: 1699187112:0;cd ../hypr
+: 1699187112:0;s
+: 1699187114:0;cd configs
+: 1699187120:0;vim decoration.conf
+: 1699187152:0;vim animation.conf
+: 1699187160:0;vim input.conf
+: 1699187166:0;vim misc.conf
+: 1699187184:0;vim winrules.conf
+: 1699187193:0;vim layout.conf
+: 1699187223:0;Hyprland
+: 1699187257:0;vim .config/hypr/configs/decoration.conf
+: 1699187267:0;vim .config/hypr/configs/layout.conf
+: 1699187277:0;Hyprland
+: 1699187302:0;vim .config/hypr/configs/layout.conf
+: 1699187372:0;Hyprland
+: 1699187380:0;vim .config/hypr/configs/layout.conf
+: 1699187690:0;Hyprland
+: 1699187702:0;vim .config/hypr/configs/layout.conf
+: 1699187711:0;Hyprland
+: 1699187737:0;cd dotfile/config/hypr
+: 1699187748:0;vim configs/winrules.conf
+: 1699187758:0;vim hyprland.conf
+: 1699187789:0;Hyprland
+: 1699187809:0;cd dotfile/config/hypr
+: 1699187819:0;vim configs/monitors.conf
+: 1699187829:0;vim configs/layout.conf
+: 1699187858:0;vim configs/misc.conf
+: 1699187868:0;vim configs/animation.conf
+: 1699187876:0;vim configs/decoration.conf
+: 1699187893:0;vim configs/xwayland.conf
+: 1699187901:0;vim configs/decoration.conf
+: 1699187909:0;vim configs/execs.conf
+: 1699187922:0;vim configs/winrules.conf
+: 1699187933:0;vim hyprland.conf
+: 1699187954:0;Hyprland
+: 1699187964:0;cd dotfile/config/hypr
+: 1699187965:0;vim hyprland.conf
+: 1699187989:0;Hyprland
+: 1699188010:0;cd dotfile
+: 1699188030:0;git add . && git commit -m "change the gaps of hyprland" && git push
