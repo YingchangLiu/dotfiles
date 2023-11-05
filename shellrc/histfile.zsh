@@ -1985,3 +1985,95 @@ exit
 : 1699187989:0;Hyprland
 : 1699188010:0;cd dotfile
 : 1699188030:0;git add . && git commit -m "change the gaps of hyprland" && git push
+: 1699189540:0;netcap --help
+: 1699189545:0;networkctl --help
+: 1699189558:0;networkctl list
+: 1699189562:0;networkctl status
+: 1699189590:0;networkctl status wlp0s20f3
+: 1699189624:0;cd dotfile/config/waybar
+: 1699189627:0;vim config
+: 1699189658:0;vim style.css
+: 1699189673:0;rm config.bak
+: 1699189675:0;cd scripts
+: 1699189682:0;cd ..
+: 1699189686:0;vim config
+: 1699189829:0;pacman -S conky
+: 1699189837:0;wireless
+: 1699189845:0;pacman -Q wireless_tools
+: 1699189850:0;pacman -Ql wireless_tools
+: 1699189865:0;iwlist
+: 1699189870:0;iwevent
+: 1699189876:0;iwgetid
+: 1699189894:0;pacman -Qi wireless_tools
+: 1699189903:0;pacman -Si wireless_tools
+: 1699189950:0;pacman -Ql imlib2
+: 1699189961:0;conky
+: 1699189970:0;conky -c ~/.config/conky/conkyrc
+: 1699189988:0;cd ~/.config/conky
+: 1699189992:0;vim conkyrc
+: 1699190013:0;conky -c ~/.config/conky/conkyrc
+: 1699190032:0;killall conky
+: 1699190046:0;conky -c ~/.config/conky/conkyrc
+: 1699190095:0;pacman -Rns conky
+: 1699190645:0;cd ~/.config/conky
+: 1699190646:0;vim conkyrc
+: 1699190802:0;pacman -S conky
+: 1699190808:0;conky -c ~/.config/conky/conkyrc
+: 1699190845:0;cd ~/.config/conky
+: 1699190873:0;cp conkyrc wlconkyrc
+: 1699190884:0;vim conkyrc
+: 1699190910:0;killall conky
+: 1699190926:0;cd ~/dotfile/config/hypr/configs
+: 1699190929:0;vim execs.conf
+: 1699190942:0;Hyprland
+: 1699190976:0;cd .config/conky
+: 1699190981:0;vim wlconkyrc
+: 1699191419:0;cd ~/dotfile/config/hypr/configs
+: 1699191424:0;vim decoration.conf
+: 1699191438:0;Hyprland
+: 1699191449:0;cd ~/dotfile/config/hypr/configs
+: 1699191450:0;vim decoration.conf
+: 1699191680:0;Hyprland
+: 1699191690:0;cd ~/dotfile/config/hypr/configs
+: 1699191691:0;vim decoration.conf
+: 1699191741:0;killall conky
+: 1699191747:0;get_nvidia_barval
+: 1699191752:0;conky -c ~/.config/conky/conkyrc
+: 1699191757:0;killall conky
+: 1699191764:0;Hyprland
+: 1699191771:0;cd .config/conky
+: 1699191777:0;vim wlconkyrc
+: 1699191813:0;lablk
+: 1699191814:0;lsblk
+: 1699191950:0;vim wlconkyrc
+: 1699192016:0;nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t | awk '{printf ("%.2f G", $1 / 1024)
+: 1699192021:0;nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t | awk '{printf ("%.2f G", $1 / 1024)'
+: 1699192042:0;nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t | awk '{printf ("%.2f G", $1 / 1024)}'}
+: 1699192063:0;nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t | awk '{printf ("%.2f G", $1 / 1024)}'
+: 1699192096:0;conky -c ~/.config/conky/wlconkyrc
+: 1699192233:0;cd .config/conky
+: 1699192234:0;vim wlconkyrc
+: 1699192630:0;conky -c ~/.config/conky/wlconkyrc
+: 1699194034:0;killall conky
+: 1699194041:0;conky -c ~/.config/conky/wlconkyrc
+: 1699194372:0;killall conky
+: 1699194374:0;conky -c ~/.config/conky/wlconkyrc
+: 1699194455:0;echo $DISPLAY
+: 1699194466:0;conky -c ~/.config/conky/wlconkyrc
+: 1699194628:0;cd dotfile/config/hypr/configs
+: 1699194631:0;vim env.conf
+: 1699194650:0;Hyprland
+: 1699194654:0;conky -c ~/.config/conky/wlconkyrc
+: 1699194662:0;killall conky
+: 1699194667:0;sl
+: 1699194675:0;conky -c ~/.config/conky/wlconkyrc 2>/dev/null
+: 1699194683:0;cd dotfile/config/hypr/configs
+: 1699194684:0;vim env.conf
+: 1699194698:0;vim execs.conf
+: 1699194716:0;Hyprland
+: 1699194733:0;cd .config/conky
+: 1699194741:0;vim wlconkyrc
+: 1699196754:0;cd .config/conky
+: 1699196755:0;vim wlconkyrc
+: 1699198014:0;cd ~/dotfile
+: 1699198018:0;git add . && git commit -m "change the gaps of hyprland" && git push

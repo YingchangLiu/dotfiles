@@ -55,6 +55,8 @@
 
 conky.config = {
     
+    out_to_x = false,
+    out_to_wayland = true,
 
 	--Various settings
     background = true, 							-- forked to background
@@ -72,13 +74,12 @@ conky.config = {
 
 	--Placement
 
-	alignment = 'middle_right',					-- top_left,top_middle,top_right,bottom_left,bottom_middle,bottom_right,
+	alignment = 'top_right',					-- top_left,top_middle,top_right,bottom_left,bottom_middle,bottom_right,
 												-- middle_left,middle_middle,middle_right,none
 	--Arch Duoscreen
-	--gap_x = -1910,
-	gap_x = 15,									-- pixels between right or left border
-	gap_y = 0,									-- pixels between bottom or left border
-	minimum_height = 600,						-- minimum height of window
+	gap_x = 10,									-- pixels between right or left border
+	gap_y = 10,									-- pixels between bottom or left border
+	minimum_height = 300,						-- minimum height of window
 	minimum_width = 300,						-- minimum height of window
 	maximum_width = 300,						-- maximum height of window
 
@@ -126,7 +127,10 @@ conky.config = {
 	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',  -- if own_window true - just hints - own_window_type sets it
 	own_window_transparent = true,				-- if own_window_argb_visual is true sets background opacity 0%
 	own_window_title = 'system_conky',			-- set the name manually  - default conky "hostname"
-	own_window_type = 'desktop',				-- if own_window true options are: normal/override/dock/desktop/panel
+	own_window_type = 'normal',				    -- if own_window true options are: normal/override/dock/desktop/panel
+    
+    --Display
+    nvidia_display = ':0',
 
 	--Colours
 
@@ -190,8 +194,8 @@ conky.config = {
 };
 
 conky.text = [[\
-${color6}${voffset 4}${font GE Inspira:size=36}${alignc}${time %H}:${time %M}${font}${color}
-${color6}${voffset 4}${font GE Inspira:size=12}${alignc}${time %A} ${time %B} ${time %e}, ${time %Y}${font}${color}
+${color6}${voffset 3}${font GE Inspira:size=34}${alignc}${time %H}:${time %M}${font}${color}
+${color6}${voffset 3}${font GE Inspira:size=12}${alignc}${time %A} ${time %B} ${time %e}, ${time %Y}${font}${color}
 #\
 #\
 #${if_existing /proc/net/route wlp0s20f3}\
@@ -237,18 +241,18 @@ ${color6}${voffset 4}${font GE Inspira:size=12}${alignc}${time %A} ${time %B} ${
 #\
 #\
 #${color5}${font Roboto:size=10}${voffset -15}S Y S T E M   ${hr 2}${font}${color}${voffset 2}
-${color5}${voffset 4}${font Roboto:size=10}S Y S T E M  ${hr 2}${font}${color}${voffset 2}
+${color5}${voffset 3}${font Roboto:size=10}S Y S T E M  ${hr 2}${font}${color}${voffset 2}
 ${color2}User:${color} ${alignr}${user_names}@${nodename}
 ${color2}Distro:${color}${alignr} ${alignr}${execi 6000 lsb_release -a | grep 'Description'|awk {'print $2,$3 '}}
 ${color2}Kernel:${color}${alignr}${exec uname} ${exec uname -r}
 ${color2}Packages:${color}${alignr} ${execi 600 pacman -Qq | wc -l} (${execi 600 checkupdates | wc -l} update)
 ${color2}Uptime:${color} ${alignr}${uptime}
 ${color2}Battery:${color}${goto 80}${battery_time}${alignr}${battery_bar}${alignr}
-${color5}${voffset 4}${font Roboto:size=10}C P U  ${hr 2}${font}${color}${voffset 2}
+${color5}${voffset 3}${font Roboto:size=10}C P U  ${hr 2}${font}${color}${voffset 2}
 ${color2}Name:${color}${alignr}${execp  env LANG=en_US.UTF-8 lscpu | sed -nr '/Model name/ s/.*:\s*(.*) CPU .*/\1/p'}
 ${color2}Frequency:${color} $alignr${freq_g (1)} GHz
 ${color2}Temperature:${color} $alignr${execi 30 sensors | grep 'Core 0' | awk {'print $3'}}
-${color2}Usage:${color}${alignr}${cpu}% ${color} ${cpugraph 15,100}
+${color2}Usage:${color}${alignr}${cpu}% ${color} ${cpubar 15,100}
 ${cpubar cpu1 8,72} ${cpubar cpu2 8,72} ${cpubar cpu3 8,72} ${cpubar cpu4 8,72}
 ${cpubar cpu5 8,72} ${cpubar cpu6 8,72} ${cpubar cpu7 8,72} ${cpubar cpu8 8,72}
 #
@@ -264,34 +268,34 @@ ${cpubar cpu5 8,72} ${cpubar cpu6 8,72} ${cpubar cpu7 8,72} ${cpubar cpu8 8,72}
 ${color2}Processes: ${color}${alignr}$processes ($running_processes running)
 ${color2}Threads: ${color}${alignr}$threads ($running_threads running)
 ${color2}     Highest${goto 200} CPU%${goto 280}PID${color}
-${voffset 4}\
+${voffset 2}\
      1  -  ${top name 1}${alignr} ${goto 200}${top cpu 1} ${goto 260}${top pid 1}
      2  -  ${top name 2}${alignr} ${goto 200}${top cpu 2} ${goto 260}${top pid 2}
      3  -  ${top name 3}${alignr} ${goto 200}${top cpu 3} ${goto 260}${top pid 3}
      4  -  ${top name 4}${alignr} ${goto 200}${top cpu 4} ${goto 260}${top pid 4}
-${color5}${voffset 4}${font Roboto:size=10}G P U  ${hr 2}${font}${color}${voffset 2}
+${color5}${voffset 3}${font Roboto:size=10}G P U  ${hr 2}${font}${color}${voffset 2}
 ${color2}Name:${color}${alignr}${execp  nvidia-smi --query-supported-clocks=gpu_name --format=csv,noheader}
 ${color2}Version:${color}${alignr}${execi 60000 nvidia-smi | grep "Driver Version"| awk {'print $3'}}
 ${color2}Temperature:${color}${alignr}${execi 10 nvidia-settings -t -q [gpu:0]/GPUCoreTemp} °C
 ${color2}Menory:${color}${alignr}${execi 10 nvidia-settings -q [gpu:0]/UsedDedicatedGPUMemory -t| awk '{if ($1 > 1024){printf ("%.2f G", $1 /1024)}else {printf ("%d M",$1)}}'} / ${exec nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t | awk '{printf ("%.2f G", $1 / 1024)}'}  ${nvidiabar memutil}
-${color5}${voffset 4}${font Roboto:size=10}G E N E R A L   ${hr 2}${font}${color}${voffset 2}
+${color5}${voffset 3}${font Roboto:size=10}G E N E R A L   ${hr 2}${font}${color}${voffset 2}
 ${color2}RAM: ${color}${alignr}${offset -10}${mem} / ${memmax}${alignr}${membar}
 ${color2}Swap:${color} ${alignr}${offset -10}${swap} / ${swapmax}${alignr}${swapbar}
 ${color2}     Highest${goto 200} MEM${goto 280}PID${color}
-${voffset 4}\
+${voffset 2}\
      1  -  ${top_mem name 1}${alignr} ${goto 200}${top_mem mem_res 1} ${goto 260}${top_mem pid 1}
      2  -  ${top_mem name 2}${alignr} ${goto 200}${top_mem mem_res 2} ${goto 260}${top_mem pid 2}
      3  -  ${top_mem name 3}${alignr} ${goto 200}${top_mem mem_res 3} ${goto 260}${top_mem pid 3}
      4  -  ${top_mem name 4}${alignr} ${goto 200}${top_mem mem_res 4} ${goto 260}${top_mem pid 4}
-${color5}${voffset 4}${font Roboto:size=10}D I S K S   ${hr 2}${font}${color}${voffset 2}
+${color5}${voffset 3}${font Roboto:size=10}D I S K S   ${hr 2}${font}${color}${voffset 2}
 ${offset 20}${color2}Root:${color} ${alignr}${offset -10}${fs_used /} / ${fs_size /}${alignr}${fs_bar}
 ${offset 30}${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/nvme0n1}${alignr}${diskiograph_read /dev/nvme0n1 8,100 000000 FFFFFF}
 ${offset 30}${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /dev/nvme0n1}${alignr}${diskiograph_write /dev/nvme0n1 8,100 000000 FFFFFF}
-${voffset 5}\
-${offset 20}${color2}Document :${color} ${alignr}${offset -10}${fs_used /data} / ${fs_size /data}${alignr}${fs_bar /data}
-${offset 30}${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/sda5}${alignr}${diskiograph_read /dev/sda5 8,100 000000 FFFFFF}
-${offset 30}${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /dev/sda5}${alignr}${diskiograph_write /dev/sda5 8,100 000000 FFFFFF}
-${voffset 5}\
+${voffset 3}\
+${offset 20}${color2}Home :${color} ${alignr}${offset -10}${fs_used /home} / ${fs_size /home}${alignr}${fs_bar /home}
+${offset 30}${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/sda}${alignr}${diskiograph_read /dev/sda 8,100 000000 FFFFFF}
+${offset 30}${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /dev/sda}${alignr}${diskiograph_write /dev/sda 8,100 000000 FFFFFF}
+${voffset 3}\
 #${offset 20}${color2}Code :${color} ${alignr}${offset -10}${fs_used /run/media/code} / ${fs_size /run/media/code}${alignr}${fs_bar /run/media/code}
 #${offset 30}${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/sda5}${alignr}${diskiograph_read sda5 8,100}
 #${offset 30}${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /dev/sda5}${alignr}${diskiograph_write sda5 8,100}
