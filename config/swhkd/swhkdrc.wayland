@@ -1,6 +1,6 @@
 
 super + return
-	alacritty
+	kitty
 
 super + Escape
     pkill -usr1 -x swhkd

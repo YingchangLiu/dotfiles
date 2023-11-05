@@ -391,7 +391,6 @@ cd hypoinverse_corr
 bash run_hypoinverse_corr.sh 1
 bash run_hypoinverse_corr.sh 0
 git commit -m 'Add Arch logo for gnome shell'
-cd pkgbuilds
 rm -r matlab
 git clone https://github.com/joelsgp-pkgbuild/matlab
 rm -rf .git .gitignore .SRCINFO
@@ -452,7 +451,6 @@ export LD_LIBRARY_PATH=/usr/lib/xorg/modules/drivers:
 env MESA_LOADER_DRIVER_OVERRIDE=i965 matlab -nodesktop -nosplash -r "opengl info; exit" | grep Software
 export LD_PRELOAD=/usr/lib/libstdc++.so; export LD_LIBRARY_PATH=/usr/lib/xorg/modules/dri/; matlab -nodesktop -nosplash -r "opengl info; exit" | grep Software
 cd pkg
-cd matlab
 cd ../matlabroot
 rm -rf pkg
 df
@@ -713,8 +711,6 @@ vim reduceInteger.cu
 cd ../4_sum_arrays_timer
 vim sum_arrays_timer.cu
 git commit -m "add an alias for grub-install"
-\
-
 dconf reset /com/github/repsac-by/quake-mode/accelerators/quake-mode-accelerator-2
 dconf reset /com/github/repsac-by/quake-mode/apps/app-2
 git show
@@ -915,13 +911,9 @@ aa
 pkgfile fastfetch
 pacman -S fastfetch
 pacman -Rns fastfetch
-update
-nvcc --version
 whereis nvcc
 which nvcc
 vim $SHELLROOT/pathrc.sh
-pacman -Qemq
-pacman -Qen
 pacman -Qn
 pacman -Qg
 pacman -Ql
@@ -976,13 +968,11 @@ cd bin
 vim background-changer
 ./background-changer
 ~/dotfile/config/bin/background-changer
-lspci | grep -E 'VGA|3D'
 cd dotfile/wallpaper
 vim ~/dotfile/config/hypr.bak/hyprland.conf
 pacman -S fcitx5-im
 vim ~/dotfile/shellrc/zshplugin.zsh
 pacman -S btop
-pacman -S linux
 vim /etc/mkinitcpio.conf
 vim /etc/mkinitcpio.d/linux.preset
 pacman -S hyprland-git
@@ -1005,7 +995,6 @@ brillo -u 150000 -U 2
 vim hyprpicker
 ./hyprpicker
 ./hyprPicker.sh
-wl-paste
 ./screensharing.sh
 ./screenshots.sh
 grimblast
@@ -1048,10 +1037,8 @@ pacman -Rns polkit-qt5
 pacman -S swww
 swaybg -o \* -i ~/dotfile/wallpapers/* -m fill
 swaybg -o \* -i ~/dotfile/wallpaper/Arisa_With_The_Fairies.png
-pacman -S obs-studio
 paru -S xwaylandvideobridge-bin
 xwaylandvideobridge
-pacman -S rofi
 rofi
 vim ~/.config/rofi
 cd ~/.config/rofi
@@ -1064,7 +1051,6 @@ windowrulev2 = noanim,class:^(xwaylandvideobridge)$
 windowrulev2 = nofocus,class:^(xwaylandvideobridge)$
 pacman -S wl-clipboard
 vim scripts/hyprPicker.sh
-wl-copy
 which hyprpicker
 cd /usr/bin
 cp hyprpicker ~/.config/hypr/scripts/hyprpicker..
@@ -1072,7 +1058,6 @@ cp hyprpicker ~/.config/hypr/scripts/hyprpicker..
 mv hyprpicker.. hyprpicker
 vim hyprPicker.sh
 pacman -Rns hyprpicker
-pacman -S udiskie
 vim windows/music.yuck
 vim battery
 vim music
@@ -1088,7 +1073,6 @@ pacman -S light
 pkgfile brillo
 paru -S brillo
 brillo
-vim scripts/brightness
 whoami
 whoami -h
 groups
@@ -1099,7 +1083,6 @@ pamixer --get-volume
 pamixer
 pamon
 pacman -Rns pamixer light brillo
-pacman -S hyprland-nvidia-git
 hyprctl version
 cd /usr/lib/kitty/
 cd kitt
@@ -1108,7 +1091,6 @@ conky -c ~/.config/conky/conkyrc
 checkclass
 pacman -Rns wl-clipboard
 pacman -Rns wl-clipboard clipman
-pacman -S clipman
 pacman -Rns zsh*
 pacman -Rns (pacman -Qenq | grep zsh )
 cd dotfile/script
@@ -1122,8 +1104,6 @@ xeyes
 pacman -S albert
 pacman -Ss albert
 paru -Ss albert
-pacman -S eww
-pacman -S eww-x11
 eww
 eww -c ~/.config/eww.bak/eww.yuck
 eww -c ~/.config/eww.bak
@@ -1137,11 +1117,9 @@ vim bar/scripts/battery
 pacman -Ss comic
 pacman -Ss aweosme
 pacman -Ss aweosome
-pacman -Ss awesome
 pacman -S ttf-font-awesome
 sudo systemctl enable bluetooth
 git clone https://github.com/end-4/dots-hyprland
-cd dotfile/config/hypr
 cp hyprland.conf environment.conf
 vim environment.conf
 mv environment.conf env.conf
@@ -1172,9 +1150,6 @@ mkdir variable
 rm -rf variable
 cp hyprland.conf color.conf
 vim color.conf
-cd config/hypr
-cd waybar
-vim config
 vim mako/config
 vim dunst/dunstrc
 hyprctl clients
@@ -1209,7 +1184,6 @@ vim ../autostart.sh
 dunst
 top | grep dunst
 btop | grep dunst
-notify-send 'hello'
 eww open -c ./eww.yuck
 eww open -c ./eww.yuck bar
 eww open -c ~/.config/eww/example bar close
@@ -1259,7 +1233,6 @@ sudo pacman -Syyu
 pacman -Ss lib32-libxml2
 pacman -S lib32-libxml2 libxml2
 sudo vim /etc/pacman.conf
-sudo vim /etc/pacman.d/mirrorlist
 pacman -Rns zsh-theme-powerlevel10k zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting
 pacman -Rns zsh
 pacman -S zsh-theme-powerlevel10k zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting
@@ -1273,7 +1246,6 @@ vim ~/.config/hypr/animation.conf
 vim ~/.config/hypr/decoration.conf
 vim ~/.config/hypr/input.conf
 vim ~/.config/hypr/layout.conf
-pacman -S hyprland-nvidia
 vim modules/launcher.yuck
 vim modules/bluetooth.yuck
 vim modules/bright.yuck
@@ -1290,16 +1262,11 @@ cd ~/dotfile/config
 mkdir kitty
 cd kitty
 rm -rf ~/.config/kitty
-sh install.sh
 vim color.ini
 alacritty
 dsg
 pac
-pacman -S waybar
 fcitx5
-vim conf/notifications.conf
-vim conf/cached_layouts
-vim profile
 pacman -Rns fcitx5-im
 pacman -S xdg-desktop-portal-wlr
 vim dotfile/environment/environment
@@ -1312,7 +1279,6 @@ xcb
 pacman -S eglfs
 vim .config/hypr/env.conf
 echo QT_QPA_PLATFORM=xcb
-fcitx5-config-qt
 pacman -S fcitx5-chinese-addons fcitx5-pinyin-moegirl
 killall fcitx5
 fcitx5 &
@@ -1334,9 +1300,6 @@ s
 pacman -Q qt5ct
 pacman -S qt5ct
 pacman -S libva
-pacman -S qt5-wayland
-pacman -S qt6-wayland
-pacman -Qenq
 export QT_QPA_PLATFORM="wayland;xcb"
 ob
 pacman -S nvidia-vaapi-driver-git
@@ -1361,16 +1324,13 @@ pacman -Rns fcitx5-chinese-addons
 pacman -Rns fcitx5-gtk
 pacman -S fcitx5-im fcitx5-chinese-addons
 QT_QPA_PLATFORM=xcb fcitx5-configtool
-env QT_QPA_PLATFORM=xcb fcitx5-configtool
 pacman -Rns fcitx5-im fcitx5-chinese-addons
 pacman -S sway
 vim ~/.config/conky/conkyrc
 firefox
-nvidia-smi
 sway
 vim ~/.config/sway/config
 pacman -Ss sway
-waybar
 pkill -SIGUSR1 eww
 killall waybar
 pkill -SIGUSR1 waybar
@@ -1383,24 +1343,18 @@ eww close bar
 eww open -c ~/.config/eww.bak bar
 vim ~/.config/hypr/env.conf
 vim ~/.config/hypr/keybinds.conf
-vim ~/.config/hypr/execs.conf
-pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-moegirl
-fcitx5-configtool
 mkdir configs
 mv ./*.conf configs
-cd configs
 mv hyprland.conf ../hyprland.conf
 mv display.conf monitors.conf
 mv simpleconfig.conf ../
 date
-poweroff
 aurupgrade
 checkkernel
 vim .config/hypr/hyprland.conf
 vim .config/hypr/configs/input.conf
 mv hypr hypr.bak
 mv hypr.bak hypr
-cd ~
 mv hypr/hypr.bak ..
 rm -rf hypr
 mv ../hypr.bak hypr
@@ -1412,10 +1366,8 @@ vim .config/hypr/configs/layout.conf
 vim .config/hypr/configs/animation.conf
 vim .config/hypr/configs/color.conf
 run-help 9u
-vim .config/hypr/configs/keybinds.conf
 vim misc.conf
 vim monitors.conf
-vim keybinds.conf
 vim animation.conf
 vim decoration.conf
 vim layout.conf
@@ -1431,15 +1383,12 @@ hyprctl monitors -j | jq '.[] | select(.focused) | .activeWorkspace.id'
 hyprctl monitors -j
 mkdir eww
 eww open -c ~/eww/ example
-cd Downloads
 git clone https://github.com/Aylur/dotfiles.git
 cd dotfiles
 git checkout eww
-cd .config
 vim hypr/settings.conf
 vim topbar.yuck
 pacman -Rns ttf-ubuntu-nerd
-pacman -Ss nerd
 pacman -S socat
 pacman -S jq
 pacman -S acpi
@@ -1473,7 +1422,6 @@ vim configs/keybinds.conf
 wlogout
 wllogout
 pacman -Ss logout
-btop
 pomotroid --in-process-gpu
 cd yuck
 vim widgets.yuck
@@ -1518,8 +1466,6 @@ vim configs/misc.conf
 vim configs/monitors.conf
 vim hyprland.conf
 systemctl status v2raya.service
-upgrade
-sudo needrestart
 pacman -Rns v2raya
 pacman -S v2raya
 sudo systemctl restart v2ray.service
@@ -1538,7 +1484,6 @@ cd polkit-gnome
 ./polkit-gnome-authentication-agent-1
 killall clash-linux
 cd .config/hypr
-vim configs/execs.conf
 pwd
 cd .config/hypr/configs
 vim xwayland.conf
@@ -1546,21 +1491,15 @@ vim ../hyprland.conf
 hyprctl --help
 xprop
 hyprctl reload
-vim execs.conf
-vim env.conf
-cd config
 rm -rf eww
 cp ~/.config/eww ./eww
 cp -rf ~/.config/eww ./eww
-cd ..
 cd eww
 cd ~/Downloads/dotfiles
 cd .local/bin
 cd ../share
 cd ../../.config
-cd hypr
 vim binds.conf
-cd ~/dotfile
 sh ./script/gitclean.sh
 pacman -S pkgfile
 pacman -S lsb_release
@@ -1568,14 +1507,10 @@ pacman -S lsb-release
 pacman -S zsh-completions zsh-syntax-highlighting zsh-theme-powerlevel10k
 lsb
 fastfetch
-pacman -Fy
 sudo pkgfile -u
 pkgfile -u
 pacman -S zsh-
-cd ~/.config
 vim commonplugin.sh
-pacman -Syyu
-reboot
 pacman -S zsh-completion
 pacman -S zsh-completions
 pacman -S zsh-autosuggesstion
@@ -1593,47 +1528,256 @@ mv kitty.conf kitty.conf.bak
 mv kitty.conf.bak kitty.conf
 cd ~/.config/kitty
 vim kitty.conf
-cd dotfile/config
 vim hypr/configs/input.conf
 pacman -S zsh-completions-git
 pacman -S alacritty
 vim hypr/configs/keybinds.conf
-neofetch
-cd dotfile
 git config --global user.name yingchangliu
 git config --global user.email 58721349+yingchangliu@users.noreply.github.com
 git add . && git commit -m "change hypr display for mouse" && git push
-pacman -Rns kitty
-pacman -S kitty
-vim ~/.zshrc
 cd shellrc
 vim zshsetting.zsh
 source ~/.zshrc
 vim zshplugin.zsh
-Hyprland
 pacman -Ss hyprland
-pacman -S xdg-desktop-portal-hyprland
+pacman -Rns xdg-desktop-portal-hyprland
+zsh
 kitty
+pacman -S less
+kitty --config NONE
+pacman -Rns kitty
+pacman -S kitty
+pacman -Rns alacritty
+vim .config/kitty/kitty.conf
+vim .config/hypr/configs/keybinds.conf
+sudo systemctl stop v2raya.service
+git add . && git commit -m "change terminal and kitty setting" && git push
+sudo needrestart
+pacman -Syyu
+ncmpcpp
+vim scripts
+pacman -Ss clash
+pacman -S clash-verge
+vim ~/.config/hypr/execs.conf
+vim ~/.config/hypr/configs/execs.conf
+mv waybar waybar.bak
+vim ~/.config/hypr/configs/keybinds.conf
+rm waybar
+cp /etc/xdg/waybar ~/.config/
+cp -r /etc/xdg/waybar ~/.config/
+cd waybar
+cd dotfile/config/waybar.bak
+vim style.css
+ld
+cd Downloads
+git clone https://github.com/linuxmobile/hyprland-dots/
+pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-moegirl
+pacman -Rns qt6-wayland
+pacman -Ss xdg-desktop
+mv waybar.bak waybar
+rm -rf waybar
+cd pkgbuilds
+cd matlab
+sudo vim /etc/pacman.d/mirrorlist
+pacman -Rns nvidia-utils
+pacman -h
+pacman -Qh
+pacman -Ss ttf
+pacman -Ss nerd
+pacman -S qqmusic
+paru -Ss qqmusic
+vim ~/dotfile/config/waybar
+vim ~/dotfile/config/waybar/style.css
+pacman -Ss otf-awesome
+pacman -Ss awesome
+pacman -S rofi
+notify-send 'hello'
+pacman -Syy
+pacman -S kitty-git
+pacman -Ss kitty
+pacman -S qt6-wayland
+pacman -S telegram
+nekoray
+nekoray --many
+cd profiles
+killall nekoray
+nekoray -many
+pacman -Ss qqnt
+pacman -Ss qq
+pacman -Qi neofetch
+pacman -Sh
+cd ~/dotfile/config/hypr/
+vim scripts/startpage.sh
+vim scripts/brightness
+fcitx5-configtool
+pacman -S qt5-wayland
+pacman -Si qt5-wayland
+pacman -Q qt5-wayland
+pacman -Q qt5-
+pacman -Q qt5
+pacman -Qi qt5-wayland
+pacman -Qi qt6-wayland
+cd ../waybar
+cp config config.bak
+sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+timeshift-launcher
+sudo -E timeshift
+sudo -E timeshift-laucher
+cleanup
+sudo -E timeshift-launcher
+update
+pacman -S telegram-desktop
+pacman -S rofi dunst
+pacman -Si dunst
+pacman -Fy
+pacman -Qi dunst
+pacman -Qi libnotify
+pacman -Qi dunstify
+pacman -Q dunst
+pacman -Ss dunst
+pacman -Qi rofi
+pacman -S dunst rofi
+pacman -S xdg-desktop-portal-hyprland
+cd dotfile/config
+cd hypr
+vim keybinds.conf
+cd dotfile/config/swhkd
+vim swhkdrc.wayland
+lspci
+cd dotfile/config/hypr
+cd configs
+lspci | grep -E 'VGA|3D'
+top | grep pts
+killall Hyprland
+vim env.conf
+pacman -Qi swkhd
+pacman -Qi cuda
+pacman -Si sxhkd
+pacman -Si swhkd
+pacman -Ss swkhd
+pacman -Ss swhkd
+paru -Ss swhkd
+pacman -S otf-font-awesome
+pacman -Rns waybar
+pacman -S yambar
+paru -Ss yambar
+pacman -Sy
+paru -S yambar
+pacman -S nekoray
+pacman -Ss v2ray
+pacman -Qemq
+pacman -Qenq
+pacman -Ss udiske
+cd .config
+pacman -S ranger
+ranger
+pacman -Qi udiske
+pacman -Ss udisk
+pacman -Qi udiskie
+pacman -Qi udisks2
+pacman -Si udisks2
+pacman -S eww
+pacman -S eww-x11
+pacman -Rns eww
+pacman -Rns eww-wayland
+pacman -Qs
+pacman -Su
+pacman -Qu
+pacman -S waybar
+fcitx5-config-qt
+env QT_QPA_PLATFORM=xcb fcitx5-configtool
+waybar
+pacman -S hyprland-nvidia-git
+pacman -Qen
+pacman -S linux
+
+pacman -S hyprland-nvidia
+nvcc --version
+nvidia-smi
+btop
+top
+log
+upgrade
+vim ~/.config/hypr/configs/animation.conf
+vim ~/.config/hypr/configs/decoration.conf
+vim ~/.config/hypr/configs/monitors.conf
+vim ~/.config/hypr/configs/misc.conf
+cd dotfile/config/waybar
+poweroff
+vim ~/.zshrc
+cd config/hypr
+pacman -S udiskie
+vim configs/execs.conf
+cd ~
+copyq --start-server
+copyq
+copyq show
+copyq config
+copyq --help
+copyq enable
+copyq read
+cliq
+clip
+copyq disable
+[200~fdf
+killall cliphist
+wl-paste
 exit
-: 1698713092:0;Hyprland
-: 1698713095:0;kitty
-: 1698713109:0;pacman -Rns xdg-desktop-portal-hyprland
-: 1698713426:0;zsh
-: 1698713430:0;kitty
-: 1698713537:0;pacman -S less
-: 1698713655:0;vim .config/kitty/kitty.conf
-: 1698713748:0;kitty
-: 1698713759:0;pacman -S less
-: 1698713814:0;kitty --config NONE
-: 1698713876:0;vim .config/kitty/kitty.conf
-: 1698713986:0;pacman -Rns kitty
-: 1698713994:0;pacman -Qenq
-: 1698714015:0;poweroff
-: 1698793824:0;pacman -S kitty
-: 1698793836:0;pacman -Rns alacritty
-: 1698794173:0;vim .config/kitty/kitty.conf
-: 1698794190:0;vim .config/hypr/configs/keybinds.conf
-: 1698794205:0;cd dotfile
-: 1698794224:0;git add . && git commit -m "change terminal and kitty setting" && git push
-: 1698794248:0;sudo systemctl stop v2raya.service
-: 1698794252:0;git add . && git commit -m "change terminal and kitty setting" && git push
+reboot
+pacman -S clipman
+pacman -Rns clipman
+pacman -S cliphist
+neofetch
+wl-paste --type text --watch cliphist store
+wl-copy
+pacman -Rns cliphist
+pacman -S copyq
+cd dotfile/config/hypr/configs
+vim execs.conf
+Hyprland
+wl-clip-persist
+pacman -S obs-studio
+cd dotfile
+cd ~/.config
+cd copyq
+vim copyq.conf
+cd ...
+rm -rf copy
+rm -rf copyq
+mv fcitx fcitx5 ncmpcpp nekoray obs-studio ~/dotfile/config/
+cd ~/dotfile
+sh install.sh
+cd nekoray
+cd config
+vim neko.log
+rm -rf nekoray
+cd fcitx5
+vim profile
+vim config
+vim conf/pinyin.conf
+vim conf/chttrans.conf
+vim conf/notifications.conf
+vim conf/punctuation.conf
+vim conf/cached_layouts
+cd ..
+vim fcitx
+: 1699155620:0;cd dotfile
+: 1699155626:0;cd config
+: 1699155657:0;vim mpd/log
+: 1699155679:0;vim obs-studio/global.ini
+: 1699155697:0;vim obs-studio/basic/profiles/Untitled/basic.ini
+: 1699155710:0;rm -rf obs-studio
+: 1699155724:0;cd ..
+: 1699155730:0;cd ~/.config
+: 1699155741:0;rm -rf nekoray obs-studio
+: 1699155764:0;rm \*
+: 1699155773:0;cd ~/dotfile
+: 1699155781:0;cd config
+: 1699155787:0;cd ..
+: 1699155790:0;vim install.sh
+: 1699155801:0;sh install.sh
+: 1699155805:0;cd ~
+: 1699155814:0;cd .hyprland
+: 1699155818:0;cd ..
+: 1699155831:0;cd dotfile
+: 1699155857:0;git add . && git commit -m "update my settings for hyprland and wayland" && git push
