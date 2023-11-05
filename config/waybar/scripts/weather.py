@@ -7,18 +7,18 @@ from datetime import datetime
 WEATHER_CODES = {
     '113': '🌈',
     '116': '⛅️',
-    '119': '☁️',
-    '122': '☁️',
-    '143': '🌫',
+    '119': '☁️ ',
+    '122': '☁️ ',
+    '143': '',
     '176': '🌦',
     '179': '🌧',
     '182': '🌧',
     '185': '🌧',
-    '200': '⛈',
-    '227': '🌨',
-    '230': '❄️',
-    '248': '🌫',
-    '260': '🌫',
+    '200': ' ',
+    '227': ' ',
+    '230': '❄️ ',
+    '248': ' ',
+    '260': ' ',
     '263': '🌦',
     '266': '🌦',
     '281': '🌧',
@@ -32,9 +32,9 @@ WEATHER_CODES = {
     '311': '🌧',
     '314': '🌧',
     '317': '🌧',
-    '320': '🌨',
-    '323': '🌨',
-    '326': '🌨',
+    '320': '🌧',
+    '323': '🌧',
+    '326': '🌧',
     '329': '❄️',
     '332': '❄️',
     '335': '❄️',
@@ -45,20 +45,20 @@ WEATHER_CODES = {
     '359': '🌧',
     '362': '🌧',
     '365': '🌧',
-    '368': '🌨',
-    '371': '❄️',
+    '368': '❄️,',
+    '371': '❄️ ',
     '374': '🌧',
     '377': '🌧',
-    '386': '⛈',
+    '386': ' ',
     '389': '🌩',
-    '392': '⛈',
+    '392': ' ',
     '395': '❄️'
 }
 
 data = {}
 
 
-weather = requests.get("https://wttr.in/?format=j1").json()
+weather = requests.get("https://wttr.in/huangdao?format=j1").json()
 
 
 def format_time(time):
@@ -103,7 +103,7 @@ for i, day in enumerate(weather['weather']):
         data['tooltip'] += "Tomorrow, "
     data['tooltip'] += f"{day['date']}</b>\n"
     data['tooltip'] += f"⬆️ {day['maxtempC']}° ⬇️ {day['mintempC']}° "
-    data['tooltip'] += f"🌅 {day['astronomy'][0]['sunrise']} 🌇 {day['astronomy'][0]['sunset']}\n"
+    data['tooltip'] += f" {day['astronomy'][0]['sunrise']}  {day['astronomy'][0]['sunset']}\n"
     for hour in day['hourly']:
         if i == 0:
             if int(format_time(hour['time'])) < datetime.now().hour-2:

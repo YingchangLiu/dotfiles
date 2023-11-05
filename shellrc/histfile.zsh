@@ -110,7 +110,6 @@ zle -al
 cat -v
 cat README.md
 Q
-rm -rf dotfile.bak
 git clone git@github.com:yingchangliu/dotfile.git
 rm ../.README.md
 rm ../.LICENSE
@@ -953,7 +952,6 @@ git add . && git commit -m "change conkyrc for wayland" && git push && git check
 >>>>>>> dev
 git add . && git commit -m "change conkyrc for wayland" && git push
 vim README.md
-cd script
 vim ../README.md
 sh ./gitclean.sh
 cd config/hypr.bak/
@@ -967,7 +965,6 @@ cd dotfile/wallpaper
 vim ~/dotfile/config/hypr.bak/hyprland.conf
 pacman -S fcitx5-im
 vim ~/dotfile/shellrc/zshplugin.zsh
-pacman -S btop
 vim /etc/mkinitcpio.conf
 vim /etc/mkinitcpio.d/linux.preset
 pacman -S hyprland-git
@@ -1056,7 +1053,6 @@ pacman -Rns hyprpicker
 vim windows/music.yuck
 vim battery
 vim music
-vim volume
 pacman -S conky
 cd dotfile/config/conky
 vim conkyrc
@@ -1073,9 +1069,6 @@ whoami -h
 groups
 sudo usermod -aG video kelen
 vim scripts/volume
-pacman -S pamixer
-pamixer --get-volume
-pamixer
 pamon
 pacman -Rns pamixer light brillo
 hyprctl version
@@ -1112,7 +1105,6 @@ vim bar/scripts/battery
 pacman -Ss comic
 pacman -Ss aweosme
 pacman -Ss aweosome
-pacman -S ttf-font-awesome
 sudo systemctl enable bluetooth
 git clone https://github.com/end-4/dots-hyprland
 cp hyprland.conf environment.conf
@@ -1384,9 +1376,7 @@ pacman -S jq
 pacman -S acpi
 eww reload -c ~/Downloads/dotfiles/.config/eww bar
 eww reload
-pacman -S ttf-nerd-fonts-symbols
 pacman -S ttf-ubuntu-nerd
-pacman -Rns ttf-nerd-fonts-symbols
 eww open -c ~/Downloads/dotfiles/.config/eww bar
 cd Downloads/dotfiles/.config
 vim scripts/weather
@@ -1441,8 +1431,6 @@ vim leftbar.yuck
 cd ~/.config/hypr
 cd ~/.config/eww
 vim eww.yuck
-cd scripts
-vim init
 killall eww
 ./init
 cd .config/eww
@@ -1506,8 +1494,6 @@ whoami --help
 echo $SHELL
 cd ~/dotfile/config/kitty
 bash
-cd dotfile/shellrc
-vim aliasrc.sh
 vim p10k.zsh
 mv kitty.conf kitty.conf.bak
 mv kitty.conf.bak kitty.conf
@@ -1522,7 +1508,6 @@ git config --global user.email 58721349+yingchangliu@users.noreply.github.com
 git add . && git commit -m "change hypr display for mouse" && git push
 cd shellrc
 vim zshsetting.zsh
-source ~/.zshrc
 vim zshplugin.zsh
 pacman -Ss hyprland
 pacman -Rns xdg-desktop-portal-hyprland
@@ -1538,7 +1523,6 @@ vim .config/hypr/configs/keybinds.conf
 sudo systemctl stop v2raya.service
 git add . && git commit -m "change terminal and kitty setting" && git push
 sudo needrestart
-pacman -Syyu
 ncmpcpp
 vim scripts
 pacman -Ss clash
@@ -1550,11 +1534,8 @@ vim ~/.config/hypr/configs/keybinds.conf
 rm waybar
 cp /etc/xdg/waybar ~/.config/
 cp -r /etc/xdg/waybar ~/.config/
-cd waybar
 cd dotfile/config/waybar.bak
-vim style.css
 ld
-cd Downloads
 git clone https://github.com/linuxmobile/hyprland-dots/
 pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-moegirl
 pacman -Rns qt6-wayland
@@ -1568,21 +1549,16 @@ pacman -Rns nvidia-utils
 pacman -h
 pacman -Qh
 pacman -Ss ttf
-pacman -Ss nerd
 pacman -S qqmusic
-paru -Ss qqmusic
 vim ~/dotfile/config/waybar
 vim ~/dotfile/config/waybar/style.css
 pacman -Ss otf-awesome
-pacman -Ss awesome
 pacman -S rofi
-notify-send 'hello'
 pacman -Syy
 pacman -S kitty-git
 pacman -Ss kitty
 pacman -S qt6-wayland
 pacman -S telegram
-nekoray
 nekoray --many
 cd profiles
 killall nekoray
@@ -1623,11 +1599,9 @@ pacman -Ss dunst
 pacman -Qi rofi
 pacman -S dunst rofi
 pacman -S xdg-desktop-portal-hyprland
-vim keybinds.conf
 cd dotfile/config/swhkd
 vim swhkdrc.wayland
 lspci
-cd dotfile/config/hypr
 lspci | grep -E 'VGA|3D'
 top | grep pts
 vim env.conf
@@ -1638,7 +1612,6 @@ pacman -Si swhkd
 pacman -Ss swkhd
 pacman -Ss swhkd
 paru -Ss swhkd
-pacman -S otf-font-awesome
 pacman -Rns waybar
 pacman -S yambar
 paru -Ss yambar
@@ -1647,7 +1620,6 @@ paru -S yambar
 pacman -S nekoray
 pacman -Ss v2ray
 pacman -Qemq
-pacman -Qenq
 pacman -Ss udiske
 pacman -S ranger
 ranger
@@ -1673,43 +1645,33 @@ pacman -S linux
 pacman -S hyprland-nvidia
 nvcc --version
 nvidia-smi
-btop
-top
 log
-upgrade
 vim ~/.config/hypr/configs/animation.conf
 vim ~/.config/hypr/configs/decoration.conf
 vim ~/.config/hypr/configs/monitors.conf
 vim ~/.config/hypr/configs/misc.conf
-cd dotfile/config/waybar
 poweroff
 vim ~/.zshrc
-cd config/hypr
 pacman -S udiskie
 vim configs/execs.conf
 copyq --start-server
 copyq
 copyq show
 copyq config
-copyq --help
 copyq enable
 copyq read
 cliq
 clip
-copyq disable
 [200~fdf
 killall cliphist
 wl-paste
-reboot
 pacman -S clipman
 pacman -Rns clipman
 pacman -S cliphist
-neofetch
 wl-paste --type text --watch cliphist store
 wl-copy
 pacman -Rns cliphist
 pacman -S copyq
-cd dotfile/config/hypr/configs
 wl-clip-persist
 pacman -S obs-studio
 cd copyq
@@ -1723,7 +1685,6 @@ vim neko.log
 rm -rf nekoray
 cd fcitx5
 vim profile
-vim config
 vim conf/pinyin.conf
 vim conf/chttrans.conf
 vim conf/notifications.conf
@@ -1749,16 +1710,12 @@ vim bashrc
 vim bash_profile
 mv powerlevel10k powerlevel10k.bak
 mv powerlevel10k.bak powerlevel10k
-cd ..
 cd ~/
 mv .config .config.bak
 rm -rf .config
 mv .config.bak .config
-cd dotfile
 killall hyprland
 killall Hyprland
-cd ~/dotfile
-cd config
 cd .config
 mv hypr hypr.bak
 rm -rf hypr
@@ -1766,21 +1723,170 @@ mv hypr.bak hypr
 cd hypr
 cd .config/hypr
 vim hyprland.conf
-cd configs
 cd .config/hypr/configs
 vim ../scripts/xdph.sh
 cd /usr/lib
 pacman -S xdg-desktop-portal-wlr
-cd ~
-Hyprland
-cd dotfile/config
-killall waybar
 vim waybar/style.css
 vim waybar/config
-waybar
 cd hypr/configs
+git add . && git commit -m "update waybar" && git push
+cd config/hypr
+cd ../../waybar
+vim scripts/rofi-wifi-menu.sh
+notify-send 'hello'
+pacman -Rns notify-send
+cd scripts
+which notify-send
+pacman -Ss notify-send
+pacman -Fx notify-send
+pacman -Rns libnotify
+cd ~/dotfile
+pkgbak
+vim shellrc/aliasrc.sh
+cd script
+cp ~/dotfile/config/waybar/scripts/rofi-wifi-menu.sh ./
+sh ./rofi-wifi-menu.sh
+cd ../config/waybar/scripts
+sh rofi-bluetooth
+sh weather.py
+python weather.py
+cd ~/dotfile/script
+cp ~/dotfile/config/waybar/scripts/rofi-bluetooth ./
+git add . && git commit -m "add two rofi scripts" && git push
+cd ~
+rm -rf dotfile.bak
+cd Downloads
+cd ..
+paru -Ss qqmusic
+paru -S qqmusic
+cd dotfile/config/hypr
+cd configs
+vim keybinds.conf
+cd ../scripts/
+vim volume
+pacman -Qi pamixer
+pacman -S pamixer
+pacman -Ss pipewire
+pacman -Ss pipewire-pulse
+pacman -Rns firefox
+pacman -S firefox
+pacman -S pipewire-pulse
+pamixer --get-volume
+pulse
+pacman -Ss pulse
+pacman -S pulsemixer
+pamixer ixer --get-volume
+pacman -Rns pulsemixer
+pamixer
+upgrade
+pacman -Ss nerd
+pacman -S papirus-icon-theme
+pacman -Rns papirus-icon-theme
+pacman -Rns ttf-nerd-fonts-symbols
+pacman -S ttf-nerd-fonts
+pacman -S ttf-nerd-font
+pacman -S ttf-nerd-fonts-sysbols-common
+pacman -S ttf-nerd-fonts-symbols-common
+pacman -S ttf-nerd-fonts-symbols
+pacman -Ss ttf-nerd
+pacman -S ttf-nerd-fonts-symbols-mono
+pacman -Rns ttf-nerd-fonts-symbols-mono
+pacman -Ss noto
+pacman -Ss noto-fonts-emoji
+pacman -S noto-fonts-emoji
+pacman -Ss tela
+pacman -S tela-icon
+pacman -S tela-icon-theme
+pacman -S tela-icon-theme-git
+pacman -S ttf-awesome-fonts
+pacman -Ss ttf-awesome-fonts
+pacman -Ss ttf-awesome
+pacman -Ss awesome
+pacman -S ttf-font-awesome
+pacman -Rns tele-icon-theme-git ttf-font-awesome
+pacman -Rns tela-icon-theme-git ttf-font-awesome
+pacman -Rns noto-fonts-emoji
+pacman -S awesome-terminal-fonts
+pacman -Rns otf-awesome-font
+pacman -Rns otf-awesome-fonts
+pacman -Rns awesome-terminal-fonts
+killall qqmusic
+pacman -S btop
+top | grep copy
+top
+cd dotfile/config/hypr/configs
 vim execs.conf
+copyq --help
+copyq disable
+btop
+pacman -Ss ubuntu
+pacman -S ttf-ubuntu-font-family
+pacman -Rns ttf-ubuntu-font-family
+cd dotfile/config
+cd waybar
+vim config.bak
+pacman -S nerd-fonts
+pacman -Ss nerd-fonts
+pacman -Rns otf-font-awesome
+neofetch
+pacman -Syyu
+pacman -S otf-font-awesome
+reboot
+pacman -S nerd-fonts-ubuntu
+pacman -Qenq
+pacman -Rns nerd-fonts-ubuntu
+Hyprland
+cd dotfile/config/waybar
+which nekoray
+cd dotfile/shellrc
+vim aliasrc.sh
+nekoray
+source ~/.zshrc
+cd /usr/share/
+vim applications/nekoray.desktop
+sudo vim applications/nekoray.desktop
+sudo systemctl disable --now v2ray
+sudo systemctl disable --now v2raya
+pavucontrol
+pacman -S pavucontrol
+killall waybar
+vim style.css
+vim config
+cd dotfile
+cd config
+cd river
+vim init
+cd ../awesome
+vim rc.lua
+waybar
 exit
-: 1699158489:0;Hyprland
-: 1699158497:0;cd dotfile
-: 1699158507:0;git add . && git commit -m "update waybar" && git push
+: 1699180490:0;cd dotfile/config/waybar
+: 1699180493:0;vim config
+: 1699180555:0;cd scripts
+: 1699180561:0;python weather.py
+: 1699180568:0;pip
+: 1699180588:0;pacman -S python-requests
+: 1699180595:0;python weather.py
+: 1699180610:0;killall waybar
+: 1699180611:0;waybar
+: 1699180693:0;cd dotfile/config/waybar
+: 1699180696:0;cd scripts
+: 1699180699:0;vim weather.py
+: 1699181007:0;killall waybar
+: 1699181012:0;waybar
+: 1699181089:0;vim weather.py
+: 1699181099:0;waybar
+: 1699181114:0;vim weather.py
+: 1699181958:0;waybar
+: 1699181968:0;vim weather.py
+: 1699182012:0;cd dotfile/config/waybar/scripts
+: 1699182014:0;python weather.py
+: 1699182178:0;waybar
+: 1699182198:0;vim weather.py
+: 1699182264:0;waybar
+: 1699182289:0;vim weather.py
+: 1699182368:0;waybar
+: 1699182423:0;Hyprland
+: 1699182449:0;cd dotfile
+: 1699182467:0;git add . && git commit -m "set the waybar and weather script" && git push

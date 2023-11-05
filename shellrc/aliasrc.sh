@@ -5,6 +5,7 @@ alias checkkernel='sh ~/dotfile/script/checkbootkernel.sh'
 alias checkclass='sh ~/dotfile/script/checkclass.sh'
 alias reinstall='pacman -Qqn | pacman -S -'
 
+alias nekoray='nekoray -many'
 alias vnc='vncviewer -passwd ~/.vnc/passwd 127.0.0.1:1'
 # view image using mpv
 alias mvi='mpv --config-dir=$HOME/.config/mvi'

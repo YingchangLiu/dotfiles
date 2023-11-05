@@ -8,24 +8,29 @@
     "margin-bottom": 0,
     "margin-right": 10,
     "spacing": 5, // Gaps between modules (4px)
-    "modules-left": ["custom/launcher", "cpu", "memory", "hyprland/workspaces", "custom/weather"],
-    "modules-center": ["custom/spotify"],
-    "modules-right": ["tray", "backlight", "pulseaudio", "network", "battery", "clock", "custom/power-menu"],
+    "modules-left": ["custom/launcher","hyprland/workspaces", "cpu", "memory", "custom/weather"],
+    "modules-center": ["clock","custom/spotify"],
+    "modules-right": ["backlight", "pulseaudio", "network", "battery", "tray", "custom/power-menu"],
     "hyprland/workspaces": {
       "format": "{icon}",
       "on-scroll-up":"hyprctl dispatch workspace e+1",
       "on-scroll-down":"hyprctl dispatch workspace e-1",
       "on-click": "activate",
+      "all-outputs": true,
       "format-icons": {
-        "1": "",
-        "2": "",
-        "3": "",
-        "4": "",
-        "5": "",
-        "urgent": "",
-        "active": "",
-        "default": ""
-      }
+        "1": " ",
+        "2": " ",
+        "3": " ",
+        "4": " ",
+        "5": " ",
+        "6": " ",
+        "7": " ",
+        "8": " ",
+        "9": " ",
+        "urgent": " ",
+        "active": " ",
+        "default": " "
+      },
     },
     "hyprland/window": {
         "format": "{}"
@@ -34,33 +39,33 @@
         "spacing": 10
     },
     "clock": {
-        "format": "<span color='#bf616a'> </span>{:%a %b %d}",
-        "format-alt": "<span color='#bf616a'> </span>{:%I:%M %p}",
+        "format-alt": "<span color='#bf616a'> </span>{:%a %b %d}",
+        "format": "<span color='#bf616a'> </span>{:%H:%M,  %Y/%m/%d}",
         "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
     },
 
     "cpu": {
       "interval": 10,
-      "format": " {}%",
+      "format": " {}%",
       "max-length": 10,
       "on-click": "",
     },
     "memory": {
         "interval": 30,
         "format": " {}%",
-        "format-alt":" {used:0.1f}G",
+        "format-alt":"{used:0.1f}G",
         "max-length": 10,
     },
     "backlight": {
         "device": "DP-1",
         "format": "{icon} {percent}%",
-        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "format-icons": ["", ""],
         "on-click": "",
     },
     "network": {
-        "format-wifi": "直 {signalStrength}%",
+        "format-wifi": " {signalStrength}%",
         "format-ethernet": " wired",
-        "format-disconnected": "睊",
+        "format-disconnected": "",
         "on-click": "bash ~/.config/waybar/scripts/rofi-wifi-menu.sh",
         "format-disconnected": "Disconnected  ",
     },
@@ -69,9 +74,9 @@
         "format": "{icon} {volume}%",
         "format-bluetooth": "  {volume}%",
         "format-bluetooth-muted": " ",
-        "format-muted": "婢",
+        "format-muted": "",
         "format-icons": {
-            "headphone": "",
+            "headphone": " ",
             "hands-free": "",
             "headset": "",
             "phone": "",
