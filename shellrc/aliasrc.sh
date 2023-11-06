@@ -4,7 +4,7 @@ alias xfce4='env LANG=zh_CN.UTF-8 startxfce4'
 alias checkkernel='sh ~/dotfile/script/checkbootkernel.sh'
 alias checkclass='sh ~/dotfile/script/checkclass.sh'
 alias reinstall='pacman -Qqn | pacman -S -'
-
+alias fetch='fastfetch -c ~/.config/fastfetch/kelen.jsonc'
 alias nekoray='nekoray -many'
 alias vnc='vncviewer -passwd ~/.vnc/passwd 127.0.0.1:1'
 # view image using mpv

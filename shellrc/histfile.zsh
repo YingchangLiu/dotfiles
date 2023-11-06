@@ -902,7 +902,6 @@ pacman -Rns cuda
 pacman -Rns cudnn
 aa
 pkgfile fastfetch
-pacman -S fastfetch
 pacman -Rns fastfetch
 whereis nvcc
 which nvcc
@@ -948,12 +947,8 @@ vim README.md
 vim ../README.md
 sh ./gitclean.sh
 cd config/hypr.bak/
-pacman -S swaybg
 swaybg -o \* -i ~/dotfile/wallpapers/starsky.jpg -m fill
-cd bin
-./background-changer
 ~/dotfile/config/bin/background-changer
-cd dotfile/wallpaper
 vim ~/dotfile/config/hypr.bak/hyprland.conf
 pacman -S fcitx5-im
 vim ~/dotfile/shellrc/zshplugin.zsh
@@ -1020,7 +1015,6 @@ vim config/autostart.sh
 pacman -Rns polkit-qt5
 pacman -S swww
 swaybg -o \* -i ~/dotfile/wallpapers/* -m fill
-swaybg -o \* -i ~/dotfile/wallpaper/Arisa_With_The_Fairies.png
 paru -S xwaylandvideobridge-bin
 xwaylandvideobridge
 rofi
@@ -1232,7 +1226,6 @@ vim modules/workspaces.yuck
 cd dotfile/config/eww.bak
 vim modules/clock.yuck
 vim scripts/workspaces
-cd ~/dotfile/config
 mkdir kitty
 cd kitty
 rm -rf ~/.config/kitty
@@ -1337,7 +1330,6 @@ cp hyprland.conf hyprland.conf.bak
 cp simpleconfig.conf hyprland.conf
 cp hyprland.conf.bak hyprland.conf
 ne
-fetch
 hyprctl monitors -j | jq '.[] | select(.focused) | .activeWorkspace.id'
 hyprctl monitors -j
 mkdir eww
@@ -1449,7 +1441,6 @@ pacman -S lsb_release
 pacman -S lsb-release
 pacman -S zsh-completions zsh-syntax-highlighting zsh-theme-powerlevel10k
 lsb
-fastfetch
 sudo pkgfile -u
 pkgfile -u
 pacman -S zsh-
@@ -1476,13 +1467,11 @@ vim hypr/configs/keybinds.conf
 git config --global user.name yingchangliu
 git config --global user.email 58721349+yingchangliu@users.noreply.github.com
 git add . && git commit -m "change hypr display for mouse" && git push
-cd shellrc
 vim zshsetting.zsh
 vim zshplugin.zsh
 pacman -Ss hyprland
 pacman -Rns xdg-desktop-portal-hyprland
 zsh
-kitty
 pacman -S less
 kitty --config NONE
 pacman -Rns kitty
@@ -1616,7 +1605,6 @@ vim ~/.config/hypr/configs/animation.conf
 vim ~/.config/hypr/configs/decoration.conf
 vim ~/.config/hypr/configs/monitors.conf
 vim ~/.config/hypr/configs/misc.conf
-vim ~/.zshrc
 pacman -S udiskie
 copyq --start-server
 copyq
@@ -1669,7 +1657,6 @@ git add . && git commit -m "update my settings for hyprland and wayland" && git 
 vim hypr/hyprland.conf
 vim autostart.sh
 rm -rf eww.bak
-cd ../
 vim bashrc
 vim bash_profile
 mv powerlevel10k powerlevel10k.bak
@@ -1680,7 +1667,6 @@ rm -rf .config
 mv .config.bak .config
 killall hyprland
 killall Hyprland
-cd .config
 mv hypr hypr.bak
 rm -rf hypr
 mv hypr.bak hypr
@@ -1713,7 +1699,6 @@ sh weather.py
 cd ~/dotfile/script
 cp ~/dotfile/config/waybar/scripts/rofi-bluetooth ./
 git add . && git commit -m "add two rofi scripts" && git push
-cd ~
 rm -rf dotfile.bak
 cd Downloads
 paru -Ss qqmusic
@@ -1768,10 +1753,8 @@ pacman -Rns awesome-terminal-fonts
 killall qqmusic
 pacman -S btop
 top | grep copy
-top
 copyq --help
 copyq disable
-btop
 pacman -Ss ubuntu
 pacman -S ttf-ubuntu-font-family
 pacman -Rns ttf-ubuntu-font-family
@@ -1781,16 +1764,12 @@ vim config.bak
 pacman -S nerd-fonts
 pacman -Ss nerd-fonts
 pacman -Rns otf-font-awesome
-neofetch
 pacman -Syyu
 pacman -S otf-font-awesome
-reboot
 pacman -S nerd-fonts-ubuntu
-pacman -Qenq
 pacman -Rns nerd-fonts-ubuntu
 which nekoray
 cd dotfile/shellrc
-vim aliasrc.sh
 nekoray
 source ~/.zshrc
 cd /usr/share/
@@ -1884,15 +1863,10 @@ nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t | awk '{printf ("%.2f G", 
 echo $DISPLAY
 sl
 conky -c ~/.config/conky/wlconkyrc 2>/dev/null
-vim env.conf
-cd ~/dotfile
 git add . && git commit -m "change the gaps of hyprland" && git push
 conky --version
 poweroff
-cd dotfile
 git add . && git commit -m "change settings of conky on wayland" && git push
-cd dotfile/config/waybar
-vim config
 killall waybar
 waybar
 cd ../hypr/configs
@@ -1902,7 +1876,6 @@ sudo systemctl restart NetworkManager
 cd .local
 pacman -Ss stow
 lsblk
-cd ..
 mkdir fwitest
 cp /run/media/kelen/Flash\ Bar/myesg.tar.gz ./fwitest
 cd ./fwitest
@@ -1919,8 +1892,6 @@ cd src/myelastic
 cd ../../modules/arrays_cu
 alias g++='g++-12'
 echo $HOST
-which g++
-which g++-12
 export CUDAHOSTCXX=/usr/bin/g++-12
 export HOST_COMPILER=/usr/bin/g++-12
 make rebuild
@@ -1932,7 +1903,6 @@ waypaper
 pacman -Rns waypaper
 pacman -Rns waypaper-git
 setwallpaper
-pacman -S wallutils
 lsmon
 lstimed
 cd ~/dotfile/wallpaper
@@ -1941,15 +1911,11 @@ setrandom ../wallpaper
 setwallpaper gamelife.png
 setwallpaper --help
 setwallpaper -m scale gamelife.png
-setwallpaper -m 'scale' gamelife.png
-pacman -Rns wallutils
 pacman -Si feh
 pacman -S feh
 feh --bg-fill karsten-wurth-7BjhtdogU3A-unsplash.jpg
 feh --help
 cd ~/dotfile/config/bin
-vim background-changer
-vim xorg-background-changer
 feh --bg-file ~/dotfile/wallpaper/starsky.jpg
 feh --bg-fill ~/dotfile/wallpaper/starsky.jpg
 killall feh
@@ -1961,13 +1927,117 @@ conky ~/.config/conky/wlconkyrc
 conky -c ~/.config/conky/wlconkyrc
 killall conky
 cd ~/dotfile/config/hypr/configs
-vim execs.conf
 upgrade
-Hyprland
+cd ~/dotfile
+git add . && git commit -m "change settings of conky" && git push
+pacman -S wallutils
+setwallpaper -m 'scale' gamelife.png
+pacman -S swaybg
+setwallpaper -m 'scale' ~/dotfile/wallpaper/gamelife.png
+setwallpaper -m 'scale' ~/dotfile/wallpaper/wallhaven-nzydvj_1920x1080.png
+pacman -Rns wallutils
+pacman -Qenq
+swayidle
+pacman -S swaylock
+cd config/hypr/configs
+vim env.conf
+cd dotfile/wallpaper
+cd logo
+swaybg 64d5026575ed0229.jpg
+swaybg -o \* -i ~/dotfile/wallpaper/Arisa_With_The_Fairies.png
+swaybg -o \* -i ~/dotfile/wallpaper/logo/64d5026575ed0229.jpg
+cd ..
+cd wallpaper
+mv logo/64d5026575ed0229.jpg ./.logo
+mv .logo .logo.jpg
+rm -rf logo
+cd dotfile/config/bin
 cd .config/conky
 vim wlconkyrc
+./background-changer
+cd .config/bin
+vim background-changer
+find ~/dotfile/wallpaper/. -type f
+cd dotfile
+mv wallpaper/.logo.jpg ./
+mv .logo.jpg config/logo/
+mkdir config/logo
+mv .logo.jpg config/logo/doctorHome.jpg
+find ~/dotfile/wallpaper/ -type f
+vim xorg-background-changer
+vim wallpaper.sh
+cd /tmp
+cd ~
+cd fwitest
+cd /opt/cuda
+cd bin
+vim nvcc.profile
+cd ~/fwitest/
+cd modules
+vim arrays_cu/Makefile
+which g++-12
+which g++
+kitty
+echo $PATH
+vim ~/.zshrc
+vim ~/.zprofile
+cd dotfile/config/waybar
+vim config
+reboot
+Hyprland
+top
+cd dotfile/config/hypr/configs/
+vim execs.conf
+btop
+pacman -Ss neofetch
+pacman -Ss fetch
+pacman -S fastfetch
+cd .config
+cd neofetch
+vim config.conf
+neofetch
+fastfetch
+pacman -Rns neofetch
+cd ~/dotfile/config
+rm -rf neofetch
+cd ../
+cd shellrc
+vim aliasrc.sh
+fetch
 exit
-: 1699248726:0;cd .config/conky
-: 1699248727:0;vim wlconkyrc
-: 1699248802:0;cd ~/dotfile
-: 1699248809:0;git add . && git commit -m "change settings of conky" && git push
+: 1699255243:0;fetch
+: 1699255274:0;pacman -Ql fastfetch
+: 1699255293:0;flashfetch
+: 1699255315:0;cd /usr/share/fastfetch
+: 1699255318:0;cd presets
+: 1699255323:0;vim all.jsonc
+: 1699255344:0;which fastfetch
+: 1699255634:0;fetch -c all.jsonc
+: 1699255675:0;fetch -c btw.jsonc
+: 1699255682:0;fetch -c hardware.jsonc
+: 1699255686:0;fetch -c neofetch.jsonc
+: 1699255717:0;cd .config
+: 1699255739:0;cd ~/dotfile/config
+: 1699255745:0;mkdir fastfetch
+: 1699255749:0;cd fastfetch
+: 1699255771:0;cp -r /usr/share/fastfetch/presets/*.jsonc ./
+: 1699255854:0;cp all.jsonc myfetch.jsonc
+: 1699255857:0;vim myfetch.jsonc
+: 1699255876:0;fetch -c ~/dotfile/config/fastfetch/all.jsonc
+: 1699256060:0;fetch -c ~/dotfile/config/fastfetch/myfetch.jsonc
+: 1699256081:0;cd ../../shellrc
+: 1699256083:0;vim aliasrc.sh
+: 1699256118:0;cd ~/dotfile/config/fastfetch
+: 1699256124:0;mv myfetch.jsonc kelen.jsonc
+: 1699256126:0;cd ..
+: 1699256131:0;sh install.sh
+: 1699256134:0;cd ~/.config
+: 1699256140:0;rm -rf neofetch
+: 1699256145:0;source ~/.zshrc
+: 1699256148:0;fetch
+: 1699256152:0;fastfetch
+: 1699256161:0;fetch
+: 1699256220:0;lsblk
+: 1699256228:0;fetch
+: 1699256237:0;cd dotfile
+: 1699256255:0;git add . && git commit -m "add fastfetch as fetch alias" && git push
