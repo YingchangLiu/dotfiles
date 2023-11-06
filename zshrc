@@ -8,9 +8,11 @@ fi
 export SHELLROOT="$HOME/dotfile/shellrc"
 
 source "$SHELLROOT/history.zsh"
+source "$SHELLROOT/environment.sh"
 # Enable some plugins of zsh installed by kelen
 source "$SHELLROOT/zshplugin.zsh"
 source "$SHELLROOT/zshsetting.zsh"
+
 [[ ! -f $SHELLROOT/commonplugin.sh ]] || source "$SHELLROOT/commonplugin.sh" 2>/dev/null
 
 # To customize prompt, run `p10k configure` or edit ~/dotfile/shellrc/p10k.zsh.

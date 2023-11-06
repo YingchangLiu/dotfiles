@@ -16,7 +16,8 @@ export SHELLROOT="$HOME/dotfile/shellrc"
 [[ ! -f $SHELLROOT/commonplugin.sh ]] || source $SHELLROOT/commonplugin.sh 2>/dev/null
 ##
 source "$SHELLROOT/history.sh"
-
+source "$SHELLROOT/environment.sh"
+source "$SHELLROTT/bashplugin.sh" 2>/dev/null
 [ -f "$SHELLROOT/aliasrc.sh" ] && source "$SHELLROOT/aliasrc.sh"
 [ -f "$SHELLROOT/pathrc.sh" ] && source "$SHELLROOT/pathrc.sh"
 

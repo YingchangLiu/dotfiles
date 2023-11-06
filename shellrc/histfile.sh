@@ -45,3 +45,12 @@ Hyprland
 exit
 zsh
 exit
+source ~/.bashrc
+vim ~/.bashrc
+cd ~
+sh ~/.bashrc
+source ~/.bashrc
+vim .bashrc
+source ~/.bashrc
+vim ~/.bashrc
+exit
