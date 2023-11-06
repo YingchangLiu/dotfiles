@@ -806,7 +806,6 @@ pacman -S lib32-ffmpeg
 pacman -S rpc
 pacman -S libtirpc
 vim configure
-vim Makefile
 vim Makefile.in
 vim config.py
 vim env.sh
@@ -829,7 +828,6 @@ cd /usr/include
 cd tirpc
 cd rpc
 cd cwp
-cd src
 vim Makefile.config
 vim setenv.py
 vim setup.py
@@ -924,11 +922,9 @@ pacman -Sl | grep 已
 needrestart -nl -k
 needrestart -h
 needrestart -k -l -w
-cd ~/.config/conky
 ./conky
 ./conkyrc
 conky --help
-conky
 conky -c ./conkyrc
 sudo systemctl restart gdm.service accounts-daemon.service m
 lscpu | sed -nr '/Model name/ s/.*:\s*(.*) CPU .*/\1/p'
@@ -936,12 +932,9 @@ lscpu
 env LANG=en_US.UTF-8 lscpu
 cd /data
 cd code
-get_nvidia_barval
 pacman -S nvidia-utils
 cp -r ~/code /data/code
 rm -rf code
-killall conky
-lsblk
 picom
 git add .
 git commit -m "change conkyrc for wayland"
@@ -958,7 +951,6 @@ cd config/hypr.bak/
 pacman -S swaybg
 swaybg -o \* -i ~/dotfile/wallpapers/starsky.jpg -m fill
 cd bin
-vim background-changer
 ./background-changer
 ~/dotfile/config/bin/background-changer
 cd dotfile/wallpaper
@@ -1053,9 +1045,7 @@ pacman -Rns hyprpicker
 vim windows/music.yuck
 vim battery
 vim music
-pacman -S conky
 cd dotfile/config/conky
-vim conkyrc
 cd ../eww
 sh ./install.sh
 cd config/eww
@@ -1075,7 +1065,6 @@ hyprctl version
 cd /usr/lib/kitty/
 cd kitt
 echo $XDG_SESSION_TYPE
-conky -c ~/.config/conky/conkyrc
 checkclass
 pacman -Rns wl-clipboard
 pacman -Rns wl-clipboard clipman
@@ -1186,14 +1175,12 @@ vim assets/ghost.png
 vim modules/music.yuck
 vim scripts/battery
 cd ../swhkd
-vim swhkdrc
 awk
 seq
 socat
 JQ
 jq
 pacman -S socat jq
-sl
 mv eww eww.bak
 mkdir scripts
 vim change-active-workspace
@@ -1274,7 +1261,6 @@ pacman -Rns xdg-desktop-portal-wlr
 vim .config/hypr/execs.conf
 vim ~/.config/hypr/scripts/xdph.sh
 ~/.config/hypr/scripts/xdph.sh
-cd .local
 cd s
 cd share
 rm -rf fcitx5
@@ -1282,7 +1268,6 @@ cd ../state
 rm -rf .hyprland
 cd .cache
 rm -rf brillo fontconfig eww*
-s
 pacman -Q qt5ct
 pacman -S qt5ct
 pacman -S libva
@@ -1340,21 +1325,13 @@ vim .config/hypr/hyprland.conf
 vim .config/hypr/configs/input.conf
 mv hypr/hypr.bak ..
 mv ../hypr.bak hypr
-vim .config/hypr/configs/decoration.conf
 cd /usr/share/hyprland
 vim .config/hypr/configs/misc.conf
 vim .config/hypr/configs/winrules.conf
-vim .config/hypr/configs/layout.conf
 vim .config/hypr/configs/animation.conf
 vim .config/hypr/configs/color.conf
 run-help 9u
-vim misc.conf
 vim monitors.conf
-vim animation.conf
-vim decoration.conf
-vim layout.conf
-vim winrules.conf
-vim input.conf
 vim simpleconfig.conf
 cp hyprland.conf hyprland.conf.bak
 cp simpleconfig.conf hyprland.conf
@@ -1398,7 +1375,6 @@ vim network
 vim scripts/apps
 vim yuck/windows.yuck
 vim setups/leftbar.yuck
-vim configs/keybinds.conf
 wlogout
 wllogout
 pacman -Ss logout
@@ -1435,12 +1411,6 @@ killall eww
 ./init
 cd .config/eww
 ./scripts/init
-cd ../hypr
-vim configs/decoration.conf
-vim configs/animation.conf
-vim configs/layout.conf
-vim configs/misc.conf
-vim configs/monitors.conf
 systemctl status v2raya.service
 pacman -Rns v2raya
 pacman -S v2raya
@@ -1530,7 +1500,6 @@ pacman -S clash-verge
 vim ~/.config/hypr/execs.conf
 vim ~/.config/hypr/configs/execs.conf
 mv waybar waybar.bak
-vim ~/.config/hypr/configs/keybinds.conf
 rm waybar
 cp /etc/xdg/waybar ~/.config/
 cp -r /etc/xdg/waybar ~/.config/
@@ -1599,12 +1568,10 @@ pacman -Ss dunst
 pacman -Qi rofi
 pacman -S dunst rofi
 pacman -S xdg-desktop-portal-hyprland
-cd dotfile/config/swhkd
 vim swhkdrc.wayland
 lspci
 lspci | grep -E 'VGA|3D'
 top | grep pts
-vim env.conf
 pacman -Qi swkhd
 pacman -Qi cuda
 pacman -Si sxhkd
@@ -1643,17 +1610,14 @@ pacman -Qen
 pacman -S linux
 
 pacman -S hyprland-nvidia
-nvcc --version
 nvidia-smi
 log
 vim ~/.config/hypr/configs/animation.conf
 vim ~/.config/hypr/configs/decoration.conf
 vim ~/.config/hypr/configs/monitors.conf
 vim ~/.config/hypr/configs/misc.conf
-poweroff
 vim ~/.zshrc
 pacman -S udiskie
-vim configs/execs.conf
 copyq --start-server
 copyq
 copyq show
@@ -1722,7 +1686,6 @@ rm -rf hypr
 mv hypr.bak hypr
 cd hypr
 cd .config/hypr
-vim hyprland.conf
 cd .config/hypr/configs
 vim ../scripts/xdph.sh
 cd /usr/lib
@@ -1732,16 +1695,13 @@ vim waybar/config
 cd hypr/configs
 git add . && git commit -m "update waybar" && git push
 cd config/hypr
-cd ../../waybar
 vim scripts/rofi-wifi-menu.sh
 notify-send 'hello'
 pacman -Rns notify-send
-cd scripts
 which notify-send
 pacman -Ss notify-send
 pacman -Fx notify-send
 pacman -Rns libnotify
-cd ~/dotfile
 pkgbak
 vim shellrc/aliasrc.sh
 cd script
@@ -1750,19 +1710,14 @@ sh ./rofi-wifi-menu.sh
 cd ../config/waybar/scripts
 sh rofi-bluetooth
 sh weather.py
-python weather.py
 cd ~/dotfile/script
 cp ~/dotfile/config/waybar/scripts/rofi-bluetooth ./
 git add . && git commit -m "add two rofi scripts" && git push
 cd ~
 rm -rf dotfile.bak
 cd Downloads
-cd ..
 paru -Ss qqmusic
 paru -S qqmusic
-cd dotfile/config/hypr
-cd configs
-vim keybinds.conf
 cd ../scripts/
 vim volume
 pacman -Qi pamixer
@@ -1779,7 +1734,6 @@ pacman -S pulsemixer
 pamixer ixer --get-volume
 pacman -Rns pulsemixer
 pamixer
-upgrade
 pacman -Ss nerd
 pacman -S papirus-icon-theme
 pacman -Rns papirus-icon-theme
@@ -1815,8 +1769,6 @@ killall qqmusic
 pacman -S btop
 top | grep copy
 top
-cd dotfile/config/hypr/configs
-vim execs.conf
 copyq --help
 copyq disable
 btop
@@ -1836,8 +1788,6 @@ reboot
 pacman -S nerd-fonts-ubuntu
 pacman -Qenq
 pacman -Rns nerd-fonts-ubuntu
-Hyprland
-cd dotfile/config/waybar
 which nekoray
 cd dotfile/shellrc
 vim aliasrc.sh
@@ -1850,238 +1800,174 @@ sudo systemctl disable --now v2ray
 sudo systemctl disable --now v2raya
 pavucontrol
 pacman -S pavucontrol
-killall waybar
-vim style.css
-vim config
-cd dotfile
 cd config
 cd river
 vim init
 cd ../awesome
 vim rc.lua
+pip
+pacman -S python-requests
+cd dotfile/config/waybar/scripts
+python weather.py
+vim weather.py
+git add . && git commit -m "set the waybar and weather script" && git push
+cd config/waybar
+xdg-open
+cd dotfile/config/waybar/
+cd dotfile/config/swhkd
+vim swhkdrc
+vim keybinds.conf
+rofi --show drun
+rofi drun
+rofi --show run
+rofi --show {drun}
+rofi -show drun
+wayout
+pulsemixer
+cd ../../waybar
+cd power-menu
+vim powermenu.sh
+vim shared/fonts.rasi
+cp -r power-menu ~/dotfile/script
+vim configs/keybinds.conf
+sh ~/dotfile/script/power-menu/powermenu.sh
+vim ~/.config/hypr/configs/keybinds.conf
+[A
+cd ../hypr
+s
+cd configs
+vim animation.conf
+vim input.conf
+vim winrules.conf
+vim layout.conf
+vim .config/hypr/configs/decoration.conf
+vim .config/hypr/configs/layout.conf
+vim configs/monitors.conf
+vim configs/layout.conf
+vim configs/misc.conf
+vim configs/animation.conf
+vim configs/xwayland.conf
+vim configs/decoration.conf
+vim configs/execs.conf
+vim configs/winrules.conf
+cd dotfile/config/hypr
+vim hyprland.conf
+netcap --help
+networkctl --help
+networkctl list
+networkctl status
+networkctl status wlp0s20f3
+vim style.css
+rm config.bak
+cd scripts
+wireless
+pacman -Q wireless_tools
+pacman -Ql wireless_tools
+iwlist
+iwevent
+iwgetid
+pacman -Qi wireless_tools
+pacman -Si wireless_tools
+pacman -Ql imlib2
+conky
+pacman -Rns conky
+pacman -S conky
+cp conkyrc wlconkyrc
+vim conkyrc
+get_nvidia_barval
+conky -c ~/.config/conky/conkyrc
+lablk
+nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t | awk '{printf ("%.2f G", $1 / 1024)
+nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t | awk '{printf ("%.2f G", $1 / 1024)'
+nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t | awk '{printf ("%.2f G", $1 / 1024)}'}
+nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t | awk '{printf ("%.2f G", $1 / 1024)}'
+echo $DISPLAY
+sl
+conky -c ~/.config/conky/wlconkyrc 2>/dev/null
+vim env.conf
+cd ~/dotfile
+git add . && git commit -m "change the gaps of hyprland" && git push
+conky --version
+poweroff
+cd dotfile
+git add . && git commit -m "change settings of conky on wayland" && git push
+cd dotfile/config/waybar
+vim config
+killall waybar
 waybar
+cd ../hypr/configs
+vim decoration.conf
+vim misc.conf
+sudo systemctl restart NetworkManager
+cd .local
+pacman -Ss stow
+lsblk
+cd ..
+mkdir fwitest
+cp /run/media/kelen/Flash\ Bar/myesg.tar.gz ./fwitest
+cd ./fwitest
+tar -zxvf myesg.tar.gz ./
+cd src
+cd myelastic
+cd /opt/cuda/bin
+cd ~/fwitest
+nvcc --version
+alias gcc='gcc-12'
+which gcc
+gcc --version
+cd src/myelastic
+cd ../../modules/arrays_cu
+alias g++='g++-12'
+echo $HOST
+which g++
+which g++-12
+export CUDAHOSTCXX=/usr/bin/g++-12
+export HOST_COMPILER=/usr/bin/g++-12
+make rebuild
+vim Makefile
+pacman -Ss waypaper
+paru -Ss waypaper
+paru -S waypaper
+waypaper
+pacman -Rns waypaper
+pacman -Rns waypaper-git
+setwallpaper
+pacman -S wallutils
+lsmon
+lstimed
+cd ~/dotfile/wallpaper
+setrandom archlinuxchan.png
+setrandom ../wallpaper
+setwallpaper gamelife.png
+setwallpaper --help
+setwallpaper -m scale gamelife.png
+setwallpaper -m 'scale' gamelife.png
+pacman -Rns wallutils
+pacman -Si feh
+pacman -S feh
+feh --bg-fill karsten-wurth-7BjhtdogU3A-unsplash.jpg
+feh --help
+cd ~/dotfile/config/bin
+vim background-changer
+vim xorg-background-changer
+feh --bg-file ~/dotfile/wallpaper/starsky.jpg
+feh --bg-fill ~/dotfile/wallpaper/starsky.jpg
+killall feh
+swaybg
+pacman -Rns feh
+cd dotfile/config/hypr/configs
+cd ~/.config/conky
+conky ~/.config/conky/wlconkyrc
+conky -c ~/.config/conky/wlconkyrc
+killall conky
+cd ~/dotfile/config/hypr/configs
+vim execs.conf
+upgrade
+Hyprland
+cd .config/conky
+vim wlconkyrc
 exit
-: 1699180490:0;cd dotfile/config/waybar
-: 1699180493:0;vim config
-: 1699180555:0;cd scripts
-: 1699180561:0;python weather.py
-: 1699180568:0;pip
-: 1699180588:0;pacman -S python-requests
-: 1699180595:0;python weather.py
-: 1699180610:0;killall waybar
-: 1699180611:0;waybar
-: 1699180693:0;cd dotfile/config/waybar
-: 1699180696:0;cd scripts
-: 1699180699:0;vim weather.py
-: 1699181007:0;killall waybar
-: 1699181012:0;waybar
-: 1699181089:0;vim weather.py
-: 1699181099:0;waybar
-: 1699181114:0;vim weather.py
-: 1699181958:0;waybar
-: 1699181968:0;vim weather.py
-: 1699182012:0;cd dotfile/config/waybar/scripts
-: 1699182014:0;python weather.py
-: 1699182178:0;waybar
-: 1699182198:0;vim weather.py
-: 1699182264:0;waybar
-: 1699182289:0;vim weather.py
-: 1699182368:0;waybar
-: 1699182423:0;Hyprland
-: 1699182449:0;cd dotfile
-: 1699182467:0;git add . && git commit -m "set the waybar and weather script" && git push
-: 1699182517:0;killall waybar
-: 1699182519:0;waybar
-: 1699182552:0;cd config/waybar
-: 1699182558:0;vim config
-: 1699182570:0;xdg-open
-: 1699182658:0;waybar
-: 1699182822:0;upgrade
-: 1699182829:0;Hyprland
-: 1699183414:0;cd dotfile/config/waybar/
-: 1699183416:0;vim config
-: 1699183707:0;killall waybar
-: 1699183709:0;waybar
-: 1699183712:0;vim config
-: 1699183746:0;Hyprland
-: 1699185432:0;cd dotfile/config/hypr/configs
-: 1699185435:0;vim keybinds.conf
-: 1699185481:0;cd dotfile/config/swhkd
-: 1699185485:0;vim swhkdrc
-: 1699185722:0;Hyprland
-: 1699185726:0;cd dotfile/config/swhkd
-: 1699185728:0;vim swhkdrc
-: 1699185734:0;cd dotfile/config/hypr/configs
-: 1699185738:0;vim keybinds.conf
-: 1699185788:0;rofi --show drun
-: 1699185794:0;rofi drun
-: 1699185810:0;rofi --show run
-: 1699185819:0;rofi --show {drun}
-: 1699185836:0;rofi -show drun
-: 1699185932:0;wayout
-: 1699185965:0;pulsemixer
-: 1699186233:0;cd dotfile/config/hypr
-: 1699186238:0;cd scripts
-: 1699186257:0;cd ../../waybar
-: 1699186259:0;cd scripts
-: 1699186265:0;cd power-menu
-: 1699186269:0;vim powermenu.sh
-: 1699186284:0;vim shared/fonts.rasi
-: 1699186293:0;cd ..
-: 1699186326:0;cp -r power-menu ~/dotfile/script
-: 1699186369:0;Hyprland
-: 1699186409:0;cd dotfile/config/hypr
-: 1699186415:0;vim configs/keybinds.conf
-: 1699186457:0;Hyprland
-: 1699186471:0;sh ~/dotfile/script/power-menu/powermenu.sh
-: 1699186487:0;vim ~/.config/hypr/configs/keybinds.conf
-: 1699186510:0;Hyprland
-: 1699186531:0;cd dotfile/config/hypr
-: 1699186666:0;vim configs/decoration.conf
-: 1699186675:0;[A
-: 1699186685:0;Hyprland
-: 1699186700:0;cd dotfile/config/waybar
-: 1699186703:0;vim style.css
-: 1699186724:0;killall waybar
-: 1699186728:0;waybar
-: 1699186737:0;vim style.css
-: 1699187112:0;cd ../hypr
-: 1699187112:0;s
-: 1699187114:0;cd configs
-: 1699187120:0;vim decoration.conf
-: 1699187152:0;vim animation.conf
-: 1699187160:0;vim input.conf
-: 1699187166:0;vim misc.conf
-: 1699187184:0;vim winrules.conf
-: 1699187193:0;vim layout.conf
-: 1699187223:0;Hyprland
-: 1699187257:0;vim .config/hypr/configs/decoration.conf
-: 1699187267:0;vim .config/hypr/configs/layout.conf
-: 1699187277:0;Hyprland
-: 1699187302:0;vim .config/hypr/configs/layout.conf
-: 1699187372:0;Hyprland
-: 1699187380:0;vim .config/hypr/configs/layout.conf
-: 1699187690:0;Hyprland
-: 1699187702:0;vim .config/hypr/configs/layout.conf
-: 1699187711:0;Hyprland
-: 1699187737:0;cd dotfile/config/hypr
-: 1699187748:0;vim configs/winrules.conf
-: 1699187758:0;vim hyprland.conf
-: 1699187789:0;Hyprland
-: 1699187809:0;cd dotfile/config/hypr
-: 1699187819:0;vim configs/monitors.conf
-: 1699187829:0;vim configs/layout.conf
-: 1699187858:0;vim configs/misc.conf
-: 1699187868:0;vim configs/animation.conf
-: 1699187876:0;vim configs/decoration.conf
-: 1699187893:0;vim configs/xwayland.conf
-: 1699187901:0;vim configs/decoration.conf
-: 1699187909:0;vim configs/execs.conf
-: 1699187922:0;vim configs/winrules.conf
-: 1699187933:0;vim hyprland.conf
-: 1699187954:0;Hyprland
-: 1699187964:0;cd dotfile/config/hypr
-: 1699187965:0;vim hyprland.conf
-: 1699187989:0;Hyprland
-: 1699188010:0;cd dotfile
-: 1699188030:0;git add . && git commit -m "change the gaps of hyprland" && git push
-: 1699189540:0;netcap --help
-: 1699189545:0;networkctl --help
-: 1699189558:0;networkctl list
-: 1699189562:0;networkctl status
-: 1699189590:0;networkctl status wlp0s20f3
-: 1699189624:0;cd dotfile/config/waybar
-: 1699189627:0;vim config
-: 1699189658:0;vim style.css
-: 1699189673:0;rm config.bak
-: 1699189675:0;cd scripts
-: 1699189682:0;cd ..
-: 1699189686:0;vim config
-: 1699189829:0;pacman -S conky
-: 1699189837:0;wireless
-: 1699189845:0;pacman -Q wireless_tools
-: 1699189850:0;pacman -Ql wireless_tools
-: 1699189865:0;iwlist
-: 1699189870:0;iwevent
-: 1699189876:0;iwgetid
-: 1699189894:0;pacman -Qi wireless_tools
-: 1699189903:0;pacman -Si wireless_tools
-: 1699189950:0;pacman -Ql imlib2
-: 1699189961:0;conky
-: 1699189970:0;conky -c ~/.config/conky/conkyrc
-: 1699189988:0;cd ~/.config/conky
-: 1699189992:0;vim conkyrc
-: 1699190013:0;conky -c ~/.config/conky/conkyrc
-: 1699190032:0;killall conky
-: 1699190046:0;conky -c ~/.config/conky/conkyrc
-: 1699190095:0;pacman -Rns conky
-: 1699190645:0;cd ~/.config/conky
-: 1699190646:0;vim conkyrc
-: 1699190802:0;pacman -S conky
-: 1699190808:0;conky -c ~/.config/conky/conkyrc
-: 1699190845:0;cd ~/.config/conky
-: 1699190873:0;cp conkyrc wlconkyrc
-: 1699190884:0;vim conkyrc
-: 1699190910:0;killall conky
-: 1699190926:0;cd ~/dotfile/config/hypr/configs
-: 1699190929:0;vim execs.conf
-: 1699190942:0;Hyprland
-: 1699190976:0;cd .config/conky
-: 1699190981:0;vim wlconkyrc
-: 1699191419:0;cd ~/dotfile/config/hypr/configs
-: 1699191424:0;vim decoration.conf
-: 1699191438:0;Hyprland
-: 1699191449:0;cd ~/dotfile/config/hypr/configs
-: 1699191450:0;vim decoration.conf
-: 1699191680:0;Hyprland
-: 1699191690:0;cd ~/dotfile/config/hypr/configs
-: 1699191691:0;vim decoration.conf
-: 1699191741:0;killall conky
-: 1699191747:0;get_nvidia_barval
-: 1699191752:0;conky -c ~/.config/conky/conkyrc
-: 1699191757:0;killall conky
-: 1699191764:0;Hyprland
-: 1699191771:0;cd .config/conky
-: 1699191777:0;vim wlconkyrc
-: 1699191813:0;lablk
-: 1699191814:0;lsblk
-: 1699191950:0;vim wlconkyrc
-: 1699192016:0;nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t | awk '{printf ("%.2f G", $1 / 1024)
-: 1699192021:0;nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t | awk '{printf ("%.2f G", $1 / 1024)'
-: 1699192042:0;nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t | awk '{printf ("%.2f G", $1 / 1024)}'}
-: 1699192063:0;nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t | awk '{printf ("%.2f G", $1 / 1024)}'
-: 1699192096:0;conky -c ~/.config/conky/wlconkyrc
-: 1699192233:0;cd .config/conky
-: 1699192234:0;vim wlconkyrc
-: 1699192630:0;conky -c ~/.config/conky/wlconkyrc
-: 1699194034:0;killall conky
-: 1699194041:0;conky -c ~/.config/conky/wlconkyrc
-: 1699194372:0;killall conky
-: 1699194374:0;conky -c ~/.config/conky/wlconkyrc
-: 1699194455:0;echo $DISPLAY
-: 1699194466:0;conky -c ~/.config/conky/wlconkyrc
-: 1699194628:0;cd dotfile/config/hypr/configs
-: 1699194631:0;vim env.conf
-: 1699194650:0;Hyprland
-: 1699194654:0;conky -c ~/.config/conky/wlconkyrc
-: 1699194662:0;killall conky
-: 1699194667:0;sl
-: 1699194675:0;conky -c ~/.config/conky/wlconkyrc 2>/dev/null
-: 1699194683:0;cd dotfile/config/hypr/configs
-: 1699194684:0;vim env.conf
-: 1699194698:0;vim execs.conf
-: 1699194716:0;Hyprland
-: 1699194733:0;cd .config/conky
-: 1699194741:0;vim wlconkyrc
-: 1699196754:0;cd .config/conky
-: 1699196755:0;vim wlconkyrc
-: 1699198014:0;cd ~/dotfile
-: 1699198018:0;git add . && git commit -m "change the gaps of hyprland" && git push
-: 1699198048:0;conky --version
-: 1699198122:0;upgrade
-: 1699198127:0;poweroff
-: 1699198566:0;Hyprland
-: 1699198574:0;cd .config/conky
-: 1699198576:0;vim wlconkyrc
-: 1699199111:0;cd dotfile
-: 1699199123:0;git add . && git commit -m "change settings of conky on wayland" && git push
+: 1699248726:0;cd .config/conky
+: 1699248727:0;vim wlconkyrc
+: 1699248802:0;cd ~/dotfile
+: 1699248809:0;git add . && git commit -m "change settings of conky" && git push

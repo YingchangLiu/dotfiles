@@ -48,14 +48,14 @@
         "spacing": 10
     },
     "clock": {
-        "format-alt": "<span color='#bf616a'> </span>{:%a %b %d}",
-        "format": "<span color='#bf616a'> </span>{:%H:%M,  %Y/%m/%d}",
+        "format-alt": "<span color='#bf616a'> </span>{:%a %Y/%m/%d}",
+        "format": "<span color='#bf616a'> </span>{:%H:%M}",
         "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
     },
 
     "cpu": {
       "interval": 10,
-      "format": " {}%",
+      "format": " {usage}%",
       "max-length": 10,
       "on-click": "",
     },
