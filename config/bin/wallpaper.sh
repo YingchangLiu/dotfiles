@@ -14,9 +14,9 @@ fi
 echo $image
 echo $image > /tmp/currentwall
 #setsid -f swaybg -i $image
-swaybg -i $image
-sleep 1 # for a smooth transition with no flicker
+#sleep 1 # for a smooth transition with no flicker
 for instance in $swaybg_instances; do
 	kill -9 $instance 1>/dev/null 2>&1
 done
 
+swaybg -i $image

@@ -139,7 +139,6 @@ mv sac/* ../
 rm -rf sac
 sudo mkdir -h
 sudo mkdir -m 777 locflow
-rm -rf bin
 mv ~/code/myLOC-FLOW.rar ./
 pacman -S unrar
 ex myLOC-FLOW.rar
@@ -183,7 +182,6 @@ mv bin bin.bak
 sh run_install.sh
 cd /opt/locflow/LOC-FLOW/bin.bak
 cp ~/bin/hyp1.40 ./
-cd ../bin
 vim run_all.sh
 mv 20161014 20161014.bak
 pacman -S flameshot
@@ -247,7 +245,6 @@ rm -rf l
 cd hyp1.40
 vim source/makefile
 vim src/pick2real/Makefile
-cd
 cd myloc
 rm -rf ./*
 rm -rf myloc
@@ -489,12 +486,10 @@ mv cwp opt/cwp
 cd opt/cwp
 mkdir software
 mkdir codes
-mkdir bin
 mkdir data
 mkdir projects
 mkdir workspace
 mv bin codes data projects software workspace ../
-cd opt
 mkdir sac
 cd sac
 cp /opt/sac/src/* ./
@@ -585,7 +580,6 @@ mv ifos* sofi* ./sofi
 mkdir locflow
 mv locflow.tgz locflow
 tar -zcvf ../software/ahay.tgz ahay
-mkdir ahay
 mv ahay.tgz ahay
 git submodule add https://github.com/geodynamics/seismic_cpml
 tar -zcvf ../software/seismic_cpml.tgz seismic_cpml
@@ -713,7 +707,6 @@ source /opt/miniconda/bin/activate locflow
 update-grub
 sudo vim /etc/default/grub
 cd software/ahay
-cd ../..
 cd src/book
 cd marmtest
 cd /opt/ahay/src/book
@@ -862,7 +855,6 @@ pacman -S kde-plasma
 pacman -S plasma-im
 pacman -S plasma-meta
 pacman -Rns gnome
-mkdir opt
 cd ../src
 rm -rf /opt/ahay /opt/cwp /opt/locflow /opt/sac
 cd /opt
@@ -874,7 +866,6 @@ cd software
 cd software/libtorch
 cd seismostory
 cd codes
-cd ../opt
 cd locflow
 git pull
 vim shellrc/pathrc.sh
@@ -1189,7 +1180,6 @@ pacman-key --finger 7931B6D628C8D3BA
 sudo pacman-key --finger 7931B6D628C8D3BA
 sudo pacman-key --lsign-key 7931B6D628C8D3BA
 pacman -Ql lib32-libxml2
-sudo pacman -Syyu
 pacman -Ss lib32-libxml2
 pacman -S lib32-libxml2 libxml2
 sudo vim /etc/pacman.conf
@@ -1323,7 +1313,6 @@ hyprctl monitors -j
 mkdir eww
 eww open -c ~/eww/ example
 git clone https://github.com/Aylur/dotfiles.git
-cd dotfiles
 git checkout eww
 vim hypr/settings.conf
 vim topbar.yuck
@@ -1500,7 +1489,6 @@ pacman -S telegram
 nekoray --many
 cd profiles
 killall nekoray
-nekoray -many
 pacman -Ss qqnt
 pacman -Ss qq
 pacman -Qi neofetch
@@ -1552,7 +1540,6 @@ pacman -S yambar
 paru -Ss yambar
 pacman -Sy
 paru -S yambar
-pacman -S nekoray
 pacman -Ss v2ray
 pacman -Ss udiske
 pacman -S ranger
@@ -1737,7 +1724,6 @@ pacman -S otf-font-awesome
 pacman -S nerd-fonts-ubuntu
 pacman -Rns nerd-fonts-ubuntu
 which nekoray
-nekoray
 cd /usr/share/
 vim applications/nekoray.desktop
 sudo vim applications/nekoray.desktop
@@ -1900,7 +1886,6 @@ mv .logo .logo.jpg
 rm -rf logo
 ./background-changer
 cd .config/bin
-vim background-changer
 find ~/dotfile/wallpaper/. -type f
 mv wallpaper/.logo.jpg ./
 mv .logo.jpg config/logo/
@@ -1908,10 +1893,8 @@ mkdir config/logo
 mv .logo.jpg config/logo/doctorHome.jpg
 find ~/dotfile/wallpaper/ -type f
 vim xorg-background-changer
-vim wallpaper.sh
 cd fwitest
 cd /opt/cuda
-cd bin
 vim nvcc.profile
 cd ~/fwitest/
 cd modules
@@ -1949,7 +1932,6 @@ cd ../../shellrc
 cd ~/dotfile/config/fastfetch
 mv myfetch.jsonc kelen.jsonc
 rm -rf neofetch
-fastfetch
 git add . && git commit -m "add fastfetch as fetch alias" && git push
 pacman -Si stow
 pacman -Qi stow
@@ -1990,7 +1972,6 @@ eeeq
 cd ~/dotfile/config/hypr/configs
 vim ~/.config/swhkd/swhkdrc
 kitty -e ranger
-reboot
 checkupdates
 w3mimgdisplay
 w3
@@ -2015,14 +1996,12 @@ cp -r config ~/dotfile/config/ranger
 cd ~/dotfile/config/ranger
 rm -rf ~/.config/ranger
 cd ~/.config/ranger
-lls
 xdg-open
 cd dotfile/wallpaper
 x-www-browser
 xdg-open Anmi.jpg
 pkgfile --search --regex x-www
 pkgfile --search --regex browser
-cd .config
 nnn --help
 cd .config/ranger
 vim rc.conf
@@ -2098,7 +2077,6 @@ rm -rf nnn nnn.fifo
 cd ~/
 vim nnn.sh
 cd /var/tmp
-cd shellrc
 chmod a+x nnn.sh
 mv nnn.sh environment.sh
 vim zshsetting.zsh
@@ -2111,20 +2089,16 @@ cd hypr
 vim 5b8cfdf2efc44106b61e60c642fd964823fd89f3_1699267216/hyprland.log
 vim ~/.config/kitty/kitty.conf
 source ./environment.sh
-source ~/.zshrc
 cd $SHELLROOT
 vim environment.sh
 echo $NNN_FIFO
 echo $TMPDIR
 echo $TMPPREFIX
 paru -S kitty-git
-cleanup
 kitty
 pacman -Rns imagemagick
-pacman -Qenq
 pacman -Rns inkscape
 pacman -Rns imv
-n
 cd ~/.cache/kitty
 cd /tmp
 cd nnn/previews
@@ -2171,7 +2145,6 @@ rm -rf .git
 vim .gitignore
 sh install_awesome_vimrc.sh
 vim .vimrc
-cd dotfile
 vim vimrc
 mv vimrc ~/dotfile/config/vimrc
 cd config
@@ -2180,10 +2153,8 @@ vim install_awesome_vimrc.sh
 vim install_basic_vimrc.sh
 vim vimrcs/basic.vim
 vim install_awesome_parameterized.sh
-neofetch
 cd ~
 ~/.config/bin/background-changer
-fetch
 git add . && git commit -m "add vimrc of amix and change some settings" && git push
 cd dotfile/config/hypr/configs/
 echo $DBUS_SESSION_BUS_ADDRESS
@@ -2197,7 +2168,6 @@ swayidle --help
 vim ~/dotfile/config/autostart.sh
 mkdir ~/.config/lock
 pacman -S swaylock-effect
-cd dotfile/config/bin
 vim wayland_session_lock
 vim swaylock/config
 pacman -S swaylock
@@ -2207,8 +2177,6 @@ paru -S swaylock-effects
 paru -S swaylock-effects-git
 swaylock
 ./wayland_session_lock
-cd ../
-cd config/hypr/configs
 vim execs.conf
 vim .config/autostart.sh
 swaylock -f -c 000000
@@ -2221,7 +2189,6 @@ hyprctl dispatch dpms off
 hyprctl dispatch dpms off eDP-1
 hyprctl dispatch dpms off DP-1
 lsblk
-cd dotfile/config/hypr/configs
 hyprctl monitors
 hyprctl monitors | grep HDMI
 hyprctl monitors | grep HDMI ret=$?
@@ -2233,7 +2200,6 @@ swayidle -w timeout 3000 ~/.config/bin/wayland_session_lock timeout 3300 'hyprct
 mv idle.sh ~/dotfile/config/bin
 cd ~/.config/bin
 chmod a+x idle.sh
-vim keybinds.conf
 upgrade
 cd .config/conky
 pacman -Qu | wl -l
@@ -2241,7 +2207,6 @@ unalias pacman
 pacman -Qu
 pacman -Qu | wc -l
 alias ' pacman'='pacman'
-alias
 ' pacman'
 ' pacman' -Syyu
 pacman --color auto -Syyu
@@ -2255,130 +2220,159 @@ cd dotfile/shellrc
 Hyprlan
 vim /bin/sh +1 && Hyprlan
 vim /bin/sh
-Hyprland
-pacman -Syyu
 pacma
 pacman
 pacm
 cd ~/.config
 aptget update
-fuck
 cd ~/dotfile/config
 mkdir thefuck
 cd thefuck
 pacman -Ql thefuck
 time thefuck --alias
-cd Downloads
 git clone https://github.com/pwyde/dotfiles
 cp ~/Downloads/dotfiles/.config/thefuck/settings.py ./
 cd ~/.config/thefuck
 vim settings.py
 cd ~/dotfile/shellrc
 vim commonplugin.sh
-vim aliasrc.sh
 cd ~/.config/conky
 vim wlconkyrc
 rm -rf ~/dotfile/config/thefuck
-cd ..
 mv thefuck ~/dotfile/config/
 cd ~/dotfile
 sh install.sh
+fetc
+fastfetc
+fastfetch
+git add . && git commit -m "add thefuck and unalias pkgmanager" && git push
+pacman -Rnsdd
+sudo pacman -Rnsdd
+cd shellrc
+packer
+vim aliasrc.sh
+cd Downloads
+cd dotfiles
+cd .config
+vim autostart-scripts/kwallet-ssh-add.sh
+vim wget/wgetrc
+vim zsh/zlogin
+cd ../..
+pacman -Syyu
+sudo pacman -Syyu
+pkgfile --search --regex libprotobuf
+pkgfile --search --regex libprotobuf.so.24
+pacman -S protobuf
+sudo pacman -S protobuf
+paru -Ss nekoray
+pacman -S nekoray-git
+sudo pacman -S nekoray-git
+nekoray
+paru -S nekoray-git
+nekoray --version
+systemctl enable v2ray
+systemctl enable v2raya
+systemctl disable v2raya
+systemctl disable v2ray
+systemctl start v2ray v2raya
+git clone https://github.com/algotech/dotaliases
+vim dotaliases/bash_aliases
+vim dotaliases/git_aliases
+vim dotaliases/bash/git_aliases
+source ~/.zshrc
+alias
+curl wttr.in
+wttr
+alias wttr
+paru -S aur/nekoray-git
+cleanup
+reboot
+fetch
+fuck
+fu ck
+neofetch
+pacman -Qenq
+pacman -S nekoray
+sudo pacman -S nekoray
+nekoray -many
+git add . && git commit -m "add alias of git" && git push
+cd config/hypr/configs
+Hyprland
+cd dotfile
+git add . && git commit -m "add move to hyprland" && git push
+mkdir opt
+mkdir ahay
+mkdir sdfg
+cd sdfg
+vim sdg
+mv sdg bin
+cd ../
+mkdir sf
+cd sf
+mkdir bin
+vim sagsag
+install stow
+stow
+stow sf
+stow sdfg
+cd ../bin
+lls
+stow -d sdfg
+stow -d sagsag
+cd ../opt
+stow --delete sdfg
+cd ..
+cd bin
+cd
+rm -rf bin
+cd opt
+rm -rf sdfg sf
+pacman -Rns stow
+fk
+sudo pacman -Rns stow
+vim sdfg
+cd dotfile/config/hypr/configs
+vim keybinds.conf
+n
+cd dotfile/config/bin
+cp background-changer paper_once
+vim paper_once
+kill -9 $(ps axh | grep swaybg | grep -v grep | awk '{print $1}')
+cd ../../bin
+$(ps axh | grep swaybg | grep -v grep | awk '{print $1}')
+killall waypaper
+killall swaypaper
+killall swaybg
+vim background-changer
+vim wallpaper.sh
+swaybg_instances=$(ps axh | grep swaybg | grep -v grep | awk '{print $1}')
+./wallpaper.sh
+echo $swaybg_instances
 exit
-: 1699331059:0;Hyprland
-: 1699331064:0;fetc
-: 1699331065:0;fuck
-: 1699331077:0;fastfetch
-: 1699331079:0;fastfetc
-: 1699331081:0;fuck
-: 1699331083:0;fastfetch
-: 1699331093:0;pacman -Syyu
-: 1699331095:0;fk
-: 1699331108:0;sudo pacman -Syyu
-: 1699331114:0;pacman -Qenq
-: 1699331115:0;fuck
-: 1699331126:0;cd dotfile
-: 1699331143:0;git add . && git commit -m "add thefuck and unalias pkgmanager" && git push
-: 1699331200:0;pacman -Rnsdd
-: 1699331205:0;sudo pacman -Rnsdd
-: 1699331228:0;cd shellrc
-: 1699331230:0;vim aliasrc.sh
-: 1699331543:0;packer
-: 1699331867:0;vim aliasrc.sh
-: 1699332203:0;cd Downloads
-: 1699332205:0;cd dotfiles
-: 1699332209:0;cd .config
-: 1699332219:0;vim autostart-scripts/kwallet-ssh-add.sh
-: 1699332238:0;vim wget/wgetrc
-: 1699332246:0;vim zsh/zlogin
-: 1699332254:0;cd ../..
-: 1699332265:0;git clone https://github.com/algotech/dotaliases
-: 1699332292:0;nekoray
-: 1699332302:0;pacman -Syyu
-: 1699332305:0;fk
-: 1699332309:0;sudo pacman -Syyu
-: 1699332319:0;pkgfile --search --regex libprotobuf
-: 1699332325:0;pkgfile --search --regex libprotobuf.so.24
-: 1699332367:0;pacman -S protobuf
-: 1699332369:0;fk
-: 1699332374:0;sudo pacman -S protobuf
-: 1699332441:0;paru -Ss nekoray
-: 1699332449:0;pacman -S nekoray-git
-: 1699332451:0;fk
-: 1699332457:0;sudo pacman -S nekoray-git
-: 1699332462:0;nekoray
-: 1699332474:0;paru -S nekoray-git
-: 1699332480:0;paru -S aur/nekoray-git
-: 1699332602:0;nekoray --version
-: 1699332607:0;paru -S aur/nekoray-git
-: 1699332620:0;git clone https://github.com/algotech/dotaliases
-: 1699332655:0;systemctl enable v2ray
-: 1699332659:0;systemctl enable v2raya
-: 1699332677:0;systemctl disable v2raya
-: 1699332682:0;systemctl disable v2ray
-: 1699332692:0;systemctl start v2ray v2raya
-: 1699332706:0;paru -S aur/nekoray-git
-: 1699332749:0;git clone https://github.com/algotech/dotaliases
-: 1699332756:0;paru -S aur/nekoray-git
-: 1699332794:0;vim dotaliases/bash_aliases
-: 1699332822:0;vim dotaliases/git_aliases
-: 1699332839:0;vim dotaliases/bash/git_aliases
-: 1699333059:0;source ~/.zshrc
-: 1699333063:0;alias
-: 1699333077:0;wttr
-: 1699333093:0;alias wttr
-: 1699333097:0;curl wttr.in
-: 1699333110:0;wttr
-: 1699333115:0;alias wttr
-: 1699333156:0;paru -S aur/nekoray-git
-: 1699333333:0;cleanup
-: 1699333340:0;reboot
-: 1699333371:0;Hyprland
-: 1699333378:0;fetch
-: 1699333382:0;fk
-: 1699333386:0;fuck
-: 1699333392:0;fu ck
-: 1699333399:0;neofetch
-: 1699333402:0;fk
-: 1699333416:0;n
-: 1699333939:0;pacman -Qenq
-: 1699333975:0;pacman -S nekoray
-: 1699333978:0;fk
-: 1699333983:0;sudo pacman -S nekoray
-: 1699333998:0;nekoray -many
-: 1699334038:0;cd dotfile
-: 1699334048:0;git add . && git commit -m "add alias of git" && git push
-: 1699334086:0;cd config/hypr/configs
-: 1699334089:0;vim keybinds.conf
-: 1699334377:0;Hyprland
-: 1699334398:0;cd config/hypr/configs
-: 1699334404:0;cd dotfile/config/hypr/configs
-: 1699334405:0;vim keybinds.conf
-: 1699334506:0;Hyprland
-: 1699334548:0;cd dotfile/config/hypr/configs
-: 1699334549:0;vim keybinds.conf
-: 1699334949:0;Hyprland
-: 1699334976:0;cd dotfile/config/hypr/configs
-: 1699334977:0;vim keybinds.conf
-: 1699335007:0;Hyprland
-: 1699335031:0;cd dotfile
-: 1699335040:0;git add . && git commit -m "add move to hyprland" && git push
+: 1699336852:0;Hyprland
+: 1699336868:0;swaybg_instances=$(ps axh | grep swaybg | grep -v grep | awk '{print $1}')
+: 1699336871:0;echo $swaybg_instances
+: 1699336877:0;Hyprland
+: 1699336893:0;cd ~/dotfile/config/bin
+: 1699336896:0;vim background-changer
+: 1699336906:0;vim wallpaper.sh
+: 1699336952:0;Hyprland
+: 1699336957:0;cd ~/dotfile/config/bin
+: 1699336960:0;vim wallpaper.sh
+: 1699336968:0;image=$( find ${wallpath} -type f | grep -v $(cat /tmp/currentwall) | shuf | head -n 1)
+: 1699337000:0;image=$( find ${wallpath} -type f )
+: 1699337020:0;cd /tmp
+: 1699337031:0;vim currentwall
+: 1699337036:0;image=$( find ${wallpath} -type f | grep -v $(cat /tmp/currentwall) | shuf | head -n 1)
+: 1699337054:0;./wallpaper.sh
+: 1699337063:0;vim currentwall
+: 1699337078:0;image=$( find ${wallpath} -type f | grep -v $(cat /tmp/currentwall) | shuf | head -n 1)
+: 1699337094:0;vim wallpaper.sh
+: 1699337116:0;wallpath=~/dotfile/wallpaper/
+: 1699337117:0;image=$( find ${wallpath} -type f | grep -v $(cat /tmp/currentwall) | shuf | head -n 1)
+: 1699337121:0;echo $image
+: 1699337156:0;swaybg -i $image
+: 1699337166:0;cd ~/dotfile/config/bin
+: 1699337168:0;./wallpaper.sh
+: 1699337186:0;cd ~/dotfile
+: 1699337207:0;git add . && git commit -m "change wallpaper changer to avoid same papers" && git push
