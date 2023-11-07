@@ -2367,3 +2367,18 @@ exit
 : 1699333998:0;nekoray -many
 : 1699334038:0;cd dotfile
 : 1699334048:0;git add . && git commit -m "add alias of git" && git push
+: 1699334086:0;cd config/hypr/configs
+: 1699334089:0;vim keybinds.conf
+: 1699334377:0;Hyprland
+: 1699334398:0;cd config/hypr/configs
+: 1699334404:0;cd dotfile/config/hypr/configs
+: 1699334405:0;vim keybinds.conf
+: 1699334506:0;Hyprland
+: 1699334548:0;cd dotfile/config/hypr/configs
+: 1699334549:0;vim keybinds.conf
+: 1699334949:0;Hyprland
+: 1699334976:0;cd dotfile/config/hypr/configs
+: 1699334977:0;vim keybinds.conf
+: 1699335007:0;Hyprland
+: 1699335031:0;cd dotfile
+: 1699335040:0;git add . && git commit -m "add move to hyprland" && git push
