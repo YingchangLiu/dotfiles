@@ -1,14 +1,44 @@
+
 #alias matlab='/home/kelen/bin/matlab/bin/matlab'
-alias xfce4='env LANG=zh_CN.UTF-8 startxfce4'
-# check kernel
-alias checkkernel='sh ~/dotfile/script/checkbootkernel.sh'
-alias checkclass='sh ~/dotfile/script/checkclass.sh'
-alias reinstall='pacman -Qqn | pacman -S -'
 alias fetch='fastfetch -c ~/.config/fastfetch/kelen.jsonc'
 alias nekoray='nekoray -many'
 alias vnc='vncviewer -passwd ~/.vnc/passwd 127.0.0.1:1'
 # view image using mpv
 alias mvi='mpv --config-dir=$HOME/.config/mvi'
+# OBS from xwayland
+# alias obs='QT_QPA_PLATFORM=xcb obs'
+
+# alacritty with wayland
+# alias alacritty='Exec=env WAYLAND_DISPLAY= alacritty'
+
+# alias matlab='env LD_PERLOAD=/usr/lib/libstdc++.so LD_LIBRARY_PATH=/usr/lib/xorg/modules/dri/ MESA_LOADER_DRIVER_OVERRIDE=i1965 LANG=zh_CN.UTF-8 matlab'
+
+
+# system
+alias da='date "+%A, %B %d, %Y [%T]"'
+alias du1='du --max-depth=1'
+alias hist='history 1 | grep'         # requires an argument
+alias openports='ss --all --numeric --processes --ipv4 --ipv6'
+alias pgg='ps -Af | grep'           # requires an argument
+alias aurupgrade='paru -Syu --aur'
+alias wttr='curl wttr.in'
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
+alias pkgbak='pacman -Qeqn > ~/dotfile/script/pacman_application.txt && pacman -Qeqm > ~/dotfile/script/aur_application.txt'
+alias maintenance='source ~/dotfile/script/maintenance.sh'
+alias reinstall='pacman -Qqn | pacman -S -'
+
+
+# the fuck
+alias fk=fuck
+alias f=fuck
+alias k=fuck
+alias fu=fuck
+alias wtf=fuck
+
+# check kernel
+alias checkkernel='sh ~/dotfile/script/checkbootkernel.sh'
+alias checkclass='sh ~/dotfile/script/checkclass.sh'
+
 
 # start sway without nvidia
 alias sway='sway --unsupported-gpu'
@@ -18,14 +48,7 @@ alias awesome='startx ~/dotfile/xinitrc/xinitrc.awesome'
 alias gnome='startx ~/dotfile/xinitrc/xinitrc.gnome'
 alias bspwm='startx ~/dotfile/xinitrc/xinitrc.bspwm'
 alias dwm='startx ~/dotfile/xinitrc/xinitrc.dwm'
-
-# OBS from xwayland
-# alias obs='QT_QPA_PLATFORM=xcb obs'
-
-# alacritty with wayland
-# alias alacritty='Exec=env WAYLAND_DISPLAY= alacritty'
-
-# alias matlab='env LD_PERLOAD=/usr/lib/libstdc++.so LD_LIBRARY_PATH=/usr/lib/xorg/modules/dri/ MESA_LOADER_DRIVER_OVERRIDE=i1965 LANG=zh_CN.UTF-8 matlab'
+alias xfce4='env LANG=zh_CN.UTF-8 startxfce4'
 
 # change hosts for connect some adress
 alias hosts='sudo wget https://raw.githubusercontent.com/googlehosts/hosts/master/hosts-files/hosts -O /etc/hosts'
@@ -77,12 +100,7 @@ alias mkdir='mkdir -p -v'
 alias ping='ping -c 5'
 alias ip='ip --color=auto'
 
-# New commands
-alias da='date "+%A, %B %d, %Y [%T]"'
-alias du1='du --max-depth=1'
-alias hist='history 1 | grep'         # requires an argument
-alias openports='ss --all --numeric --processes --ipv4 --ipv6'
-alias pgg='ps -Af | grep'           # requires an argument
+# cd
 alias cd='cd'
 alias CD='cd'
 alias cd..='cd ..'
@@ -90,11 +108,7 @@ alias ..=' cd ..'
 alias ...=' cd ../..'
 alias ....=' cd ../../..'
 alias bd='cd -'
-alias aurupgrade='paru -Syu --aur'
-alias wttr='curl wttr.in'
-alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
-alias pkgbak='pacman -Qeqn > ~/dotfile/script/pacman_application.txt && pacman -Qeqm > ~/dotfile/script/aur_application.txt'
-alias maintenance='source ~/dotfile/script/maintenance.sh'
+
 
 # ls
 alias ls=' ls -hF --color=auto --group-directories-first'
@@ -118,17 +132,17 @@ if (( UID != 0 )); then
     alias reboot='sudo systemctl reboot'
     alias poweroff='sudo systemctl poweroff'
     alias dmesg='sudo dmesg -HL'
-    alias install-grub='sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB'
+    alias install-grub='sudo grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB'
     alias update-grub='sudo env LANG=en_US.UTF-8 grub-mkconfig -o /boot/grub/grub.cfg'
-    alias pacman='sudo pacman'
-    alias apt='sudo apt'
-    alias apt-get='sudo apt-get'
-    alias zypper='sudo zypper'
-    alias dnf='sudo dnf'
-    alias yum='sudo yum'
+    #alias pacman='sudo pacman'
+    #alias apt='sudo apt'
+    #alias apt-get='sudo apt-get'
+    #alias zypper='sudo zypper'
+    #alias dnf='sudo dnf'
+    #alias yum='sudo yum'
 
-    alias mount='sudo mount'
-    alias umount='sudo umount'
+    #alias mount='sudo mount'
+    #alias umount='sudo umount'
 
 fi
 
@@ -137,10 +151,12 @@ case $DISTRO in
     *Arch*)
         alias update='sudo pacman -Syy'
         alias upgrade='sudo pacman -Syyu'
+        alias install='sudo pacman -S'
         ;;
     *Debian*|*Ubuntu*)
         alias update='sudo apt-get update'
         alias upgrade='sudo apt-get upgrade'
+        alias install='sudo apt-get install'
         ;;
     *Fedora*|*CentOS*)
         alias update='sudo dnf update'
@@ -149,6 +165,7 @@ case $DISTRO in
     *SUSE*)
         alias update='sudo zypper refresh'
         alias upgrade='sudo zypper update'
+        alias install='sudo zypper in'
         ;;
 esac
 ## Safety features

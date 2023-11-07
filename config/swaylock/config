@@ -4,9 +4,8 @@ font=Work Sans
 clock
 timestr=%R
 
-image=~/.config/hypr/wallpapers/tree.jpg
+image=$(find ${HOME}/dotfile/wallpaper/ -type f | shuf -n 1)
 
-fade-in=0.2
 
 effect-blur=95x2
 

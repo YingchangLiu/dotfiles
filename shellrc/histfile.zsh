@@ -498,7 +498,6 @@ cd opt
 mkdir sac
 cd sac
 cp /opt/sac/src/* ./
-l
 mkdir src
 git submodule add https://github.com/ahay/src
 git submodule add https://github.com/ahay/src ./ahay
@@ -652,7 +651,6 @@ cd src/ahay
 mv software ../software
 source ~/dotfile/script/gitclean.sh
 vim .gitattributes
-vim .gitignore
 git commit -m "first commit"
 git push --set-upstream origin master
 sudo rm /var/lib/pacman/sync/*.sig
@@ -1059,7 +1057,6 @@ pacman -Rns wl-clipboard
 pacman -Rns wl-clipboard clipman
 pacman -Rns zsh*
 pacman -Rns (pacman -Qenq | grep zsh )
-cd dotfile/script
 cd ../config/bin
 pacman -S xorg-xwininfo
 xwininfo
@@ -1249,9 +1246,7 @@ vim .config/hypr/execs.conf
 vim ~/.config/hypr/scripts/xdph.sh
 ~/.config/hypr/scripts/xdph.sh
 cd s
-cd share
 rm -rf fcitx5
-cd ../state
 rm -rf .hyprland
 cd .cache
 rm -rf brillo fontconfig eww*
@@ -1283,7 +1278,6 @@ pacman -Rns fcitx5-gtk
 pacman -S fcitx5-im fcitx5-chinese-addons
 QT_QPA_PLATFORM=xcb fcitx5-configtool
 pacman -Rns fcitx5-im fcitx5-chinese-addons
-pacman -S sway
 vim ~/.config/conky/conkyrc
 firefox
 sway
@@ -1573,7 +1567,6 @@ pacman -Rns eww
 pacman -Rns eww-wayland
 pacman -Qs
 pacman -Su
-pacman -Qu
 pacman -S waybar
 fcitx5-config-qt
 env QT_QPA_PLATFORM=xcb fcitx5-configtool
@@ -1740,7 +1733,6 @@ vim config.bak
 pacman -S nerd-fonts
 pacman -Ss nerd-fonts
 pacman -Rns otf-font-awesome
-pacman -Syyu
 pacman -S otf-font-awesome
 pacman -S nerd-fonts-ubuntu
 pacman -Rns nerd-fonts-ubuntu
@@ -1868,7 +1860,6 @@ vim Makefile
 pacman -Ss waypaper
 paru -Ss waypaper
 paru -S waypaper
-waypaper
 pacman -Rns waypaper
 pacman -Rns waypaper-git
 setwallpaper
@@ -1890,7 +1881,6 @@ feh --bg-fill ~/dotfile/wallpaper/starsky.jpg
 killall feh
 swaybg
 pacman -Rns feh
-cd dotfile/config/hypr/configs
 conky ~/.config/conky/wlconkyrc
 git add . && git commit -m "change settings of conky" && git push
 pacman -S wallutils
@@ -1899,9 +1889,6 @@ pacman -S swaybg
 setwallpaper -m 'scale' ~/dotfile/wallpaper/gamelife.png
 setwallpaper -m 'scale' ~/dotfile/wallpaper/wallhaven-nzydvj_1920x1080.png
 pacman -Rns wallutils
-swayidle
-pacman -S swaylock
-cd config/hypr/configs
 vim env.conf
 cd logo
 swaybg 64d5026575ed0229.jpg
@@ -1911,7 +1898,6 @@ cd wallpaper
 mv logo/64d5026575ed0229.jpg ./.logo
 mv .logo .logo.jpg
 rm -rf logo
-cd dotfile/config/bin
 ./background-changer
 cd .config/bin
 vim background-changer
@@ -1935,7 +1921,6 @@ which g++
 vim ~/.zprofile
 cd dotfile/config/waybar
 top
-vim execs.conf
 btop
 pacman -Ss neofetch
 pacman -Ss fetch
@@ -1961,12 +1946,10 @@ vim myfetch.jsonc
 fetch -c ~/dotfile/config/fastfetch/all.jsonc
 fetch -c ~/dotfile/config/fastfetch/myfetch.jsonc
 cd ../../shellrc
-vim aliasrc.sh
 cd ~/dotfile/config/fastfetch
 mv myfetch.jsonc kelen.jsonc
 rm -rf neofetch
 fastfetch
-lsblk
 git add . && git commit -m "add fastfetch as fetch alias" && git push
 pacman -Si stow
 pacman -Qi stow
@@ -1992,16 +1975,9 @@ lsb_release --help
 lsb_release -d
 lsb_release -c
 lsb_release -a
-cd dotfile/config/hypr/configs/
-~/.config/bin/background-changer
-cd ~/.config/conky
 killall conky
 conky -c ~/.config/conky/wlconkyrc
-cd .config/conky
-vim wlconkyrc
-neofetch
 vim decoration.conf
-fetch
 pacmanfm
 pcmanfm
 pacman -Ss rofi
@@ -2012,7 +1988,6 @@ pacman -Rns rofi-emoji
 pacman -S rofi
 eeeq
 cd ~/dotfile/config/hypr/configs
-vim keybinds.conf
 vim ~/.config/swhkd/swhkdrc
 kitty -e ranger
 reboot
@@ -2039,7 +2014,6 @@ cp config ~/dotfile/config/ranger
 cp -r config ~/dotfile/config/ranger
 cd ~/dotfile/config/ranger
 rm -rf ~/.config/ranger
-cd dotfile
 cd ~/.config/ranger
 lls
 xdg-open
@@ -2058,7 +2032,6 @@ paru -Ss w3m
 paru -S w3m-imgcat
 paru -Rns w3m-imgcat
 vim scope.sh
-cd ../
 cd /usr/share/doc/w3m
 w3m
 w3m -O k
@@ -2077,12 +2050,9 @@ cd ~/.w3m
 pacman -S w3m
 vim ~/.w3m/config
 vim ~/.config/ranger/rc.conf
-cd ~/.config
 vim copyq/copyq-commands.ini
 vim ~/.local/share/copyq/copyq/copyq.log
 rm -rf w3m eww.bak
-cd ~/dotfile/config
-rm -rf ranger
 cd .history
 cd awesome
 rm -rf .history
@@ -2090,7 +2060,6 @@ pacman -S nnn
 pacman -Rns ranger
 pacman -Rns w3m
 pacman -Qemq
-cd ~
 rm -rf .w3m
 cd /usr/share/nnn/quitcd
 cd ../plugins
@@ -2099,11 +2068,8 @@ vim quitcd.bash_sh_zsh
 cd ~/.config/nnn
 !
 echo $NNN_TMPFILE
-cd ~/dotfile/shellrc
 cd plugins
 mv nnn ~/dotfile/config/nnn
-sh install.sh
-cd config
 cd nnn
 cd /usr/share/nnn/plugins
 vim README.md
@@ -2130,12 +2096,8 @@ echo $TERM
 cd /tmp/
 rm -rf nnn nnn.fifo
 cd ~/
-cd dotfile/shellrc
-vim commonplugin.sh
 vim nnn.sh
 cd /var/tmp
-cd ..
-cd ~/dotfile
 cd shellrc
 chmod a+x nnn.sh
 mv nnn.sh environment.sh
@@ -2150,17 +2112,14 @@ vim 5b8cfdf2efc44106b61e60c642fd964823fd89f3_1699267216/hyprland.log
 vim ~/.config/kitty/kitty.conf
 source ./environment.sh
 source ~/.zshrc
-vim ~/.zshrc
 cd $SHELLROOT
 vim environment.sh
 echo $NNN_FIFO
 echo $TMPDIR
 echo $TMPPREFIX
-upgrade
 paru -S kitty-git
 cleanup
 kitty
-Hyprland
 pacman -Rns imagemagick
 pacman -Qenq
 pacman -Rns inkscape
@@ -2170,99 +2129,172 @@ cd ~/.cache/kitty
 cd /tmp
 cd nnn/previews
 cd home/kelen
-cd Downloads
 cd hyprland-dots
+waypaper
+rm -rf waypaper
+cd ~/.local
+cd share
+rm -rf ranger
+flatpak
+pacman -Rns flatpak
+rm -rf flatpak
+cd ../state
+rm -rf go
+git clone https://github.com/amix/vimrc
+cp vimrcs/basic.vim ~/dotfile/vimrc
+cp -r ~/Downloads/vimrc ./
+rm -rf vimrc
+cd ~/Downloads
+mkdir .vim_runtime
+cp -r ~/Downloads/vimrc ./.vim_runtime/vimrc
+rm -rf .vim_runtime
+cp -r ~/Downloads/vimrc ./.vim_runtime
+cd .vim_runtime
+vim dotfile/base-uefi
+rm -rf .vimrc
+sh ~/.vim_runtime/install_awesome_vimrc.sh
+rm -rf .vim_runtime .vimrc .vim .vim_mru_files
+vim .viminfo
+vim dotfile/base-uefi/base-uefi2.sh
+cd kelen
+cp ~/Downloads/vimrc ./
+cp ~/Downloads/vimrc/vimrcs/filetypes.vim ./vimrc
+cp ~/Downloads/vimrc/vimrcs/basic.vim ~/.vimrc
+vim pam_environment
+mv .vimrc .vimrc.bak
+vim pam_envir
+mv .vimrc.bak .vimrc
+cp -r ~/Downloads/vimrc ./vimrc
+cd autoload
+l
+rm -rf .git
+vim .gitignore
+sh install_awesome_vimrc.sh
+vim .vimrc
+cd dotfile
+vim vimrc
+mv vimrc ~/dotfile/config/vimrc
+cd config
+cd vimrc
+vim install_awesome_vimrc.sh
+vim install_basic_vimrc.sh
+vim vimrcs/basic.vim
+vim install_awesome_parameterized.sh
+neofetch
+cd ~
+~/.config/bin/background-changer
+fetch
+git add . && git commit -m "add vimrc of amix and change some settings" && git push
+cd dotfile/config/hypr/configs/
+echo $DBUS_SESSION_BUS_ADDRESS
+echo $XDG_CURRENT_DESKTOP
+cd dotfile/script
+vim power-menu/powermenu.sh
+pacman -Ss swaylock
+pacman -S swayidle
+swayidle
+swayidle --help
+vim ~/dotfile/config/autostart.sh
+mkdir ~/.config/lock
+pacman -S swaylock-effect
+cd dotfile/config/bin
+vim wayland_session_lock
+vim swaylock/config
+pacman -S swaylock
+pacman -S swaylock-effects
+vim ../swaylock/config
+paru -S swaylock-effects
+paru -S swaylock-effects-git
+swaylock
+./wayland_session_lock
+cd ../
+cd config/hypr/configs
+vim execs.conf
+vim .config/autostart.sh
+swaylock -f -c 000000
+swaymsg
+pacman -S sway
+swaymsg "output * power off"
+swaymsg --help
+swaymsg -m DP-0
+hyprctl dispatch dpms off
+hyprctl dispatch dpms off eDP-1
+hyprctl dispatch dpms off DP-1
+lsblk
+cd dotfile/config/hypr/configs
+hyprctl monitors
+hyprctl monitors | grep HDMI
+hyprctl monitors | grep HDMI ret=$?
+ret=$?
+echo $ret
+source ./idle.sh
+vim idle.sh
+swayidle -w timeout 3000 ~/.config/bin/wayland_session_lock timeout 3300 'hyprctl dispatch dpsm off eDP-    1' before-sleep 'swaylock -f -c 000000' 2>/dev/null
+mv idle.sh ~/dotfile/config/bin
+cd ~/.config/bin
+chmod a+x idle.sh
+vim keybinds.conf
+upgrade
+cd .config/conky
+pacman -Qu | wl -l
+unalias pacman
+pacman -Qu
+pacman -Qu | wc -l
+alias ' pacman'='pacman'
+alias
+' pacman'
+' pacman' -Syyu
+pacman --color auto -Syyu
+pacwrap
+pkgfile --search --regex pacwrap
+pacman -S fuck
+sudo pacman -S fuck
+sudo pacman -S thefuck
+vim ~/.zshrc
+cd dotfile/shellrc
+Hyprlan
+vim /bin/sh +1 && Hyprlan
+vim /bin/sh
+Hyprland
+pacman -Syyu
+pacma
+pacman
+pacm
+cd ~/.config
+aptget update
+fuck
+cd ~/dotfile/config
+mkdir thefuck
+cd thefuck
+pacman -Ql thefuck
+time thefuck --alias
+cd Downloads
+git clone https://github.com/pwyde/dotfiles
+cp ~/Downloads/dotfiles/.config/thefuck/settings.py ./
+cd ~/.config/thefuck
+vim settings.py
+cd ~/dotfile/shellrc
+vim commonplugin.sh
+vim aliasrc.sh
+cd ~/.config/conky
+vim wlconkyrc
+rm -rf ~/dotfile/config/thefuck
+cd ..
+mv thefuck ~/dotfile/config/
+cd ~/dotfile
+sh install.sh
 exit
-: 1699279298:0;cd ~/.config
-: 1699279322:0;waypaper
-: 1699279330:0;rm -rf waypaper
-: 1699279339:0;cd ~/.local
-: 1699279343:0;cd share
-: 1699279349:0;rm -rf ranger
-: 1699279352:0;flatpak
-: 1699279360:0;pacman -Rns flatpak
-: 1699279370:0;rm -rf flatpak
-: 1699279375:0;cd ../state
-: 1699279380:0;cd ../
-: 1699279382:0;cd ..
-: 1699279388:0;rm -rf go
-: 1699280059:0;cd Downloads
-: 1699280072:0;git clone https://github.com/amix/vimrc
-: 1699280081:0;cd vimrc
-: 1699280103:0;cp vimrcs/basic.vim ~/dotfile/vimrc
-: 1699280115:0;vim install_awesome_parameterized.sh
-: 1699280130:0;cd ~
-: 1699280139:0;vim .vimrc
-: 1699280156:0;cd dotfile
-: 1699280165:0;cd ..
-: 1699280329:0;cd dotfile
-: 1699280333:0;cd config
-: 1699280343:0;cp ~/Downloads/vimrc ./
-: 1699280349:0;cp -r ~/Downloads/vimrc ./
-: 1699280353:0;cd vimrc
-: 1699280368:0;cd ..
-: 1699280371:0;rm -rf vimrc
-: 1699280374:0;cd ~/Downloads
-: 1699280396:0;cd ..
-: 1699280403:0;mkdir .vim_runtime
-: 1699280429:0;cp -r ~/Downloads/vimrc ./.vim_runtime/vimrc
-: 1699280456:0;cd .vim_runtime
-: 1699280462:0;cd ..
-: 1699280468:0;rm -rf .vim_runtime
-: 1699280479:0;cp -r ~/Downloads/vimrc ./.vim_runtime
-: 1699280483:0;cd .vim_runtime
-: 1699280490:0;cd ..
-: 1699280497:0;sh ~/.vim_runtime/install_awesome_vimrc.sh
-: 1699280510:0;vim dotfile/base-uefi
-: 1699280541:0;rm -rf .vimrc
-: 1699280544:0;sh ~/.vim_runtime/install_awesome_vimrc.sh
-: 1699280554:0;vim dotfile/base-uefi/base-uefi2.sh
-: 1699280567:0;vim .vimrc
-: 1699280658:0;rm -rf .vim_runtime .vimrc .vim .vim_mru_files
-: 1699280665:0;vim .viminfo
-: 1699280673:0;cd dotfile
-: 1699280676:0;sh install.sh
-: 1699280677:0;cd ..
-: 1699280683:0;vim dotfile/base-uefi/base-uefi2.sh
-: 1699280697:0;cd ..
-: 1699280699:0;cd kelen
-: 1699280705:0;cd dotfile
-: 1699280709:0;vim vimrc
-: 1699280724:0;cp ~/Downloads/vimrc ./
-: 1699280751:0;cp ~/Downloads/vimrc/vimrcs/basic.vim ~/.vimrc
-: 1699280757:0;vim pam_environment
-: 1699280770:0;cp ~/Downloads/vimrc/vimrcs/filetypes.vim ./vimrc
-: 1699280774:0;vim pam_environment
-: 1699280783:0;cp ~/Downloads/vimrc/vimrcs/basic.vim ~/.vimrc
-: 1699280786:0;vim pam_environment
-: 1699280809:0;cd ..
-: 1699280819:0;mv .vimrc .vimrc.bak
-: 1699280823:0;vim pam_envir
-: 1699280843:0;mv .vimrc.bak .vimrc
-: 1699280868:0;vim .vimrc
-: 1699281690:0;cd ~/.config
-: 1699281712:0;cp -r ~/Downloads/vimrc ./vimrc
-: 1699281715:0;cd vimrc
-: 1699281718:0;cd autoload
-: 1699281719:0;l
-: 1699281722:0;cd ..
-: 1699281733:0;rm -rf .git
-: 1699281735:0;vim .gitignore
-: 1699281757:0;vim install_awesome_vimrc.sh
-: 1699281924:0;sh install_awesome_vimrc.sh
-: 1699281927:0;cd ..
-: 1699281936:0;vim .vimrc
-: 1699281961:0;cd dotfile
-: 1699281967:0;vim vimrc
-: 1699281984:0;cd ~/.config
-: 1699281996:0;mv vimrc ~/dotfile/config/vimrc
-: 1699282001:0;cd ~/dotfile
-: 1699282004:0;sh install.sh
-: 1699282007:0;cd config
-: 1699282010:0;cd vimrc
-: 1699282022:0;vim install_awesome_vimrc.sh
-: 1699282036:0;vim install_basic_vimrc.sh
-: 1699282078:0;vim vimrcs/basic.vim
-: 1699282172:0;vim install_awesome_parameterized.sh
-: 1699282195:0;cd ~/dotfile
-: 1699282234:0;git add . && git commit -m "add vimrc of amix and change some settings" && git push
+: 1699331059:0;Hyprland
+: 1699331064:0;fetc
+: 1699331065:0;fuck
+: 1699331077:0;fastfetch
+: 1699331079:0;fastfetc
+: 1699331081:0;fuck
+: 1699331083:0;fastfetch
+: 1699331093:0;pacman -Syyu
+: 1699331095:0;fk
+: 1699331108:0;sudo pacman -Syyu
+: 1699331114:0;pacman -Qenq
+: 1699331115:0;fuck
+: 1699331126:0;cd dotfile
+: 1699331143:0;git add . && git commit -m "add thefuck and unalias pkgmanager" && git push
