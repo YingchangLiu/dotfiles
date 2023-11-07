@@ -2298,3 +2298,72 @@ exit
 : 1699331115:0;fuck
 : 1699331126:0;cd dotfile
 : 1699331143:0;git add . && git commit -m "add thefuck and unalias pkgmanager" && git push
+: 1699331200:0;pacman -Rnsdd
+: 1699331205:0;sudo pacman -Rnsdd
+: 1699331228:0;cd shellrc
+: 1699331230:0;vim aliasrc.sh
+: 1699331543:0;packer
+: 1699331867:0;vim aliasrc.sh
+: 1699332203:0;cd Downloads
+: 1699332205:0;cd dotfiles
+: 1699332209:0;cd .config
+: 1699332219:0;vim autostart-scripts/kwallet-ssh-add.sh
+: 1699332238:0;vim wget/wgetrc
+: 1699332246:0;vim zsh/zlogin
+: 1699332254:0;cd ../..
+: 1699332265:0;git clone https://github.com/algotech/dotaliases
+: 1699332292:0;nekoray
+: 1699332302:0;pacman -Syyu
+: 1699332305:0;fk
+: 1699332309:0;sudo pacman -Syyu
+: 1699332319:0;pkgfile --search --regex libprotobuf
+: 1699332325:0;pkgfile --search --regex libprotobuf.so.24
+: 1699332367:0;pacman -S protobuf
+: 1699332369:0;fk
+: 1699332374:0;sudo pacman -S protobuf
+: 1699332441:0;paru -Ss nekoray
+: 1699332449:0;pacman -S nekoray-git
+: 1699332451:0;fk
+: 1699332457:0;sudo pacman -S nekoray-git
+: 1699332462:0;nekoray
+: 1699332474:0;paru -S nekoray-git
+: 1699332480:0;paru -S aur/nekoray-git
+: 1699332602:0;nekoray --version
+: 1699332607:0;paru -S aur/nekoray-git
+: 1699332620:0;git clone https://github.com/algotech/dotaliases
+: 1699332655:0;systemctl enable v2ray
+: 1699332659:0;systemctl enable v2raya
+: 1699332677:0;systemctl disable v2raya
+: 1699332682:0;systemctl disable v2ray
+: 1699332692:0;systemctl start v2ray v2raya
+: 1699332706:0;paru -S aur/nekoray-git
+: 1699332749:0;git clone https://github.com/algotech/dotaliases
+: 1699332756:0;paru -S aur/nekoray-git
+: 1699332794:0;vim dotaliases/bash_aliases
+: 1699332822:0;vim dotaliases/git_aliases
+: 1699332839:0;vim dotaliases/bash/git_aliases
+: 1699333059:0;source ~/.zshrc
+: 1699333063:0;alias
+: 1699333077:0;wttr
+: 1699333093:0;alias wttr
+: 1699333097:0;curl wttr.in
+: 1699333110:0;wttr
+: 1699333115:0;alias wttr
+: 1699333156:0;paru -S aur/nekoray-git
+: 1699333333:0;cleanup
+: 1699333340:0;reboot
+: 1699333371:0;Hyprland
+: 1699333378:0;fetch
+: 1699333382:0;fk
+: 1699333386:0;fuck
+: 1699333392:0;fu ck
+: 1699333399:0;neofetch
+: 1699333402:0;fk
+: 1699333416:0;n
+: 1699333939:0;pacman -Qenq
+: 1699333975:0;pacman -S nekoray
+: 1699333978:0;fk
+: 1699333983:0;sudo pacman -S nekoray
+: 1699333998:0;nekoray -many
+: 1699334038:0;cd dotfile
+: 1699334048:0;git add . && git commit -m "add alias of git" && git push
