@@ -3,16 +3,23 @@ font=Work Sans
 
 clock
 timestr=%R
+grace=3
+grace-no-mouse
 
 image=$(find ${HOME}/dotfile/wallpaper/ -type f | shuf -n 1)
 
-
-effect-blur=95x2
+effect-blur=45x3
+effect-scale=1
+effect-pixelate=12
+effect-scale=1
 
 indicator
 indicator-radius=150
 indicator-thickness=10
 indicator-caps-lock
+indicator-idle-visible
+
+fade-in=0.4
 
 key-hl-color=880033ff
 
@@ -45,3 +52,5 @@ bs-hl-color=ffd204ff
 caps-lock-key-hl-color=ffd204FF
 caps-lock-bs-hl-color=dededeFF
 text-caps-lock-color=009ddcff
+
+daemonize

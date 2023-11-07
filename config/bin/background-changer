@@ -2,8 +2,6 @@
 
 
 while true; do
-    #swaybg -i $(find ~/dotfile/wallpaper/ -type f | shuf -n 1) -m fill &
     ~/dotfile/config/bin/wallpaper.sh
-    sleep 29m
+    sleep 30m
 done
-sleep 1m

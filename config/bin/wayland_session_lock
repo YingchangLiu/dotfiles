@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MUTEX="${HOME}/.config/lock/river-lock"
+MUTEX="${HOME}/.config/lock/waylandlock"
 LOG="${HOME}/.config/lock/lock-log"
 NOLOCK="${HOME}/.config/lock/NOLOCK"
 
@@ -9,7 +9,7 @@ img=$(find ${HOME}/dotfile/wallpaper/ -type f | shuf -n 1)
 #scaleImg=$(feh --bg-fill "$img")
 #echo $scaleImg
 
-VERSION="0.5"
+VERSION="0.6"
 
 log () {
 	when=$(date "+%Y-%m-%d %H:%M:%S")
@@ -19,7 +19,10 @@ log () {
 
 lock () {
 	if [ ! -f "${NOLOCK}" ]; then
-		swaylock -F -l -i $img
+        playerctl pause
+		swaylock -F -l -i $img 
+        #sleep 5
+        #hyprctl dispatch dpms off eDP-1
 	else
 		log "${NOLOCK} found, not locking"
 	fi
