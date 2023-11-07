@@ -2552,3 +2552,47 @@ exit
 : 1699369010:0;n
 : 1699369070:0;cd dotfile
 : 1699369092:0;git add . && git commit -m "add NNN and fix bug of swaybg " && git push
+: 1699369115:0;cd dotfile/config/bin
+: 1699369118:0;vim wallpaper.sh
+: 1699369165:0;cd ../../wallpaper
+: 1699369169:0;n
+: 1699369325:0;git add . && git commit -m "rm a wallpaper" && git push
+: 1699369397:0;cd opt
+: 1699369399:0;cd ahay
+: 1699369414:0;git clone https://github.con/ahay/src
+: 1699369422:0;git clone https://github.com/ahay/src
+: 1699369442:0;cd opt/ahay
+: 1699369483:0;cd ..
+: 1699369490:0;cd opt
+: 1699369491:0;j
+: 1699369497:0;pacman -S autojump
+: 1699369499:0;fk
+: 1699369504:0;sudo pacman -S autojump
+: 1699369508:0;source ~/.zshrc
+: 1699369538:0;cd ~/dotfile/shellrc
+: 1699369541:0;vim pathrc.sh
+: 1699370967:0;git clone https://github.com/JohnWStockwellJr/SeisUnix cwp
+: 1699371137:0;cd dotfile/config/hypr/configs
+: 1699371139:0;vim keybinds.conf
+: 1699371233:0;\
+
+: 1699371400:0;cd ~/dotfile/config/vimrc
+: 1699371411:0;vim vimrcs/basic.vim
+: 1699371464:0;vim install_basic_vimrc.sh
+: 1699371482:0;vim install_awesome_parameterized.sh
+: 1699371507:0;vim install_awesome_vimrc.sh
+: 1699371523:0;vim ~/.vimrc
+: 1699371595:0;git clone https://github.com/JohnWStockwellJr/SeisUnix cwp
+: 1699371675:0;vim pathrc.sh
+: 1699371991:0;cd ../config/vimrc
+: 1699372001:0;cd my_plugins
+: 1699372004:0;cd ..
+: 1699372010:0;vim vimrcs/plugins_config.vim
+: 1699372037:0;vim autoload/pathogen.vim
+: 1699372050:0;vim vimrcs/basic.vim
+: 1699372065:0;vim vimrcs/plugins_config.vim
+: 1699372072:0;vim vimrcs/extended.vim
+: 1699372142:0;vim ~/.vimrc
+: 1699372194:0;vim vimrcs/extended.vim
+: 1699372217:0;cd ~/dotfile
+: 1699372241:0;git add . && git commit -m "change colorshcheme of vim" && git push
