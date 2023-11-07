@@ -2384,3 +2384,42 @@ exit
 : 1699337288:0;vim keybinds.conf
 : 1699337314:0;cd ~/dotfile
 : 1699337316:0;git add . && git commit -m "change wallpaper changer to avoid same papers" && git push
+: 1699337329:0;upgrade
+: 1699337357:0;Hyprland
+: 1699337370:0;cd ~/dotfile
+: 1699337373:0;cd config/bin
+: 1699337377:0;vim wallpaper.sh
+: 1699337434:0;cd ~/dotfile/config/hypr/configs
+: 1699337439:0;vim keybinds.conf
+: 1699337471:0;Hyprland
+: 1699338147:0;cd ~/dotfile/config/hypr/configs
+: 1699338150:0;vim execs.conf
+: 1699338161:0;cd ..
+: 1699338165:0;vim hyprland.conf
+: 1699339537:0;cd .config/nnn
+: 1699339585:0;vim plugins/imgview
+: 1699340236:0;Hyprland
+: 1699340256:0;cd dotfile/config/waybar
+: 1699340259:0;vim config
+: 1699340283:0;fcitx5
+: 1699340288:0;fcitx5-config-qt
+: 1699340997:0;copyq
+: 1699341005:0;killall waybar
+: 1699341009:0;waybar
+: 1699341018:0;Hyprland
+: 1699342266:0;fetch
+: 1699342285:0;wttr
+: 1699342356:0;cd dotfile/config
+: 1699342360:0;vim autostart.sh
+: 1699342383:0;cd dotfile/config/hypr/configs
+: 1699342388:0;vim execs.conf
+: 1699342680:0;vim ../../bin/pkill_
+: 1699342685:0;vim ../../bin/pkill_bc
+: 1699342708:0;vim ../../bin/pkill_engine
+: 1699342716:0;vim ../../bin/pkill_bc
+: 1699342758:0;vim execs.conf
+: 1699342892:0;Hyprland
+: 1699343130:0;cd dotfile/config/hypr/configs
+: 1699343135:0;vim keybinds.conf
+: 1699343163:0;cd ~/dotfile
+: 1699343179:0;git add . && git commit -m "change autostart.sh" && git push
