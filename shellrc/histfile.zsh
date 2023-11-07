@@ -495,7 +495,6 @@ cp /opt/sac/src/* ./
 mkdir src
 git submodule add https://github.com/ahay/src
 git submodule add https://github.com/ahay/src ./ahay
-cd ahay
 wget https://www.eas.slu.edu/People/LZhu/downloads/
 rm index.html
 wget https://www.eas.slu.edu/People/LZhu/downloads/*
@@ -620,7 +619,6 @@ paru -S watt
 mkdir test
 cd test
 git clone https://github.com/daniel-koehn/DENISE-SH ./denise_sh
-git clone https://github.com/ahay/src
 git status
 paru -S watt-toolkit
 vim gitclean.sh
@@ -1045,7 +1043,6 @@ pacman -Rns wl-clipboard
 pacman -Rns wl-clipboard clipman
 pacman -Rns zsh*
 pacman -Rns (pacman -Qenq | grep zsh )
-cd ../config/bin
 pacman -S xorg-xwininfo
 xwininfo
 pacman -Rns xorg-xwininfo
@@ -1552,7 +1549,6 @@ env QT_QPA_PLATFORM=xcb fcitx5-configtool
 pacman -S hyprland-nvidia-git
 pacman -Qen
 pacman -S linux
-
 pacman -S hyprland-nvidia
 nvidia-smi
 vim ~/.config/hypr/configs/animation.conf
@@ -1795,7 +1791,6 @@ nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t | awk '{printf ("%.2f G", 
 nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t | awk '{printf ("%.2f G", $1 / 1024)'
 nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t | awk '{printf ("%.2f G", $1 / 1024)}'}
 nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t | awk '{printf ("%.2f G", $1 / 1024)}'
-echo $DISPLAY
 sl
 conky -c ~/.config/conky/wlconkyrc 2>/dev/null
 git add . && git commit -m "change the gaps of hyprland" && git push
@@ -2121,11 +2116,6 @@ vim vimrc
 mv vimrc ~/dotfile/config/vimrc
 cd config
 cd vimrc
-vim install_awesome_vimrc.sh
-vim install_basic_vimrc.sh
-vim vimrcs/basic.vim
-vim install_awesome_parameterized.sh
-cd ~
 ~/.config/bin/background-changer
 git add . && git commit -m "add vimrc of amix and change some settings" && git push
 cd dotfile/config/hypr/configs/
@@ -2151,9 +2141,7 @@ swaymsg --help
 swaymsg -m DP-0
 hyprctl dispatch dpms off DP-1
 lsblk
-hyprctl monitors
 hyprctl monitors | grep HDMI
-hyprctl monitors | grep HDMI ret=$?
 ret=$?
 echo $ret
 source ./idle.sh
@@ -2193,7 +2181,6 @@ git clone https://github.com/pwyde/dotfiles
 cp ~/Downloads/dotfiles/.config/thefuck/settings.py ./
 cd ~/.config/thefuck
 vim settings.py
-cd ~/dotfile/shellrc
 cd ~/.config/conky
 vim wlconkyrc
 rm -rf ~/dotfile/config/thefuck
@@ -2233,12 +2220,10 @@ git clone https://github.com/algotech/dotaliases
 vim dotaliases/bash_aliases
 vim dotaliases/git_aliases
 vim dotaliases/bash/git_aliases
-source ~/.zshrc
 alias
 curl wttr.in
 alias wttr
 paru -S aur/nekoray-git
-cleanup
 reboot
 fu ck
 neofetch
@@ -2271,7 +2256,6 @@ cd ../opt
 stow --delete sdfg
 cd
 rm -rf bin
-cd opt
 rm -rf sdfg sf
 pacman -Rns stow
 sudo pacman -Rns stow
@@ -2282,10 +2266,6 @@ $(ps axh | grep swaybg | grep -v grep | awk '{print $1}')
 killall waypaper
 killall swaypaper
 image=$( find ${wallpath} -type f )
-vim currentwall
-wallpath=~/dotfile/wallpaper/
-image=$( find ${wallpath} -type f | grep -v $(cat /tmp/currentwall) | shuf | head -n 1)
-echo $image
 swaybg -i $image
 vim paper_once
 rm -rf paper_once
@@ -2307,13 +2287,9 @@ vim ../../bin/pkill_
 vim ../../bin/pkill_engine
 vim ../../bin/pkill_bc
 vim execs.conf
-cd ~/dotfile
 git add . && git commit -m "change autostart.sh" && git push
-n
 cd shellrc
 vim commonplugin.sh
-vim pathrc.sh
-vim environment.sh
 nnn -de
 cd ../config/waybar
 timeshift
@@ -2324,10 +2300,8 @@ mkdir ~/.local/share/applications
 cp -r /usr/share/applications/timeshift-gtk.desktop ~/.local/share/applications/
 vim ~/.local/share/applications/timeshift-gtk.desktop
 rm ~/.local/share/applications/timeshift-gtk.desktop
-waybar
 vim style.css
 killall waybar
-cd dotfile/config/hypr/configs
 cd bin
 hyprctl dispatch dpms off
 hyprctl dispatch dpms off eDP-1
@@ -2335,26 +2309,21 @@ playerctl
 pkgfile --search --regex playerctl
 pacman -Qi playerctl
 playerctl pause
-./wayland_session_lock
 playerctl pause && sleep 5 && hyprctl dispatch dpms off *
 playerctl pause && sleep 5 && hyprctl dispatch dpms off eDP-1
-cd dotfile/config/bin
 pacman -S swaylock
 sudo pacman -S swaylock
 pacman -S swaylock-effects
-fk
 sudo pacman -S swaylock-effects
 swaylock -f
 cd ~/.cache/paru/clone/swaylock-effects-git
 cd swaylock-effects
 systemctl start v2ray v2raya
 paru -S swaylock-effects-git
-cd -
 cd ../swaylock
 swaylock
 cd lightsonplus
 vim README
-cd ..
 vim wall_simple
 vim extract
 vim extramaus
@@ -2380,40 +2349,31 @@ cd ~/.config/swayidle
 vim config
 cd ../bin
 vim idle.sh
-vim wayland_session_lock
 wlr-randr
 loginctl lock-session
 which lock-session
 loginctl list-seats
 loginctl seat-status
-cd dotfile
 cd config/b
 kill 14978
 cd config/bin
 cd .config/bin
-cd /tmp
 sleep -h
-cd ~/.config/bin
-hyprctl --help
 hyprctl keyword
 hyprctl keyword -j
 hyprctl -j keyword
 cd ~/dotfile/config/hypr/configs
-vim keybinds.conf
 top
-killall swaybg
 cd ../../bin
 for instance in $swaybg_instances; do \
  kill -9 $instance 1>/dev/null 2>&1 \
  done
 vim mykill.sh
 sh mykill.sh
-btop
 swaybg_instances=$(ps axh | grep swaybg | grep -v grep | awk '{print $1}')
 kill 16386
 echo $swaybg_instances
 sh ~/mykill.sh
-./wallpaper.sh
 swaybg -i ../../wallpaper/archlinuxchan.png
 swaybg -i ../../wallpaper/archlinuxchan.png 2>/dev/null
 swaybg --help
@@ -2421,178 +2381,124 @@ swaybg -i ../../wallpaper/archlinuxchan.png &
 log
 loginctl activate
 loginctl user-status
-killall -u kelen
 sleep --help
-vim wallpaper.sh
-pgrep -x swaybg
 loginctl list-sessions
 loginctl list-users
 loginctl show-seat
 loginctl show-session
 loginctl show-user
-loginctl session-status
 pacman -S swww
 fuck
 sudo pacman -S swww
 sudo pacman -Ss swww
 paru -S swww
-cd ~/dotfile/config/bin
-vim background-changer
 swww archlinuxchan.png
 swww img archlinuxchan.png
-Hyprland
+swww img Anmi.jpg
+swww img Arisa_With_The_Fairies.png
+swww img gamelife.png
+killall swaybg
+pgrep -x swww
+cd -
+vim currentwall
+find ${wallpath} -type f | grep -v $(cat /tmp/currentwall) | shuf | head -n 1
+-f /tmp/currentwall
+cd ~/dotfile/config/bin
+wallpath=~/dotfile/wallpaper/
+echo $image
+pgrep -x swaybg
+swww --help
+swww --help -h
+swww -h
+swww clear
+swww query
+killall swww
+btop
+swaybg -i Anmi.jpg &
 cd ~/dotfile/wallpaper
+cd ../config/bin
+swaybg -i archlinuxchan.png
+./wallpaper.sh
+image=$( find ${wallpath} -type f | grep -v $(cat /tmp/currentwall) | shuf | head -n 1)
+cd /tmp
+cat currentwall
+rm currentwall
+cd ~/.config/bin
 swww init
-exit
-: 1699364004:0;Hyprland
-: 1699364016:0;killall -u kelen
-: 1699364019:0;Hyprland
-: 1699364026:0;cd ~/dotfile/wallpaper
-: 1699364033:0;swww img archlinuxchan.png
-: 1699364038:0;swww init
-: 1699364046:0;swww img Anmi.jpg
-: 1699364053:0;swww img Arisa_With_The_Fairies.png
-: 1699364060:0;swww --help
-: 1699364075:0;swww img Arisa_With_The_Fairies.png
-: 1699364082:0;swww img gamelife.png
-: 1699364089:0;killall swaybg
-: 1699364134:0;pgrep -x swaybg
-: 1699364138:0;pgrep -x swww
-: 1699364146:0;btop
-: 1699364484:0;cd -
-: 1699364490:0;cd ~/dotfile/config/bin
-: 1699364533:0;vim background-changer
-: 1699364549:0;vim wallpaper.sh
-: 1699364570:0;vim background-changer
-: 1699364585:0;killall -u kelen
-: 1699364587:0;Hyprland
-: 1699364609:0;pgrep -x swaybg
-: 1699364617:0;cd /tmp
-: 1699364622:0;vim currentwall
-: 1699364632:0;cd ~/dotfile/config/bin
-: 1699364635:0;vim wallpaper.sh
-: 1699364673:0;find ${wallpath} -type f | grep -v $(cat /tmp/currentwall) | shuf | head -n 1
-: 1699364697:0;-f /tmp/currentwall
-: 1699364703:0;cd /tmp
-: 1699364717:0;cd ~
-: 1699364723:0;Hyprland
-: 1699364728:0;cd /tmp
-: 1699364732:0;cat currentwall
-: 1699364738:0;cd ~
-: 1699364747:0;cd ~/dotfile/config/bin
-: 1699364748:0;vim wallpaper.sh
-: 1699364767:0;wallpath=~/dotfile/wallpaper/
-: 1699364774:0;image=$( find ${wallpath} -type f | grep -v      $(cat /tmp/currentwall) | shuf | head -n 1)
-: 1699364779:0;echo $image
-: 1699364781:0;image=$( find ${wallpath} -type f | grep -v      $(cat /tmp/currentwall) | shuf | head -n 1)
-: 1699364782:0;echo $image
-: 1699364784:0;image=$( find ${wallpath} -type f | grep -v      $(cat /tmp/currentwall) | shuf | head -n 1)
-: 1699364785:0;echo $image
-: 1699364789:0;image=$( find ${wallpath} -type f | grep -v      $(cat /tmp/currentwall) | shuf | head -n 1)
-: 1699364790:0;echo $image
-: 1699364884:0;pgrep -x swaybg
-: 1699364983:0;vim background-changer
-: 1699365011:0;swww init
-: 1699365092:0;vim wallpaper.sh
-: 1699365558:0;btop
-: 1699365929:0;swww --help
-: 1699365941:0;swww --help -h
-: 1699365944:0;swww -h
-: 1699365956:0;swww clear
-: 1699366008:0;swww query
-: 1699366521:0;./wallpaper.sh
-: 1699366526:0;vim wallpaper.sh
-: 1699366650:0;./wallpaper.sh
-: 1699366705:0;vim wallpaper.sh
-: 1699366748:0;killall swww
-: 1699367461:0;cd ~/dotfile/wallpaper
-: 1699367465:0;btop
-: 1699367497:0;swaybg -i Anmi.jpg &
-: 1699367519:0;swaybg -i archlinuxchan.png
-: 1699367575:0;vim wallpaper.sh
-: 1699367618:0;cd ~/dotfile/wallpaper
-: 1699367627:0;cd ../config/bin
-: 1699367629:0;./wallpaper.sh
-: 1699367705:0;killall -u kelen
-: 1699367708:0;Hyprland
-: 1699367713:0;cd ../config/bin
-: 1699367718:0;cd ~/.config/bin
-: 1699367719:0;./wallpaper.sh
-: 1699367731:0;vim wallpaper.sh
-: 1699367740:0;cd ~/.config/bin
-: 1699367742:0;swaybg -i archlinuxchan.png
-: 1699367753:0;./wallpaper.sh
-: 1699367805:0;image=$( find ${wallpath} -type f | grep -v $(cat /tmp/currentwall) | shuf | head -n 1)
-: 1699367813:0;cd /tmp
-: 1699367817:0;cat currentwall
-: 1699367820:0;rm currentwall
-: 1699367862:0;vim background-changer
-: 1699367889:0;vim wallpaper.sh
-: 1699367930:0;killall -u kelen
-: 1699367933:0;Hyprland
-: 1699367965:0;cd ~/.config/bin
-: 1699367970:0;vim wallpaper.sh
-: 1699367995:0;swww init
-: 1699368057:0;pacman -Rns swww
-: 1699368060:0;fu
-: 1699368063:0;sudo pacman -Rns swww
-: 1699368072:0;cleanup
-: 1699368079:0;cd ~/.config/paru
-: 1699368081:0;vim paru.conf
-: 1699368129:0;cd ~/dotfile/shellrc
-: 1699368131:0;vim environment.sh
-: 1699368673:0;source ~/.zshrc
-: 1699368677:0;n
-: 1699368683:0;vim environment.sh
-: 1699368769:0;source ~/.zshrc
-: 1699368771:0;n
-: 1699368846:0;cd ~/dotfile/shellrc
-: 1699368850:0;vim environment.sh
-: 1699369008:0;source ~/.zshrc
-: 1699369010:0;n
-: 1699369070:0;cd dotfile
-: 1699369092:0;git add . && git commit -m "add NNN and fix bug of swaybg " && git push
-: 1699369115:0;cd dotfile/config/bin
-: 1699369118:0;vim wallpaper.sh
-: 1699369165:0;cd ../../wallpaper
-: 1699369169:0;n
-: 1699369325:0;git add . && git commit -m "rm a wallpaper" && git push
-: 1699369397:0;cd opt
-: 1699369399:0;cd ahay
-: 1699369414:0;git clone https://github.con/ahay/src
-: 1699369422:0;git clone https://github.com/ahay/src
-: 1699369442:0;cd opt/ahay
-: 1699369483:0;cd ..
-: 1699369490:0;cd opt
-: 1699369491:0;j
-: 1699369497:0;pacman -S autojump
-: 1699369499:0;fk
-: 1699369504:0;sudo pacman -S autojump
-: 1699369508:0;source ~/.zshrc
-: 1699369538:0;cd ~/dotfile/shellrc
-: 1699369541:0;vim pathrc.sh
-: 1699370967:0;git clone https://github.com/JohnWStockwellJr/SeisUnix cwp
-: 1699371137:0;cd dotfile/config/hypr/configs
-: 1699371139:0;vim keybinds.conf
-: 1699371233:0;\
+pacman -Rns swww
+fu
+sudo pacman -Rns swww
+cleanup
+cd ~/.config/paru
+vim paru.conf
+vim environment.sh
+cd dotfile
+git add . && git commit -m "add NNN and fix bug of swaybg " && git push
+vim wallpaper.sh
+cd ../../wallpaper
+n
+git add . && git commit -m "rm a wallpaper" && git push
+cd ahay
+git clone https://github.con/ahay/src
+git clone https://github.com/ahay/src
+cd opt/ahay
+cd opt
+j
+pacman -S autojump
+fk
+sudo pacman -S autojump
+source ~/.zshrc
+cd ~/dotfile/shellrc
+cd dotfile/config/hypr/configs
+vim keybinds.conf
+\
 
-: 1699371400:0;cd ~/dotfile/config/vimrc
-: 1699371411:0;vim vimrcs/basic.vim
-: 1699371464:0;vim install_basic_vimrc.sh
-: 1699371482:0;vim install_awesome_parameterized.sh
-: 1699371507:0;vim install_awesome_vimrc.sh
-: 1699371523:0;vim ~/.vimrc
-: 1699371595:0;git clone https://github.com/JohnWStockwellJr/SeisUnix cwp
-: 1699371675:0;vim pathrc.sh
-: 1699371991:0;cd ../config/vimrc
-: 1699372001:0;cd my_plugins
-: 1699372004:0;cd ..
-: 1699372010:0;vim vimrcs/plugins_config.vim
-: 1699372037:0;vim autoload/pathogen.vim
-: 1699372050:0;vim vimrcs/basic.vim
-: 1699372065:0;vim vimrcs/plugins_config.vim
-: 1699372072:0;vim vimrcs/extended.vim
-: 1699372142:0;vim ~/.vimrc
-: 1699372194:0;vim vimrcs/extended.vim
-: 1699372217:0;cd ~/dotfile
-: 1699372241:0;git add . && git commit -m "change colorshcheme of vim" && git push
+cd ~/dotfile/config/vimrc
+vim install_basic_vimrc.sh
+vim install_awesome_parameterized.sh
+vim install_awesome_vimrc.sh
+vim pathrc.sh
+cd ../config/vimrc
+cd my_plugins
+cd ..
+vim autoload/pathogen.vim
+vim vimrcs/basic.vim
+vim vimrcs/plugins_config.vim
+vim ~/.vimrc
+vim vimrcs/extended.vim
+git add . && git commit -m "change colorshcheme of vim" && git push
+git clone https://github.com/JohnWStockwellJr/SeisUnix cwp
+waybar
+Hyprland
+cd ~/dotfile
+swaylock && loginctl session-status >> ~/mylog
+cd ~
+swaylock && sleep 5 && loginctl session-status >> ~/mylog
+vim mylog
+loginctl session-status
+echo $DISPLAY
+pgrep swaylock
+vim background-changer
+./wayland_session_lock
+killall -u kelen
+exit
+vim wayland_session_lock
+cd dotfile/config/bin
+vim screenoff.sh
+hyprctl dispatch dpms
+hyprctl --help
+hyprctl notflix
+hyprctl notify
+hyprctl notify 2
+hyprctl monitors --help
+hyprctl monitors | grep HDMI ret=$?
+hyprctl dispatch dpms off eDP-1 && sleep 2 && hyprctl monitors > ~/mylog
+hyprctl dispatch dpms off eDP-1 && hyprctl monitors > ~/mylog
+./wayland_session_lock && hyprctl monitor > ~/mylog
+./wayland_session_lock && sleep 10 && hyprctl monitors > ~/mylog
+vim ~/mylog
+hyprctl monitors
+: 1699374257:0;cd dotfile/config/bin
+: 1699374261:0;vim wayland_session_lock
+: 1699374338:0;cd ~/dotfile
+: 1699374352:0;git add . && git commit -m "add auto screen off to swaylock" && git push

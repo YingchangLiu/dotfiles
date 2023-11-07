@@ -21,7 +21,16 @@ lock () {
 	if [ ! -f "${NOLOCK}" ]; then
         playerctl pause
 		swaylock -F -l -i $img 
-        #sleep 5
+        sleep 10
+        if pgrep -x "swaylock" > /dev/null
+        then
+            echo "swaylock is running"
+            hyprctl dispatch dpms off eDP-1
+        fi
+        #if [-n "$(pgrep swaylock)"];then
+        #    hyprctl dispatch dpms off eDP-1
+        #fi
+
         #hyprctl dispatch dpms off eDP-1
 	else
 		log "${NOLOCK} found, not locking"
