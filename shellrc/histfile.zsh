@@ -2376,3 +2376,11 @@ exit
 : 1699337168:0;./wallpaper.sh
 : 1699337186:0;cd ~/dotfile
 : 1699337207:0;git add . && git commit -m "change wallpaper changer to avoid same papers" && git push
+: 1699337224:0;cd config/bin
+: 1699337230:0;vim paper_once
+: 1699337268:0;vim wallpaper.sh
+: 1699337278:0;rm -rf paper_once
+: 1699337283:0;cd ../hypr/configs
+: 1699337288:0;vim keybinds.conf
+: 1699337314:0;cd ~/dotfile
+: 1699337316:0;git add . && git commit -m "change wallpaper changer to avoid same papers" && git push
