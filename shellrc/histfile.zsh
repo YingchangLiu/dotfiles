@@ -2517,3 +2517,48 @@ exit
 : 1699408107:0;vim config
 : 1699408125:0;cd ~/dotfile
 : 1699408144:0;git add . && git commit -m "change the bahaviour for screen off" && git push
+: 1699408156:0;reboot
+: 1699408232:0;Hyprland
+: 1699408241:0;upgrade
+: 1699408275:0;cd opt
+: 1699408278:0;git clone https://github.com/JohnWStockwellJr/SeisUnix cwp
+: 1699408866:0;cd cwp
+: 1699408866:0;lss
+: 1699408894:0;vim etc/cwp/main/downfort
+: 1699408928:0;cd src
+: 1699408937:0;vim Makefile
+: 1699409262:0;git pull
+: 1699418967:0;cd ~/dotfile/config/swayidle
+: 1699418969:0;vim config
+: 1699419115:0;upgrade
+: 1699419149:0;reboot
+: 1699419277:0;Hyprland
+: 1699419290:0;neofetch
+: 1699419292:0;fetch
+: 1699419604:0;cd ~/dotfile/config/swayidle
+: 1699419605:0;vim config
+: 1699419648:0;neofetch
+: 1699419651:0;fetc
+: 1699419653:0;fk
+: 1699419662:0;fetch
+: 1699422983:0;date
+: 1699423215:0;vim config
+: 1699423257:0;fetch
+: 1699423291:0;cd ../fastfetch
+: 1699423295:0;vim kelen.jsonc
+: 1699423330:0;fetch
+: 1699423897:0;fastfetch --help
+: 1699423967:0;vim kelen.jsonc
+: 1699424004:0;fastfetch
+: 1699424012:0;vim all.jsonc
+: 1699424022:0;vim paleofetch.jsonc
+: 1699424037:0;fastfetch --help
+: 1699424087:0;fastfetch
+: 1699424097:0;vim kelen.jsonc
+: 1699424116:0;fetch
+: 1699424382:0;vim kelen.jsonc
+: 1699424470:0;fastfetch --help
+: 1699424627:0;fetch
+: 1699424648:0;alias fetch
+: 1699424660:0;cd ../..
+: 1699424674:0;git add . && git commit -m "update for fastfetch" && git push

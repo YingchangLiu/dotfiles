@@ -24,6 +24,7 @@
         "datetime",
         "bluetooth",
         "weather",
+        "weather-timeout 0.5",
         "break"
     ]
 }
