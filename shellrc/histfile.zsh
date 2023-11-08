@@ -2562,3 +2562,169 @@ exit
 : 1699424648:0;alias fetch
 : 1699424660:0;cd ../..
 : 1699424674:0;git add . && git commit -m "update for fastfetch" && git push
+: 1699425368:0;cd ~/opt/cwp
+: 1699425371:0;cd src
+: 1699425517:0;cd /usr/share/licenses
+: 1699425563:0;cd fastfetch
+: 1699425565:0;cd ..
+: 1699426284:0;cd ~/.cache/paru/clone/swaylock-effects-git
+: 1699426288:0;vim PKGBUILD
+: 1699426302:0;cd swaylock-effects
+: 1699426311:0;vim config
+: 1699426317:0;vim ../PKGBUILD
+: 1699427211:0;cd ~/
+: 1699427214:0;cd opt
+: 1699427229:0;cp -r cwp ~/Downloads
+: 1699427243:0;cd ../Downloads
+: 1699427250:0;cdcd cwp
+: 1699427254:0;cd ..
+: 1699427296:0;git clone aur.archlinux.org/seismic-unix.git
+: 1699427305:0;git clone https://aur.archlinux.org/seismic-unix.git
+: 1699427322:0;mv seismic-unix Downloads
+: 1699427325:0;cd Downloads
+: 1699427335:0;mv cwp seismic-unix
+: 1699427338:0;cd seismic-unix
+: 1699427345:0;vim seismic-unix.install
+: 1699427353:0;vim PKGBUILD
+: 1699427402:0;mv cwp SeisUnix
+: 1699427408:0;makepkg
+: 1699427421:0;pacman -S libtirpc
+: 1699427423:0;fk
+: 1699427428:0;sudo pacman -S libtirpc
+: 1699427433:0;makepkg
+: 1699427468:0;vim PKGBUILD
+: 1699427504:0;makepkg
+: 1699427513:0;pacman -S openmotif
+: 1699427515:0;fk
+: 1699427519:0;sudo pacman -S openmotif
+: 1699427529:0;pacman -Rns openmotif
+: 1699427531:0;fk
+: 1699427532:0;sudo pacman -Rns openmotif
+: 1699427544:0;pacman -Rns libtirpc
+: 1699427546:0;fk
+: 1699427547:0;sudo pacman -Rns libtirpc
+: 1699427550:0;pacman -Qenq
+: 1699427560:0;vim PKGBUILD
+: 1699427572:0;makepkg
+: 1699430075:0;fetch
+: 1699432904:0;cd .config/bin
+: 1699432908:0;vim ../swayidle/config
+: 1699432933:0;vim wayland_session_lock
+: 1699432963:0;vim screenoff
+: 1699432987:0;pgrep -x swaybg
+: 1699432991:0;pgrep -x swayidle
+: 1699432999:0;pgrep -x swaylock
+: 1699433017:0;./screenoff
+: 1699438804:0;vim ../swayidle/config
+: 1699441291:0;cd ~/.ssh
+: 1699441295:0;vim config
+: 1699441335:0;ssh-keygen -f ~/.ssh/aur
+: 1699441360:0;vim aur.pub
+: 1699441515:0;cd ~/
+: 1699441525:0;cd ~/.cache/paru/clone
+: 1699441531:0;git clone https://aur.archlinux.org/seismic-unix.git
+: 1699441537:0;cd seismic-unix
+: 1699441540:0;vim PKGBUILD
+: 1699441898:0;makepkg --printsrcinfo > .SRCINFO
+: 1699441905:0;vim .SRCINFO
+: 1699442032:0;git commit -m "change Makefile.config for archlinux. Now it should be able to compile correctly."
+: 1699442054:0;git add PKGBUILD .SRCINFO
+: 1699442057:0;git commit -m "change Makefile.config for archlinux. Now it should be able to compile correctly."
+: 1699442094:0;git diff
+: 1699442100:0;git status
+: 1699442109:0;git show
+: 1699442178:0;git push
+: 1699442204:0;nekoray -many
+: 1699442272:0;git push
+: 1699442575:0;systemctl start v2ray v2raya
+: 1699442599:0;git push
+: 1699442937:0;ping -c3 aur.archlinux.org
+: 1699442950:0;ping6 -c3 aur.archlinux.org
+: 1699442961:0;cd ~
+: 1699442965:0;cd Downloads
+: 1699442966:0;wget https://aur.archlinux.org
+: 1699442970:0;git push
+: 1699442981:0;systemctl restart NetworkManager
+: 1699442989:0;git push
+: 1699443187:0;export http=127.0.0.1:2017
+: 1699443191:0;export https=127.0.0.1:2017
+: 1699443193:0;git push
+: 1699443280:0;ping www.google.com
+: 1699443343:0;cd /usr/share/applications
+: 1699443345:0;vim nekoray.desktop
+: 1699443366:0;sudo vim nekoray.desktop
+: 1699443403:0;ping www.google.com
+: 1699443482:0;git push
+: 1699443506:0;ping www.google.com
+: 1699443585:0;ping aur.archlinux.org
+: 1699443593:0;git push
+: 1699443667:0;cd ~/.cache/paru/clone/seismic-unix
+: 1699443669:0;git push
+: 1699443965:0;vim PKGBUILD
+: 1699444626:0;git config --global http.proxy http://127.0.0.1:2081
+: 1699444629:0;git config --global http.proxy https://127.0.0.1:2081
+: 1699444632:0;git push
+: 1699444731:0;git config --global http.proxy https://127.0.0.1:2017
+: 1699444735:0;git config --global http.proxy http://127.0.0.1:2017
+: 1699444740:0;git config -l
+: 1699444749:0;git config --global https.proxy http://127.0.0.1:2017
+: 1699444751:0;git config -l
+: 1699444754:0;git push
+: 1699444855:0;git config --global https.proxy http://127.0.0.1:20171
+: 1699444859:0;git config --global http.proxy http://127.0.0.1:20171
+: 1699444860:0;git push
+: 1699444867:0;git config -l
+: 1699444910:0;git config --global http.proxy http://127.0.0.1:20172
+: 1699444914:0;git config --global https.proxy http://127.0.0.1:20172
+: 1699444919:0;git push
+: 1699445062:0;git config --global https.proxy sock5://127.0.0.1:20170
+: 1699445068:0;git config --global http.proxy sock5://127.0.0.1:20170
+: 1699445069:0;git push
+: 1699445118:0;git config --global http.proxy http://127.0.0.1:20171
+: 1699445124:0;git config --global https.proxy https://127.0.0.1:20171
+: 1699445126:0;git push
+: 1699445149:0;ping https://aur.archlinux.org/
+: 1699445161:0;ping https://www.aur.archlinux.org/
+: 1699445170:0;ping https://www.aur.archlinux.org/seismic-unix.git
+: 1699445176:0;ping https://aur.archlinux.org/seismic-unix.git
+: 1699445701:0;git push
+: 1699445806:0;git config --global https.proxy socks://127.0.0.1:2080
+: 1699445814:0;git config --global http.proxy socks://127.0.0.1:2080
+: 1699445816:0;git push
+: 1699446001:0;cd ~/.ssh
+: 1699446003:0;vim aur.pub
+: 1699446171:0;git push
+: 1699446220:0;vim aur
+: 1699446228:0;vim id_rsa
+: 1699446231:0;vim id_rsa.pub
+: 1699446249:0;git push
+: 1699446561:0;cd Downloads
+: 1699446571:0;mkdir mypkg
+: 1699446572:0;cd mypkg
+: 1699446597:0;git -c init.defaultBranch=master clone ssh://aur@aur.archlinux.org/seismic-unix.git
+: 1699446636:0;vim ~/.ssh/aur.pub
+: 1699446681:0;git -c init.defaultBranch=master clone ssh://aur@aur.archlinux.org/seismic-unix.git
+: 1699446775:0;git -c init.defaultBranch=master clone ssh://aur@aur.archlinux.org/pkgbase.git
+: 1699446797:0;git -c init.defaultbranch=master clone ssh://aur@aur.archlinux.org/seismic-unix.git
+: 1699446819:0;vim ~/.ssh/config
+: 1699446861:0;git -c init.defaultbranch=master clone ssh://aur@aur.archlinux.org/seismic-unix.git
+: 1699446893:0;cd seismic-unix
+: 1699446895:0;vim PKGBUILD
+: 1699447043:0;makepkg --printsrcinfo > .SRCINFO
+: 1699447049:0;git add PKGBUILD .SRCINFO
+: 1699447084:0;git commit -m "change Makefile.config for archlinux. Now it should be able to compile correctly."
+: 1699447089:0;git status
+: 1699447107:0;git show
+: 1699447115:0;git push
+: 1699447149:0;git config --global -l
+: 1699447174:0;git config --global --unset http.proxy
+: 1699447178:0;git config --global --unset https.proxy
+: 1699447465:0;cd Downloads
+: 1699447469:0;cd mypkg
+: 1699447473:0;cd seismic-unix
+: 1699447475:0;cd ..
+: 1699447767:0;cp -r ./seismic-unix ~/dotfile/pkgbuilds
+: 1699447774:0;cd ~/dotfile/pkgbuilds
+: 1699447797:0;cd seismic-unix
+: 1699447804:0;cd ~/dotfile
+: 1699447822:0;git add . && git commit -m "add the pkgbuild of su" && git push
