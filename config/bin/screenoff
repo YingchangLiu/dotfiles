@@ -1,4 +1,3 @@
-sleep 30m
 if pgrep -x "swaylock" > /dev/null
 then
     echo "swaylock is running"

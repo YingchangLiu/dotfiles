@@ -1,4 +1,5 @@
 lock '~/.config/bin/wayland_session_lock'
+timeout 300  '~/.config/bin/screenoff'
 timeout 1800 '~/.config/bin/wayland_session_lock' 
 timeout 1830 'hyprctl dispatch dpms off eDP-1'
 timeout 2700 'systemctl suspend' 

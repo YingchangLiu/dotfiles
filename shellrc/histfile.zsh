@@ -2193,7 +2193,6 @@ pacman -Rnsdd
 sudo pacman -Rnsdd
 packer
 vim aliasrc.sh
-cd Downloads
 cd dotfiles
 cd .config
 vim autostart-scripts/kwallet-ssh-add.sh
@@ -2252,7 +2251,6 @@ stow sdfg
 lls
 stow -d sdfg
 stow -d sagsag
-cd ../opt
 stow --delete sdfg
 cd
 rm -rf bin
@@ -2271,7 +2269,6 @@ vim paper_once
 rm -rf paper_once
 cd ../hypr/configs
 git add . && git commit -m "change wallpaper changer to avoid same papers" && git push
-upgrade
 vim hyprland.conf
 cd .config/nnn
 vim plugins/imgview
@@ -2403,7 +2400,6 @@ cd -
 vim currentwall
 find ${wallpath} -type f | grep -v $(cat /tmp/currentwall) | shuf | head -n 1
 -f /tmp/currentwall
-cd ~/dotfile/config/bin
 wallpath=~/dotfile/wallpaper/
 echo $image
 pgrep -x swaybg
@@ -2442,10 +2438,8 @@ cd ahay
 git clone https://github.con/ahay/src
 git clone https://github.com/ahay/src
 cd opt/ahay
-cd opt
 j
 pacman -S autojump
-fk
 sudo pacman -S autojump
 source ~/.zshrc
 cd ~/dotfile/shellrc
@@ -2467,10 +2461,7 @@ vim vimrcs/plugins_config.vim
 vim ~/.vimrc
 vim vimrcs/extended.vim
 git add . && git commit -m "change colorshcheme of vim" && git push
-git clone https://github.com/JohnWStockwellJr/SeisUnix cwp
 waybar
-Hyprland
-cd ~/dotfile
 swaylock && loginctl session-status >> ~/mylog
 cd ~
 swaylock && sleep 5 && loginctl session-status >> ~/mylog
@@ -2480,11 +2471,6 @@ echo $DISPLAY
 pgrep swaylock
 vim background-changer
 ./wayland_session_lock
-killall -u kelen
-exit
-vim wayland_session_lock
-cd dotfile/config/bin
-vim screenoff.sh
 hyprctl dispatch dpms
 hyprctl --help
 hyprctl notflix
@@ -2498,7 +2484,36 @@ hyprctl dispatch dpms off eDP-1 && hyprctl monitors > ~/mylog
 ./wayland_session_lock && sleep 10 && hyprctl monitors > ~/mylog
 vim ~/mylog
 hyprctl monitors
-: 1699374257:0;cd dotfile/config/bin
-: 1699374261:0;vim wayland_session_lock
-: 1699374338:0;cd ~/dotfile
-: 1699374352:0;git add . && git commit -m "add auto screen off to swaylock" && git push
+cd dotfile/config/bin
+cd ~/dotfile
+git add . && git commit -m "add auto screen off to swaylock" && git push
+cd opt
+Hyprland
+cd /etc/
+diff sudoers sudoers.pacnew
+fk
+sudo diff --color=auto sudoers sudoers.pacnew
+sudo cp sudoers.pacnew sudoers
+sudo vim sudoers
+su
+upgrade
+cd Downloads
+j Dow
+cd ../opt
+git clone https://github.com/JohnWStockwellJr/SeisUnix cwp
+cd ~/dotfile/config/bin
+chmod a+x screenoff.sh
+mv screenoff.sh screenoff
+vim ../swayidle
+vim ../swayidle/config
+vim wayland_session_lock
+vim screenoff.sh
+vim screenoff
+killall -u kelen
+exit
+: 1699408049:0;vim ./.config/swayidle/config
+: 1699408064:0;Hyprland
+: 1699408104:0;cd ~/dotfile/config/swayidle
+: 1699408107:0;vim config
+: 1699408125:0;cd ~/dotfile
+: 1699408144:0;git add . && git commit -m "change the bahaviour for screen off" && git push
