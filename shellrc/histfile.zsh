@@ -176,7 +176,6 @@ cd /opt/locflow/LOC-FLOW
 vim software_download.py
 git clone https://github.com/Dal-mzhang/REAL.git
 cd pick2real
-make clean
 mv bin bin.bak
 sh run_install.sh
 cd /opt/locflow/LOC-FLOW/bin.bak
@@ -245,7 +244,6 @@ cd hyp1.40
 vim source/makefile
 vim src/pick2real/Makefile
 cd myloc
-rm -rf ./*
 rm -rf myloc
 mkdir LOC-FLOW
 cd LOC-FLOW
@@ -675,7 +673,6 @@ git clone https://github.com/Tony-Tan/CUDA_Freshman
 cd CUDA_Freshman/4_sum_arrays_timer
 nvcc sum_arrays_timer.cu -o sum_arrays_timer -I../include
 mkdir build
-cd build
 vim ../CMakeLists.txt
 cmake ../
 cd 4_sum_arrays_timer
@@ -723,7 +720,6 @@ makepkg -sri
 paru -S cuda11.1
 makepkg -si
 nvcc -o /opt/ahay/src/build/user/cuda/gpuktmig.o -c --x=cu -I/usr/include/cblas -I/opt/ahay/src/build/include /opt/ahay/src/build/user/cuda/gpuktmig.c
-make install
 cd gpufwi
 cd fbrec
 sfpen snap1b.vpl
@@ -777,7 +773,6 @@ whereis ffmpeg
 sudo ln -s /usr/bin/ffmpeg /usr/local/ffmpeg
 pacman -Ss plplot
 paru -Ss plplot
-paru -S plplot
 pacman -S lib32-ffmpeg
 pacman -S rpc
 vim configure
@@ -802,7 +797,6 @@ cd /opt/ahay/src
 cd /usr/include
 cd tirpc
 cd rpc
-vim Makefile.config
 vim setenv.py
 vim setup.py
 pacman -S ffmpeg4.4
@@ -842,7 +836,6 @@ pacman -S kde-plasma
 pacman -S plasma-im
 pacman -S plasma-meta
 pacman -Rns gnome
-cd ../src
 rm -rf /opt/ahay /opt/cwp /opt/locflow /opt/sac
 cd /opt
 rm -rf ahay
@@ -1902,7 +1895,6 @@ sh
 vim zprofile
 vim bash_profile
 vim .zprofile
-echo $PATH
 pacman -S lsb-release
 lsb-release
 lsb_release
@@ -1989,7 +1981,6 @@ rm -rf .history
 pacman -S nnn
 pacman -Rns ranger
 pacman -Rns w3m
-pacman -Qemq
 rm -rf .w3m
 cd /usr/share/nnn/quitcd
 cd ../plugins
@@ -2212,7 +2203,6 @@ mkdir sdfg
 cd sdfg
 vim sdg
 mv sdg bin
-cd ../
 mkdir sf
 cd sf
 mkdir bin
@@ -2221,7 +2211,6 @@ install stow
 stow
 stow sf
 stow sdfg
-lls
 stow -d sdfg
 stow -d sagsag
 stow --delete sdfg
@@ -2271,7 +2260,6 @@ vim ~/.local/share/applications/timeshift-gtk.desktop
 rm ~/.local/share/applications/timeshift-gtk.desktop
 vim style.css
 killall waybar
-cd bin
 hyprctl dispatch dpms off
 hyprctl dispatch dpms off eDP-1
 playerctl
@@ -2389,7 +2377,6 @@ swww init
 pacman -Rns swww
 fu
 sudo pacman -Rns swww
-cleanup
 cd ~/.config/paru
 vim paru.conf
 vim environment.sh
@@ -2446,7 +2433,6 @@ hyprctl dispatch dpms off eDP-1 && hyprctl monitors > ~/mylog
 ./wayland_session_lock && sleep 10 && hyprctl monitors > ~/mylog
 vim ~/mylog
 hyprctl monitors
-cd dotfile/config/bin
 git add . && git commit -m "add auto screen off to swaylock" && git push
 cd /etc/
 diff sudoers sudoers.pacnew
@@ -2467,7 +2453,6 @@ git add . && git commit -m "change the bahaviour for screen off" && git push
 git clone https://github.com/JohnWStockwellJr/SeisUnix cwp
 lss
 vim etc/cwp/main/downfort
-vim Makefile
 git pull
 cd ~/dotfile/config/swayidle
 neofetch
@@ -2503,21 +2488,15 @@ sudo pacman -S openmotif
 pacman -Rns openmotif
 sudo pacman -Rns openmotif
 pacman -Rns libtirpc
-fk
 sudo pacman -Rns libtirpc
-pacman -Qenq
-makepkg
 cd .config/bin
 vim wayland_session_lock
-vim screenoff
 pgrep -x swaybg
 pgrep -x swayidle
 pgrep -x swaylock
 ./screenoff
 vim ../swayidle/config
-vim config
 ssh-keygen -f ~/.ssh/aur
-cd ~/
 cd ~/.cache/paru/clone
 git clone https://aur.archlinux.org/seismic-unix.git
 vim .SRCINFO
@@ -2571,17 +2550,12 @@ git status
 git config --global -l
 git config --global --unset http.proxy
 git config --global --unset https.proxy
-cd Downloads
-cd mypkg
 cp -r ./seismic-unix ~/dotfile/pkgbuilds
-cd ~/dotfile/pkgbuilds
-cd ~/dotfile
 git add . && git commit -m "add the pkgbuild of su" && git push
 git rm --cached pkgbuilds/seismic-unix
 cd pkgbuilds
 mv seismic-unix ~/
 git add . && git commit -m "just update" && git push
-cd ~
 rm -rf fwitest
 cd opt
 cd cwp
@@ -2590,224 +2564,177 @@ mv ../seismic-unix ./
 mv seismic-unix aur
 vim mykill.sh
 rm -rf mykill.sh mylog
-upgrade
 reboot
-Hyprland
 fetch
 n
 cd ~/Downloads/mypkg
 cd seismic-unix
 git commit -m "remove some depends and delete link of src"
-makepkg --printsrcinfo > .SRCINFO
-git add PKGBUILD .SRCINFO
 git commit -m "change makedepends"
 git show
-git push
-mkdir seisunix-git
 cp /run/media/kelen/Flash\ Bar/PKGBUILD ./seisunix-git
-cd seisunix-git
-makepkg -s
 pacman -S gcc-fortran
 cd src/
-cd src/SeisUnix
-vim PKGBUILD
-makepkg -s -f
 pacman -Fx libcwell.a
 pacman -Fx shoot.o
-cd src/SeisUnix/
 gfortran
-vim make.log
 cd Downloads/mypkg/seisunix-git
-cd SeisUnix
 pwd
 cd /usr/local
-cd src
-cd ..
 cd ~/Downloads/mypkg/seisunix-git/src/SeisUnix/src
-cd Fortran
-make
 vim ~/dotfile/shellrc/pathrc.sh
 exit
-: 1699458657:0;Hyprland
-: 1699458673:0;cd Downloads/seismic-unix
-: 1699458679:0;cd ../mypkg/seisunix-git
-: 1699458685:0;makepkg -s -f
-: 1699458802:0;cd src/SeisUnix/
-: 1699458806:0;vim make.log
-: 1699458839:0;cd src/Fortran
-: 1699458843:0;make
-: 1699458866:0;vim ../../make.log
-: 1699458880:0;cd Cshot
-: 1699458881:0;make
-: 1699458890:0;cd ../AzimVelan
-: 1699458892:0;make
-: 1699458896:0;cd ..
-: 1699458903:0;vim Makefile.config
-: 1699458911:0;make
-: 1699458920:0;make install
-: 1699458923:0;cd ..
-: 1699458927:0;make
-: 1699493740:0;cd ../SeisUnix
-: 1699493743:0;cd ..
-: 1699493756:0;cd SeisUnix
-: 1699493759:0;cd branches
-: 1699493762:0;cd ..
-: 1699493764:0;vim config
-: 1699494228:0;vim testsh
-: 1699494278:0;sh testsh
-: 1699494282:0;vim testsh
-: 1699494296:0;sh testsh
-: 1699494306:0;vim testsh
-: 1699494313:0;cd dotfile/config/bin
-: 1699494315:0;vim screenoff
-: 1699494333:0;sh testsh
-: 1699494368:0;sh testsh >/dev/null
-: 1699494387:0;rm testsh
-: 1699497652:0;cd Downloads/mypkg
-: 1699497655:0;cd seisunix-git
-: 1699497663:0;makepkg -s -f
-: 1699497896:0;cd src/SeisUnix
-: 1699497905:0;cd src
-: 1699497917:0;make fremake
-: 1699497928:0;cd Fortran
-: 1699497935:0;make remake
-: 1699497940:0;cd ..
-: 1699497965:0;export CWPROOT=/home/kelen/Downloads/mypkg/seisunix-git/src/SeisUnix/
-: 1699497974:0;make fremake
-: 1699498002:0;make finstall
-: 1699498014:0;make fremake
-: 1699498036:0;cd Fortran
-: 1699498037:0;make clean
-: 1699498045:0;make remake
-: 1699498112:0;cd ..
-: 1699498118:0;makepkg -s -f
-: 1699498487:0;cd src/SeisUnix/src
-: 1699498527:0;vim LEGAL_STATEMENT
-: 1699498537:0;vim LICENSE_44R25_ACCEPTED
-: 1699498544:0;vim LICENSE_44R18_ACCEPTED
-: 1699498551:0;vim LICENSE_45R00_ACCEPTED
-: 1699498555:0;vim LICENSE_35.3
-: 1699498579:0;vim ../../../PKGBUILD
-: 1699498679:0;makepkg -s -f
-: 1699498681:0;cd ..
-: 1699498687:0;makepkg -s -f
-: 1699498693:0;vim PKGBUILD
-: 1699498704:0;makepkg -s -f
-: 1699498907:0;vim PKGBUILD
-: 1699498947:0;cd src/SeisUnix/src/Fortran
-: 1699498953:0;cd Cwell
-: 1699498971:0;vim Makefile
-: 1699498985:0;cd ..
-: 1699499010:0;cd Downloads/mypkg/seisunix-git/
-: 1699499013:0;vim PKGBUILD
-: 1699499061:0;makepkg -s -f
-: 1699499251:0;cd Cxzco
-: 1699499262:0;vim Makefile
-: 1699499315:0;cd ../../
-: 1699499330:0;vim Makefile
-: 1699499350:0;cd Fortran
-: 1699499352:0;vim Makefile
-: 1699499379:0;cd Cxzco
-: 1699499390:0;cd ../Vplusz
-: 1699499397:0;cd ../Vzest
-: 1699499399:0;cd ..
-: 1699499408:0;find ./ --name *.a
-: 1699499414:0;find ./ -name *.a
-: 1699499427:0;find ./ -name *.a | rm -rf
-: 1699499429:0;find ./ -name *.a
-: 1699499490:0;vim PKGBUILD
-: 1699499568:0;makepkg -s -f
-: 1699499696:0;cd ../cwp/lib
-: 1699499742:0;cd ..
-: 1699499765:0;make mglinstall
-: 1699499775:0;export CWPROOT=/home/kelen/Downloads/mypkg/seisunix-git/src/SeisUnix/
-: 1699499778:0;make mglinstall
-: 1699499796:0;cd ../lib
-: 1699500046:0;cd ../src
-: 1699500050:0;make mglremake
-: 1699500104:0;make sfinstall
-: 1699500429:0;makepkg --printsrcinfo > .SRCINFO
-: 1699500440:0;vim PKGBUILD
-: 1699500463:0;pacman -U seisunix-git-4426.c222c39-1-x86_64.pkg.tar.zst
-: 1699500465:0;fk
-: 1699500471:0;sudo pacman -U seisunix-git-4426.c222c39-1-x86_64.pkg.tar.zst
-: 1699500493:0;sh /etc/profile.d/seisunix-git.sh
-: 1699500504:0;cd /opt/seisunix-git
-: 1699500506:0;cd bin
-: 1699500531:0;vim /etc/profile.d/seisunix-git.sh
-: 1699500556:0;echo $PATH
-: 1699500581:0;vim /etc/profile.d/seisunix-git.sh
-: 1699500606:0;source /etc/profile.d/seisunix-git.sh
-: 1699500700:0;suplane| suxwigb
-: 1699500704:0;cd ~
-: 1699500824:0;cd Downloads/mypkg
-: 1699500836:0;mv seisunix-git seisunix-git.bak
-: 1699500847:0;git clone git+ssh://aur@aur.archlinux.org/seisunix-git
-: 1699500868:0;cd seisunix-git
-: 1699500897:0;git remote add origin git+ssh://aur@aur.archlinux.org/seisunix-git
-: 1699500982:0;cd ../seisunix-git.bak
-: 1699500985:0;nmcap
-: 1699500993:0;namcap
-: 1699500998:0;pacman -S namcap
-: 1699501000:0;fk
-: 1699501012:0;sudo pacman -S namcap
-: 1699501029:0;upgrade
-: 1699501096:0;namcap
-: 1699501099:0;pacman -S namcap
-: 1699501101:0;fk
-: 1699501104:0;sudo pacman -S namcap
-: 1699501106:0;namcap
-: 1699501119:0;namcap seisunix-git-4426.c222c39-1-x86_64.pkg.tar.zst
-: 1699501201:0;namcap --help
-: 1699501243:0;namcap seisunix-git-4426.c222c39-1-x86_64.pkg.tar.zst > cap.txt
-: 1699501313:0;vim cap.txt
-: 1699501415:0;cd Downloads/mypkg
-: 1699501423:0;vim seisunix-git.bak/PKGBUILD
-: 1699501501:0;cd seisunix-git.bak
-: 1699501506:0;makepkg -s -f
-: 1699504094:0;vim cap.txt
-: 1699504196:0;vim PKGBUILD
-: 1699504228:0;pacman -Rns lib32-glibc
-: 1699504230:0;fk
-: 1699504261:0;vim PKGBUILD
-: 1699504277:0;makepkg -s
-: 1699504283:0;makepkg -s -f
-: 1699504232:0;sudo pacman -Rns lib32-glibc
-: 1699504363:0;cd ../seisunix-git
-: 1699504379:0;cp ../seisunix-git.bak/PKGBUILD ./
-: 1699504389:0;cp ../seisunix-git.bak/.SRCINFO ./
-: 1699504401:0;makepkg --printsrcinfo > .SRCINFO
-: 1699504472:0;git commit -m "Add the pkgbuild for seisunix git, see https://github.com/JohnWStockwellJr/SeisUnix"
-: 1699504502:0;git add PKGBUILD .SRCINFO
-: 1699504505:0;git commit -m "Add the pkgbuild for seisunix git, see https://github.com/JohnWStockwellJr/SeisUnix"
-: 1699504515:0;git push
-: 1699504530:0;vim PKGBUILD
-: 1699505054:0;cd ..
-: 1699505065:0;cd ~/dotfile/pkgbuilds
-: 1699505107:0;mkdir maintain
-: 1699505111:0;cd maintain
-: 1699505123:0;mkdir seismic-unix
-: 1699505128:0;mkdir seisunix-git
-: 1699505164:0;cp ~/Downloads/mypkg/seismic-unix/PKGBUILD ~/Downloads/mypkg/seismic-unix/seismic-unix.install ./seismic-unix
-: 1699505187:0;cp ~/Downloads/mypkg/seisunix-git/PKGBUILD ./seisunix-git
-: 1699505190:0;cd ..
-: 1699505213:0;mkdir bulid
-: 1699505229:0;mkdir bulid/cuda11/
-: 1699505238:0;rm -rf bulid/cuda11
-: 1699505244:0;mv cuda11 bulid/cuda11
-: 1699505263:0;mv matlab bulid/matlab
-: 1699505269:0;rm seismicunix
-: 1699505274:0;cat README
-: 1699505309:0;mkdir bulid/madagascar
-: 1699505322:0;mv madagascar bulid/madagascar/PKGBUILD
-: 1699505328:0;mv bulid build
-: 1699505332:0;cd build
-: 1699505337:0;cd madagascar
-: 1699505339:0;vim PKGBUILD
-: 1699505359:0;git clone https://aur.archlinux.org/madagascar.git
-: 1699505367:0;cd madagascar
-: 1699505373:0;mv PKGBUILD ../PKGBUILD
-: 1699505382:0;cd ..
-: 1699505386:0;rm -rf madagascar
-: 1699505395:0;cd ~/dotfile
-: 1699505425:0;git add . && git commit -m "add pkgbuilds maintain" && git push
+Hyprland
+cd Downloads/seismic-unix
+cd ../mypkg/seisunix-git
+cd src/SeisUnix/
+vim make.log
+cd src/Fortran
+vim ../../make.log
+cd Cshot
+cd ../AzimVelan
+vim Makefile.config
+make install
+make
+cd ../SeisUnix
+cd SeisUnix
+cd branches
+vim config
+vim testsh
+cd dotfile/config/bin
+vim screenoff
+sh testsh
+sh testsh >/dev/null
+rm testsh
+cd src/SeisUnix
+cd src
+make finstall
+make fremake
+make clean
+make remake
+cd src/SeisUnix/src
+vim LEGAL_STATEMENT
+vim LICENSE_44R25_ACCEPTED
+vim LICENSE_44R18_ACCEPTED
+vim LICENSE_45R00_ACCEPTED
+vim LICENSE_35.3
+vim ../../../PKGBUILD
+cd src/SeisUnix/src/Fortran
+cd Cwell
+cd Downloads/mypkg/seisunix-git/
+cd ../../
+cd Fortran
+vim Makefile
+cd Cxzco
+cd ../Vplusz
+cd ../Vzest
+find ./ --name *.a
+find ./ -name *.a | rm -rf
+find ./ -name *.a
+cd ../cwp/lib
+export CWPROOT=/home/kelen/Downloads/mypkg/seisunix-git/src/SeisUnix/
+make mglinstall
+cd ../lib
+cd ../src
+make mglremake
+make sfinstall
+pacman -U seisunix-git-4426.c222c39-1-x86_64.pkg.tar.zst
+sudo pacman -U seisunix-git-4426.c222c39-1-x86_64.pkg.tar.zst
+sh /etc/profile.d/seisunix-git.sh
+cd /opt/seisunix-git
+cd bin
+echo $PATH
+vim /etc/profile.d/seisunix-git.sh
+source /etc/profile.d/seisunix-git.sh
+suplane| suxwigb
+cd ~
+mv seisunix-git seisunix-git.bak
+git clone git+ssh://aur@aur.archlinux.org/seisunix-git
+cd seisunix-git
+git remote add origin git+ssh://aur@aur.archlinux.org/seisunix-git
+cd ../seisunix-git.bak
+nmcap
+upgrade
+pacman -S namcap
+sudo pacman -S namcap
+namcap
+namcap seisunix-git-4426.c222c39-1-x86_64.pkg.tar.zst
+namcap --help
+namcap seisunix-git-4426.c222c39-1-x86_64.pkg.tar.zst > cap.txt
+cd Downloads/mypkg
+vim seisunix-git.bak/PKGBUILD
+cd seisunix-git.bak
+vim cap.txt
+pacman -Rns lib32-glibc
+makepkg -s -f
+sudo pacman -Rns lib32-glibc
+cd ../seisunix-git
+cp ../seisunix-git.bak/PKGBUILD ./
+cp ../seisunix-git.bak/.SRCINFO ./
+makepkg --printsrcinfo > .SRCINFO
+git add PKGBUILD .SRCINFO
+git commit -m "Add the pkgbuild for seisunix git, see https://github.com/JohnWStockwellJr/SeisUnix"
+git push
+cd ~/dotfile/pkgbuilds
+mkdir maintain
+mkdir seismic-unix
+mkdir seisunix-git
+cp ~/Downloads/mypkg/seismic-unix/PKGBUILD ~/Downloads/mypkg/seismic-unix/seismic-unix.install ./seismic-unix
+cp ~/Downloads/mypkg/seisunix-git/PKGBUILD ./seisunix-git
+mkdir bulid
+mkdir bulid/cuda11/
+rm -rf bulid/cuda11
+mv cuda11 bulid/cuda11
+mv matlab bulid/matlab
+rm seismicunix
+cat README
+mkdir bulid/madagascar
+mv madagascar bulid/madagascar/PKGBUILD
+mv bulid build
+git clone https://aur.archlinux.org/madagascar.git
+mv PKGBUILD ../PKGBUILD
+rm -rf madagascar
+cd ~/dotfile
+git add . && git commit -m "add pkgbuilds maintain" && git push
+pacman -Qemq
+pacman -Rns seisunix-git
+fk
+sudo pacman -Rns seisunix-git
+cleanup
+pacman -Qenq
+bspwm
+cd dotfile/pkgbuilds
+cp /run/media/kelen/Flash\ Bar/PKGBUILD PKGBUILD
+cd ../
+cd maintain
+lls
+cd ..
+cd build
+cd ~/
+cd Downloads
+cd mypkg
+rm -rf ./*
+mkdir madagascar
+cd madagascar
+cp ~/dotfile/pkgbuilds/build/madagascar/PKGBUILD ./
+makepkg
+makepkg -s
+makepkg -s -i
+makepkg --help
+sudo makepkg -s
+paru -S plplot
+makepkg --syncdeps
+vim PKGBUILD
+cd Downloads/mypkg/madagascar
+cd src/madagascar
+: 1699537918:0;makepkg --syncdeps
+: 1699539948:0;cd ~/dotfile/pkgbuilds/build
+: 1699539951:0;vim madagascar/PKGBUILD
+: 1699541774:0;cd madagascar
+: 1699541778:0;vim PKGBUILD
+: 1699541982:0;cd ~/Downloads
+: 1699542026:0;cd dotfile
+: 1699542032:0;vim pkgbuilds/build/madagascar/PKGBUILD
+: 1699542876:0;cd ..
+: 1699542879:0;cd dotfile
+: 1699542891:0;git add . && git commit -m "add pkgbuilds build" && git push
