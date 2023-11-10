@@ -2762,3 +2762,11 @@ cd src/madagascar
 : 1699579549:0;cd ..
 : 1699579554:0;cd dotfile
 : 1699579562:0;git add . && git commit -m "checkupdates" && git push
+: 1699579572:0;reboot
+: 1699581048:0;kelen
+: 1699581052:0;Hyprland
+: 1699581095:0;fetch
+: 1699581147:0;alias
+: 1699581157:0;pkgbak
+: 1699581163:0;cd dotfile
+: 1699581174:0;git add . && git commit -m "pkgbak" && git push
