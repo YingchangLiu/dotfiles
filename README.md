@@ -26,15 +26,15 @@ Arch Wiki https://wiki.archlinux.org/title/Installation_guide
 A concise guide to archlinux in Chinese https://arch.icekylin.online/
 
 ### Configs
-- alacritty
 - bash
 - btop
 - conky
 - dust
 - eww
+- fastfetch
 - htop
+- kitty
 - mpd
-- neofetch
 - nnn
 - paru
 - picom
@@ -42,6 +42,7 @@ A concise guide to archlinux in Chinese https://arch.icekylin.online/
 - powerlevel10k
 - thefuck
 - vim
+- waybar
 - zsh, working with autojump, autosuggestions, command-not-found, completions, history-substring-search and syntax-highlighting
 
 ### PKGBUILD records
@@ -60,6 +61,7 @@ Not every software has its pkgbuild, and some softwares are not visible due to p
 - maintenace
 - pytorch cuda test
 - volume control
+- wayland session lock
 
 ### Wallpapers
 Please check in dotfile/wallpaper.
