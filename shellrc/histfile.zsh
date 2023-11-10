@@ -2914,3 +2914,5 @@ exit
 : 1699624507:0;cd ..
 : 1699624511:0;cd ~/dotfile
 : 1699624517:0;git add . && git commit -m "update paru configs" && git push
+: 1699624740:0;vim config/paru/paru.conf
+: 1699624882:0;git add . && git commit -m "update paru configs" && git push
