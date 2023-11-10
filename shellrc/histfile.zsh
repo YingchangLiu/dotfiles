@@ -2916,3 +2916,29 @@ exit
 : 1699624517:0;git add . && git commit -m "update paru configs" && git push
 : 1699624740:0;vim config/paru/paru.conf
 : 1699624882:0;git add . && git commit -m "update paru configs" && git push
+: 1699624940:0;cleanup
+: 1699624948:0;pacman -Qenq
+: 1699625171:0;cd ~/Downloads
+: 1699625177:0;cd seisunix-git
+: 1699625181:0;vim PKGBUILD
+: 1699625245:0;makepkg --printsrcinfo > .SRCINFO
+: 1699625252:0;git add PKGBUILD .SRCINFO
+: 1699625256:0;git push
+: 1699625350:0;cd ..
+: 1699625359:0;git clone git+ssh://aur@aur.archlinux.org/seismic-unix-git
+: 1699625385:0;cp seisunix-git/PKGBUILD ./seismic-unix-git
+: 1699625389:0;cd seismic-unix-git
+: 1699625396:0;makepkg --printsrcinfo > .SRCINFO
+: 1699625401:0;git add PKGBUILD .SRCINFO
+: 1699625501:0;git commit -m "renamed seismic-unix-git"
+: 1699625504:0;git push
+: 1699625542:0;vim PKGBUILD
+: 1699626059:0;cd dotfile/config/hypr/configs
+: 1699626060:0;v
+: 1699626066:0;vim env.conf
+: 1699626080:0;Hyprland
+: 1699627955:0;cd dotfile/pkgbuilds/maintain
+: 1699627965:0;mv seisunix-git seismic-unix-git
+: 1699627970:0;cd ../
+: 1699627971:0;cd ..
+: 1699627999:0;git add . && git commit -m "move seisunix to seismic-unix" && git push
