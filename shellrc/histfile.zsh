@@ -2904,3 +2904,13 @@ exit
 : 1699622503:0;cd ..
 : 1699622508:0;cd ~/dotfile
 : 1699622526:0;git add . && git commit -m "update madagascar PKGBUILD" && git push
+: 1699622549:0;upgrade
+: 1699622671:0;cd /opt
+: 1699622689:0;cd ~/.config/paru
+: 1699622691:0;vim paru.conf
+: 1699622991:0;paru --help
+: 1699624494:0;cp /run/media/kelen/Flash\ Bar/paru.conf ./paru.conf
+: 1699624504:0;cd ../alacritty
+: 1699624507:0;cd ..
+: 1699624511:0;cd ~/dotfile
+: 1699624517:0;git add . && git commit -m "update paru configs" && git push
