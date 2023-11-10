@@ -2838,3 +2838,12 @@ cd src/madagascar
 : 1699595926:0;vim PKGBUILD
 : 1699596621:0;cd ~/dotfile
 : 1699596634:0;git add . && git commit -m "update pkgbuild" && git push
+: 1699597070:0;cd pkgbuilds
+: 1699597072:0;cd build
+: 1699597075:0;mkdir madagascar
+: 1699597079:0;cd madagascar
+: 1699597083:0;cp /run/media/kelen/Flash\ Bar/PKGBUILD PKGBUILD
+: 1699597085:0;vim PKGBUILD
+: 1699597098:0;cd ~
+: 1699597102:0;cd dotfile
+: 1699597109:0;git add . && git commit -m "update pkgbuild of madagascar" && git push
