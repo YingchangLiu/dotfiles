@@ -1,25 +1,22 @@
 # Contributor: anon at sansorgan.es
-
-pkgname=madagascar
-pkgver=4.0
+# Contributor: Yingchang Liu
+pkgname=madagascar-git
+pkgver=r15659.d72996857
 pkgrel=1
 pkgdesc="Multidimensional data analysis and reproducible computational experiments."
 url="https://www.reproducibility.org/wiki/Main_Page"
 license=('GPL2')
 arch=('i686' 'x86_64')
-depends=('libtirpc' 'ffmpeg' 'libxaw' 'cairo' 'fftw' 'netpbm' 'gd'
-	 'openmpi' 'glu' 'freeglut' 'suitesparse' 'python' 'swig')
-optdepends=('cuda: GPU acceleration, but not compatible with cuda 12' 'plplot: scientific plot')
-makedepends=('scons')
+depends=('libtirpc' 'ffmpeg' 'libxaw' 'cairo' 'fftw' 'netpbm' 'gd' 'swig' 'python'
+	 'openmpi' 'glu' 'freeglut' 'suitesparse') 
+optdepends=('cuda: for nvcc, but not compatible with cuda12' 'plplot: scientific plot')
 options=('strip')
-source=("$pkgname.tar.gz::https://sourceforge.net/projects/rsf/files/$pkgname/$pkgname-$pkgver/$pkgname-$pkgver.$pkgrel.tar.gz/download")
+source=(madagascar::git+https://github.com/ahay/src)
 md5sums=('SKIP')
-noextract=("$pkgname.tar.gz")
 
-prepare() {
-    cd "$srcdir"
-    mkdir -p ${srcdir}/${pkgname}
-    bsdtar -xf $pkgname.tar.gz --strip-components=1 -C ${srcdir}/${pkgname}
+pkgver() {
+    cd ${pkgname}
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {
@@ -34,15 +31,11 @@ build() {
     plat['\''distro'\''\] == '\''arch'\'' or \\\
     (plat['\''distro'\''\] == '\''ubuntu'\'' and int(plat['\''version'\''\][:2]) >= 20): \ \
         context.env['\''CPPPATH'\''\] = path_get(context,'\''CPPPATH'\'','\''/usr/include/tirpc'\'')' framework/configure.py
-    # export LINKFLAGS="-llapack -lblas -ltirpc -pthread -fopenmp"
   ./configure
-    # sed -i "s/^LINKFLAGS.*/LINKFLAGS = ['-llapack', '-lblas', '-pthread', '-fopenmp', '-ltirpc']/g" config.py
-    # make "${MAKEFLAGS}"
-  make 
+  make
 }
 
 package() {
-
     export RSFROOT=${pkgdir}/opt/${pkgname}
     mkdir -p ${RSFROOT}/bin/
     export PATH=${RSFROOT}/bin:$PATH
@@ -59,8 +52,8 @@ package() {
     arr[0]="/share/madagascar/etc/config.py"
     arr[1]="/share/madagascar/etc/env.sh"
     arr[2]="/share/madagascar/etc/env.csh"
-    python_version=$(ls $RSFROOT/lib | grep python)
-    arr[3]="/lib/${python_version}/site-packages/rsf/prog.py"
+    _python_version=$(ls $RSFROOT/lib | grep python)
+    arr[3]="/lib/${_python_version}/site-packages/rsf/prog.py"
     arr[4]="/src/config.py"
     arr[5]="/src/env.sh"
     arr[6]="/src/env.csh"

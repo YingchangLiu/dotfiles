@@ -8,6 +8,7 @@ function run {
 }
 
 
+run keepassxc
 run ~/dotfile/config/bin/background-changer
 run ~/dotfile/config/bin/idle.sh
 run copyq --start-server
@@ -17,7 +18,7 @@ run waybar
 run dunst
 run conky -c ~/.config/conky/wlconkyrc
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-
+#run dbus-update-activation-environment --all
 
 #run waybar
 #run numlockx on

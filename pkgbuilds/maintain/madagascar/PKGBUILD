@@ -1,33 +1,44 @@
 # Contributor: anon at sansorgan.es
 
-pkgname=madagascar-git
-pkgver=r15659.d72996857
+pkgname=madagascar
+pkgver=4.0
 pkgrel=1
 pkgdesc="Multidimensional data analysis and reproducible computational experiments."
 url="https://www.reproducibility.org/wiki/Main_Page"
 license=('GPL2')
 arch=('i686' 'x86_64')
-depends=('libtirpc' 'ffmpeg' 'libxaw' 'cairo' 'fftw' 'netpbm' 'gd' 'swig' 'python'
-	 'openmpi' 'glu' 'freeglut' 'suitesparse') 
-optdepends=('cuda: for nvcc, but not compatible with cuda12' 'plplot: scientific plot')
+depends=('libtirpc' 'ffmpeg' 'libxaw' 'cairo' 'fftw' 'netpbm' 'gd'
+	 'openmpi' 'glu' 'freeglut' 'suitesparse' 'python' 'swig')
+optdepends=('cuda: GPU acceleration, but not compatible with cuda 12' 'plplot: scientific plot')
+makedepends=('scons')
 options=('strip')
-source=(madagascar::git+https://github.com/ahay/src)
+source=("$pkgname.tar.gz::https://sourceforge.net/projects/rsf/files/$pkgname/$pkgname-$pkgver/$pkgname-$pkgver.$pkgrel.tar.gz/download")
 md5sums=('SKIP')
+noextract=("$pkgname.tar.gz")
+
+prepare() {
+    cd "$srcdir"
+    mkdir -p ${srcdir}/${pkgname}
+    bsdtar -xf $pkgname.tar.gz --strip-components=1 -C ${srcdir}/${pkgname}
+}
 
 build() {
   mkdir -p ${srcdir}/${pkgname}
   cd ${srcdir}/${pkgname}
   export RSFROOT=${pkgdir}/opt/${pkgname}
 
-  # fix paths for tirpc in framework/configure.py
+# fix paths for tirpc in framework/configure.py
   sed -i '430,433c\
     (plat['\''distro'\''\] == '\''centos'\'' and int(plat['\''version'\''\][0]) >= 8) or \\\
     plat['\''distro'\''\] == '\''fedora'\'' or \\\
     plat['\''distro'\''\] == '\''arch'\'' or \\\
     (plat['\''distro'\''\] == '\''ubuntu'\'' and int(plat['\''version'\''\][:2]) >= 20): \ \
         context.env['\''CPPPATH'\''\] = path_get(context,'\''CPPPATH'\'','\''/usr/include/tirpc'\'')' framework/configure.py
+    # export LINKFLAGS="-llapack -lblas -ltirpc -pthread -fopenmp"
   ./configure
-  make
+    # sed -i "s/^LINKFLAGS.*/LINKFLAGS = ['-llapack', '-lblas', '-pthread', '-fopenmp', '-ltirpc']/g" config.py
+    # make "${MAKEFLAGS}"
+  make 
 }
 
 package() {
@@ -42,8 +53,7 @@ package() {
     # add a symlink to rsfcodes in /opt, so that it can be compiled by user
     ln -s ${srcdir}/${pkgname} ${pkgdir}/opt/${pkgname}/rsfcodes
     chmod 755 ${pkgdir}/opt/${pkgname}/rsfcodes
-    
-    # fix paths in in files
+# fix paths in in files
     arr[0]="/share/madagascar/etc/config.py"
     arr[1]="/share/madagascar/etc/env.sh"
     arr[2]="/share/madagascar/etc/env.csh"
@@ -52,7 +62,7 @@ package() {
     arr[4]="/src/config.py"
     arr[5]="/src/env.sh"
     arr[6]="/src/env.csh"
-
+    
     echo ${pkgdir}
     echo ${srcdir}
     for f in ${arr[@]} ; do

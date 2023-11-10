@@ -4,7 +4,7 @@
 mod="Mod4"
 mod1="Mod1"
 
-terminal=alacritty
+terminal=kitty
 broswer=firefox
 
 
