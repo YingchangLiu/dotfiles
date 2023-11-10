@@ -2738,3 +2738,27 @@ cd src/madagascar
 : 1699542876:0;cd ..
 : 1699542879:0;cd dotfile
 : 1699542891:0;git add . && git commit -m "add pkgbuilds build" && git push
+: 1699579259:0;Hyprland
+: 1699579309:0;conky -c ~/.config/conky/wlconkyrc
+: 1699579316:0;killall conky
+: 1699579319:0;conky -c ~/.config/conky/wlconkyrc
+: 1699579331:0;killall conky
+: 1699579337:0;upgrade
+: 1699579344:0;conky -c ~/.config/conky/wlconkyrc
+: 1699579351:0;killall conky
+: 1699579357:0;checkupdates
+: 1699579369:0;pacman -Sy
+: 1699579371:0;fk
+: 1699579373:0;sudo pacman -Sy
+: 1699579383:0;checkupdates
+: 1699579487:0;pacman -Sy & pacman -Qu | wc -l
+: 1699579500:0;pacman -S pacman-contrib
+: 1699579502:0;fuck
+: 1699579505:0;sudo pacman -S pacman-contrib
+: 1699579511:0;cd ~/.config/conky
+: 1699579514:0;vim wlconkyrc
+: 1699579529:0;checkupdates
+: 1699579535:0;upgrade
+: 1699579549:0;cd ..
+: 1699579554:0;cd dotfile
+: 1699579562:0;git add . && git commit -m "checkupdates" && git push

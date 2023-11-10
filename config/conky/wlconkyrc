@@ -245,7 +245,7 @@ ${color5}${voffset 3}${font Roboto:size=10}S Y S T E M  ${hr 2}${font}${color}${
 ${color2}User:${color} ${alignr}${user_names}@${nodename}
 ${color2}Distro:${color}${alignr} ${alignr}${execi 6000 lsb_release -a | grep 'Description'|awk {'print $2,$3 '}}
 ${color2}Kernel:${color}${alignr}${exec uname} ${exec uname -r}
-${color2}Packages:${color}${alignr} ${execi 600 pacman -Qq | wc -l} (${execi 600 pacman -Qu | wc -l} update)
+${color2}Packages:${color}${alignr} ${execi 600 pacman -Qq | wc -l} (${execi 600 checkupdates | wc -l} update)
 ${color2}Uptime:${color} ${alignr}${uptime}
 ${color2}Battery:${color}${goto 80}${battery_time}${alignr}${battery_bar}${alignr}
 ${color5}${voffset 3}${font Roboto:size=10}C P U  ${hr 2}${font}${color}${voffset 2}
