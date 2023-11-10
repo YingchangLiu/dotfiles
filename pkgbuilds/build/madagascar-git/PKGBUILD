@@ -1,6 +1,6 @@
 # Contributor: anon at sansorgan.es
 
-pkgname=madagascar
+pkgname=madagascar-git
 pkgver=r15659.d72996857
 pkgrel=1
 pkgdesc="Multidimensional data analysis and reproducible computational experiments."
@@ -9,23 +9,14 @@ license=('GPL2')
 arch=('i686' 'x86_64')
 depends=('libtirpc' 'ffmpeg' 'libxaw' 'cairo' 'fftw' 'netpbm' 'gd' 'swig' 'python'
 	 'openmpi' 'glu' 'freeglut' 'suitesparse') 
-optdepends=('cuda-11' 'plplot')
-#makedepends=('libtirpc' 'scons')
+optdepends=('cuda: for nvcc, but not compatible with cuda12' 'plplot: scientific plot')
 options=('strip')
-
 source=(madagascar::git+https://github.com/ahay/src)
 md5sums=('SKIP')
-noextract=("$pkgname.tar.gz")
-
-# pkgver(){
-#   cd "src"
-#   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-# }
 
 build() {
   mkdir -p ${srcdir}/${pkgname}
   cd ${srcdir}/${pkgname}
-  
   export RSFROOT=${pkgdir}/opt/${pkgname}
 
   # fix paths for tirpc in framework/configure.py
@@ -36,12 +27,10 @@ build() {
     (plat['\''distro'\''\] == '\''ubuntu'\'' and int(plat['\''version'\''\][:2]) >= 20): \ \
         context.env['\''CPPPATH'\''\] = path_get(context,'\''CPPPATH'\'','\''/usr/include/tirpc'\'')' framework/configure.py
   ./configure
-
   make
 }
 
 package() {
-
     export RSFROOT=${pkgdir}/opt/${pkgname}
     mkdir -p ${RSFROOT}/bin/
     export PATH=${RSFROOT}/bin:$PATH
@@ -71,21 +60,16 @@ package() {
       sed -i "s|${srcdir}|/opt/${pkgname}/src|g" "${RSFROOT}/$f"
     done
 
-
-
     install install -dm755 "$pkgdir/usr/share/licenses/$pkgname" 
     install -m644 COPYING.txt "$pkgdir/usr/share/licenses/$pkgname/COPYING.txt"
-
     install -dm755 "$pkgdir/etc/profile.d"
     cat > "$pkgdir/etc/profile.d/${pkgname}.sh" << EOF
 #!/bin/sh
 source /opt/${pkgname}/src/etc/env.sh
 EOF
-
     cat > "$pkgdir/etc/profile.d/${pkgname}.csh" << EOF
 #!/bin/csh
 source /opt/${pkgname}/src/etc/env.csh
 EOF
-
     chmod 755 "$pkgdir/etc/profile.d/${pkgname}"{.sh,.csh}
 }

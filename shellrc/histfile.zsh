@@ -2770,3 +2770,71 @@ cd src/madagascar
 : 1699581157:0;pkgbak
 : 1699581163:0;cd dotfile
 : 1699581174:0;git add . && git commit -m "pkgbak" && git push
+: 1699584328:0;cd .config/swayidle
+: 1699584332:0;vim config
+: 1699584397:0;cd ..
+: 1699584405:0;cd lock
+: 1699584407:0;vim lock-log
+: 1699584443:0;cd ..
+: 1699584450:0;vim pavucontrol.ini
+: 1699584494:0;cd ~/
+: 1699584498:0;cd opt
+: 1699584502:0;cd ahay
+: 1699584505:0;cd src
+: 1699584615:0;cd ../../cwp
+: 1699584624:0;cd src
+: 1699584635:0;cd ..
+: 1699586611:0;playerctl --help
+: 1699586629:0;playerctl status
+: 1699586654:0;playerctl position
+: 1699586661:0;playerctl next
+: 1699586682:0;playerctl -l
+: 1699586741:0;hyprctl --help
+: 1699586760:0;hyprctl binds --help
+: 1699586765:0;hyprctl binds
+: 1699586787:0;playerctl --help
+: 1699586832:0;cd /opt
+: 1699588430:0;cd ~/dotfile
+: 1699588432:0;git pull
+: 1699588502:0;cd ~/opt/ahay
+: 1699588504:0;cd src
+: 1699588515:0;cd ..
+: 1699588538:0;git clone https://github.com/yingchangliu/madagascar.git
+: 1699588599:0;cd madagascar
+: 1699588603:0;./configure
+: 1699588609:0;pacman -S scons
+: 1699588611:0;fk
+: 1699588614:0;sudo pacman -S scons
+: 1699588618:0;./configure
+: 1699591206:0;vim framework/configure.py
+: 1699591439:0;git push
+: 1699591453:0;git add . && git commit -m "update" && git push
+: 1699591554:0;./configure
+: 1699591558:0;vim framework/configure.py
+: 1699591577:0;./configure
+: 1699591611:0;vim framework/configure.py
+: 1699591931:0;git pull
+: 1699591963:0;cd ..
+: 1699591969:0;rm -rf madagascar
+: 1699591973:0;git clone https://github.com/yingchangliu/madagascar.git
+: 1699592038:0;cd madagascar
+: 1699592040:0;./configure
+: 1699592111:0;git pull
+: 1699592115:0;./configure
+: 1699592197:0;./configure --prefix=./
+: 1699592208:0;make
+: 1699592266:0;export RSFROOT=/home/kelen/opt/madagascar
+: 1699592272:0;./configure
+: 1699592284:0;make
+: 1699593927:0;cd ~/dotfile/pkgbuilds
+: 1699593929:0;cd build
+: 1699593938:0;mv madagascar madagascar-git
+: 1699593940:0;cd madagascar-git
+: 1699593945:0;vim PKGBUILD
+: 1699594107:0;git rev-list
+: 1699594135:0;git rev-list --count HEAD
+: 1699594143:0;git rev-parse
+: 1699594148:0;git rev-parse --short HEAD
+: 1699595926:0;vim PKGBUILD
+: 1699596621:0;cd ~/dotfile
+: 1699596634:0;git add . && git commit -m "update pkgbuild" && git push
