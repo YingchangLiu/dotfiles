@@ -2847,3 +2847,5 @@ cd src/madagascar
 : 1699597098:0;cd ~
 : 1699597102:0;cd dotfile
 : 1699597109:0;git add . && git commit -m "update pkgbuild of madagascar" && git push
+: 1699597213:0;vim README.md
+: 1699597287:0;git add . && git commit -m "update README" && git push

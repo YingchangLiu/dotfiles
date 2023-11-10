@@ -35,10 +35,12 @@ A concise guide to archlinux in Chinese https://arch.icekylin.online/
 - htop
 - mpd
 - neofetch
+- nnn
 - paru
 - picom
 - pip
 - powerlevel10k
+- thefuck
 - vim
 - zsh, working with autojump, autosuggestions, command-not-found, completions, history-substring-search and syntax-highlighting
 
@@ -65,7 +67,6 @@ Please check in dotfile/wallpaper.
 ### Window manager
 - Awesomewm
 - dwm
-- GNOME
 - Hyprland
 
 ## License
