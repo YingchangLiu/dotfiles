@@ -738,7 +738,6 @@ cd /opt/ahay/src/book/xjtu
 cd gpufwi/fbrec
 scons
 rm -rf src pkg
-makepkg -f
 pacman -U cuda11.8-11.8.0-1-x86_64.pkg.tar.zst
 pacman -U cuda-tools11.8-11.8.0-1-x86_64.pkg.tar.zst
 cd cuda11.8
@@ -775,7 +774,6 @@ pacman -S rpc
 vim configure
 vim Makefile.in
 vim config.py
-vim env.sh
 vim SConstruct
 vim codecov.yml
 cd framework
@@ -1144,7 +1142,6 @@ sudo pacman-key --lsign-key 7931B6D628C8D3BA
 pacman -Ql lib32-libxml2
 pacman -Ss lib32-libxml2
 pacman -S lib32-libxml2 libxml2
-sudo vim /etc/pacman.conf
 pacman -Rns zsh-theme-powerlevel10k zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting
 pacman -Rns zsh
 pacman -S zsh-theme-powerlevel10k zsh-autosuggestions zsh-completions zsh-history-substring-search zsh-syntax-highlighting
@@ -1249,7 +1246,6 @@ mv ./*.conf configs
 mv hyprland.conf ../hyprland.conf
 mv display.conf monitors.conf
 mv simpleconfig.conf ../
-aurupgrade
 checkkernel
 vim .config/hypr/hyprland.conf
 vim .config/hypr/configs/input.conf
@@ -1428,7 +1424,6 @@ pacman -Ss xdg-desktop
 mv waybar.bak waybar
 rm -rf waybar
 cd matlab
-sudo vim /etc/pacman.d/mirrorlist
 pacman -Rns nvidia-utils
 pacman -h
 pacman -Qh
@@ -1465,7 +1460,6 @@ cp config config.bak
 sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
 sudo -E timeshift
 sudo -E timeshift-laucher
-sudo -E timeshift-launcher
 pacman -S telegram-desktop
 pacman -S rofi dunst
 pacman -Si dunst
@@ -1975,7 +1969,6 @@ export NNN_PLUG='v:imgview'
 pacman -S imv
 cp ./.* ~/dotfile/config/nnn/plugins
 man
-pacman -S man-db
 man NNN
 man NNN_FIFO
 pacman -Rns man-db
@@ -2421,7 +2414,6 @@ cd /usr/share/licenses
 cd fastfetch
 cd ~/.cache/paru/clone/swaylock-effects-git
 cd swaylock-effects
-vim ../PKGBUILD
 cp -r cwp ~/Downloads
 cd ../Downloads
 cdcd cwp
@@ -2447,7 +2439,6 @@ pgrep -x swaylock
 vim ../swayidle/config
 ssh-keygen -f ~/.ssh/aur
 git clone https://aur.archlinux.org/seismic-unix.git
-vim .SRCINFO
 git diff
 nekoray -many
 ping -c3 aur.archlinux.org
@@ -2493,7 +2484,6 @@ git -c init.defaultBranch=master clone ssh://aur@aur.archlinux.org/pkgbase.git
 vim ~/.ssh/config
 git -c init.defaultbranch=master clone ssh://aur@aur.archlinux.org/seismic-unix.git
 git commit -m "change Makefile.config for archlinux. Now it should be able to compile correctly."
-git status
 git config --global -l
 git config --global --unset http.proxy
 git config --global --unset https.proxy
@@ -2573,7 +2563,6 @@ pacman -U seisunix-git-4426.c222c39-1-x86_64.pkg.tar.zst
 sudo pacman -U seisunix-git-4426.c222c39-1-x86_64.pkg.tar.zst
 sh /etc/profile.d/seisunix-git.sh
 cd /opt/seisunix-git
-echo $PATH
 vim /etc/profile.d/seisunix-git.sh
 source /etc/profile.d/seisunix-git.sh
 suplane| suxwigb
@@ -2619,7 +2608,6 @@ pacman -Rns seisunix-git
 sudo pacman -Rns seisunix-git
 bspwm
 cd dotfile/pkgbuilds
-lls
 rm -rf ./*
 cp ~/dotfile/pkgbuilds/build/madagascar/PKGBUILD ./
 makepkg -s -i
@@ -2650,7 +2638,6 @@ vim config
 cd lock
 vim lock-log
 vim pavucontrol.ini
-cd ~/
 cd ahay
 cd ../../cwp
 playerctl status
@@ -2681,7 +2668,6 @@ git add . && git commit -m "update pkgbuild" && git push
 cd pkgbuilds
 mkdir madagascar
 cp /run/media/kelen/Flash\ Bar/PKGBUILD PKGBUILD
-cd ~
 cd dotfile
 git add . && git commit -m "update pkgbuild of madagascar" && git push
 vim README.md
@@ -2781,7 +2767,6 @@ vim .config/autostart.sh
 killall -u kelen
 exit
 pacman -Rns keepassxc
-fk
 sudo pacman -Rns keepassxc
 cd mypkg
 cd Downloads
@@ -2792,26 +2777,20 @@ git commit -m "add pkgver for git version"
 cp ~/dotfile/pkgbuilds/build/madagascar-git/PKGBUILD ./
 git commit -m "Commit the git version of madagascar"
 git commit -m "change back to release version, and repackaged to /opt/madagascar. The git version is now named madagascar-git."
-cd ~/dotfile/pkgbuilds
-cd maintain
 mv ../build/madagascar ./
 mv ../build/madagascar-git ./
 cp ~/Downloads/madagascar/PKGBUILD ./
 cp ~/Downloads/madagascar-git/PKGBUILD ./
-cd ../madagascar
 cd ../seisunix-git
 cd build
 cd cuda11
 cd ../matlab
 git add . && git commit -m "update madagascar PKGBUILD" && git push
-upgrade
-cd /opt
 cd ~/.config/paru
 vim paru.conf
 paru --help
 cp /run/media/kelen/Flash\ Bar/paru.conf ./paru.conf
 cd ../alacritty
-cd ~/dotfile
 vim config/paru/paru.conf
 git add . && git commit -m "update paru configs" && git push
 cleanup
@@ -2819,7 +2798,6 @@ pacman -Qenq
 cd ~/Downloads
 cd seisunix-git
 cp seisunix-git/PKGBUILD ./seismic-unix-git
-cd seismic-unix-git
 git commit -m "renamed seismic-unix-git"
 cd dotfile/config/hypr/configs
 v
@@ -2837,123 +2815,181 @@ cd Downloads/mypkg
 vim madagascar-git/PKGBUILD
 cd ~/.cache/paru/clone/madagascar-git
 cd ~/Downloads/mypkg/madagascar-git
-cd pkg
 cd ../src
 S
 CD ..
 rm -rf src pkg madagascar-git
 rm -rf madagascar
 vim ../madagascar/PKGBUILD
-makepkg --printsrcinfo > .SRCINFO
-git add PKGBUILD .SRCINFO
 git commit -m "fix source name path"
 n
-git push
 cd ~/.cache/paru/clone
 rm -rf seismic-unix*
 cd ~/opt
 rm -rf ahay aur cwp madagascar
 git clone git+ssh://aur@aur.archlinux.org/madagascar-git
-git clone git+ssh://aur@aur.archlinux.org/seismic-unix-git
-cd madagascar-git
 paru -U PKGBUILD
 rm -rf SeisUnix src
 git clone git+ssh://aur@aur.archlinux.org/madagascar
 vim madagascar/PKGBUILD
 vim seismic-unix/PKGBUILD
 cd ../seismic-unix-git/src/seismic-unix-git
-cd ../seismic-unix
 vim ../seismic-unix-git/PKGBUILD
 rm -rf seismic-unix-git src
-git show
-makepkg
 cd /usr/include/
 cd tirpc
 cd rpc
 cd ~/opt/seismic-unix
 cd src/
-cd src
-reboot
 update
-Hyprland
-cd opt
-cd madagascar
 cd opt/seismic-unix
-cd src/src
 vim Makefile.config
 rm -rf pkg src seismic_unix.tgz seismic-unix.install
 rm -rf seismic-unix
 git clone git+ssh://aur@aur.archlinux.org/seismic-unix
-cd seismic-unix
-cd ../seismic-unix-git
 cd pkg/madagascar/usr/share/licenses/madagascar
 cd ../../../../etc/profile.d
 vim madagascar.
-vim madagascar.sh
-cd ../
-cd ..
-cd ../madagascar-git
-vim PKGBUILD
-systemctl start v2ray v2raya
-rm -rf src
 makepkg -s
 cd pkg/seismic-unix-git/etc/profile.d
-vim seismic-unix-git.sh
 cd ../../opt/seismic-unix-git
-cd bin
 ./ximage
-: 1699675302:0;cd opt/madagascar-git
-: 1699675316:0;git status
-: 1699675321:0;cd ../madagascar
-: 1699675324:0;git status
-: 1699675330:0;cd ../seismic-unix-git
-: 1699675332:0;git status
-: 1699675351:0;vim PKGBUILD
-: 1699675374:0;makepkg --printsrcinfo > .SRCINFO
-: 1699675379:0;git add PKGBUILD .SRCINFO
-: 1699675381:0;git show
-: 1699675437:0;vim PKGBUILD
-: 1699675461:0;git show
-: 1699675484:0;makepkg --printsrcinfo > .SRCINFO
-: 1699675488:0;git add PKGBUILD .SRCINFO
-: 1699675507:0;git commit -m "fix git version path in build"
-: 1699675510:0;git show
-: 1699675553:0;vim PKGBUILD
-: 1699675598:0;makepkg --printsrcinfo > .SRCINFO
-: 1699675602:0;git add PKGBUILD .SRCINFO
-: 1699675606:0;git show
-: 1699675635:0;git add PKGBUILD .SRCINFO
-: 1699675638:0;git commit -m "fix git version path in build"
-: 1699675641:0;git show
-: 1699675677:0;git push
-: 1699675841:0;cd ../seismic-unix
-: 1699675846:0;cd src/src
-: 1699675858:0;vim configs/Makefile.config_Linux_ARCH
-: 1699675876:0;cd opt/seismic-unix-git
-: 1699675890:0;vim src/seismic-unix-git/src/Makefile.config
-: 1699676112:0;cd ../../../seismic-unix
-: 1699676115:0;vim PKGBUILD
-: 1699676246:0;cd ../madagascar-git
-: 1699676253:0;pacman -U madagascar-git-r15659.d72996857-1-x86_64.pkg.tar.zst
-: 1699676255:0;fk
-: 1699676262:0;sudo pacman -U madagascar-git-r15659.d72996857-1-x86_64.pkg.tar.zst
-: 1699676272:0;cd ../seismic-unix-git
-: 1699676278:0;pacman -U seismic-unix-git-r.c222c39a-1-x86_64.pkg.tar.zst
-: 1699676280:0;fk
-: 1699676283:0;sudo pacman -U seismic-unix-git-r.c222c39a-1-x86_64.pkg.tar.zst
-: 1699677671:0;cd ~/dotfile/pkgbuilds
-: 1699677677:0;cd maintain
-: 1699677713:0;cp ~/opt/madagascar/PKGBUILD ./madagascar/PKGBUILD
-: 1699677728:0;cp ~/opt/madagascar-git/PKGBUILD ./madagascar-git/PKGBUILD
-: 1699677746:0;cp ~/opt/seismic-unix/PKGBUILD ./seismic-unix/PKGBUILD
-: 1699677761:0;cp ~/opt/seismic-unix-git/PKGBUILD ./seismic-unix-git/PKGBUILD
-: 1699677768:0;cd madagascar
-: 1699677772:0;makepkg --printsrcinfo > .SRCINFO
-: 1699677779:0;cd ../madagascar-git
-: 1699677780:0;makepkg --printsrcinfo > .SRCINFO
-: 1699677786:0;cd ../seismic-unix
-: 1699677788:0;makepkg --printsrcinfo > .SRCINFO
-: 1699677792:0;cd ../seismic-unix-git
-: 1699677794:0;makepkg --printsrcinfo > .SRCINFO
-: 1699677799:0;cd ~/dotfile
-: 1699677825:0;git add . && git commit -m "update pkgbuild maintained" && git push
+cd opt/madagascar-git
+git commit -m "fix git version path in build"
+cd src/src
+vim configs/Makefile.config_Linux_ARCH
+vim src/seismic-unix-git/src/Makefile.config
+cd ../../../seismic-unix
+pacman -U seismic-unix-git-r.c222c39a-1-x86_64.pkg.tar.zst
+sudo pacman -U seismic-unix-git-r.c222c39a-1-x86_64.pkg.tar.zst
+cd ~/dotfile/pkgbuilds
+cd maintain
+cp ~/opt/madagascar/PKGBUILD ./madagascar/PKGBUILD
+cp ~/opt/madagascar-git/PKGBUILD ./madagascar-git/PKGBUILD
+cp ~/opt/seismic-unix/PKGBUILD ./seismic-unix/PKGBUILD
+cp ~/opt/seismic-unix-git/PKGBUILD ./seismic-unix-git/PKGBUILD
+cd madagascar
+cd ../seismic-unix
+cd ~/dotfile
+git add . && git commit -m "update pkgbuild maintained" && git push
+cd /opt
+sudo -E timeshift-launcher
+sudo vim /etc/pacman.d/mirrorlist
+sudo vim /etc/pacman.conf
+upgrade
+mv seismic-unix-git-r.c222c39a-1-x86_64.pkg.tar.zst seismic-unix-git-r4426.c222c39a-1-x86_64.pkg.tar.zst
+cd pkg/seismic-unix-git
+vim .BUILDINFO
+systemctl start v2ray v2raya
+cd ../pkg
+cd ../../madagascar-git/madagascar-git
+cd ../../seismic-unix-git/seismic-unix-git
+vim ../PKGBUILD
+cd ../src/seismic-unix-git/src
+cd bin
+cd ../
+rm -rf pkg seismic-unix-git seismic-unix-git-r.c222c39a-1-x86_64.pkg.tar.zst src
+cd seismic-unix
+cd ~/dotfile/pkgbuilds/maintain/seismic-unix-git
+cd pkg
+printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+cd ../src/madagascar-git
+printf "r%s.%s" "$(git rev-list --count HEAD --)" "$(git rev-parse --short HEAD --)"
+printf "r%s.%s" "$(git rev-list --count HEAD --)" "$(git rev-parse --short HEAD)"
+printf "r%s.%s" "$(git rev-list --count HEAD )" "$(git rev-parse --short HEAD)"
+vim ../../PKGBUILD
+aurupgrade
+rm -rf seismic-unix-git
+git clone git+ssh://aur@aur.archlinux.org/seismic-unix-git
+cd seismic-unix-git
+makepkg
+vim /opt/madagascar-git/share/madagascar/etc/config.py
+vim /opt/madagascar-git/share/madagascar/etc/env.sh
+Hyprland
+cd Downloads/madagascar-git
+cd ~/opt/madagascar-git
+cd /opt/madagascar-git
+cd share/madagascar/etc
+cd pkg/madagascar/opt/madagascar/share/madagascar/etc
+vim env.sh
+cd src
+vim share/madagascar/etc/env.sh
+\:ls
+rm -rf pkg src madagascar-4.0.1.tar.gz madagascar-4.0.1-1-x86_64.pkg.tar.zst
+paru -Rns madagascar-git
+rm -rf madagascar-git pkg src madagascar-git-r15659.d72996857-1-x86_64.pkg.tar.zst
+cd opt/seismic-unix-git
+vim pkg/madagascar/etc/profile.d/madagascar.sh
+vim pkg/madagascar/opt/madagascar/share/madagascar/etc/env.sh
+pacman -U madagascar-4.0.1-1-x86_64.pkg.tar.zst madagascar-4.0.1-1-x86_64.pkg.tar.zst
+pacman -Rns madagascar-git
+sudo pacman -Rns madagascar-git
+sudo pacman -U madagascar-4.0.1-1-x86_64.pkg.tar.zst madagascar-4.0.1-1-x86_64.pkg.tar.zst
+pkgfile --search --regex umfpack.h
+pacman -S suitesparse
+sudo pacman -S suitesparse
+paru -S madagascar
+pacman -U madagascar-4.0.1-1-x86_64.pkg.tar.zst
+sudo pacman -U madagascar-4.0.1-1-x86_64.pkg.tar.zst
+rm -rf madagascar-git pkg src
+cd src/seismic-unix-git
+cd ..
+source madagascar.sh
+manpath
+pacman -S man-db
+sudo pacman -S man-db
+echo $RSFROOT
+echo $RSFSRC
+CD ~/opt/madagascar-git
+cd ../madagascar
+cd ~/
+sh madagascar.sh
+vpvrms
+echo $PATH | grep mada
+vim madagascar.sh
+cd /opt/madagascar/share/madagascar
+vim etc/env.sh
+cd etc
+lls
+vim env.csh
+echo $PATH
+source /opt/madagascar/share/madagascar/etc/env.sh
+pacman -U seismic-unix-git-r294.c222c39a-1-x86_64.pkg.tar.zst
+sudo pacman -U seismic-unix-git-r294.c222c39a-1-x86_64.pkg.tar.zst
+cd /etc/profile.d
+vim seismic-unix-git.sh
+cd /opt/madagascar/bin
+cd /opt/seismic-unix-git/bin
+cd ~
+cd opt
+cd madagascar-git
+rm -rf src
+makepkg -f
+pacman -U madagascar-git-r15659.d72996857-1-x86_64.pkg.tar.zst
+sudo pacman -U madagascar-git-r15659.d72996857-1-x86_64.pkg.tar.zst
+pacman -Rns madagascar
+fk
+sudo pacman -Rns madagascar
+reboot
+cd ~/opt/madagascar
+git status
+vim .SRCINFO
+cd ../madagascar-git
+vim PKGBUILD
+git commit -m "fix profile path and RSFSRC path"
+cd ../seismic-unix-git
+makepkg --printsrcinfo > .SRCINFO
+git add PKGBUILD .SRCINFO
+git commit -m "Fix version ambiguity caused by the HEAD file in seismic unix source"
+git show
+git push
+: 1699690573:0;Hyprland
+: 1699691042:0;upgrade
+: 1699691053:0;fetch
+: 1699691114:0;cd dotfile/pkgbuilds/maintain
+: 1699691118:0;cp ~/opt/seismic-unix-git/PKGBUILD ./seismic-unix-git/PKGBUILD
+: 1699691132:0;cp ~/opt/seismic-unix/PKGBUILD ./seismic-unix/PKGBUILD
+: 1699691141:0;cp ~/opt/madagascar-git/PKGBUILD ./madagascar-git/PKGBUILD
+: 1699691149:0;cp ~/opt/madagascar/PKGBUILD ./madagascar/PKGBUILD
+: 1699691154:0;cd ~/dotfile
+: 1699691159:0;git add . && git commit -m "update pkgbuild maintained" && git push
