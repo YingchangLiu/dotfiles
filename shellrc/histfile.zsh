@@ -443,7 +443,6 @@ df
 updattte
 pacman -Syu "pacman>=6.0.2-7"
 pacman -Syu "devtools>=1:1.0.0-1"
-cd /etc/pacman.d
 cd gnupg
 vim pacman.conf.pacnew
 diff pacman.conf.pacnew pacman.conf
@@ -690,8 +689,6 @@ cd CUDA_Freshman
 nvidia-modprobe
 source /opt/miniconda/bin/activate locflow
 <<<<<<< HEAD
-update-grub
-sudo vim /etc/default/grub
 cd software/ahay
 cd src/book
 cd marmtest
@@ -722,11 +719,8 @@ cd fbrec
 sfpen snap1b.vpl
 export CUDA_HOME="/opt/cuda"
 cd /opt/ahay/src/
-sudo rm /usr/local/cuda
 sudo ln -s /opt/cuda /usr/local/cuda
 cd ~/.cache
-git clone https://gitlab.archlinux.org/archlinux/packaging/packages/cuda.git
-git tag --list
 git switch --detach 11.8.0-1
 pacman -Rns cuda11.1-tools
 pacman -Rns cuda11.1
@@ -736,7 +730,6 @@ pacman -S cudnn
 pacman -S cudnn cuda-tools
 cd /opt/ahay/src/book/xjtu
 cd gpufwi/fbrec
-scons
 rm -rf src pkg
 pacman -U cuda11.8-11.8.0-1-x86_64.pkg.tar.zst
 pacman -U cuda-tools11.8-11.8.0-1-x86_64.pkg.tar.zst
@@ -761,7 +754,6 @@ sudo downgrade --ala-url https://arch-archive.tuna.tsinghua.edu.cn/2020/ --ala-o
 sudo downgrade --ala-url https://arch-archive.tuna.tsinghua.edu.cn/2020/ --maxdepth 15 --ala-only cuda
 sudo downgrade cuda
 pacman -Rns cuda-tools11.8
-cd cuda
 pacman -U cuda11.8-11.8.0-1-x86_64.pkg.tar.zst cuda-tools11.8-11.8.0-1-x86_64.pkg.tar.zst
 plplot
 ffmpeg
@@ -771,12 +763,7 @@ pacman -Ss plplot
 paru -Ss plplot
 pacman -S lib32-ffmpeg
 pacman -S rpc
-vim configure
-vim Makefile.in
-vim config.py
-vim SConstruct
 vim codecov.yml
-cd framework
 paru -Ss ffmpeg
 pkgfile -U ffmpeg
 pkgfile
@@ -789,14 +776,10 @@ pkgfile -s avcode
 pacman -Ss libav
 pacman -S ffms2
 cd /opt/ahay/src
-cd /usr/include
-vim setenv.py
-vim setup.py
 pacman -S ffmpeg4.4
 pkgfile libavcodec
 pkgfile libavcod
 pkgfile avcodec.h
-vim bldutil.py
 pacman -Ql avcodec.h
 pacman -Ql avcodec
 pacman -Ql ffmpeg4.4 | grep avcodec.h
@@ -808,8 +791,6 @@ pacman -S ffmpeg-vulkan
 pkgfile ffmpeg
 cd /opt/ahay/src/framework
 vim rsf/SConscript
-vim configure.py
-vim config.log
 cd /usr/include/libavcodec
 less avcodec.h
 pacman -Ss ffmpeg
@@ -993,7 +974,6 @@ vim music
 cd dotfile/config/conky
 cd ../eww
 sh ./install.sh
-cd config/eww
 light
 pacman -S light
 pkgfile brillo
@@ -1079,7 +1059,6 @@ eww open
 vim eww.css
 mkdir example
 cp eww.yuck example
-cd bar
 cd ../example
 cp ../eww.css ./
 mv eww.css eww.scss
@@ -1102,12 +1081,10 @@ eww open -c ./eww.yuck
 eww open -c ./eww.yuck bar
 eww open -c ~/.config/eww/example bar close
 eww open -c ~/.config/eww/example bar
-eww open bar
 eww open -c ~/.config/eww/ bar
 eww open -c ~/.config/eww
 eww open -c ~/.config/ewwbar
 cd dotfile/config/eww
-mv eww.bak eww
 lds
 vim assets/ghost.png
 vim modules/music.yuck
@@ -1119,7 +1096,6 @@ socat
 JQ
 jq
 pacman -S socat jq
-mv eww eww.bak
 mkdir scripts
 vim change-active-workspace
 sh ./change-active-workspace
@@ -1135,10 +1111,7 @@ pacman-key --lsign-key 7931B6D628C8D3BA
 sudo pacman-key --recv-keys 7931B6D628C8D3BA\
 pacman-key --finger 7931B6D628C8D3BA\
 pacman-key --lsign-key 7931B6D628C8D3BA
-sudo pacman-key --recv-keys 7931B6D628C8D3BA
 pacman-key --finger 7931B6D628C8D3BA
-sudo pacman-key --finger 7931B6D628C8D3BA
-sudo pacman-key --lsign-key 7931B6D628C8D3BA
 pacman -Ql lib32-libxml2
 pacman -Ss lib32-libxml2
 pacman -S lib32-libxml2 libxml2
@@ -1303,7 +1276,6 @@ wlogout
 wllogout
 pacman -Ss logout
 pomotroid --in-process-gpu
-cd yuck
 vim widgets.yuck
 vim windows.yuck
 vim windows/hbar.yuck
@@ -1315,7 +1287,6 @@ cd ../scripts
 vim apps
 vim osd
 vim events
-vim eww.scss
 vim ../scss/windows/vbar.scss
 eww open-many -c ~/Downloads/dotfiles/.config/eww
 cd ../scss
@@ -1329,11 +1300,7 @@ vim theme
 cd setups
 vim leftbar.yuck
 cd ~/.config/hypr
-cd ~/.config/eww
-vim eww.yuck
-killall eww
 ./init
-cd .config/eww
 ./scripts/init
 systemctl status v2raya.service
 pacman -Rns v2raya
@@ -1356,11 +1323,8 @@ vim xwayland.conf
 vim ../hyprland.conf
 xprop
 hyprctl reload
-rm -rf eww
 cp ~/.config/eww ./eww
 cp -rf ~/.config/eww ./eww
-cd eww
-cd ~/Downloads/dotfiles
 cd .local/bin
 cd ../share
 cd ../../.config
@@ -1557,7 +1521,6 @@ rm \*
 vim install.sh
 cd .hyprland
 git add . && git commit -m "update my settings for hyprland and wayland" && git push
-vim hypr/hyprland.conf
 rm -rf eww.bak
 mv powerlevel10k powerlevel10k.bak
 mv powerlevel10k.bak powerlevel10k
@@ -1616,7 +1579,6 @@ pamixer
 pacman -Ss nerd
 pacman -S papirus-icon-theme
 pacman -Rns papirus-icon-theme
-pacman -Rns ttf-nerd-fonts-symbols
 pacman -S ttf-nerd-fonts
 pacman -S ttf-nerd-font
 pacman -S ttf-nerd-fonts-sysbols-common
@@ -1639,7 +1601,6 @@ pacman -Ss awesome
 pacman -S ttf-font-awesome
 pacman -Rns tele-icon-theme-git ttf-font-awesome
 pacman -Rns tela-icon-theme-git ttf-font-awesome
-pacman -Rns noto-fonts-emoji
 pacman -S awesome-terminal-fonts
 pacman -Rns otf-awesome-font
 pacman -Rns otf-awesome-fonts
@@ -1698,7 +1659,6 @@ sh ~/dotfile/script/power-menu/powermenu.sh
 vim ~/.config/hypr/configs/keybinds.conf
 [A
 cd ../hypr
-s
 cd configs
 vim animation.conf
 vim input.conf
@@ -1721,7 +1681,6 @@ networkctl list
 networkctl status
 networkctl status wlp0s20f3
 rm config.bak
-cd scripts
 wireless
 pacman -Q wireless_tools
 pacman -Ql wireless_tools
@@ -1747,7 +1706,6 @@ sl
 conky -c ~/.config/conky/wlconkyrc 2>/dev/null
 git add . && git commit -m "change the gaps of hyprland" && git push
 conky --version
-poweroff
 git add . && git commit -m "change settings of conky on wayland" && git push
 vim misc.conf
 sudo systemctl restart NetworkManager
@@ -1760,10 +1718,6 @@ tar -zxvf myesg.tar.gz ./
 cd myelastic
 cd /opt/cuda/bin
 cd ~/fwitest
-nvcc --version
-alias gcc='gcc-12'
-which gcc
-gcc --version
 cd src/myelastic
 cd ../../modules/arrays_cu
 alias g++='g++-12'
@@ -1818,7 +1772,6 @@ mv .logo.jpg config/logo/doctorHome.jpg
 find ~/dotfile/wallpaper/ -type f
 vim xorg-background-changer
 cd fwitest
-cd /opt/cuda
 vim nvcc.profile
 cd ~/fwitest/
 cd modules
@@ -2013,7 +1966,6 @@ cd hyprland-dots
 waypaper
 rm -rf waypaper
 cd ~/.local
-cd share
 rm -rf ranger
 flatpak
 pacman -Rns flatpak
@@ -2046,13 +1998,11 @@ mv .vimrc.bak .vimrc
 cp -r ~/Downloads/vimrc ./vimrc
 cd autoload
 l
-rm -rf .git
 vim .gitignore
 sh install_awesome_vimrc.sh
 vim .vimrc
 vim vimrc
 mv vimrc ~/dotfile/config/vimrc
-cd config
 cd vimrc
 ~/.config/bin/background-changer
 git add . && git commit -m "add vimrc of amix and change some settings" && git push
@@ -2106,7 +2056,6 @@ vim /bin/sh
 pacma
 pacman
 pacm
-cd ~/.config
 aptget update
 mkdir thefuck
 cd thefuck
@@ -2123,12 +2072,8 @@ git add . && git commit -m "add thefuck and unalias pkgmanager" && git push
 pacman -Rnsdd
 sudo pacman -Rnsdd
 packer
-cd dotfiles
-vim autostart-scripts/kwallet-ssh-add.sh
 vim wget/wgetrc
 vim zsh/zlogin
-pacman -Syyu
-sudo pacman -Syyu
 pkgfile --search --regex libprotobuf
 pkgfile --search --regex libprotobuf.so.24
 pacman -S protobuf
@@ -2215,8 +2160,6 @@ mkdir ~/.local/share/applications
 cp -r /usr/share/applications/timeshift-gtk.desktop ~/.local/share/applications/
 vim ~/.local/share/applications/timeshift-gtk.desktop
 rm ~/.local/share/applications/timeshift-gtk.desktop
-vim style.css
-killall waybar
 hyprctl dispatch dpms off
 hyprctl dispatch dpms off eDP-1
 playerctl
@@ -2340,15 +2283,12 @@ cd opt/ahay
 j
 pacman -S autojump
 sudo pacman -S autojump
-source ~/.zshrc
-cd ~/dotfile/shellrc
 \
 
 cd ~/dotfile/config/vimrc
 vim install_basic_vimrc.sh
 vim install_awesome_parameterized.sh
 vim install_awesome_vimrc.sh
-vim pathrc.sh
 cd ../config/vimrc
 cd my_plugins
 vim autoload/pathogen.vim
@@ -2357,7 +2297,6 @@ vim vimrcs/plugins_config.vim
 vim ~/.vimrc
 vim vimrcs/extended.vim
 git add . && git commit -m "change colorshcheme of vim" && git push
-waybar
 swaylock && loginctl session-status >> ~/mylog
 swaylock && sleep 5 && loginctl session-status >> ~/mylog
 vim mylog
@@ -2384,7 +2323,6 @@ diff sudoers sudoers.pacnew
 sudo diff --color=auto sudoers sudoers.pacnew
 sudo cp sudoers.pacnew sudoers
 sudo vim sudoers
-su
 j Dow
 cd ../opt
 cd ~/dotfile/config/bin
@@ -2407,7 +2345,6 @@ vim paleofetch.jsonc
 vim kelen.jsonc
 fastfetch --help
 alias fetch
-cd ../..
 git add . && git commit -m "update for fastfetch" && git push
 cd ~/opt/cwp
 cd /usr/share/licenses
@@ -2422,14 +2359,10 @@ mv seismic-unix Downloads
 mv cwp seismic-unix
 vim seismic-unix.install
 mv cwp SeisUnix
-pacman -S libtirpc
-sudo pacman -S libtirpc
 pacman -S openmotif
 sudo pacman -S openmotif
 pacman -Rns openmotif
 sudo pacman -Rns openmotif
-pacman -Rns libtirpc
-sudo pacman -Rns libtirpc
 cd .config/bin
 vim wayland_session_lock
 pgrep -x swaybg
@@ -2444,7 +2377,6 @@ nekoray -many
 ping -c3 aur.archlinux.org
 ping6 -c3 aur.archlinux.org
 wget https://aur.archlinux.org
-systemctl restart NetworkManager
 export http=127.0.0.1:2017
 export https=127.0.0.1:2017
 cd /usr/share/applications
@@ -2509,9 +2441,7 @@ pacman -Fx shoot.o
 gfortran
 cd Downloads/mypkg/seisunix-git
 pwd
-cd /usr/local
 cd ~/Downloads/mypkg/seisunix-git/src/SeisUnix/src
-vim ~/dotfile/shellrc/pathrc.sh
 cd Downloads/seismic-unix
 cd ../mypkg/seisunix-git
 cd src/SeisUnix/
@@ -2532,7 +2462,6 @@ rm testsh
 cd src/SeisUnix
 make finstall
 make fremake
-make clean
 make remake
 cd src/SeisUnix/src
 vim LEGAL_STATEMENT
@@ -2544,9 +2473,7 @@ vim ../../../PKGBUILD
 cd src/SeisUnix/src/Fortran
 cd Cwell
 cd Downloads/mypkg/seisunix-git/
-cd ../../
 cd Fortran
-vim Makefile
 cd Cxzco
 cd ../Vplusz
 cd ../Vzest
@@ -2580,7 +2507,6 @@ vim seisunix-git.bak/PKGBUILD
 cd seisunix-git.bak
 vim cap.txt
 pacman -Rns lib32-glibc
-makepkg -s -f
 sudo pacman -Rns lib32-glibc
 cp ../seisunix-git.bak/PKGBUILD ./
 cp ../seisunix-git.bak/.SRCINFO ./
@@ -2603,21 +2529,16 @@ mv bulid build
 git clone https://aur.archlinux.org/madagascar.git
 mv PKGBUILD ../PKGBUILD
 git add . && git commit -m "add pkgbuilds maintain" && git push
-pacman -Qemq
 pacman -Rns seisunix-git
 sudo pacman -Rns seisunix-git
 bspwm
 cd dotfile/pkgbuilds
-rm -rf ./*
 cp ~/dotfile/pkgbuilds/build/madagascar/PKGBUILD ./
-makepkg -s -i
 makepkg --help
 sudo makepkg -s
-paru -S plplot
 cd Downloads/mypkg/madagascar
 cd src/madagascar
 makepkg --syncdeps
-cd ~/dotfile/pkgbuilds/build
 vim pkgbuilds/build/madagascar/PKGBUILD
 git add . && git commit -m "add pkgbuilds build" && git push
 conky -c ~/.config/conky/wlconkyrc
@@ -2634,7 +2555,6 @@ git add . && git commit -m "checkupdates" && git push
 pkgbak
 git add . && git commit -m "pkgbak" && git push
 cd .config/swayidle
-vim config
 cd lock
 vim lock-log
 vim pavucontrol.ini
@@ -2652,13 +2572,10 @@ cd ~/opt/ahay
 pacman -S scons
 sudo pacman -S scons
 git add . && git commit -m "update" && git push
-vim framework/configure.py
 git clone https://github.com/yingchangliu/madagascar.git
 git pull
 ./configure --prefix=./
 export RSFROOT=/home/kelen/opt/madagascar
-./configure
-make
 mv madagascar madagascar-git
 git rev-list
 git rev-list --count HEAD
@@ -2673,7 +2590,6 @@ git add . && git commit -m "update pkgbuild of madagascar" && git push
 vim README.md
 git add . && git commit -m "update README" && git push
 paru -S qq
-fetch
 vim keybinds.conf
 paru -S vscode
 pacman -S visual-studio-code-bin
@@ -2704,8 +2620,6 @@ sudo pacman -S xorg-xeyes
 xeyes
 cd Code
 --enable-features=UseOzonePlatform --ozone-platform=wayland
-cd dotfile/config
-sh install.sh
 vim electron25-flags.conf
 vim electron-flags.conf
 code --enable-features=WaylandWindowDecorations --ozone-platform-hint=auto
@@ -2726,9 +2640,7 @@ vim ~/.config/river/init
 cd .config/hypr/configs
 vim .config/hypr/configs/env.conf
 nvidia-smi
-cd .config
 rm -rf electron*
-cd ~/dotfile/config
 rm electron-flags.conf
 cd .vscode
 vim argv.json
@@ -2736,8 +2648,6 @@ systemctl status gnome-keyring-daemon.service
 systemctl status gnome-keyring-daemon.socket
 systemctl status gnome-keyring-daemon
 alias
-cd dotfile/shellrc
-vim aliasrc.sh
 sudo systemctl status gnome-keyring-daemon
 cd /etc/xdg/autostart
 vim gnome-keyring-pkcs11.desktop
@@ -2753,7 +2663,6 @@ seahorse
 pacman -Rns seahorse
 sudo pacman -Rns seahorse
 pacman -S keepassxc
-fuck
 sudo pacman -S keepassxc
 keepassxc
 pacman -Ss keepass
@@ -2765,7 +2674,6 @@ sudo pacman -Rns keepass2-plugin-tray-icon
 dbus-launch
 vim .config/autostart.sh
 killall -u kelen
-exit
 pacman -Rns keepassxc
 sudo pacman -Rns keepassxc
 cd mypkg
@@ -2783,7 +2691,6 @@ cp ~/Downloads/madagascar/PKGBUILD ./
 cp ~/Downloads/madagascar-git/PKGBUILD ./
 cd ../seisunix-git
 cd build
-cd cuda11
 cd ../matlab
 git add . && git commit -m "update madagascar PKGBUILD" && git push
 cd ~/.config/paru
@@ -2793,16 +2700,12 @@ cp /run/media/kelen/Flash\ Bar/paru.conf ./paru.conf
 cd ../alacritty
 vim config/paru/paru.conf
 git add . && git commit -m "update paru configs" && git push
-cleanup
-pacman -Qenq
-cd ~/Downloads
 cd seisunix-git
 cp seisunix-git/PKGBUILD ./seismic-unix-git
 git commit -m "renamed seismic-unix-git"
 cd dotfile/config/hypr/configs
 v
 vim env.conf
-cd dotfile/pkgbuilds/maintain
 mv seisunix-git seismic-unix-git
 git add . && git commit -m "move seisunix to seismic-unix" && git push
 cd dotfile/config/bin
@@ -2815,19 +2718,14 @@ cd Downloads/mypkg
 vim madagascar-git/PKGBUILD
 cd ~/.cache/paru/clone/madagascar-git
 cd ~/Downloads/mypkg/madagascar-git
-cd ../src
 S
 CD ..
 rm -rf src pkg madagascar-git
 rm -rf madagascar
 vim ../madagascar/PKGBUILD
 git commit -m "fix source name path"
-n
-cd ~/.cache/paru/clone
 rm -rf seismic-unix*
-cd ~/opt
 rm -rf ahay aur cwp madagascar
-git clone git+ssh://aur@aur.archlinux.org/madagascar-git
 paru -U PKGBUILD
 rm -rf SeisUnix src
 git clone git+ssh://aur@aur.archlinux.org/madagascar
@@ -2837,8 +2735,6 @@ cd ../seismic-unix-git/src/seismic-unix-git
 vim ../seismic-unix-git/PKGBUILD
 rm -rf seismic-unix-git src
 cd /usr/include/
-cd tirpc
-cd rpc
 cd ~/opt/seismic-unix
 cd src/
 update
@@ -2850,11 +2746,9 @@ git clone git+ssh://aur@aur.archlinux.org/seismic-unix
 cd pkg/madagascar/usr/share/licenses/madagascar
 cd ../../../../etc/profile.d
 vim madagascar.
-makepkg -s
 cd pkg/seismic-unix-git/etc/profile.d
 cd ../../opt/seismic-unix-git
 ./ximage
-cd opt/madagascar-git
 git commit -m "fix git version path in build"
 cd src/src
 vim configs/Makefile.config_Linux_ARCH
@@ -2864,30 +2758,17 @@ pacman -U seismic-unix-git-r.c222c39a-1-x86_64.pkg.tar.zst
 sudo pacman -U seismic-unix-git-r.c222c39a-1-x86_64.pkg.tar.zst
 cd ~/dotfile/pkgbuilds
 cd maintain
-cp ~/opt/madagascar/PKGBUILD ./madagascar/PKGBUILD
-cp ~/opt/madagascar-git/PKGBUILD ./madagascar-git/PKGBUILD
-cp ~/opt/seismic-unix/PKGBUILD ./seismic-unix/PKGBUILD
-cp ~/opt/seismic-unix-git/PKGBUILD ./seismic-unix-git/PKGBUILD
 cd madagascar
 cd ../seismic-unix
-cd ~/dotfile
-git add . && git commit -m "update pkgbuild maintained" && git push
-cd /opt
-sudo -E timeshift-launcher
 sudo vim /etc/pacman.d/mirrorlist
-sudo vim /etc/pacman.conf
-upgrade
 mv seismic-unix-git-r.c222c39a-1-x86_64.pkg.tar.zst seismic-unix-git-r4426.c222c39a-1-x86_64.pkg.tar.zst
 cd pkg/seismic-unix-git
 vim .BUILDINFO
-systemctl start v2ray v2raya
 cd ../pkg
 cd ../../madagascar-git/madagascar-git
 cd ../../seismic-unix-git/seismic-unix-git
 vim ../PKGBUILD
 cd ../src/seismic-unix-git/src
-cd bin
-cd ../
 rm -rf pkg seismic-unix-git seismic-unix-git-r.c222c39a-1-x86_64.pkg.tar.zst src
 cd seismic-unix
 cd ~/dotfile/pkgbuilds/maintain/seismic-unix-git
@@ -2898,27 +2779,16 @@ printf "r%s.%s" "$(git rev-list --count HEAD --)" "$(git rev-parse --short HEAD 
 printf "r%s.%s" "$(git rev-list --count HEAD --)" "$(git rev-parse --short HEAD)"
 printf "r%s.%s" "$(git rev-list --count HEAD )" "$(git rev-parse --short HEAD)"
 vim ../../PKGBUILD
-aurupgrade
-rm -rf seismic-unix-git
-git clone git+ssh://aur@aur.archlinux.org/seismic-unix-git
-cd seismic-unix-git
-makepkg
 vim /opt/madagascar-git/share/madagascar/etc/config.py
 vim /opt/madagascar-git/share/madagascar/etc/env.sh
-Hyprland
-cd Downloads/madagascar-git
-cd ~/opt/madagascar-git
-cd /opt/madagascar-git
 cd share/madagascar/etc
 cd pkg/madagascar/opt/madagascar/share/madagascar/etc
 vim env.sh
-cd src
 vim share/madagascar/etc/env.sh
 \:ls
 rm -rf pkg src madagascar-4.0.1.tar.gz madagascar-4.0.1-1-x86_64.pkg.tar.zst
 paru -Rns madagascar-git
 rm -rf madagascar-git pkg src madagascar-git-r15659.d72996857-1-x86_64.pkg.tar.zst
-cd opt/seismic-unix-git
 vim pkg/madagascar/etc/profile.d/madagascar.sh
 vim pkg/madagascar/opt/madagascar/share/madagascar/etc/env.sh
 pacman -U madagascar-4.0.1-1-x86_64.pkg.tar.zst madagascar-4.0.1-1-x86_64.pkg.tar.zst
@@ -2931,17 +2801,13 @@ sudo pacman -S suitesparse
 paru -S madagascar
 pacman -U madagascar-4.0.1-1-x86_64.pkg.tar.zst
 sudo pacman -U madagascar-4.0.1-1-x86_64.pkg.tar.zst
-rm -rf madagascar-git pkg src
 cd src/seismic-unix-git
-cd ..
 source madagascar.sh
 manpath
 pacman -S man-db
 sudo pacman -S man-db
-echo $RSFROOT
 echo $RSFSRC
 CD ~/opt/madagascar-git
-cd ../madagascar
 cd ~/
 sh madagascar.sh
 vpvrms
@@ -2950,46 +2816,445 @@ vim madagascar.sh
 cd /opt/madagascar/share/madagascar
 vim etc/env.sh
 cd etc
-lls
 vim env.csh
 echo $PATH
 source /opt/madagascar/share/madagascar/etc/env.sh
 pacman -U seismic-unix-git-r294.c222c39a-1-x86_64.pkg.tar.zst
-sudo pacman -U seismic-unix-git-r294.c222c39a-1-x86_64.pkg.tar.zst
-cd /etc/profile.d
 vim seismic-unix-git.sh
 cd /opt/madagascar/bin
 cd /opt/seismic-unix-git/bin
-cd ~
-cd opt
-cd madagascar-git
-rm -rf src
 makepkg -f
 pacman -U madagascar-git-r15659.d72996857-1-x86_64.pkg.tar.zst
-sudo pacman -U madagascar-git-r15659.d72996857-1-x86_64.pkg.tar.zst
 pacman -Rns madagascar
-fk
 sudo pacman -Rns madagascar
-reboot
 cd ~/opt/madagascar
 git status
 vim .SRCINFO
 cd ../madagascar-git
-vim PKGBUILD
 git commit -m "fix profile path and RSFSRC path"
 cd ../seismic-unix-git
-makepkg --printsrcinfo > .SRCINFO
-git add PKGBUILD .SRCINFO
 git commit -m "Fix version ambiguity caused by the HEAD file in seismic unix source"
+cd dotfile/pkgbuilds/maintain
+cp ~/opt/seismic-unix-git/PKGBUILD ./seismic-unix-git/PKGBUILD
+cp ~/opt/seismic-unix/PKGBUILD ./seismic-unix/PKGBUILD
+cp ~/opt/madagascar-git/PKGBUILD ./madagascar-git/PKGBUILD
+cp ~/opt/madagascar/PKGBUILD ./madagascar/PKGBUILD
+git add . && git commit -m "update pkgbuild maintained" && git push
+sh rofi-wifi-menu.sh
+vim rofi-wifi-menu.sh
+pacman -Ss netm
+pacman -Ss nm
+paru -S birdtray-git
+cd .config
+vim autostart-scripts/kwallet-ssh-add.sh
+vim systemd/user/ssh-agent.service
+vim thefuck/settings.py
+rm -rf dotfiles
+git clone https://github.com/ocyss/dotfiles
+cd dotfiles
+cd dunst
+vim dunstrc
+sudo pacman -S eww
+eww -c ~/Downloads/dotfiles/eww/eww.yuck bar
+eww -c ~/Downloads/dotfiles/eww/eww.yuck
+eww -c ~/Downloads/dotfiles/eww/eww.yuck open bar
+eww -c ~/Downloads/dotfiles/eww/
+eww -c ~/Downloads/dotfiles/eww/ open
+eww -c ~/Downloads/dotfiles/eww/ open windows
+cd mpd
+vim mpd.conf
+vim ncmpcpp/config
+vim scripts/utils/reset_navicat.py
+vim eww/toggle_bar
+vim joshuto/joshuto.toml
+cd yuck
+vim bar.yuck
+vim center.yuck
+cd scss
+vim bar.scss
+cd bar
+cd images
+sudo pacman -S nerd-fonts
+sudo pacman -S ttf0nerd-fonts-sysbols
+sudo pacman -S ttf0nerd-fonts-symbols
+sudo pacman -S ttf-nerd-fonts-symbols
+sudo pacman -S noto-fonts-emoji
+pacman -Rns ttf-nerd-fonts-symbols
+sudo pacman -Rns ttf-nerd-fonts-symbols
+pacman -Rns noto-fonts-emoji
+sudo pacman -Rns noto-fonts-emoji
+pacman -Ss material
+pacman -S ttf-material-design-iconic-font
+pacman -S nerd-fonts-hack
+sudo pacman -S nerd-fonts-hack
+pacman -Rns nerd-fonts-hack
+sudo pacman -Rns nerd-fonts-hack
+pacman -Rns ttf-material-design-iconic-font
+sudo pacman -Rns ttf-material-design-iconic-font
+nerdfix
+pacman -Ss nerdfix
+paru -Ss nerdfix
+paru -S nerdfix
+paru -S ttf-material-design-icons-git
+cd Downloads/dotfiles/eww/scss/bar
+vim left.scss
+cd ../../yuck/bar
+vim left.yuck
+n
+sudo pacman -S ttf-material-design-iconic-font
+cd ~/Downloads/dotfiles
+cd eww/
+eww -c ~/Downloads/dotfiles/eww/ open bar
+vim eww.yuck
+vim toggle_bar
+eww -c ~/Downloads/dotfiles/eww/yuck open bar
+cd dotfile/config
+rm -rf eww
+cp ~/Downloads/dotfiles/eww ./
+cp -r ~/Downloads/dotfiles/eww ./
+cd eww
+vim stalonetrayrc
+vim hypr/hyprland.conf
+vim hypr/envs.conf
+vim hypr/rules.conf
+vim hypr/scripts/mpvpaper
+cd .config/eww
+cd scripts
+paru -Ss eww
+paru -S eww-tray-wayland-git
+cd ~/.cache/paru/clone
+cd eww-tray-wayland-git
+systray
+vim scss/bar.scss
+vim scss/bar/left.scss
+killall kitty
+cd ~/.config/eww
+vim yuck/bar.yuck
+cd ~/.config/waybar
+vim style.css
+vim config scripts/weather.py
+killall waybar
+waybar
+vim config
+cd config
+mv eww.bak eww
+cd ~/.config
+mv eww eww.bak
+cd ~/dotfile
+sh install.sh
+eww open bar
+cd config/eww
+vim eww.scss
+killall eww
+cd dotfile/shellrc
+vim aliasrc.sh
+sudo vim /etc/default/grub
+update-grub
+cd Downloads/dotfiles
+cd ../dotaliases
+vim hyprland-dots/.profile
+sfpsefd
+sfpsvp
+which image
+whereis *image
+which *image
+*image
+cd Downloads/madagascar-git
+cd /opt/madagascar-git
+cp -r src ~/Downloads/src
+sudo pacman -S python-numpy
+pacman -Rns python-numpy
+sudo pacman -Rns python-numpy
+cd ../madagascar
+makepkg --printsrcinfo > .SRCINFO
+namcap PKGBUILD
+git add PKGBUILD .SRCINFO
+git commit -m "add numpy and scons for sfximage"
 git show
+pacman -Rns scons
 git push
-: 1699690573:0;Hyprland
-: 1699691042:0;upgrade
-: 1699691053:0;fetch
-: 1699691114:0;cd dotfile/pkgbuilds/maintain
-: 1699691118:0;cp ~/opt/seismic-unix-git/PKGBUILD ./seismic-unix-git/PKGBUILD
-: 1699691132:0;cp ~/opt/seismic-unix/PKGBUILD ./seismic-unix/PKGBUILD
-: 1699691141:0;cp ~/opt/madagascar-git/PKGBUILD ./madagascar-git/PKGBUILD
-: 1699691149:0;cp ~/opt/madagascar/PKGBUILD ./madagascar/PKGBUILD
-: 1699691154:0;cd ~/dotfile
-: 1699691159:0;git add . && git commit -m "update pkgbuild maintained" && git push
+sudo pacman -Rns scons
+pacman -Syyu
+cd opt/madagascar-git
+makepkg -s -i
+cd ~/dotfile/config
+vim kitty
+cleanup
+aurupgrade
+sfximage
+ximage
+fetch
+sfgpufwi
+cd /opt/cuda
+cd bin
+vim autojump.sh
+cd /home/kelen/dotfile/shellrc
+export PATH=/opt/cuda/bin:$PATH
+cd src
+cd madagascar-git/
+vim configure
+vim setenv.py
+julia
+vim configure.py
+icc
+gcc --version
+which gcc
+alias gcc='gcc-12'
+whereis gcc
+cp -r ~/dotfile/pkgbuilds/build/cuda11 ./
+fuck
+cd /etc/profile.d
+vim cuda.sh
+cd ~/dotfile/shellrc
+vim pathrc.sh
+cd ~/Downloads/madagascar-git
+cd ../src
+echo $NVCC_PREPEND_FLAGS
+echo $RSFROOT
+ln -s /opt/cuda11 /usr/local/cuda
+paru -S plplot
+rm -rf src madagascar-git pkg madagascar-git-r15659.d72996857-1-x86_64.pkg.tar.zst
+cd ~/opt/seismic-unix-git
+rm -rf src pkg seis*
+s
+cd ../pyang
+vim Mdlct.c
+vim Mgpufd3d.cu
+vim Mgpurtm.cu
+sfgpurtm
+cd /usr/include/tirpc
+cd rpc
+vim xdr.h
+vim fft3.c
+vim Mawefd3dgpu.cu
+vim Mmpitransp.c
+vim Mpermlr2ddti.cc
+vim Mpermwave2d.c
+paru -Ql libtirpc-compat
+pacman -Ql libtirpc-compat
+cd tirpc
+cd ../rpc
+pacman -Rns libtirpc
+sudo pacman -Rns libtirpc
+cd /usr/include
+vim config.log
+vim Makefile.in
+cd framework
+vim setup.py
+vim bldutil.py
+cd ../user/hwang
+scons
+git checkout d72996857
+git switch master
+git checkout madagascar-4.1
+git checkout 444b315ba
+rm -rf .\*
+paru -S libtirpc-compat
+cd build/api/c
+vim librsf.a
+cd ../../../
+FK
+cd build/lib
+cd api
+cd c
+vim README.txt
+cd ../build/include
+vim rsf.h
+rm -rf madagascar-git
+pacman -Rns libtirpc-compat
+sudo pacman -Rns libtirpc-compat
+mv hwang .hwang
+rm -rf ./*
+mv .hwang hwang
+mak
+make clean
+cd ../..
+pacman -S libtirpc
+sudo pacman -S libtirpc
+cd ../../build/user
+cd hwang
+vim fdutil.c
+vim fdutil.h
+vim awefd3dgpu.py
+vim awefd3dgpu.cpp
+sudo rm -rf /usr/local/cuda
+sudo ln -s /opt/cuda12 /usr/local/cuda
+git tag --list
+cp ~/dotfile/pkgbuilds/build/cuda11/PKGBUILD ./PKGBUILD1
+diff PKGBUILD PKGBUILD1
+vim PKGBUILD1
+git switch --detach 11.0.1-1
+git switch --detach 11.7.1-1
+cd /usr/local/share
+cd share
+cp PKGBUILD1 ~/dotfile/pkgbuilds/build/cuda11/PKGBUILD
+cp PKGBUILD ../
+git clone https://gitlab.archlinux.org/archlinux/packaging/packages/cuda.git
+mv cuda cuda10
+cd cuda10
+git switch --detach 10.2.89-5
+mv PKGBUILD PKGBUILD.bak
+cp ../PKGBUILD ./
+rm -rf .git
+cp -r cuda10 cuda
+cd ~/Downloads/
+cd ~/Downloads
+vim cuda10/PKGBUILD
+pacman -U cuda10-10.2.89-5-x86_64.pkg.tar.zst
+cd pkg/cuda10/opt
+cd ../usr
+cd share/licenses/cuda10
+vim EULA.pdf
+cd ../../
+rm -rf cuda
+sudo rm -Iv --one-file-system --preserve-root -rf cuda
+cd cuda
+cd ~/Downloads/src
+cd ../extras/CUPTI
+cd samples
+cd activity_trace
+vim Makefile
+./a.out
+vim framework/configure.py
+pacman -Ss gcc
+sudo pacman -S gcc10
+cd cuda/bin
+sudo ln -s /usr/bin/gcc-10 /opt/cuda10/bin/gcc
+sudo ln -s /usr/bin/g++-10 /opt/cuda10/bin/g++
+vim ~/dotfile/shellrc/pathrc.sh
+sudo ln -s /usr/bin/g++-12 /opt/cuda10/bin/g++
+sudo ln -s /usr/bin/gcc-12 /opt/cuda10/bin/gcc
+nvcc -o a.out test.cu
+sudo pacman -Ss gcc-8
+sudo paru -Ss gcc-8
+sudo paru -Ss gcc8
+paru -S gcc8
+vim test.cu
+pacman -Rns arch4edu-keyring
+sudo pacman -Rns arch4edu-keyring
+sudo -E timeshift-launcher
+sudo pacman -Ss arch4edu
+cd /etc/pacman.d
+sudo mv gnupg gnupg.bak
+su
+sudo rm -rf gnupg
+sudo pacman -Rns archlinuxcn-keyring
+sudo vim /etc/pacman.conf
+sudo pacman-key --init
+sudo pacman-key --populate
+pacman -S arch4edu-keyring
+sudo pacman -S arch4edu-keyring
+sudo pacman -S archlinuxcn-keyring
+sudo pacman-key --recv-keys 7931B6D628C8D3BA
+sudo pacman-key --finger 7931B6D628C8D3BA
+sudo pacman-key --lsign-key 7931B6D628C8D3BA
+upgrade
+pacman -S gcc8
+sudo pacman -S gcc8
+cd /usr/local/cuda/bin
+sudo rm g++ gcc
+sudo ln -s /usr/bin/gcc- /opt/cuda10/bin/gcc
+pacman -Rns cuda11 cuda-tools11
+sudo pacman -Rns cuda11 cuda-tools11
+pacman -U cuda11-11.8.0-1-x86_64.pkg.tar.zst cuda-tools11-11.8.0-1-x86_64.pkg.tar.zst
+cd ../cuda
+sudo pacman -U cuda10-10.2.89-5-x86_64.pkg.tar.zst
+cd /usr/local
+sudo rm cuda
+sudo ln -s /opt/cuda10 /usr/local/cuda
+source ~/.zshrc
+nvcc --version
+cd ~/Downloads/src/madagascar-git
+./configure
+cd ~
+cd opt/
+git clone git+ssh://aur@aur.archlinux.org/madagascar-git
+pacman -Rns plplot
+sudo pacman -Rns plplot
+sudo pacman -Rns suitespare
+cd /opt
+sudo pacman -Rns madagascar-git seismic-unix-git
+sudo pacman -Rns suitesparse
+cd ~/opt
+cd madagascar-git
+cd opt
+lls
+rm -rf seismic-unix-git
+git clone git+ssh://aur@aur.archlinux.org/seismic-unix-git
+vim config.py
+cd ~/dotfile/pkgbuilds/build
+vim cuda11/PKGBUILD
+cp -r ~/Downloads/cuda10 ./cuda10
+cd ../cuda10
+sudo pacman -Rns gcc10
+sudo pacman -Rns gcc-10
+pacman -Qemq
+cd ~/Downloads/cuda
+cd ~/Downloads/cuda11
+cd src/madagascar-git/
+pacman -Rns cuda10
+sudo pacman -Rns cuda10
+pacman -Rns gcc8
+fk
+sudo pacman -Rns gcc8
+cd ../
+makepkg -s -f
+cd build/user/hwang
+vim sfhwang.py
+vim SConstruct
+rm -rf cuda*
+cp -r ~/dotfile/pkgbuilds/build/cuda11 ./cuda11
+cd cuda11
+mv awefd3dgpu.* awefd3dgpu.*.bak
+cp awefd3dgpu.cpp awefd3dgpu.cpp.bak
+rm -rf awefd3dgpu.*
+cd src/madagascar-git
+sudo rm /usr/local/cuda
+sudo ln -s /opt/cuda11 /usr/local/cuda
+cd user/hwang
+rm -rf hwang
+cd ..
+make
+cd seismic-unix-git
+cd user
+sudo pacman -U cuda11-11.8.0-1-x86_64.pkg.tar.zst
+sudo pacman -U cuda11-11.8.0-1-x86_64.pkg.tar.zst cuda-tools11-11.8.0-1-x86_64.pkg.tar.zst
+rm -rf madagascar-git pkg src
+rm -rf src
+systemctl restart NetworkManager
+makepkg
+pacman -Qenq
+reboot
+vim PKGBUILD
+/usr/local/cuda/bin/nvcc --version
+poweroff
+sudo pacman -Syyu
+Hyprland
+~/dotfile/config/waybar/scripts/rofi-wifi-menu.sh
+cd ~/opt/madagascar-git
+systemctl start v2ray v2raya
+cd opt/seismic-unix-git
+makepkg -s
+sudo pacman -U madagascar-git-r15659.d72996857-1-x86_64.pkg.tar.zst
+sudo pacman -U seismic-unix-git-r294.c222c39a-1-x86_64.pkg.tar.zst
+exit
+: 1699798006:0;reboot
+: 1699798045:0;Hyprland
+: 1699798055:0;sfgpufwi
+: 1699798071:0;sfgpurtm
+: 1699798150:0;sfviscoe2d
+: 1699799074:0;cd ~/
+: 1699799079:0;cd dotfile/pkgbuilds/maintain
+: 1699799087:0;vim madagascar-git
+: 1699799092:0;cd madagascar-git
+: 1699799116:0;cp ~/opt/madagascar-git/PKGBUILD ./PKGBUILD1
+: 1699799119:0;diff PKGBUILD PKGBUILD1
+: 1699799152:0;mv PKGBUILD1 PKGBUILD
+: 1699799158:0;CD ../seismic-unix-git
+: 1699799172:0;cp ~/opt/seismic-unix-git/PKGBUILD ./PKGBUILD1
+: 1699799173:0;diff PKGBUILD PKGBUILD1
+: 1699799177:0;rm PKGBUILD1
+: 1699799181:0;cd ../madagascar
+: 1699799183:0;vim PKGBUILD
+: 1699800537:0;cd ~/dotfile
+: 1699800546:0;git add . && git commit -m "update pkgbuild built" && git push

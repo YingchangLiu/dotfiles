@@ -9,7 +9,7 @@ pkgdesc="NVIDIA's GPU programming toolkit"
 arch=('x86_64')
 url="https://developer.nvidia.com/cuda-zone"
 license=('custom:NVIDIA')
-depends=('gcc' 'opencl-nvidia' 'nvidia-utils' 'python')
+depends=('gcc12' 'opencl-nvidia' 'nvidia-utils' 'python')
 options=(!strip staticlibs)
 install=cuda.install
 source=(https://developer.download.nvidia.com/compute/cuda/${pkgver}/local_installers/cuda_${pkgver}_${_driverver}_linux.run
@@ -126,7 +126,7 @@ build() {
 
   # Fix Makefile paths to CUDA
   for f in $(find "$_prepdir"/opt/cuda11 -name Makefile); do
-    sed -i "s|/usr/local/cuda|/opt/cuda11|g" "$f"
+    sed -i "s|/usr/local/cuda11|/opt/cuda11|g" "$f"
   done
 }
 
@@ -149,7 +149,7 @@ package_cuda11() {
 
 package_cuda-tools11() {
   pkgdesc="NVIDIA's GPU programming toolkit (extra tools: nvvp, nsight)"
-  depends=('cuda' 'java-runtime=8' 'nss')
+  depends=('cuda11' 'java-runtime=8' 'nss')
   optdepends=('perl: required by some NVVP plugins')
 
   local _prepdir="${srcdir}/prep"
@@ -162,7 +162,7 @@ package_cuda-tools11() {
 
   # licenses
   mkdir -p "${pkgdir}/usr/share/licenses"
-  ln -s /usr/share/licenses/cuda "${pkgdir}/usr/share/licenses/${pkgname}"
+  ln -s /usr/share/licenses/cuda11 "${pkgdir}/usr/share/licenses/${pkgname}"
 }
 
 # vim:set ts=2 sw=2 et:
