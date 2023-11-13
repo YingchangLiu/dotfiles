@@ -19,7 +19,7 @@ echo $image > /tmp/currentwall
 swaybg_instances=$(ps axh | grep swaybg | grep -v grep | awk '{print $1}')
 #setsid -f swaybg -i $image
 swaybg -i $image &
-sleep 0.5
+sleep 1
 for instance in $swaybg_instances; do
 	kill -9 $instance 1>/dev/null 2>&1
 done

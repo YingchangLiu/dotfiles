@@ -3258,3 +3258,116 @@ exit
 : 1699799183:0;vim PKGBUILD
 : 1699800537:0;cd ~/dotfile
 : 1699800546:0;git add . && git commit -m "update pkgbuild built" && git push
+: 1699800561:0;poweroff
+: 1699804932:0;aurupgrade
+: 1699804943:0;upgrade
+: 1699804949:0;Hyprland
+: 1699804970:0;cd .config/waybar
+: 1699804974:0;vim config
+: 1699805026:0;killall waybar
+: 1699805028:0;waybar
+: 1699805040:0;vim config
+: 1699805066:0;waybar
+: 1699805125:0;cd ..
+: 1699805130:0;cd waybar
+: 1699805135:0;vim config
+: 1699805147:0;cd ..
+: 1699805156:0;cd ~/dotfile/config
+: 1699805164:0;cp -r waybar waybar.bak
+: 1699805169:0;cd waybar
+: 1699805174:0;vim style.css
+: 1699805207:0;waybar
+: 1699805229:0;vim config
+: 1699805236:0;waybar
+: 1699805247:0;vim style.css
+: 1699805260:0;waybar
+: 1699805265:0;vim style.css
+: 1699805290:0;waybar
+: 1699805300:0;vim style.css
+: 1699805311:0;waybar
+: 1699805317:0;vim style.css
+: 1699805340:0;vim config
+: 1699805358:0;waybar
+: 1699805362:0;vim config
+: 1699805738:0;waybar
+: 1699805797:0;eww
+: 1699805800:0;eww open bar
+: 1699806041:0;sfgpi3dzo
+: 1699806056:0;sfgpufbrec3d
+: 1699806066:0;sfimag
+: 1699806087:0;sfpspig
+: 1699806097:0;sfzomig
+: 1699806109:0;sfftoper
+: 1699806128:0;cwpfind
+: 1699806163:0;cd .config
+: 1699806167:0;cd eww
+: 1699806173:0;vim eww.yuck
+: 1699806216:0;vim yuck/windows.yuck
+: 1699806231:0;vim yuck/windows/app_launcher.yuck
+: 1699806297:0;systemctl start v2ray v2raya
+: 1699806344:0;cd /etc/pacman.d
+: 1699806349:0;sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+: 1699806361:0;sudo pacman-key --lsign-key 3056513887B78AEB
+: 1699806376:0;sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
+: 1699806456:0;pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+: 1699806460:0;sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+: 1699806486:0;sudo vim chaotic-mirrorlist
+: 1699806546:0;sudo vim /etc/pacman.conf
+: 1699806588:0;upgrade
+: 1699806880:0;cd ~/dotfile/config
+: 1699806885:0;rm -rf waybar.bak
+: 1699806897:0;vim waybar/config
+: 1699806915:0;waybar
+: 1699806922:0;vim waybar/config
+: 1699806936:0;waybar
+: 1699807053:0;poweroff
+: 1699841018:0;Hyprland
+: 1699841034:0;cd dotfile/config/waybar
+: 1699841037:0;vim style.css
+: 1699841884:0;killall waybar
+: 1699841886:0;waybar
+: 1699841924:0;pacman -S python-requests
+: 1699841925:0;fk
+: 1699841931:0;sudo pacman -S python-requests
+: 1699841935:0;killall waybar
+: 1699841937:0;waybar
+: 1699841976:0;Hyprland
+: 1699841993:0;cd dotfile/config/bin
+: 1699842002:0;vim wallpaper.sh
+: 1699842832:0;sfimage
+: 1699842847:0;cd /opt/madagascar-git/rsfcodes
+: 1699842853:0;cd su/plot
+: 1699842869:0;cd /opt/seismic-unix-git/src
+: 1699842875:0;cd bin
+: 1699842894:0;cd ..
+: 1699842897:0;cd su
+: 1699842903:0;cd ../..
+: 1699842924:0;cd bin
+: 1699842934:0;./weekday
+: 1699842942:0;./velconv
+: 1699842974:0;cd ~/dotfile/pkgbuilds/maintain/madagascar-git
+: 1699842977:0;vim PKGBUILD
+: 1699843180:0;pacman -Qet
+: 1699843285:0;cd ~/dotfile/pkgbuilds/build
+: 1699843295:0;vim cuda11/PKGBUILD
+: 1699843353:0;vim cuda10/PKGBUILD
+: 1699843398:0;pacman -Rns cuda-tools11
+: 1699843399:0;fk
+: 1699843405:0;sudo pacman -Rns cuda-tools11
+: 1699843408:0;sudo pacman -Rns cuda11
+: 1699843416:0;pacman -Rns cuda11 cuda-tools11
+: 1699843417:0;fk
+: 1699843419:0;sudo pacman -Rns cuda11 cuda-tools11
+: 1699843426:0;cd ~/opt/cuda11
+: 1699843428:0;vim PKGBUILD
+: 1699843474:0;cd ~/dotfile/pkgbuilds/build
+: 1699843477:0;vim cuda11
+: 1699843489:0;vim cuda11/PKGBUILD
+: 1699843590:0;cd ~/opt
+: 1699843594:0;rm -rf cuda11
+: 1699843601:0;cp -r ~/dotfile/pkgbuilds/build/cuda11 ./cuda11
+: 1699843604:0;cd cuda11
+: 1699843606:0;vim PKGBUILD
+: 1699843649:0;makepkg -s
+: 1699843695:0;cd ~/dotfile
+: 1699843705:0;git add . && git commit -m "update pkgbuild built" && git push

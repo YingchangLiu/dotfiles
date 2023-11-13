@@ -1,6 +1,6 @@
 # Maintainer: Sven-Hendrik Haase <svenstaro@archlinux.org>
 # Maintainer: Konstantin Gizdov <arch@kge.pw>
-pkgname=(cuda11 cuda-tools11)
+pkgname=(cuda11 cuda11-tools)
 pkgbase=cuda11
 pkgver=11.8.0
 _driverver=520.61.05
@@ -147,7 +147,7 @@ package_cuda11() {
   rm -r "${pkgdir}"/opt/cuda11/{bin/nvvp,bin/computeprof,libnvvp,nsight*}
 }
 
-package_cuda-tools11() {
+package_cuda11-tools() {
   pkgdesc="NVIDIA's GPU programming toolkit (extra tools: nvvp, nsight)"
   depends=('cuda11' 'java-runtime=8' 'nss')
   optdepends=('perl: required by some NVVP plugins')
