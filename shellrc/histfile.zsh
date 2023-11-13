@@ -609,8 +609,6 @@ git branch -D master
 git branch -m master
 paru -S steam++
 paru -S watt
-mkdir test
-cd test
 git clone https://github.com/daniel-koehn/DENISE-SH ./denise_sh
 paru -S watt-toolkit
 vim gitclean.sh
@@ -652,9 +650,7 @@ sudo find -name *.pac*
 sudo vim pacman.conf
 cd pacman.d
 vim mirrorlist.pacnew
-vim mirrorlist
 sudo mv mirrorlist.pacnew mirrorlist
-sudo vim mirrorlist
 vim ~/dotfile/script
 sudo pacman -Rns $(sudo pacman -Qdtq)
 rm -rf hypoDD_dtc*
@@ -1000,7 +996,6 @@ pacman -Rns xorg-xwininfo
 pacman -S albert
 pacman -Ss albert
 paru -Ss albert
-eww
 eww -c ~/.config/eww.bak/eww.yuck
 eww -c ~/.config/eww.bak
 eww -c ~/.config/eww.bak open
@@ -1270,7 +1265,6 @@ cd myshell
 vim myshell
 vim network
 vim scripts/apps
-vim yuck/windows.yuck
 vim setups/leftbar.yuck
 wlogout
 wllogout
@@ -1303,7 +1297,6 @@ cd ~/.config/hypr
 ./init
 ./scripts/init
 systemctl status v2raya.service
-pacman -Rns v2raya
 pacman -S v2raya
 sudo systemctl restart v2ray.service
 sudo systemctl restart v2raya.service
@@ -1421,7 +1414,6 @@ pacman -Qi qt5-wayland
 pacman -Qi qt6-wayland
 cd ../waybar
 cp config config.bak
-sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
 sudo -E timeshift
 sudo -E timeshift-laucher
 pacman -S telegram-desktop
@@ -1441,7 +1433,6 @@ lspci
 lspci | grep -E 'VGA|3D'
 top | grep pts
 pacman -Qi swkhd
-pacman -Qi cuda
 pacman -Si sxhkd
 pacman -Si swhkd
 pacman -Ss swkhd
@@ -1537,7 +1528,6 @@ vim ../scripts/xdph.sh
 cd /usr/lib
 pacman -S xdg-desktop-portal-wlr
 vim waybar/style.css
-vim waybar/config
 git add . && git commit -m "update waybar" && git push
 cd config/hypr
 vim scripts/rofi-wifi-menu.sh
@@ -1613,7 +1603,6 @@ copyq disable
 pacman -Ss ubuntu
 pacman -S ttf-ubuntu-font-family
 pacman -Rns ttf-ubuntu-font-family
-cd waybar
 vim config.bak
 pacman -S nerd-fonts
 pacman -Ss nerd-fonts
@@ -1633,7 +1622,6 @@ cd river
 cd ../awesome
 vim rc.lua
 pip
-pacman -S python-requests
 cd dotfile/config/waybar/scripts
 python weather.py
 vim weather.py
@@ -2137,7 +2125,6 @@ git add . && git commit -m "change wallpaper changer to avoid same papers" && gi
 vim hyprland.conf
 cd .config/nnn
 vim plugins/imgview
-cd dotfile/config/waybar
 fcitx5
 fcitx5-config-qt
 copyq
@@ -2274,7 +2261,6 @@ fu
 sudo pacman -Rns swww
 vim environment.sh
 git add . && git commit -m "add NNN and fix bug of swaybg " && git push
-vim wallpaper.sh
 cd ../../wallpaper
 git add . && git commit -m "rm a wallpaper" && git push
 git clone https://github.con/ahay/src
@@ -2440,7 +2426,6 @@ pacman -Fx libcwell.a
 pacman -Fx shoot.o
 gfortran
 cd Downloads/mypkg/seisunix-git
-pwd
 cd ~/Downloads/mypkg/seisunix-git/src/SeisUnix/src
 cd Downloads/seismic-unix
 cd ../mypkg/seisunix-git
@@ -2680,7 +2665,6 @@ cd mypkg
 cd Downloads
 git clone git+ssh://aur@aur.archlinux.org/seisunix-git
 cd
-cd -
 git commit -m "add pkgver for git version"
 cp ~/dotfile/pkgbuilds/build/madagascar-git/PKGBUILD ./
 git commit -m "Commit the git version of madagascar"
@@ -2708,7 +2692,6 @@ v
 vim env.conf
 mv seisunix-git seismic-unix-git
 git add . && git commit -m "move seisunix to seismic-unix" && git push
-cd dotfile/config/bin
 cd lightsonplus
 pacman -Ss cblas
 pacman -Ss blas
@@ -2758,7 +2741,6 @@ pacman -U seismic-unix-git-r.c222c39a-1-x86_64.pkg.tar.zst
 sudo pacman -U seismic-unix-git-r.c222c39a-1-x86_64.pkg.tar.zst
 cd ~/dotfile/pkgbuilds
 cd maintain
-cd madagascar
 cd ../seismic-unix
 sudo vim /etc/pacman.d/mirrorlist
 mv seismic-unix-git-r.c222c39a-1-x86_64.pkg.tar.zst seismic-unix-git-r4426.c222c39a-1-x86_64.pkg.tar.zst
@@ -2788,12 +2770,10 @@ vim share/madagascar/etc/env.sh
 \:ls
 rm -rf pkg src madagascar-4.0.1.tar.gz madagascar-4.0.1-1-x86_64.pkg.tar.zst
 paru -Rns madagascar-git
-rm -rf madagascar-git pkg src madagascar-git-r15659.d72996857-1-x86_64.pkg.tar.zst
 vim pkg/madagascar/etc/profile.d/madagascar.sh
 vim pkg/madagascar/opt/madagascar/share/madagascar/etc/env.sh
 pacman -U madagascar-4.0.1-1-x86_64.pkg.tar.zst madagascar-4.0.1-1-x86_64.pkg.tar.zst
 pacman -Rns madagascar-git
-sudo pacman -Rns madagascar-git
 sudo pacman -U madagascar-4.0.1-1-x86_64.pkg.tar.zst madagascar-4.0.1-1-x86_64.pkg.tar.zst
 pkgfile --search --regex umfpack.h
 pacman -S suitesparse
@@ -2808,7 +2788,6 @@ pacman -S man-db
 sudo pacman -S man-db
 echo $RSFSRC
 CD ~/opt/madagascar-git
-cd ~/
 sh madagascar.sh
 vpvrms
 echo $PATH | grep mada
@@ -2825,16 +2804,11 @@ cd /opt/madagascar/bin
 cd /opt/seismic-unix-git/bin
 makepkg -f
 pacman -U madagascar-git-r15659.d72996857-1-x86_64.pkg.tar.zst
-pacman -Rns madagascar
-sudo pacman -Rns madagascar
-cd ~/opt/madagascar
 git status
 vim .SRCINFO
-cd ../madagascar-git
 git commit -m "fix profile path and RSFSRC path"
 cd ../seismic-unix-git
 git commit -m "Fix version ambiguity caused by the HEAD file in seismic unix source"
-cd dotfile/pkgbuilds/maintain
 cp ~/opt/seismic-unix-git/PKGBUILD ./seismic-unix-git/PKGBUILD
 cp ~/opt/seismic-unix/PKGBUILD ./seismic-unix/PKGBUILD
 cp ~/opt/madagascar-git/PKGBUILD ./madagascar-git/PKGBUILD
@@ -2845,7 +2819,6 @@ vim rofi-wifi-menu.sh
 pacman -Ss netm
 pacman -Ss nm
 paru -S birdtray-git
-cd .config
 vim autostart-scripts/kwallet-ssh-add.sh
 vim systemd/user/ssh-agent.service
 vim thefuck/settings.py
@@ -2905,14 +2878,12 @@ sudo pacman -S ttf-material-design-iconic-font
 cd ~/Downloads/dotfiles
 cd eww/
 eww -c ~/Downloads/dotfiles/eww/ open bar
-vim eww.yuck
 vim toggle_bar
 eww -c ~/Downloads/dotfiles/eww/yuck open bar
 cd dotfile/config
 rm -rf eww
 cp ~/Downloads/dotfiles/eww ./
 cp -r ~/Downloads/dotfiles/eww ./
-cd eww
 vim stalonetrayrc
 vim hypr/hyprland.conf
 vim hypr/envs.conf
@@ -2931,18 +2902,12 @@ killall kitty
 cd ~/.config/eww
 vim yuck/bar.yuck
 cd ~/.config/waybar
-vim style.css
 vim config scripts/weather.py
-killall waybar
-waybar
-vim config
 cd config
 mv eww.bak eww
 cd ~/.config
 mv eww eww.bak
-cd ~/dotfile
 sh install.sh
-eww open bar
 cd config/eww
 vim eww.scss
 killall eww
@@ -2960,39 +2925,27 @@ whereis *image
 which *image
 *image
 cd Downloads/madagascar-git
-cd /opt/madagascar-git
 cp -r src ~/Downloads/src
 sudo pacman -S python-numpy
 pacman -Rns python-numpy
 sudo pacman -Rns python-numpy
-cd ../madagascar
 makepkg --printsrcinfo > .SRCINFO
 namcap PKGBUILD
 git add PKGBUILD .SRCINFO
 git commit -m "add numpy and scons for sfximage"
-git show
 pacman -Rns scons
 git push
 sudo pacman -Rns scons
-pacman -Syyu
 cd opt/madagascar-git
 makepkg -s -i
-cd ~/dotfile/config
 vim kitty
-cleanup
-aurupgrade
 sfximage
 ximage
 fetch
-sfgpufwi
-cd /opt/cuda
-cd bin
 vim autojump.sh
 cd /home/kelen/dotfile/shellrc
 export PATH=/opt/cuda/bin:$PATH
-cd src
 cd madagascar-git/
-vim configure
 vim setenv.py
 julia
 vim configure.py
@@ -3007,7 +2960,6 @@ cd /etc/profile.d
 vim cuda.sh
 cd ~/dotfile/shellrc
 vim pathrc.sh
-cd ~/Downloads/madagascar-git
 cd ../src
 echo $NVCC_PREPEND_FLAGS
 echo $RSFROOT
@@ -3021,7 +2973,6 @@ cd ../pyang
 vim Mdlct.c
 vim Mgpufd3d.cu
 vim Mgpurtm.cu
-sfgpurtm
 cd /usr/include/tirpc
 cd rpc
 vim xdr.h
@@ -3037,13 +2988,11 @@ cd ../rpc
 pacman -Rns libtirpc
 sudo pacman -Rns libtirpc
 cd /usr/include
-vim config.log
 vim Makefile.in
 cd framework
 vim setup.py
 vim bldutil.py
 cd ../user/hwang
-scons
 git checkout d72996857
 git switch master
 git checkout madagascar-4.1
@@ -3068,7 +3017,6 @@ rm -rf ./*
 mv .hwang hwang
 mak
 make clean
-cd ../..
 pacman -S libtirpc
 sudo pacman -S libtirpc
 cd ../../build/user
@@ -3081,7 +3029,6 @@ sudo rm -rf /usr/local/cuda
 sudo ln -s /opt/cuda12 /usr/local/cuda
 git tag --list
 cp ~/dotfile/pkgbuilds/build/cuda11/PKGBUILD ./PKGBUILD1
-diff PKGBUILD PKGBUILD1
 vim PKGBUILD1
 git switch --detach 11.0.1-1
 git switch --detach 11.7.1-1
@@ -3098,8 +3045,6 @@ cp ../PKGBUILD ./
 rm -rf .git
 cp -r cuda10 cuda
 cd ~/Downloads/
-cd ~/Downloads
-vim cuda10/PKGBUILD
 pacman -U cuda10-10.2.89-5-x86_64.pkg.tar.zst
 cd pkg/cuda10/opt
 cd ../usr
@@ -3134,12 +3079,9 @@ pacman -Rns arch4edu-keyring
 sudo pacman -Rns arch4edu-keyring
 sudo -E timeshift-launcher
 sudo pacman -Ss arch4edu
-cd /etc/pacman.d
 sudo mv gnupg gnupg.bak
-su
 sudo rm -rf gnupg
 sudo pacman -Rns archlinuxcn-keyring
-sudo vim /etc/pacman.conf
 sudo pacman-key --init
 sudo pacman-key --populate
 pacman -S arch4edu-keyring
@@ -3148,14 +3090,11 @@ sudo pacman -S archlinuxcn-keyring
 sudo pacman-key --recv-keys 7931B6D628C8D3BA
 sudo pacman-key --finger 7931B6D628C8D3BA
 sudo pacman-key --lsign-key 7931B6D628C8D3BA
-upgrade
 pacman -S gcc8
 sudo pacman -S gcc8
 cd /usr/local/cuda/bin
 sudo rm g++ gcc
 sudo ln -s /usr/bin/gcc- /opt/cuda10/bin/gcc
-pacman -Rns cuda11 cuda-tools11
-sudo pacman -Rns cuda11 cuda-tools11
 pacman -U cuda11-11.8.0-1-x86_64.pkg.tar.zst cuda-tools11-11.8.0-1-x86_64.pkg.tar.zst
 cd ../cuda
 sudo pacman -U cuda10-10.2.89-5-x86_64.pkg.tar.zst
@@ -3165,8 +3104,6 @@ sudo ln -s /opt/cuda10 /usr/local/cuda
 source ~/.zshrc
 nvcc --version
 cd ~/Downloads/src/madagascar-git
-./configure
-cd ~
 cd opt/
 git clone git+ssh://aur@aur.archlinux.org/madagascar-git
 pacman -Rns plplot
@@ -3175,36 +3112,24 @@ sudo pacman -Rns suitespare
 cd /opt
 sudo pacman -Rns madagascar-git seismic-unix-git
 sudo pacman -Rns suitesparse
-cd ~/opt
-cd madagascar-git
 cd opt
-lls
 rm -rf seismic-unix-git
 git clone git+ssh://aur@aur.archlinux.org/seismic-unix-git
-vim config.py
-cd ~/dotfile/pkgbuilds/build
-vim cuda11/PKGBUILD
 cp -r ~/Downloads/cuda10 ./cuda10
 cd ../cuda10
 sudo pacman -Rns gcc10
 sudo pacman -Rns gcc-10
-pacman -Qemq
 cd ~/Downloads/cuda
 cd ~/Downloads/cuda11
 cd src/madagascar-git/
 pacman -Rns cuda10
 sudo pacman -Rns cuda10
 pacman -Rns gcc8
-fk
 sudo pacman -Rns gcc8
-cd ../
 makepkg -s -f
 cd build/user/hwang
 vim sfhwang.py
-vim SConstruct
 rm -rf cuda*
-cp -r ~/dotfile/pkgbuilds/build/cuda11 ./cuda11
-cd cuda11
 mv awefd3dgpu.* awefd3dgpu.*.bak
 cp awefd3dgpu.cpp awefd3dgpu.cpp.bak
 rm -rf awefd3dgpu.*
@@ -3213,161 +3138,614 @@ sudo rm /usr/local/cuda
 sudo ln -s /opt/cuda11 /usr/local/cuda
 cd user/hwang
 rm -rf hwang
-cd ..
 make
 cd seismic-unix-git
 cd user
 sudo pacman -U cuda11-11.8.0-1-x86_64.pkg.tar.zst
 sudo pacman -U cuda11-11.8.0-1-x86_64.pkg.tar.zst cuda-tools11-11.8.0-1-x86_64.pkg.tar.zst
 rm -rf madagascar-git pkg src
-rm -rf src
 systemctl restart NetworkManager
 makepkg
-pacman -Qenq
-reboot
-vim PKGBUILD
 /usr/local/cuda/bin/nvcc --version
-poweroff
-sudo pacman -Syyu
-Hyprland
 ~/dotfile/config/waybar/scripts/rofi-wifi-menu.sh
-cd ~/opt/madagascar-git
-systemctl start v2ray v2raya
 cd opt/seismic-unix-git
-makepkg -s
 sudo pacman -U madagascar-git-r15659.d72996857-1-x86_64.pkg.tar.zst
 sudo pacman -U seismic-unix-git-r294.c222c39a-1-x86_64.pkg.tar.zst
 exit
-: 1699798006:0;reboot
-: 1699798045:0;Hyprland
-: 1699798055:0;sfgpufwi
-: 1699798071:0;sfgpurtm
-: 1699798150:0;sfviscoe2d
-: 1699799074:0;cd ~/
-: 1699799079:0;cd dotfile/pkgbuilds/maintain
-: 1699799087:0;vim madagascar-git
-: 1699799092:0;cd madagascar-git
-: 1699799116:0;cp ~/opt/madagascar-git/PKGBUILD ./PKGBUILD1
-: 1699799119:0;diff PKGBUILD PKGBUILD1
-: 1699799152:0;mv PKGBUILD1 PKGBUILD
-: 1699799158:0;CD ../seismic-unix-git
-: 1699799172:0;cp ~/opt/seismic-unix-git/PKGBUILD ./PKGBUILD1
-: 1699799173:0;diff PKGBUILD PKGBUILD1
-: 1699799177:0;rm PKGBUILD1
-: 1699799181:0;cd ../madagascar
-: 1699799183:0;vim PKGBUILD
-: 1699800537:0;cd ~/dotfile
-: 1699800546:0;git add . && git commit -m "update pkgbuild built" && git push
-: 1699800561:0;poweroff
-: 1699804932:0;aurupgrade
-: 1699804943:0;upgrade
-: 1699804949:0;Hyprland
-: 1699804970:0;cd .config/waybar
-: 1699804974:0;vim config
-: 1699805026:0;killall waybar
-: 1699805028:0;waybar
-: 1699805040:0;vim config
-: 1699805066:0;waybar
-: 1699805125:0;cd ..
-: 1699805130:0;cd waybar
-: 1699805135:0;vim config
-: 1699805147:0;cd ..
-: 1699805156:0;cd ~/dotfile/config
-: 1699805164:0;cp -r waybar waybar.bak
-: 1699805169:0;cd waybar
-: 1699805174:0;vim style.css
-: 1699805207:0;waybar
-: 1699805229:0;vim config
-: 1699805236:0;waybar
-: 1699805247:0;vim style.css
-: 1699805260:0;waybar
-: 1699805265:0;vim style.css
-: 1699805290:0;waybar
-: 1699805300:0;vim style.css
-: 1699805311:0;waybar
-: 1699805317:0;vim style.css
-: 1699805340:0;vim config
-: 1699805358:0;waybar
-: 1699805362:0;vim config
-: 1699805738:0;waybar
-: 1699805797:0;eww
-: 1699805800:0;eww open bar
-: 1699806041:0;sfgpi3dzo
-: 1699806056:0;sfgpufbrec3d
-: 1699806066:0;sfimag
-: 1699806087:0;sfpspig
-: 1699806097:0;sfzomig
-: 1699806109:0;sfftoper
-: 1699806128:0;cwpfind
-: 1699806163:0;cd .config
-: 1699806167:0;cd eww
-: 1699806173:0;vim eww.yuck
-: 1699806216:0;vim yuck/windows.yuck
-: 1699806231:0;vim yuck/windows/app_launcher.yuck
-: 1699806297:0;systemctl start v2ray v2raya
-: 1699806344:0;cd /etc/pacman.d
-: 1699806349:0;sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
-: 1699806361:0;sudo pacman-key --lsign-key 3056513887B78AEB
-: 1699806376:0;sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
-: 1699806456:0;pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
-: 1699806460:0;sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
-: 1699806486:0;sudo vim chaotic-mirrorlist
-: 1699806546:0;sudo vim /etc/pacman.conf
-: 1699806588:0;upgrade
-: 1699806880:0;cd ~/dotfile/config
-: 1699806885:0;rm -rf waybar.bak
-: 1699806897:0;vim waybar/config
-: 1699806915:0;waybar
-: 1699806922:0;vim waybar/config
-: 1699806936:0;waybar
-: 1699807053:0;poweroff
-: 1699841018:0;Hyprland
-: 1699841034:0;cd dotfile/config/waybar
-: 1699841037:0;vim style.css
-: 1699841884:0;killall waybar
-: 1699841886:0;waybar
-: 1699841924:0;pacman -S python-requests
-: 1699841925:0;fk
-: 1699841931:0;sudo pacman -S python-requests
-: 1699841935:0;killall waybar
-: 1699841937:0;waybar
-: 1699841976:0;Hyprland
-: 1699841993:0;cd dotfile/config/bin
-: 1699842002:0;vim wallpaper.sh
-: 1699842832:0;sfimage
-: 1699842847:0;cd /opt/madagascar-git/rsfcodes
-: 1699842853:0;cd su/plot
-: 1699842869:0;cd /opt/seismic-unix-git/src
-: 1699842875:0;cd bin
-: 1699842894:0;cd ..
-: 1699842897:0;cd su
-: 1699842903:0;cd ../..
-: 1699842924:0;cd bin
-: 1699842934:0;./weekday
-: 1699842942:0;./velconv
-: 1699842974:0;cd ~/dotfile/pkgbuilds/maintain/madagascar-git
-: 1699842977:0;vim PKGBUILD
-: 1699843180:0;pacman -Qet
-: 1699843285:0;cd ~/dotfile/pkgbuilds/build
-: 1699843295:0;vim cuda11/PKGBUILD
-: 1699843353:0;vim cuda10/PKGBUILD
-: 1699843398:0;pacman -Rns cuda-tools11
-: 1699843399:0;fk
-: 1699843405:0;sudo pacman -Rns cuda-tools11
-: 1699843408:0;sudo pacman -Rns cuda11
-: 1699843416:0;pacman -Rns cuda11 cuda-tools11
-: 1699843417:0;fk
-: 1699843419:0;sudo pacman -Rns cuda11 cuda-tools11
-: 1699843426:0;cd ~/opt/cuda11
-: 1699843428:0;vim PKGBUILD
-: 1699843474:0;cd ~/dotfile/pkgbuilds/build
-: 1699843477:0;vim cuda11
-: 1699843489:0;vim cuda11/PKGBUILD
-: 1699843590:0;cd ~/opt
-: 1699843594:0;rm -rf cuda11
-: 1699843601:0;cp -r ~/dotfile/pkgbuilds/build/cuda11 ./cuda11
-: 1699843604:0;cd cuda11
-: 1699843606:0;vim PKGBUILD
-: 1699843649:0;makepkg -s
-: 1699843695:0;cd ~/dotfile
-: 1699843705:0;git add . && git commit -m "update pkgbuild built" && git push
+sfgpufwi
+sfgpurtm
+sfviscoe2d
+cd ~/
+cd dotfile/pkgbuilds/maintain
+vim madagascar-git
+cd madagascar-git
+cp ~/opt/madagascar-git/PKGBUILD ./PKGBUILD1
+mv PKGBUILD1 PKGBUILD
+CD ../seismic-unix-git
+cp ~/opt/seismic-unix-git/PKGBUILD ./PKGBUILD1
+diff PKGBUILD PKGBUILD1
+rm PKGBUILD1
+cd ../madagascar
+cd .config/waybar
+cp -r waybar waybar.bak
+cd waybar
+vim config
+eww
+eww open bar
+sfgpi3dzo
+sfimag
+sfpspig
+sfftoper
+cwpfind
+cd .config
+cd eww
+vim eww.yuck
+vim yuck/windows.yuck
+vim yuck/windows/app_launcher.yuck
+cd /etc/pacman.d
+sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+sudo pacman-key --lsign-key 3056513887B78AEB
+sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
+pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+sudo vim chaotic-mirrorlist
+cd ~/dotfile/config
+rm -rf waybar.bak
+vim waybar/config
+poweroff
+cd dotfile/config/waybar
+vim style.css
+pacman -S python-requests
+sudo pacman -S python-requests
+killall waybar
+waybar
+cd dotfile/config/bin
+vim wallpaper.sh
+sfimage
+cd /opt/madagascar-git/rsfcodes
+cd su/plot
+cd /opt/seismic-unix-git/src
+cd su
+cd ../..
+./weekday
+./velconv
+cd ~/dotfile/pkgbuilds/maintain/madagascar-git
+pacman -Qet
+vim cuda10/PKGBUILD
+pacman -Rns cuda-tools11
+sudo pacman -Rns cuda-tools11
+sudo pacman -Rns cuda11
+pacman -Rns cuda11 cuda-tools11
+sudo pacman -Rns cuda11 cuda-tools11
+cd ~/opt/cuda11
+cd ~/dotfile/pkgbuilds/build
+vim cuda11
+vim cuda11/PKGBUILD
+cd ~/opt
+rm -rf cuda11
+cp -r ~/dotfile/pkgbuilds/build/cuda11 ./cuda11
+cd cuda11
+cd ~/dotfile
+git add . && git commit -m "update pkgbuild built" && git push
+pacman -U cuda11-tools-11.8.0-1-x86_64.pkg.tar.zst
+pacman -U cuda11-11.8.0-1-x86_64.pkg.tar.zst --asdeps
+sudo pacman -U cuda11-11.8.0-1-x86_64.pkg.tar.zst --asdeps
+sudo pacman -U cuda11-tools-11.8.0-1-x86_64.pkg.tar.zst
+aurupgrade
+pacman -Ss v2raya
+pacman -S v2raya-tray-git
+pacman -Rns v2raya
+sudo pacman -Rns v2raya
+cd /etc/pacman.d/
+vim mirrorlist
+upgrade
+pacman -S v2ray
+sudo pacman -S v2ray
+sudo pacman -Rns v2ray
+sudo pacman -S archlinuxcn/7-zip
+sudo pacman -Rns archlinuxcn/7-zip
+sudo pacman -Rns 7-zip
+sudo pacman -S archlinuxcn/v2ray-git
+sudo pacman -Rns archlinuxcn/v2ray-git
+sudo pacman -Rns v2ray-git
+sudo vim mirrorlist
+sudo vim /etc/pacman.conf
+pacman -Syyu
+sudo pacman -Syyu
+sudo pacman -S v2raya-tray-git
+v2raya_tray
+sudo pacman -Rns v2raya-tray-git
+sudo pacman -S v2raya-git
+pwd
+cd bin
+cd include
+cd pkg/madagascar-git/opt/madagascar-git
+rm -rf src
+cd ../../..
+lls
+cd /opt/seismic-unix-git
+mkdir -p pkg/madagascar-git/opt/madagascar-git/src
+cp -r src/madagascar-git/* ./pkg/madagascar-git/opt/madagascar-git/src
+cd pkg/madagascar-git/opt/madagascar-git/
+vim .sconf_temp/conftest_01f4576b53bf027d4005e691710fe4ef_0.c
+vim .svnignore
+vim .circleci/config.yml
+cd /opt/cuda
+cd /opt/qqmusic
+cd ../visual-studio-code
+cd visual-studio-code
+cd ../madagascar-git
+vim configure
+vim config.log
+vim config.py
+vim .sconsign.dblite
+rm -rf .git*
+sudo rm -rf .git*
+CD ~/opt/madagascar
+cd ../../pkg/madagascar
+cd opt/madagascar
+cd ~/opt/madagascar
+cd ../
+cp madagascar-4.0.1.tar.gz ~/Downloads
+cd ~/Downloads
+cd madagascar
+mkdir test
+mv madagascar-4.0.1.tar.gz test
+cd test
+ex madagascar-4.0.1.tar.gz
+cd madagascar-4.0
+cd ~/opt/madagascar-git/src/madagascar-git
+pacman -Ql hyprland-nvidia
+pacman -Qi hyprland-nvidia
+pacman -Si hyprland-nvidia
+pacman -Qi v2raya-git
+pacman -Qi v2ray
+pacman -Qi cuda
+sudo pacman -S gdb --asdeps
+cleanup
+pacman -Qenq
+pacman -Qemq
+pacman -Rns cuda-tools cuda11
+sudo pacman -Rns cuda-tools cuda11
+sudo pacman -Rns cuda-tools cuda11-tools
+sudo pacman -Rns gdb
+git show
+pacman -Ss pfft
+paru -Ss pfft
+paru -Ss spfft
+paru -S spfft
+cd ~/Downloads/madagascar-git
+cd ../src/madagascar-git/
+./configure
+sudo pacman -Rns pfft
+sudo pacman -Rns spfft
+cd /opt/madagascar-git/src
+cd /opt/madagascar-git/
+sfgpufbrec3d
+sfzomig
+cd ~
+cd rsfcodes
+rm madagascar-git-r15659.d72996857-2-x86_64.pkg.tar.zst
+pacman -Rns madagascar
+sudo pacman -Rns madagascar
+sudo pacman -Rns madagascar-git
+rm -rf madagascar-git pkg src madagascar-git-r15659.d72996857-1-x86_64.pkg.tar.zst
+reboot
+Hyprland
+cd ~/opt/madagascar-git
+vim PKGBUILD
+systemctl start v2ray v2raya
+makepkg -s
+sudo pacman -U madagascar-git-r15659.d72996857-2-x86_64.pkg.tar.zst
+cd /opt/madagascar-git
+cd src
+cd book
+cp -r cwp ~/Downloads/cwp
+cd ~/Downloads/cwp
+source /etc/profile.d/madagascar-git.sh
+cd /opt/madagascar-git/share/madagascar/
+cd -
+sudo scons
+cd XFig
+eps
+vim SConstruct
+sfacdfwi
+vim book.tex
+vim geo2006TimeShiftImagingCondition/SConstruct
+cd aniso
+cd Sage
+sage
+sudo pacman -S sagemath
+cd ..
+scons
+sudo -E scons
+su
+pacman -Rns sagemath
+fk
+sudo pacman -Rns sagemath
+: 1699866681:0;cd Downloads/src/madagascar-git
+: 1699866686:0;cd book/bei
+: 1699866687:0;scons
+: 1699866691:0;source /etc/profile.d/madagascar-git.sh
+: 1699866692:0;scons
+: 1699866721:0;vim SConstruct
+: 1699866760:0;sudo chmod -R 755 /opt/madagascar-git
+: 1699866764:0;scons
+: 1699866773:0;sudo chmod -R 777 /opt/madagascar-git
+: 1699866775:0;scons
+: 1699866784:0;cd ../chen
+: 1699866788:0;cd test
+: 1699866791:0;cd fpca
+: 1699866793:0;scons
+: 1699866800:0;scons view
+: 1699866809:0;sudo chmod -R 755 /opt/madagascar-git
+: 1699866811:0;scons
+: 1699866824:0;mv SConstruct .SConstruct
+: 1699866831:0;rm -rf ./*
+: 1699866849:0;mv .SConstruct SConstruct
+: 1699866850:0;scons
+: 1699866859:0;vim .rsfproj
+: 1699866869:0;cd ../wavmod
+: 1699866871:0;scons
+: 1699866974:0;scons view
+: 1699866989:0;cd ~/
+: 1699866993:0;cd opt/madagascar-git
+: 1699866996:0;vim PKGBUILD
+: 1699867023:0;cd /usr/share
+: 1699867034:0;cd ~/opt
+: 1699867047:0;sudo pacman -Rns madagascar-git
+: 1699867054:0;sudo pacman -R madagascar-git
+: 1699867070:0;cd /opt/madagascar-git
+: 1699867075:0;cd share
+: 1699867075:0;lls
+: 1699867080:0;cd ../
+: 1699867082:0;cd ..
+: 1699867097:0;cd madagascar-git/share/madagascar
+: 1699867105:0;cd etc
+: 1699867107:0;cd ..
+: 1699867114:0;cd ../madagascar
+: 1699867117:0;cd ..
+: 1699867122:0;cd lib
+: 1699867126:0;cd python3.11
+: 1699867128:0;cd site-packages
+: 1699867133:0;cd ~/opt
+: 1699867137:0;cd madagascar-git
+: 1699867145:0;sudo rm -rf /opt/madagascar-git
+: 1699867154:0;sudo pacman -U madagascar-git-r15659.d72996857-2-x86_64.pkg.tar.zst
+: 1699867254:0;cd /opt/madagascar-git
+: 1699867259:0;cd share
+: 1699867455:0;cd ~/Downloads/src/madagascar-git/user
+: 1699867473:0;git checkout 584512bd1
+: 1699867487:0;git switch --detach eef8612ca
+: 1699867491:0;cd ..
+: 1699867509:0;git switch --detach fb924c903
+: 1699867522:0;cd user/cwp
+: 1699867525:0;cd ..
+: 1699867530:0;cd ../book/cwp
+: 1699867532:0;scons
+: 1699867557:0;sudo chmod a+w /opt/madagascar-git/share/madagascar
+: 1699867580:0;sudo chmod a+wr /opt/madagascar-git/share/madagascar
+: 1699867584:0;scons
+: 1699867606:0;rm -rf /var/tmp/
+: 1699867622:0;sudo rm -rf /var/tmp/cwp
+: 1699867625:0;scons
+: 1699867636:0;scons view
+: 1699867644:0;cd ../chen
+: 1699867648:0;cd test
+: 1699867654:0;cd xtime
+: 1699867657:0;scons
+: 1699867661:0;cd ../fpca
+: 1699867662:0;scons
+: 1699867668:0;scons view
+: 1699867677:0;sudo chmod a-wr /opt/madagascar-git/share/madagascar
+: 1699867680:0;scons
+: 1699867696:0;rm -rf Fig data.rsf med.rsf pca.rsf zero.rsf
+: 1699867726:0;sudo ls /opt/madagascar-git/share/madagascar
+: 1699867742:0;cd /opt/madagascar-git/share/madagascar
+: 1699867747:0;sudo ls
+: 1699867765:0;sudo rm -rf book madagas*
+: 1699867767:0;sudo ls
+: 1699867775:0;sudo rm -rf madagascar-git
+: 1699867777:0;sudo ls
+: 1699867780:0;cd ~/Downloads/src/madagascar-git/user
+: 1699867788:0;cd ../book/chen/test/fpca
+: 1699867790:0;scons
+: 1699867799:0;cd ../wavmod
+: 1699867801:0;scons
+: 1699867846:0;rm -rf /var/tmp/{book,chen,cwp,Downloads}
+: 1699867856:0;sudo rm -rf /var/tmp/{book,chen,cwp,Downloads}
+: 1699867861:0;scons
+: 1699867872:0;cd ../fpca
+: 1699867873:0;scons
+: 1699867884:0;cd ../../../cup
+: 1699867886:0;scons
+: 1699867916:0;sudo chmod a+wr /opt/madagascar-git/share/madagascar
+: 1699867918:0;scons
+: 1699867930:0;cd ../eeg
+: 1699867934:0;cd marchenko
+: 1699867937:0;cd example
+: 1699867944:0;sudo chmod a-wr /opt/madagascar-git/share/madagascar
+: 1699867946:0;scons
+: 1699867952:0;vim SConstruct
+: 1699867967:0;print
+: 1699867974:0;sudo chmod a+wr /opt/madagascar-git/share/madagascar
+: 1699867976:0;scons
+: 1699867983:0;sudo chmod a-wr /opt/madagascar-git/share/madagascar
+: 1699867986:0;cd ../example-cluster
+: 1699867988:0;scons
+: 1699868022:0;cd /usr/share
+: 1699868031:0;cd /opt/madagascar-git/share/
+: 1699868035:0;cd ma
+: 1699868038:0;cd madagascar
+: 1699868040:0;sudo la
+: 1699868045:0;sudo ls -la
+: 1699868062:0;sudo rm -rf book madagascar-git
+: 1699868067:0;sudo ls -la
+: 1699868073:0;cd etc
+: 1699868081:0;cd ~/Downloads/src/madagascar-git/user
+: 1699868089:0;scons
+: 1699868100:0;cd ../../
+: 1699868103:0;cd ..
+: 1699868107:0;cd jlu
+: 1699868131:0;sudo rm -rf /var/tmp/{book,chen,cwp,Downloads}
+: 1699868138:0;cd txsopf
+: 1699868141:0;scons
+: 1699868151:0;sudo chmod a+r /opt/madagascar-git/share/madagascar
+: 1699868153:0;scons
+: 1699868160:0;sudo chmod a+w /opt/madagascar-git/share/madagascar
+: 1699868161:0;scons
+: 1699868170:0;cd ../vdseislet
+: 1699868172:0;scon
+: 1699868174:0;scons
+: 1699868181:0;cd nmo
+: 1699868183:0;scons
+: 1699868193:0;scons join
+: 1699868199:0;cd ../usp
+: 1699868201:0;scons
+: 1699868215:0;cd ~/Downloads/src/madagascar-git/book
+: 1699868219:0;cd tongji
+: 1699868224:0;cd qswave
+: 1699868228:0;cd twolayer3dvti
+: 1699868234:0;sudo rm -rf /var/tmp/{book,chen,cwp,Downloads}
+: 1699868241:0;sudo chmod a-w /opt/madagascar-git/share/madagascar
+: 1699868243:0;scons
+: 1699868259:0;cd /opt/madagascar-git/share
+: 1699868261:0;cd madagascar
+: 1699868269:0;sudo rm -rf book
+: 1699868274:0;sudo rm -rf /var/tmp/{book,chen,cwp,Downloads}
+: 1699868279:0;sudo ls /var/tmp
+: 1699868306:0;sudo rm -rf /var/tmp/{cup,eeg,jlu,tongji}
+: 1699868313:0;scons
+: 1699868358:0;cd ../
+: 1699868366:0;cd ~/
+: 1699868375:0;sudo rm -rf /var/tmp/{tongji
+: 1699868385:0;sudo rm -rf /var/tmp/tongji
+: 1699868396:0;sudo pacman -Rn madagascar-git
+: 1699868407:0;cd opt/madagascar-git
+: 1699868414:0;sudo pacman -U madagascar-git-r15659.d72996857-2-x86_64.pkg.tar.zst
+: 1699868436:0;cd /var/tmp
+: 1699868450:0;cd src/madagascar-git/book
+: 1699868458:0;cd tutorial
+: 1699868464:0;cd authors/cwp
+: 1699868467:0;scons
+: 1699868491:0;cd /opt/madagascar-git/share
+: 1699868495:0;cd madagascar
+: 1699868522:0;sudo chmod a+w /opt/madagascar-git/share/madagascar
+: 1699868526:0;scons
+: 1699868703:0;cd ../thesis
+: 1699868705:0;scons
+: 1699868721:0;cd ../../../xjtu
+: 1699868726:0;cd test
+: 1699868731:0;cd gpufd3d
+: 1699868738:0;cd ../viscoa2d
+: 1699868739:0;scons
+: 1699868759:0;cd /opt/madagascar-git/share
+: 1699868767:0;cd madagascar
+: 1699868773:0;cd ../../
+: 1699868778:0;cd share
+: 1699868781:0;cd doc
+: 1699868784:0;cd madagascar
+: 1699868794:0;cd ../../man
+: 1699868807:0;cd ~/opt/madagascar-git
+: 1699868811:0;vim PKGBUILD
+: 1699869647:0;cd ~/opt/madagascar-git/pkg/madagascar-git/opt/madagascar-git/share
+: 1699869743:0;sudo pacman -Rn madagascar-git
+: 1699869754:0;reboot
+: 1699869992:0;rm -rf /var/tmp/authors /var/tmp/xjtu
+: 1699869996:0;cd ~
+: 1699872593:0;cd opt/
+: 1699872596:0;cd madagascar-git
+: 1699872603:0;pacman -U madagascar-git-r15659.d72996857-2-x86_64.pkg.tar.zst
+: 1699872605:0;fk
+: 1699872614:0;sudo pacman -U madagascar-git-r15659.d72996857-2-x86_64.pkg.tar.zst
+: 1699872643:0;cd pkg/madagascar-git/opt/madagascar-git
+: 1699872646:0;cd share
+: 1699872650:0;cd ~
+: 1699872654:0;cd /opt/madagascar-git
+: 1699872657:0;cd share
+: 1699872662:0;cd ~/
+: 1699872667:0;sudo pacman -Rn madagascar-git
+: 1699872675:0;cd opt/madagascar-git
+: 1699872680:0;sudo pacman -U madagascar-git-r15659.d72996857-2-x86_64.pkg.tar.zst
+: 1699872693:0;sudo pacman -Rn madagascar-git
+: 1699872701:0;cd /opt
+: 1699872711:0;sudo rm -rf madagascar-git
+: 1699872723:0;cd ~/opt/madagascar-git
+: 1699872730:0;sudo pacman -U madagascar-git-r15659.d72996857-2-x86_64.pkg.tar.zst
+: 1699872747:0;cd src/madagascar-git/book
+: 1699872750:0;cd bei
+: 1699872759:0;cd conj
+: 1699872763:0;scons
+: 1699872770:0;source /etc/profile.d/madagascar-git.sh
+: 1699872773:0;scons
+: 1699872812:0;sudo chmod a+r /opt/madagascar-git/share/madagascar
+: 1699872818:0;scons
+: 1699872828:0;sudo ls /opt/madagascar-git/share/madagascar
+: 1699872833:0;sudo ls /opt/madagascar-git/share/ -la
+: 1699872854:0;sudo chmod a+w /opt/madagascar-git/share/madagascar
+: 1699872864:0;sudo ls /opt/madagascar-git/share/ -la
+: 1699872873:0;sudo ls /opt/madagascar-git/share/madagascar/* la
+: 1699872878:0;sudo ls /opt/madagascar-git/share/madagascar/* -la
+: 1699872885:0;cd ..
+: 1699872890:0;cd conj
+: 1699872891:0;scons
+: 1699872900:0;cd sg
+: 1699872903:0;scons
+: 1699872908:0;cd XFig
+: 1699872913:0;cd Fig
+: 1699872916:0;cd ..
+: 1699872922:0;cd causint
+: 1699872924:0;scons
+: 1699872930:0;scons view
+: 1699872937:0;Hyprland
+: 1699872943:0;scons view
+: 1699872953:0;cd ~/opt/madagascar-git
+: 1699872956:0;vim PKGBUILD
+: 1699873022:0;cd src/madagascar-git/book
+: 1699873025:0;cd jlu
+: 1699873031:0;cd fspfint
+: 1699873033:0;scons
+: 1699873040:0;cd sean
+: 1699873042:0;scons
+: 1699873083:0;cd ../snr
+: 1699873084:0;scons
+: 1699873317:0;scons view
+: 1699873343:0;cd ../Fig
+: 1699873352:0;firefox ./causal2d.pdf
+: 1699873360:0;cd ../cmp
+: 1699873362:0;scons
+: 1699873381:0;cd ../../../hansung
+: 1699873384:0;cd cgg
+: 1699873386:0;scons
+: 1699873392:0;cd real
+: 1699873396:0;cd ../syn
+: 1699873398:0;scons
+: 1699873408:0;sfvelxf
+: 1699873435:0;cd ~/opt/madagascar-git/src/madagascar-git/
+: 1699873479:0;scons -h
+: 1699873541:0;echo $RSFROOT
+: 1699873550:0;./configure
+: 1699873567:0;make
+: 1699874263:0;cd /etc/
+: 1699874265:0;vim makepkg.conf
+: 1699874328:0;sudo vim makepkg.conf
+: 1699874363:0;./configure
+: 1699874374:0;make
+: 1699874399:0;scons
+: 1699874422:0;cd /opt/madagascar-git/lib
+: 1699874433:0;cd python3.11
+: 1699874437:0;cd ../python3.11
+: 1699874438:0;cd ..
+: 1699874495:0;./configure API=F90
+: 1699874512:0;./configure API=F90,swig
+: 1699874544:0;./configure API=F90,c++
+: 1699874565:0;vim config.py
+: 1699874599:0;./configure API=F90,c++,python
+: 1699874610:0;vim config.py
+: 1699874658:0;cd build/api
+: 1699874673:0;./configure API=F90,c++,python,julia
+: 1699874695:0;sudo pacman -S julia
+: 1699874707:0;./configure API=F90,c++,python,julia
+: 1699874719:0;julia
+: 1699874832:0;echo $JULIA_LOAD_PATH
+: 1699874848:0;sudo pacman -S jave
+: 1699874880:0;cat /etc/profile.d/jre.sh
+: 1699874917:0;source /etc/profile.d/*.sh
+: 1699874944:0;./configure API=F90,c++,python,julia,java
+: 1699875090:0;cd src/api/c++
+: 1699875093:0;cd test
+: 1699875098:0;sudo soncs
+: 1699875104:0;sudo scons
+: 1699875116:0;su
+: 1699875222:0;code
+: 1699875361:0;cd ~
+: 1699875370:0;sudo pacman -Rn madagascar-git
+: 1699875375:0;cd /opt
+: 1699875383:0;cd madagascar-git
+: 1699875385:0;cd lib
+: 1699875388:0;cd python3.11
+: 1699875390:0;cd site-packages
+: 1699875393:0;cd rsf/__pycache__
+: 1699875396:0;cd ~/
+: 1699875430:0;cd /opt
+: 1699875436:0;cd madagascar-git
+: 1699875443:0;cd share/madagascar/
+: 1699875448:0;cd etc/__pycache__
+: 1699875503:0;update
+: 1699875521:0;find /etc -name '*.pacnew'
+: 1699875533:0;find /etc -name '*.pacnew' -o -name '*.pacsave'
+: 1699875534:0;fk
+: 1699875542:0;sudo find /etc -name '*.pacnew' -o -name '*.pacsave'
+: 1699875561:0;cd /etc/pacman.d
+: 1699875566:0;cd /opt
+: 1699875581:0;sudo rm -rf madagascar-git
+: 1699875586:0;cd ~/opt
+: 1699875590:0;cd madagascar-git
+: 1699875594:0;sudo pacman -U madagascar-git-r15659.d72996857-2-x86_64.pkg.tar.zst
+: 1699875617:0;sudo pacman -Rnsv madagascar-git
+: 1699875635:0;cd /opt
+: 1699875653:0;cd ~/opt/madagascar-git
+: 1699875656:0;vim PKGBUILD
+: 1699875804:0;cd api
+: 1699875809:0;vim README.txt
+: 1699875833:0;julia
+: 1699875839:0;cd ../..
+: 1699875841:0;cd madagascar-git
+: 1699875845:0;./configure API=F90,c++,python,julia
+: 1699875861:0;cd ..
+: 1699875868:0;pacman -U madagascar-git-r15659.d72996857-2-x86_64.pkg.tar.zst
+: 1699875870:0;fk
+: 1699875878:0;sudo pacman -U madagascar-git-r15659.d72996857-2-x86_64.pkg.tar.zst
+: 1699875892:0;cd src/madagascar-git/api
+: 1699875901:0;cd ..
+: 1699875903:0;./configure API=F90,c++,python,julia
+: 1699875984:0;cd ~/Downloads/src/madagascar-git
+: 1699875987:0;./configure API=F90,c++,python,julia
+: 1699876004:0;cd ~/opt
+: 1699876007:0;cd madagascar-git
+: 1699876010:0;vim PKGBUILD
+: 1699876061:0;rm -rf madagascar-git pkg src madagascar-git-r15659.d72996857-1-x86_64.pkg.tar.zst
+: 1699876067:0;rm -rf madagascar-git-r15659.d72996857-2-x86_64.pkg.tar.zst
+: 1699876072:0;makepkg -s
+: 1699876190:0;python
+: 1699876214:0;systemctl start v2ray v2raya
+: 1699876223:0;makepkg -s
+: 1699877435:0;source /etc/profile.d/*.sh
+: 1699877446:0;sudo pacman -U madagascar-git-r15659.d72996857-2-x86_64.pkg.tar.zst
+: 1699877463:0;sudo pacman -Rns madagascar-git
+: 1699877470:0;sudo pacman -U madagascar-git-r15659.d72996857-2-x86_64.pkg.tar.zst
+: 1699877489:0;cd /opt/madagascar-git/share
+: 1699877494:0;cd ~
+: 1699877510:0;sudo pacman -Rns madagascar-git
+: 1699877527:0;cd ~/
+: 1699877544:0;cd opt/madagascar-git
+: 1699877559:0;sudo pacman -U madagascar-git-r15659.d72996857-2-x86_64.pkg.tar.zst
+: 1699877569:0;cd /opt/madagascar-git/share
+: 1699877575:0;cd ~/opt/madagascar-git
+: 1699877580:0;vim PKGBUILD
+: 1699877722:0;makepkg --printsrcinfo > .SRCINFO
+: 1699877727:0;git add PKGBUILD .SRCINFO
+: 1699877838:0;git commit -m "add c++ and fortran api, and give users write permission to share/madagascar for repeatable test"
+: 1699877840:0;git show
+: 1699877863:0;cd /opt/madagascar-git
+: 1699877865:0;cd src
+: 1699877873:0;git push
+: 1699877900:0;cd ../
+: 1699877902:0;cd madagascar
+: 1699877905:0;vim PKGBUILD
+: 1699877949:0;cd ~/opt/madagascar-git
+: 1699877952:0;vim PKGBUILD
+: 1699878016:0;git show
+: 1699878161:0;makepkg --printsrcinfo > .SRCINFO
+: 1699878166:0;git commit -m "add c++ and fortran api, and give users write permission to share/madagascar for repeatable test"
+: 1699878171:0;git add PKGBUILD .SRCINFO
+: 1699878173:0;git commit -m "add c++ and fortran api, and give users write permission to share/madagascar for repeatable test"
+: 1699878176:0;git show
+: 1699878194:0;git push
+: 1699878214:0;cd ~/dotfile/pkgbuilds/maintain
+: 1699878234:0;cp ~/opt/madagascar/PKGBUILD ./madagascar/PKGBUILD
+: 1699878246:0;cp ~/opt/madagascar/.SRCINFO ./madagascar/.SRCINFO
+: 1699878260:0;cp ~/opt/madagascar-git/PKGBUILD ./madagascar-git/PKGBUILD
+: 1699878270:0;cp ~/opt/madagascar-git/.SRCINFO ./madagascar-git/.SRCINFO
+: 1699878279:0;cd ~/dotfile
+: 1699878291:0;git add . && git commit -m "update pkgbuild maintained" && git push
