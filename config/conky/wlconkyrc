@@ -247,7 +247,7 @@ ${color2}Distro:${color}${alignr} ${alignr}${execi 6000 lsb_release -a | grep 'D
 ${color2}Kernel:${color}${alignr}${exec uname} ${exec uname -r}
 ${color2}Packages:${color}${alignr} ${execi 600 pacman -Qq | wc -l} (${execi 600 checkupdates | wc -l} update)
 ${color2}Uptime:${color} ${alignr}${uptime}
-${color2}Battery:${color}${goto 1340}${battery_time}${alignr}${voffset 1}${battery_bar 14,80}${alignr}
+${color2}Battery:${color}${goto 1423}${battery_time}${alignr}${voffset 1}${battery_bar 14,80}${alignr}
 ${color5}${voffset 3}${font Roboto:size=10}C P U  ${hr 2}${font}${color}${voffset 2}
 ${color2}Name:${color}${alignr}${execp  env LANG=en_US.UTF-8 lscpu | sed -nr '/Model name/ s/.*:\s*(.*) CPU .*/\1/p'}
 ${color2}Frequency:${color} $alignr${freq_g (1)} GHz

@@ -356,3 +356,8 @@ exit
 : 1700224015:0;vim wlconkyrc
 : 1700224145:0;cd ~/dotfile
 : 1700224162:0;git add . && git commit -m "conkyrc on wayland" && git push
+: 1700224186:0;reboot
+: 1700224268:0;Hyprland
+: 1700225358:0;vim .config/conky/wlconkyrc
+: 1700225568:0;cd dotfile
+: 1700225570:0;git add . && git commit -m "conkyrc on wayland" && git push
