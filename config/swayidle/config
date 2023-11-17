@@ -1,7 +1,7 @@
-lock '~/.config/bin/wayland_session_lock'
-timeout 1801 '~/.config/bin/wayland_session_lock' 
+lock '~/.config/scripts/wayland_session_lock'
+timeout 1801 '~/.config/scripts/wayland_session_lock' 
 timeout 2401 'hyprctl dispatch dpms off eDP-1'
-before-sleep '~/.config/bin/wayland_session_lock' 
+before-sleep '~/.config/scripts/wayland_session_lock' 
 unlock 'hyprctl dispatch dpms on eDP-1'
 after-resume 'hyprctl dispatch dpms on eDP-1'
 

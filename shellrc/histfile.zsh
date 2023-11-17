@@ -361,3 +361,203 @@ exit
 : 1700225358:0;vim .config/conky/wlconkyrc
 : 1700225568:0;cd dotfile
 : 1700225570:0;git add . && git commit -m "conkyrc on wayland" && git push
+: 1700225592:0;vim .config/conky/wlconkyrc
+: 1700225595:0;cd ..
+: 1700225596:0;vim .config/conky/wlconkyrc
+: 1700226055:0;vim .config/hypr/configs/monitors.conf
+: 1700226063:0;Hyprland
+: 1700226075:0;conky -c .config/conky/wlconkyrc
+: 1700226083:0;killall conky
+: 1700226085:0;conky -c .config/conky/wlconkyrc
+: 1700226106:0;vim .config/conky/wlconkyrc
+: 1700226435:0;vim .config/hypr/configs/monitors.conf
+: 1700226443:0;Hyprland
+: 1700226450:0;reboot
+: 1700226479:0;Hyprland
+: 1700230750:0;vim .config/swayidle/config
+: 1700230778:0;upgrade
+: 1700230783:0;reboot
+: 1700231077:0;Hyprland
+: 1700231101:0;cd Downloads
+: 1700231107:0;cd dotfiles
+: 1700231115:0;cd scripts
+: 1700231118:0;vim cliphist-rofi
+: 1700231123:0;./cliphist-rofi
+: 1700231129:0;vim mpc_dunst
+: 1700231134:0;./mpc_dunst
+: 1700231137:0;./OpenApps
+: 1700231147:0;./screenkey
+: 1700231154:0;./volume_dunst
+: 1700231164:0;vim utils/reset_navicat.py
+: 1700231173:0;cd ..
+: 1700231186:0;vim .git/config
+: 1700232141:0;ags
+: 1700232147:0;cd ~/rices
+: 1700232150:0;cd aylur_dotfile
+: 1700232217:0;sudo pacman -Rns gufw
+: 1700232223:0;cd /etc
+: 1700232230:0;cd gufw
+: 1700232234:0;vim gufw.cfg
+: 1700232239:0;sudo vim Home.profile
+: 1700232247:0;cd ..
+: 1700232253:0;sudo pacman -S gufw
+: 1700232263:0;sudo pacman -Rns gufw
+: 1700232267:0;cd ufw
+: 1700232272:0;cd ..
+: 1700232282:0;pacman -Qenq | ufw
+: 1700232292:0;pacman -Qenq | grep uf
+: 1700232299:0;sudo rm -rf gufw
+: 1700232311:0;sudo pacman -Rns jdk-openjdk
+: 1700232331:0;pacman -Qenq
+: 1700232350:0;cleanup
+: 1700232356:0;sudo pacman -Rns java-runtime-common
+: 1700232362:0;sudo pacman -Rns jre8-openjdk
+: 1700232366:0;sudo pacman -Rns jre8-openjdk-headless
+: 1700232377:0;pacman -Rns jbigkit
+: 1700232386:0;sudo pacman -Rns jbigkit
+: 1700232397:0;cd ~/rices
+: 1700232405:0;git clone https://github.com/aylur/ags
+: 1700232412:0;cd ags
+: 1700232416:0;cd example
+: 1700232473:0;cd simple-bar
+: 1700232481:0;ags -c ./config.js
+: 1700232501:0;ags -c /home/kelen/rices/ags/example/simple-bar
+: 1700232513:0;ags --help
+: 1700232527:0;ags -c /home/kelen/rices/ags/example/simple-bar/config.js
+: 1700232549:0;cd ~/
+: 1700232552:0;cd rices
+: 1700232561:0;cp -r ags/example/simple-bar ./
+: 1700232564:0;cd simple-bar
+: 1700232567:0;vim config.js
+: 1700232602:0;ags -c ~/rices/simple-bar/config.js
+: 1700232609:0;vim config.js
+: 1700232843:0;vim style.css
+: 1700232870:0;vim config.js
+: 1700232880:0;vim ~/.vimrc
+: 1700232889:0;vim config.js
+: 1700232899:0;vim ~/.vimrc
+: 1700232914:0;vim ./config.js
+: 1700232964:0;ags -c ~/rices/simple-bar/config.js
+: 1700232969:0;vim ./config.js
+: 1700232977:0;ags -c ~/rices/simple-bar/config.js
+: 1700232981:0;vim ./config.js
+: 1700233026:0;vim ~/.config/vimrc/vimrcs/filetypes.vim
+: 1700233087:0;vim ~/.vimrc
+: 1700233092:0;vim config.js
+: 1700233117:0;vim .vimrc
+: 1700233124:0;vim ~/.config/vimrc/vimrcs/filetypes.vim
+: 1700233186:0;vim config.js
+: 1700233696:0;vim ~/.config/vimrc/vimrcs/plugins_config.vim
+: 1700233703:0;vim .vimrc
+: 1700233743:0;vim ~/.config/vimrc/my_configs.vim
+: 1700233758:0;vim config.js
+: 1700233764:0;vim ~/.vimrc
+: 1700233780:0;vim ~/.config/vimrc/my_configs.vim
+: 1700233790:0;vim ~/.config/vimrc/vimrcs/basic.vim
+: 1700233822:0;vim config.js
+: 1700233849:0;vim ~/.config/vimrc/my_configs.vim
+: 1700234226:0;vim ~/.vimrc
+: 1700234272:0;cd ~/.config/vimrc/
+: 1700234279:0;vim ~/.vimrc
+: 1700234353:0;cd ~/rices/ags/
+: 1700234361:0;cd ..
+: 1700234364:0;cd simple-bar
+: 1700234365:0;vim config.js
+: 1700234394:0;source ~/.config/vimrc/my_configs.vim
+: 1700234399:0;vim ~/.config/vimrc/my_configs.vim
+: 1700234408:0;vim ~/.vimrc
+: 1700234449:0;cd dotfile/config/vimrc
+: 1700234460:0;vim install_awesome_vimrc.sh
+: 1700234486:0;vim vimrcs/basic.vim
+: 1700234501:0;vim my_configs.vim
+: 1700234515:0;vim rices/simple-bar/config.js
+: 1700234530:0;./install_awesome_vimrc.sh
+: 1700234537:0;vim rices/simple-bar/config.js
+: 1700234557:0;vim rices/ags/example/notification-center/config.js
+: 1700234564:0;vim --help
+: 1700234576:0;vim .vimrc
+: 1700234828:0;vim ~/.config/vimrc/vimrcs/basic.vim
+: 1700234840:0;cd dotfile/config/
+: 1700234844:0;cd ..
+: 1700234849:0;vim vimrc
+: 1700234893:0;vim ~/.config/vimrc/install_awesome_vimrc.sh
+: 1700234923:0;cd config
+: 1700234929:0;rm -rf vimrc
+: 1700234931:0;cd ~/
+: 1700234939:0;rm .vim*
+: 1700234952:0;git clone https://github.com/amix/vimrc
+: 1700234965:0;vim vimrc/install_awesome_vimrc.sh
+: 1700234990:0;cd dotfile/config
+: 1700235048:0;cd ~/vimrc
+: 1700235054:0;vim install_awesome_vimrc.sh
+: 1700235108:0;cd ..
+: 1700235122:0;mv vimrc ~/dotfile/config
+: 1700235128:0;cd dotfile/config/vimrc
+: 1700235139:0;mv .git .git.bak
+: 1700235149:0;mv .git.bak .git
+: 1700235153:0;mv .git .git.bak
+: 1700235168:0;sh ./install_awesome_vimrc.sh
+: 1700235189:0;cd ~/dotfile
+: 1700235217:0;vim install.sh
+: 1700235299:0;vim vimrc
+: 1700235323:0;cd config/vimrc
+: 1700235327:0;cd ..
+: 1700235330:0;cd vimrc
+: 1700235354:0;cd ..
+: 1700235371:0;vim vimrc/install_awesome_vimrc.sh
+: 1700235394:0;mkdir vim_runtime
+: 1700235396:0;cd ..
+: 1700235401:0;vim install.sh
+: 1700235680:0;sh ./install.sh
+: 1700235683:0;cd ~
+: 1700235697:0;cd ~/dotfile/config/vimrc
+: 1700235701:0;cd ~/dotfile
+: 1700235706:0;cd config/vimrc
+: 1700235716:0;sh install_awesome_vimrc.sh
+: 1700235719:0;cd ~/
+: 1700235724:0;vim .vimrc
+: 1700235768:0;vim .gitconfig
+: 1700235791:0;cd dotfile
+: 1700235794:0;rm vimrc
+: 1700235796:0;cd ~
+: 1700235800:0;rm .vimrc
+: 1700235804:0;cd ~/dotfile/config/vimrc
+: 1700235806:0;sh install_awesome_vimrc.sh
+: 1700235808:0;cd ~
+: 1700235811:0;vim .vimrc
+: 1700235852:0;cd dotfile/config
+: 1700235857:0;cd vim_runtime
+: 1700235860:0;cd ..
+: 1700235909:0;rm -rf vim_runtime
+: 1700235917:0;mv vimrc vim_rumtime
+: 1700235920:0;cd vim_rumtime
+: 1700235925:0;cd ~
+: 1700235931:0;vim .vimrc
+: 1700235958:0;rm .vim_runtime
+: 1700235968:0;cd ~/dotfile/config/vim_rumtime/
+: 1700235975:0;sh install_awesome_vimrc.sh
+: 1700235981:0;cd ..
+: 1700235988:0;sh install.sh
+: 1700235992:0;cd config/vim_rumtime
+: 1700235997:0;sh install_awesome_vimrc.sh
+: 1700236022:0;vim dotfile/install.sh
+: 1700236038:0;cd ..
+: 1700236043:0;mv vim_rumtime vim_runtime
+: 1700236046:0;cd vim_runtime
+: 1700236048:0;sh install_awesome_vimrc.sh
+: 1700236053:0;cd dotfile
+: 1700236056:0;sh install.sh
+: 1700236058:0;sh install_awesome_vimrc.sh
+: 1700236061:0;cd ..
+: 1700236073:0;mv .vimrc dotfile/vimrc
+: 1700236076:0;cd dotfile
+: 1700236078:0;sh install.sh
+: 1700236089:0;cd config/vim_runtime
+: 1700236098:0;vim .gitignore
+: 1700236111:0;vim my_configs.vim
+: 1700236169:0;vim install_awesome_parameterized.sh
+: 1700236213:0;vim .gitignore
+: 1700236231:0;cd ~/dotfile
+: 1700236235:0;cd ..
+: 1700236251:0;cd dotfile
+: 1700236259:0;git add . && git commit -m "reset vimrc" && git push

@@ -43,6 +43,10 @@ for name in ${dotfiles}/config/*; do
     target="$HOME/.config/"
     #backup $target
     ln -sf $name $target
+    if [ `basename $name` = "vim_runtime" ]; then
+	    target="$HOME/.vim_runtime"
+	    ln -sf $name $target
+    fi
 
 done
 for name in ${dotfiles}/x11/*; do
