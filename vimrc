@@ -5,7 +5,7 @@ set runtimepath+=~/.config/vimrc
 
 source ~/.config/vimrc/vimrcs/basic.vim
 source ~/.config/vimrc/vimrcs/filetypes.vim
-source ~/.config/vimrc/vimrcs/plugins_config.vim
+"source ~/.config/vimrc/vimrcs/plugins_config.vim
 source ~/.config/vimrc/vimrcs/extended.vim
 try
   source ~/.config/vimrc/my_configs.vim

@@ -9,9 +9,13 @@ function run {
 
 
 run keepassxc
-run ~/dotfile/config/bin/background-changer
-run ~/dotfile/config/bin/idle.sh
-run copyq --start-server
+run ~/dotfile/config/scripts/background-changer
+run ~/dotfile/config/scripts/idle.sh
+run ~/dotfile/config/scripts/agsload.sh
+#run copyq --start-server
+run wl-paste --type text -watch cliphist store
+run wl-paste --type image -watch cliphist store
+
 run fcitx5 -d
 run udiskie
 run waybar
@@ -31,9 +35,9 @@ run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #run xfce4-power-manager --no-daemon
 #run blueman-applet
 #run thunar --daemon
-# sh ~/dotfile/config/bin/lightsonplus/lightson+ 2>/dev/null
+# sh ~/dotfile/config/scripts/lightsonplus/lightson+ 2>/dev/null
 # xautolock -time 30 -locker slock 2>/dev/null
 # swhks
 # pkexec swhkd  # -c $HOME/.config/swhkd/swhkdrc &
-# sh $HOME/.config/bin/pkill_bc
-# sh $HOME/.config/bin/pkill_engine
+# sh $HOME/.config/scripts/pkill_bc
+# sh $HOME/.config/scripts/pkill_engine

@@ -2,6 +2,6 @@
 
 
 while true; do
-    ~/dotfile/config/bin/wallpaper.sh
+    ~/dotfile/config/scripts/wallpaper.sh
     sleep 30m
 done

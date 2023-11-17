@@ -3,7 +3,7 @@
     "position": "bottom",
     "height": 30, // Waybar height (to be removed for auto height)
     //"width": 10,
-    "margin-top": 6,
+    "margin-top": 1,
     "margin-left": 10,
     "margin-bottom": 0,
     "margin-right": 10,
