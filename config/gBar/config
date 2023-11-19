@@ -89,7 +89,7 @@ CenterTime: false
 TimeSpace: 10
 
 # Set datetime style
-DateTimeStyle: %H:%M\n  %a\n %Y\n%m/%d
+DateTimeStyle: %H:%M\n  %a \n %Y \n%m/%d
 
 # Set datetime locale (defaults to system locale if not set or set to empty string)
 #DateTimeLocale: de_DE.utf8

@@ -87,3 +87,35 @@
 : 1700382951:0;mv window.png windows.png
 : 1700382953:0;cd ..
 : 1700382955:0;git add . && git commit -m "update readme" && git push
+: 1700383195:0;cd ~
+: 1700383198:0;cd rices
+: 1700383215:0;git clone https://github.com/Tail-R/Tail-R
+: 1700383306:0;systemctl start v2raya v2ray
+: 1700383312:0;git clone https://github.com/Tail-R/Tail-R
+: 1700383325:0;git clone https://github.com/Tail-R/xmonad_eww_dotfiles
+: 1700383689:0;git clone https://github.com/yingchangliu/yingchangliu
+: 1700383694:0;cd yingchangliu
+: 1700383705:0;cp ../Tail-R/README.md ./
+: 1700383706:0;vim README.md
+: 1700384308:0;cd ..
+: 1700384312:0;rm -rf yingchangliu
+: 1700384493:0;vim ~/.config/gBar/config
+: 1700384517:0;gBar bar 0
+: 1700384525:0;killall gBar
+: 1700384526:0;gBar bar 0
+: 1700384539:0;vim ~/.config/gBar/config
+: 1700384544:0;gBar bar 0
+: 1700384546:0;vim ~/.config/gBar/config
+: 1700384550:0;gBar bar 0
+: 1700384577:0;Hyprland
+: 1700384584:0;fetch
+: 1700384590:0;wttr
+: 1700384631:0;fetchch
+: 1700384633:0;fetch
+: 1700384645:0;vim dotfile/README.md
+: 1700384674:0;fetch
+: 1700384717:0;cd dotfile
+: 1700384719:0;cd assets
+: 1700384730:0;cp ~/Pictures/screenshots/Sun-Nov-19-05:05:09-PM-HKT-2023.png ./windows.png
+: 1700384733:0;cd ..
+: 1700384736:0;git add . && git commit -m "update readme" && git push
