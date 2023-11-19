@@ -4,6 +4,9 @@
 
 I'm working with Arch Linux and Debian.
 
+## Styles
+![image](./assets/desktop.png)
+
 ## Installing
 
 ```console
@@ -32,6 +35,7 @@ A concise guide to archlinux in Chinese https://arch.icekylin.online/
 - dust
 - eww
 - fastfetch
+- gBar
 - htop
 - kitty
 - mpd
@@ -40,6 +44,7 @@ A concise guide to archlinux in Chinese https://arch.icekylin.online/
 - picom
 - pip
 - powerlevel10k
+- swaylock-effects
 - thefuck
 - vim
 - waybar
@@ -49,6 +54,7 @@ A concise guide to archlinux in Chinese https://arch.icekylin.online/
 Not every software has its pkgbuild, and some softwares are not visible due to privacy agreements. I will only list the names of these softwares.
 - seismicunix
 - madagascar
+- cuda11
 - CREWES, DENISE, Devito, GMT, HypoDD, k-wave, IFOS, IRIS, Obspy, sac, SLIM, SOFI, etc. 
 
 ### Scripts
