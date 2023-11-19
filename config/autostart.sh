@@ -8,7 +8,7 @@ function run {
 }
 
 
-run keepassxc
+#run keepassxc
 run ~/dotfile/config/scripts/background-changer
 run ~/dotfile/config/scripts/idle.sh
 run ~/dotfile/config/scripts/agsload.sh
@@ -18,10 +18,12 @@ run wl-paste --type image -watch cliphist store
 
 run fcitx5 -d
 run udiskie
-run waybar
+#run waybar
+run gBar bar 0
 run dunst
 run conky -c ~/.config/conky/wlconkyrc
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+run blueman-applet
 #run dbus-update-activation-environment --all
 
 #run waybar
