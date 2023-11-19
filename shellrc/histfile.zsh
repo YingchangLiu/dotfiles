@@ -73,3 +73,6 @@
 : 1700382617:0;cd ~/dotfile
 : 1700382624:0;vim README.md
 : 1700382648:0;git add . && git commit -m "update readme" && git push
+: 1700382740:0;fetch
+: 1700382783:0;cp ~/Pictures/screenshots/Sun-Nov-19-04:32:37-PM-HKT-2023.png ~/dotfile/assets/window.png
+: 1700382790:0;git add . && git commit -m "update readme" && git push
