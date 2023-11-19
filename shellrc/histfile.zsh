@@ -82,3 +82,8 @@
 : 1700382901:0;cd ..
 : 1700382905:0;git add .
 : 1700382911:0;git add . && git commit -m "update readme" && git push
+: 1700382939:0;vim README.md
+: 1700382946:0;cd assets
+: 1700382951:0;mv window.png windows.png
+: 1700382953:0;cd ..
+: 1700382955:0;git add . && git commit -m "update readme" && git push
