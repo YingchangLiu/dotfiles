@@ -119,3 +119,12 @@
 : 1700384730:0;cp ~/Pictures/screenshots/Sun-Nov-19-05:05:09-PM-HKT-2023.png ./windows.png
 : 1700384733:0;cd ..
 : 1700384736:0;git add . && git commit -m "update readme" && git push
+: 1700384765:0;vim .gitignore
+: 1700387693:0;pacman -Ss discord
+: 1700387717:0;sudo pacman -S discord
+: 1700387730:0;discord
+: 1700391103:0;cd dotfile
+: 1700391106:0;vim README.md
+: 1700391537:0;cd ~
+: 1700391936:0;cd dotfile
+: 1700391937:0;git add . && git commit -m "update readme" && git push

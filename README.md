@@ -4,7 +4,8 @@
 
 I'm working with Arch Linux and Debian.
 
-## Styles
+## Styles  
+**"Keep it simple stupid."**
 ![image](./assets/desktop.png)
 ![image](./assets/windows.png)
 
@@ -55,7 +56,7 @@ A concise guide to archlinux in Chinese https://arch.icekylin.online/
 Not every software has its pkgbuild, and some softwares are not visible due to privacy agreements. I will only list the names of these softwares.
 - seismicunix
 - madagascar
-- cuda11
+- cuda-multiversion
 - CREWES, DENISE, Devito, GMT, HypoDD, k-wave, IFOS, IRIS, Obspy, sac, SLIM, SOFI, etc. 
 
 ### Scripts
