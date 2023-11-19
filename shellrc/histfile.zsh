@@ -76,3 +76,9 @@
 : 1700382740:0;fetch
 : 1700382783:0;cp ~/Pictures/screenshots/Sun-Nov-19-04:32:37-PM-HKT-2023.png ~/dotfile/assets/window.png
 : 1700382790:0;git add . && git commit -m "update readme" && git push
+: 1700382823:0;cd assets
+: 1700382827:0;n
+: 1700382837:0;git add . && git commit -m "update readme" && git push
+: 1700382901:0;cd ..
+: 1700382905:0;git add .
+: 1700382911:0;git add . && git commit -m "update readme" && git push
