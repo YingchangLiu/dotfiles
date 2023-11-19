@@ -6,6 +6,7 @@ I'm working with Arch Linux and Debian.
 
 ## Styles
 ![image](./assets/desktop.png)
+![image](./assets/window.png)
 
 ## Installing
 

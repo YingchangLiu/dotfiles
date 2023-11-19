@@ -60,3 +60,16 @@
 : 1700382150:0;wttr
 : 1700382159:0;fetch
 : 1700382268:0;git add . && git commit -m "update readme" && git push
+: 1700382305:0;fetch
+: 1700382309:0;wttr
+: 1700382317:0;fetch
+: 1700382443:0;wttr
+: 1700382454:0;cd dotfile
+: 1700382458:0;vim README.md
+: 1700382496:0;cd .config/scripts
+: 1700382538:0;chmod a+x agsloads.sh
+: 1700382541:0;fetch
+: 1700382612:0;cp ~/Pictures/screenshots/Sun-Nov-19-04:27:54-PM-HKT-2023.png ~/dotfile/assets/window.png
+: 1700382617:0;cd ~/dotfile
+: 1700382624:0;vim README.md
+: 1700382648:0;git add . && git commit -m "update readme" && git push
