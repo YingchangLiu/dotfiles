@@ -128,3 +128,37 @@
 : 1700391537:0;cd ~
 : 1700391936:0;cd dotfile
 : 1700391937:0;git add . && git commit -m "update readme" && git push
+: 1700396656:0;upgrade
+: 1700396681:0;aurupgrade
+: 1700396997:0;reboot
+: 1700397903:0;Hyprland
+: 1700398927:0;systemctl start v2raya v2ray
+: 1700402599:0;upgrade
+: 1700403415:0;cleanup
+: 1700407641:0;fetch
+: 1700407649:0;sfaddimag
+: 1700410689:0;upgrade
+: 1700410698:0;aurupgrade
+: 1700410735:0;vim ~/.config/autostart.sh
+: 1700410761:0;poweroff
+: 1700442932:0;Hyprland
+: 1700443249:0;upgrade
+: 1700443257:0;aurupgrade
+: 1700443282:0;reboot
+: 1700443594:0;Hyprland
+: 1700446321:0;cd /opt/madagascar-git
+: 1700446325:0;cd src
+: 1700447131:0;cd api/c
+: 1700447141:0;less blas.c
+: 1700449682:0;cd ../
+: 1700449691:0;cd ../user
+: 1700449707:0;cd seisinv
+: 1700449712:0;less pwd.c
+: 1700449727:0;../
+: 1700449730:0;cd ..
+: 1700449736:0;cd chengjb
+: 1700449895:0;less Mvti2dpseudoplrsep1.cc
+: 1700451802:0;cd ~/dotfile/shellrc
+: 1700451808:0;vim zshplugin.zsh
+: 1700451829:0;cd ~/dotfile
+: 1700451853:0;git add . && git commit -m "fix zshplugin when there is not kitty installed" && git push

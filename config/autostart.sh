@@ -23,7 +23,7 @@ run gBar bar 0
 run dunst
 run conky -c ~/.config/conky/wlconkyrc
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-run blueman-applet
+# run blueman-applet
 #run dbus-update-activation-environment --all
 
 #run waybar
