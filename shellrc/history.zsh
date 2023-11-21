@@ -1,3 +1,3 @@
-HISTFILE=~/dotfile/shellrc/histfile.zsh
+HISTFILE=~/dotfile/shellrc/histfile
 HISTSIZE=1234567890
 SAVEHIST=1234567890

@@ -7,7 +7,7 @@ fi
 
 export SHELLROOT="$HOME/dotfile/shellrc"
 
-source "$SHELLROOT/history.zsh"
+source "$SHELLROOT/history.sh"
 source "$SHELLROOT/environment.sh"
 # Enable some plugins of zsh installed by kelen
 source "$SHELLROOT/zshplugin.zsh"
