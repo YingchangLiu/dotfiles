@@ -162,3 +162,59 @@
 : 1700451808:0;vim zshplugin.zsh
 : 1700451829:0;cd ~/dotfile
 : 1700451853:0;git add . && git commit -m "fix zshplugin when there is not kitty installed" && git push
+: 1700457631:0;upgrade
+: 1700457635:0;aurupgrade
+: 1700461470:0;systemctl start v2raya v2ray
+: 1700471941:0;ping www.baidu.com
+: 1700472005:0;Hyprland
+: 1700472020:0;upgrade
+: 1700472028:0;aurupgrade
+: 1700472085:0;sudo pacman -Rns eww
+: 1700472093:0;sudo pacman -Rns eww-tray-wayland-git
+: 1700472107:0;sudo pacman -Qq
+: 1700472263:0;systemctl start v2raya v2ray
+: 1700484838:0;upgrade
+: 1700484843:0;aurupgrade
+: 1700493420:0;poweroff
+: 1700533382:0;Hyprland
+: 1700533436:0;sfkirchinv
+: 1700533455:0;sfkirmig
+: 1700533705:0;cd /opt/madagascar-git/src/user/llisiw
+: 1700533758:0;vim Mkirmig.c
+: 1700533788:0;vim kirmig.c
+: 1700533822:0;vim Mkirmig.c
+: 1700533922:0;vim Mkirmig0.c
+: 1700533962:0;sfkirchnew
+: 1700533983:0;sfkirmigsr
+: 1700534007:0;vim Mkirmigsr.c
+: 1700534069:0;cd /opt/madagascar-git/src/user/llisiw
+: 1700534078:0;cd ..
+: 1700534087:0;cd ../../include
+: 1700534097:0;cd ..
+: 1700545538:0;upgrade
+: 1700545550:0;aurupgrade
+: 1700545685:0;paru -Ss aylur-gtk
+: 1700545691:0;paru -Ss aylurs-gtk
+: 1700545702:0;paru -S aylurs-git-shell
+: 1700545710:0;paru -S aylurs-gtk-shell
+: 1700545729:0;systemctl start v2raya v2ray
+: 1700545742:0;paru -S aylurs-gtk-shell
+: 1700545777:0;reboot
+: 1700545805:0;Hyprland
+: 1700545816:0;cd opt
+: 1700545819:0;cd madagascar-git
+: 1700545821:0;vim PKGBUILD
+: 1700545852:0;git show
+: 1700545879:0;makepkg --printsrcinfo
+: 1700545906:0;vim .SRCINFO
+: 1700546056:0;makepkg --printsrcinfo > .SRCINFO
+: 1700546082:0;git add PKGBUILD .SRCINFO
+: 1700546089:0;git show
+: 1700546174:0;git commit "the path fix patch has been merged upstream"
+: 1700546207:0;git commit -m "the path fix patch has been merged upstream"
+: 1700546210:0;git show
+: 1700546230:0;git push
+: 1700546250:0;cd ~/dotfile/pkgbuilds
+: 1700546271:0;cp -r ~/opt/madagascar-git/PKGBUILD ~/opt/madagascar-git/.SRCINFO ./maintain/madagascar-git
+: 1700546277:0;cd ~/dotfile
+: 1700546294:0;git add . && git commit -m "update pkgbuild of madagascar-git" && git push
