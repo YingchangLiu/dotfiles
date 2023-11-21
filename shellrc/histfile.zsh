@@ -218,3 +218,32 @@
 : 1700546271:0;cp -r ~/opt/madagascar-git/PKGBUILD ~/opt/madagascar-git/.SRCINFO ./maintain/madagascar-git
 : 1700546277:0;cd ~/dotfile
 : 1700546294:0;git add . && git commit -m "update pkgbuild of madagascar-git" && git push
+: 1700548664:0;vim ~/.config/hypr/configs/monitors.conf
+: 1700548671:0;Hyprland
+: 1700548679:0;vim ~/.config/hypr/configs/monitors.conf
+: 1700548685:0;Hyprland
+: 1700548689:0;fetch
+: 1700548704:0;vim ~/.config/hypr/configs/monitors.conf
+: 1700548711:0;Hyprland
+: 1700548714:0;fetch
+: 1700548734:0;vim ~/.config/hypr/configs/monitors.conf
+: 1700548740:0;Hyprland
+: 1700548744:0;fetch
+: 1700548752:0;vim ~/.config/hypr/configs/monitors.conf
+: 1700548758:0;Hyprland
+: 1700548765:0;fetch
+: 1700550705:0;wttr
+: 1700550710:0;vim ~/.config/hypr/configs/monitors.conf
+: 1700550773:0;Hyprland
+: 1700550790:0;fetch
+: 1700550811:0;vim ~/.config/hypr/configs/monitors.conf
+: 1700550820:0;Hyprland
+: 1700550839:0;vim ~/.config/hypr/configs/monitors.conf
+: 1700550846:0;Hyprland
+: 1700550851:0;fetch
+: 1700550974:0;vim ~/.config/hypr/configs/monitors.conf
+: 1700550982:0;Hyprland
+: 1700550987:0;fetch
+: 1700551330:0;vim ~/.config/conky/wlconkyrc
+: 1700551608:0;cd ~/dotfile
+: 1700551629:0;git add . && git commit -m "115% display scaling" && git push
