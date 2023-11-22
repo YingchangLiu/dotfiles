@@ -11,7 +11,6 @@ function run {
 #run keepassxc
 run ~/dotfile/config/scripts/background-changer
 run ~/dotfile/config/scripts/idle.sh
-run ~/dotfile/config/scripts/agsload.sh
 #run copyq --start-server
 run wl-paste --type text -watch cliphist store
 run wl-paste --type image -watch cliphist store

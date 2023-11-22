@@ -13,7 +13,6 @@ fi
 #	image=$(find /usr/share/backgrounds/ -type f | shuf | head -n 1)
 #fi
 
-echo $image
 echo $image > /tmp/currentwall
 
 swaybg_instances=$(ps axh | grep swaybg | grep -v grep | awk '{print $1}')
