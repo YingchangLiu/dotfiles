@@ -64,12 +64,8 @@ Please check in dotfile/wallpaper.
 
 ### Window manager
 - Awesomewm
-- bspwm
 - dwm
-- GNOME
 - Hyprland
-- river
-- Sway
 
 ## License
 The code is available under the [MIT license][license].
