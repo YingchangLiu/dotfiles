@@ -33,7 +33,7 @@
         "bluetooth",
         {
             "type": "weather",
-            "timeout": 0.5
+            "timeout": 500
         },
         "break"
     ]
