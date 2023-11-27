@@ -13,7 +13,7 @@ fi
 #	image=$(find /usr/share/backgrounds/ -type f | shuf | head -n 1)
 #fi
 
-echo $image > /tmp/currentwall
+echo $image > /tmp/currentwall 2>&1
 
 swaybg_instances=$(ps axh | grep swaybg | grep -v grep | awk '{print $1}')
 #setsid -f swaybg -i $image

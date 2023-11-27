@@ -1,9 +1,10 @@
 #!/bin/bash
 
 function run {
-  if ! pgrep $1 ;
+  if ! pgrep -f "$*" 1>/dev/null;
+  # if ! pgrep -x $(basename $1 | head -c 15) 1>/dev/null;
   then
-    $@& 2>/dev/null
+      $@ > /tmp/autostart.log 2>&1 &
   fi
 }
 
@@ -12,8 +13,8 @@ function run {
 run ~/dotfile/config/scripts/background-changer
 run ~/dotfile/config/scripts/idle.sh
 #run copyq --start-server
-run wl-paste --type text -watch cliphist store
-run wl-paste --type image -watch cliphist store
+run wl-paste -t text -w cliphist store
+run wl-paste -t image -w cliphist store
 
 run fcitx5 -d
 run udiskie
