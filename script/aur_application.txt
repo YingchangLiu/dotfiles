@@ -1,2 +1,10 @@
+cuda11-tools
+freefilesync-bin
+gbar-git
+linuxqq
+madagascar-git
+ntfsprogs-ntfs3
 qqmusic-bin
+seismic-unix-git
 swaylock-effects-git
+ttf-material-design-icons-git
