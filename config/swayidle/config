@@ -1,4 +1,5 @@
 lock '~/.config/scripts/wayland_session_lock'
+timeout 600  '~/.config/scripts/screenoff'
 timeout 1801 '~/.config/scripts/wayland_session_lock' 
 timeout 2401 'hyprctl dispatch dpms off eDP-1'
 before-sleep '~/.config/scripts/wayland_session_lock' 

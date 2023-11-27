@@ -1,10 +1,15 @@
 
 #alias matlab='/home/kelen/bin/matlab/bin/matlab'
+
 alias fetch='fastfetch -c ~/.config/fastfetch/kelen.jsonc'
-alias nekoray='nekoray -many'
 alias vnc='vncviewer -passwd ~/.vnc/passwd 127.0.0.1:1'
+
 # view image using mpv
 alias mvi='mpv --config-dir=$HOME/.config/mvi'
+
+alias v2start='systemctl start v2ray v2raya'
+alias v2stop='systemctl stop v2ray v2raya'
+alias nekoray='nekoray -many'
 # OBS from xwayland
 # alias obs='QT_QPA_PLATFORM=xcb obs'
 
@@ -27,7 +32,6 @@ alias pkgbak='pacman -Qeqn > ~/dotfile/script/pacman_application.txt && pacman -
 alias maintenance='source ~/dotfile/script/maintenance.sh'
 alias reinstall='pacman -Qqn | pacman -S -'
 alias ff='find . -name $1'
-
 
 # the fuck
 alias fk=fuck
