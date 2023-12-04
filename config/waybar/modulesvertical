@@ -1,0 +1,408 @@
+{
+  "backlight": {
+    // "device": "intel_backlight",
+    "device": "DP-1",
+    "format": "{percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    // "on-scroll-up": "brightnessctl set 5%+",
+    // "on-scroll-down": "brightnessctl set 5%-",
+    "min-length": 6
+},
+  
+  "hyprland/workspaces": {
+
+    "format": "{icon}",
+      "on-scroll-up":"hyprctl dispatch workspace e+1",
+      "on-scroll-down":"hyprctl dispatch workspace e-1",
+      "on-click": "activate",
+      "all-outputs": true,
+      "format-icons": {
+        //"1": " ",
+        //"2": " ",
+        //"3": " ",
+        //"4": " ",
+        //"5": " ",
+        //"6": " ",
+        //"7": " ",
+        //"8": " ",
+        //"9": " ",
+        //"urgent": " ",
+        //"active": " ",
+        //"default": " "
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8",
+        "9": "9",
+        "urgent": "",
+        "active": "",
+        "default": ""
+      },
+
+  },
+
+  "wlr/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "all-outputs": true,
+    "sort-by-number": true,
+    "format-icons": {
+
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
+      "focused": "",
+      "default": ""
+      
+    },
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+  },
+	
+  "battery": {
+		"interval": 60,
+		"align": 0,
+		"rotate": 0,
+		//"bat": "BAT1",
+		//"adapter": "ACAD",
+		"full-at": 100,
+		"design-capacity": false,
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-full": "{capacity}%",
+    //"format-good": "",
+    "format-alt": "{time}",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip": true,
+    // "format": "{icon} {capacity}%",
+    // "format-warning": "{icon} {capacity}%",
+    // "format-critical": "{icon} {capacity}%",
+    // "format-charging": "<span font-family='Font Awesome 6 Free'></span> {capacity}%",
+    // "format-plugged": "  {capacity}%",
+    // "format-alt": "{icon} {time}",
+    // "format-full": "  {capacity}%",
+
+  },
+
+    "clock": {
+      //"tooltip": false,
+      "format": "{:%H\n%M}",
+      "format-alt": "{:%a\n%m/%d}",
+      "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    },
+  "cpu": {
+    // "interval": 5,
+    // "format": " {usage}%",
+    "interval": 1,
+    "format": "{usage}%",
+  },
+
+  "custom/cpuicon": {
+
+    "format": "  "
+
+  },
+  "custom/memicon": {
+
+	"format": "  "
+
+  },
+  "custom/diskicon": {
+
+    "format": " 󰋊 "
+
+  },
+  "custom/wifi":{
+
+    "format": " ᯤ ",
+    "format-alt": " 睊 ",
+    "on-click":"nmcli radio wifi off",
+    "on-click-right": "nmcli radio wifi on"
+
+  },
+  "custom/volicon": {
+
+    "format": " 󰕾 ",
+    "format-alt": " 󰖁 ",
+		"on-click": "pamixer -t",
+    "scroll-step": 5.0,
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "sh ~/.config/hypr/scripts/volume --inc",
+    "on-scroll-down": "sh ~/.config/hypr/scripts/volume --dec",
+    "smooth-scrolling-threshold": 1
+
+  },
+  "custom/blicon": {
+
+    "format": " 󰃠 ",
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "brightnessctl set 5%-"
+
+  },
+  "custom/baticon": {
+
+    "format": "  "
+  },
+  "custom/neticon": {
+
+    "format": "  ",
+    "on-click": "sh ~/.config/rofi/nmcli/nmcli"
+
+  },
+  "custom/clockicon": {
+
+    "format": " ⏱  "
+
+  },
+  "custom/micicon": {
+
+    "format": "  ",
+    "format-alt": "  ",
+    "on-click": "pamixer --default-source -t"
+
+  },
+
+"custom/spotify": {
+    "exec": "python3 /home/picadro/.config/hypr/scripts/mediaplayer.py",
+    "format": "♫  {}",
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+},
+
+"custom/playerctl": {
+      "format": "{icon}",
+      "return-type": "json",
+      "max-length": 64,
+      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+      "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+      "on-click": "playerctl play-pause",
+      "format-icons": {
+        "Playing": " 󰒮  󰏥  󰒭 ",
+        "Paused": " 󰒮  󰐌  󰒭 "
+      },
+    },
+
+    "custom/pctlpr": {
+      "format": "{icon}",
+      "return-type": "json",
+      "max-length": 64,
+      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+      "on-scroll-up": "playerctl next",
+      "on-scroll-down": "playerctl previous",
+      "on-click": "playerctl previous",
+      "format-icons": {
+        "Playing": " 󰒮 ",
+        "Paused": " 󰒮 "
+      },
+    },
+
+    "custom/pctlps": {
+      "format": "{icon}",
+      "return-type": "json",
+      "max-length": 64,
+      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+      "on-scroll-up": "playerctl next",
+      "on-scroll-down": "playerctl previous",
+      "on-click": "playerctl play-pause",
+      "format-icons": {
+        "Playing": " 󰏥 ",
+        "Paused": " 󰐌 "
+      },
+    },
+
+    "custom/pctln": {
+      "format": "{icon}",
+      "return-type": "json",
+      "max-length": 64,
+      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+      "on-scroll-up": "playerctl next",
+      "on-scroll-down": "playerctl previous",
+      "on-click": "playerctl next",
+      "format-icons": {
+        "Playing": " 󰒭 ",
+        "Paused": " 󰒭 "
+      },
+    },
+
+
+     "custom/playerlabel": {
+      "format": "<span>{}</span>",
+      "return-type": "json",
+      "max-length": 40,
+      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+      "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+      "on-click": "playerctl play-pause",
+      "format-icons": {
+        "Playing": "󰒮  󰐌  󰒭",
+        "Paused": "󰒮  󰏥  󰒭"
+      },
+    },
+    
+  "custom/hyprpicker": {
+    "format": "󰈋",
+    "on-click": "hyprpicker -a -f hex",
+    "on-click-right": "hyprpicker -a -f rgb"
+  },
+           
+  "custom/menu": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "rofi -show drun -show-icons -theme ~/.config/rofi/launchers/type-1/style-14.rasi",
+    "on-click-right": "$HOME/.config/hypr/scripts/menu",
+  },
+
+  "custom/weather": {
+        "format": "{}",
+        "format-alt": "{alt}: {}",
+        "format-alt-click": "click-right",
+        "interval": 3600,
+        "exec": "curl -s 'https://wttr.in/Sivas?format=1'",
+        //"return-type": "json",
+        // "exec": "/usr/bin/python3 ~/.config/hypr/scripts/weath.py",
+        "exec-if": "ping wttr.in -c1",
+
+        // "exec": "python3 ~/.config/waybar/scripts/weather.py",
+        // "restart-interval": 300,
+        // "return-type": "json",
+        // "on-click": "xdg-open https://weather.com/en-IN/weather/today/l/11c24e55644a1b4dd4488aae2c4bbae14d0ba3817508bf7b5a2c7e54d84578d4"
+
+    },
+
+  "custom/power": {
+    "format": " ⏻ ",
+    // "on-click": "rofi -show power-menu -modi power-menu:rofi-power-menu -theme ~/.config/rofi/launchers/type-1/style-14.rasi",
+    "on-click": "bash ~/.config/scripts/power-menu/powermenu.sh",
+  },
+  "custom/launcher": {
+    "format": " <span color='#6a92d7'> </span>",
+    "on-click": "rofi -show drun",
+},
+  "custom/terminal": {
+    "format": " >_ ",
+    "tooltip": false,
+    "on-click": "kitty",
+  },
+
+  "custom/cycle_wall":{
+    "format":" Change Wallpaper",
+    "on-click": "~/.config/hypr/scripts/changeWallpaper",
+    "tooltip-format": "Change wallpaper",
+  },
+
+  "custom/keybindings": {
+  "format":"爵",
+  "tooltip": false,
+  "on-click": "~/.config/hypr/scripts/keyhint",
+  },
+
+  "disk": {
+    "interval": 30,
+    "format": "{free}",
+  },
+
+  "memory": {
+    "interval": 10,
+    "format": "{used:0.1f}G",
+  },
+
+  "network": {
+    "interval": 5,
+    "format-wifi": "{essid}",
+    // "format-wifi": " {signalStrength}%",
+    "format-ethernet": "{ipaddr}/{cidr}",
+    // "format-ethernet": " wired",
+    "format-linked": "{ifname} (No IP)",
+    // "format-disconnected": " Disconnected",
+    "format-disconnected": "",
+    "format-disabled": "Disabled",
+    "on-click": "sh ~/.config/rofi/nmcli-rofi/nmcli-rofi"
+  },
+
+	 "custom/updater":{
+    "format": " {}",
+    "exec": "checkupdates | wc -l",
+    "exec-if": "[[ $(checkupdates | wc -l) ]]",
+    "interval": 10800,
+    "on-click": "kitty --class update -T update -o font_size=13 -e yay -Syu && notify-send 'The system has been updated' "
+  },
+
+  "pulseaudio": {
+    "format": "{volume}%",
+    /*"format": "{icon} {volume}",*/
+    /*"format": "{icon}",*/
+    // "format-muted": "0",
+    "format-muted": "",
+    // "format-bluetooth": "{volume}%",
+    // "format-bluetooth-muted": "Mute",
+    "format-bluetooth": "  {volume}%",
+    "format-bluetooth-muted": " ",
+    "format-source": "{volume}",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["󰕾", "󰕾", "󰕾"]
+    },
+    "scroll-step": 5.0,
+    "on-click": "pavucontrol",
+    // "on-click": "pamixer -t",
+    // "on-click-right": "pavucontrol-qt",
+    // "on-scroll-up": "sh ~/.config/hypr/scripts/volume --inc",
+    // "on-scroll-down": "sh ~/.config/hypr/scripts/volume --dec",
+    "smooth-scrolling-threshold": 1
+  },
+
+  "bluetooth": {
+    "on-click": "~/.config/waybar/scripts/rofi-bluetooth &",
+    "format": " {status}",
+  },
+
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": "{volume}%",
+    "format-source-muted": "Mute",
+    "on-click": "pamixer --default-source -t",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "pamixer --default-source -i 5",
+    "on-scroll-down": "pamixer --default-source -d 5",
+    "scroll-step": 5
+},
+
+"temperature": {
+    "thermal-zone": 1,
+    "format": " {temperatureC}°C",
+    "critical-threshold": 70,
+    "format-critical": " {temperatureC}°C",
+    "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+},
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 6
+  }
+}

@@ -5,6 +5,7 @@ clock
 timestr=%R
 grace=3
 grace-no-mouse
+grace-no-touch
 
 image=$(find ${HOME}/dotfile/wallpaper/ -type f | shuf -n 1)
 
