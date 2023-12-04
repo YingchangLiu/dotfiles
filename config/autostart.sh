@@ -9,26 +9,25 @@ function run {
 }
 
 
-#run keepassxc
 run ~/dotfile/config/scripts/background-changer
 run ~/dotfile/config/scripts/idle.sh
-#run copyq --start-server
 run wl-paste -t text -w cliphist store
 run wl-paste -t image -w cliphist store
-
 run fcitx5 -d
 run udiskie
-#run waybar
-run gBar bar 0
 run dunst
 run conky -c ~/.config/conky/wlconkyrc
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 run nm-applet  # network-manager-applet
 run waybar --bar main-bar --log-level error --config ~/.config/waybar/configvertical --style ~/.config/waybar/stylevertical.css
+
+
+#run copyq --start-server
+#run gBar bar 0
 # run blueman-applet
 #run dbus-update-activation-environment --all
+#run keepassxc
 
-#run waybar
 #run numlockx on
 #run mako list
 #run xfce4-power-manager
