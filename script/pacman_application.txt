@@ -22,8 +22,9 @@ firefox
 gnome-keyring
 grim
 grub
-hyprland-nvidia-git
+hyprland-git
 intel-ucode
+jq
 kitty
 less
 lib32-mesa
@@ -36,9 +37,12 @@ linux-headers
 lsb-release
 man-db
 miniconda
+mpich
+mpv
 namcap
 ncmpcpp
 needrestart
+network-manager-applet
 networkmanager
 nnn
 noto-fonts-cjk
@@ -53,7 +57,7 @@ paru
 pipewire-pulse
 pkgfile
 polkit-gnome
-river
+python-requests
 rofi
 slurp
 sway
@@ -68,7 +72,8 @@ v2raya-git
 vim
 visual-studio-code-bin
 vulkan-intel
-waybar
+waybar-hyprland-git
+wofi
 xdg-desktop-portal-hyprland
 xorg-xeyes
 zsh-autosuggestions

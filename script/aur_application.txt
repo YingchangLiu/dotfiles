@@ -1,3 +1,4 @@
+aylurs-gtk-shell-git
 cuda11-tools
 freefilesync-bin
 gbar-git
