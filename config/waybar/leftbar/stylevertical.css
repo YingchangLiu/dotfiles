@@ -11,7 +11,7 @@
   color: #ffffff;
   border-radius: 8px;
   border-top: 8px transparent;
-  border-right: 2px solid #252E3C;
+  /* border-right: 2px solid #252E3C;*/
   /* background-color: #1e1e2e; */
   /* border: 2px solid #313244; */
   transition-property: background-color;
@@ -241,7 +241,7 @@ window#waybar.hidden {
   color: #d9e0ee;
   border: 2px solid #3a3b3c; */
 
-  padding: 5 5px;
+  padding: 5px 5px;
   color: #7984A4;
   background-color: transparent;
   /* Use box-shadow instead of border so the text isn't offset */

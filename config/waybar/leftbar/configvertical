@@ -1,5 +1,5 @@
 {
-  "include": "~/.config/waybar/modulesvertical",
+  "include": "~/.config/waybar/leftbar/modulesvertical",
   "layer": "top",
   "mode": "dock",
   "exclusive": true,

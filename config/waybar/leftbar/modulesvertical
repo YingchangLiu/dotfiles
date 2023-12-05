@@ -10,12 +10,15 @@
 },
   
   "hyprland/workspaces": {
-
-    "format": "{icon}",
+      "format": "{icon}",
       "on-scroll-up":"hyprctl dispatch workspace e+1",
       "on-scroll-down":"hyprctl dispatch workspace e-1",
       "on-click": "activate",
       "all-outputs": true,
+      "sort-by-number": true,
+      "persistent-workspaces":{
+          "*": 6,
+      },
       "format-icons": {
         //"1": " ",
         //"2": " ",
@@ -38,11 +41,16 @@
         "7": "7",
         "8": "8",
         "9": "9",
-        "urgent": "",
-        "active": "",
-        "default": ""
+        "urgent": "󰊠",
+        "active": "󰮯",
+        "default": "",
+        "empty":"󰊠",
+        "persistent":"󰊠",
+        "special": "󰊠", 
+        //"urgent": "",
+        //"active": "",
+        //"default": ""
       },
-
   },
 
   "wlr/workspaces": {
@@ -180,7 +188,7 @@
   },
 
 "custom/spotify": {
-    "exec": "python3 /home/picadro/.config/hypr/scripts/mediaplayer.py",
+    "exec": "python3 ~/.config/scripts/mediaplayer.py",
     "format": "♫  {}",
     "return-type": "json",
     "on-click": "playerctl play-pause",
@@ -269,7 +277,7 @@
     "format": "",
     "tooltip": false,
     "on-click": "rofi -show drun -show-icons -theme ~/.config/rofi/launchers/type-1/style-14.rasi",
-    "on-click-right": "$HOME/.config/hypr/scripts/menu",
+    "on-click-right": "$HOME/.config/scripts/menu",
   },
 
   "custom/weather": {
@@ -306,14 +314,14 @@
 
   "custom/cycle_wall":{
     "format":" Change Wallpaper",
-    "on-click": "~/.config/hypr/scripts/changeWallpaper",
+    "on-click": "~/.config/scripts/changeWallpaper",
     "tooltip-format": "Change wallpaper",
   },
 
   "custom/keybindings": {
   "format":"爵",
   "tooltip": false,
-  "on-click": "~/.config/hypr/scripts/keyhint",
+  "on-click": "~/.config/scripts/keyhint",
   },
 
   "disk": {
@@ -378,7 +386,7 @@
   },
 
   "bluetooth": {
-    "on-click": "~/.config/waybar/scripts/rofi-bluetooth &",
+    "on-click": "~/.config/waybar/leftbar/scripts/rofi-bluetooth &",
     "format": " {status}",
   },
 
