@@ -7,7 +7,7 @@
 
 #waybar {
   /* Transparent waybar. Make sure to comment out background-color: and border: */
-  background: rgba(16, 16, 19, 0.7);
+  background: rgba(16, 16, 19, 0);
   color: #ffffff;
   border-radius: 8px;
   border-top: 8px transparent;
