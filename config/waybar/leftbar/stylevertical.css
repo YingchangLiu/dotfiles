@@ -265,6 +265,12 @@ window#waybar.hidden {
   background-color: #eb4d4b;
 }
 
+#workspace button.hover {
+	background-color: transparent;
+}
+
+
+
 #custom-menu {
   font-size: 15px;
   padding: 10px 6px 10px 6px;

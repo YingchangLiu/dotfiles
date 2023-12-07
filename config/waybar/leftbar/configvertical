@@ -10,7 +10,7 @@
   "ipc": true,
   "modules-left": ["custom/menu", "hyprland/workspaces", "custom/pctlpr", "custom/pctlps", "custom/pctln"],
   "modules-center": ["custom/cpuicon", "cpu", "custom/memicon", "memory", "custom/blicon","backlight"],
-  "modules-right": ["custom/volicon","pulseaudio", "custom/baticon", "battery", "custom/neticon", "clock", "custom/power"],
+  "modules-right": ["custom/volicon","pulseaudio", "custom/baticon", "battery", "custom/neticon", "tray", "clock", "custom/power"],
   "hyprland/window": {
     "max-length": 15
   },
