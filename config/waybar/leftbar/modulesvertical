@@ -152,8 +152,8 @@
 		"on-click": "pamixer -t",
     "scroll-step": 5.0,
     "on-click-right": "pavucontrol",
-    "on-scroll-up": "sh ~/.config/hypr/scripts/volume --inc",
-    "on-scroll-down": "sh ~/.config/hypr/scripts/volume --dec",
+    "on-scroll-up": "sh ~/.config/scripts/volume --inc",
+    "on-scroll-down": "sh ~/.config/scripts/volume --dec",
     "smooth-scrolling-threshold": 1
 
   },
@@ -347,7 +347,7 @@
     "on-click": "sh ~/.config/rofi/nmcli-rofi/nmcli-rofi"
   },
 
-	 "custom/updater":{
+  "custom/updater":{
     "format": " {}",
     "exec": "checkupdates | wc -l",
     "exec-if": "[[ $(checkupdates | wc -l) ]]",

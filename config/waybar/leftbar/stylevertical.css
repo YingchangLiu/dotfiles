@@ -7,7 +7,7 @@
 
 #waybar {
   /* Transparent waybar. Make sure to comment out background-color: and border: */
-  background: rgba(16, 16, 19, 0);
+  background: rgba(16, 16, 19, 0.4);
   color: #ffffff;
   border-radius: 8px;
   border-top: 8px transparent;
@@ -174,8 +174,9 @@ window#waybar.hidden {
 
 #custom-neticon{
 
-  color: #101013;
-  background-color: #89b4fa;
+  color: #949497;
+  /* background-color: #89b4fa; */
+  background-color: #1E1E20;
   padding: 12px 6px 12px 6px;
 
 }
