@@ -174,7 +174,7 @@ window#waybar.hidden {
 
 #custom-neticon{
 
-  color: #dcdcdd;
+  color: rgb(0, 255, 0);
   /* background-color: #89b4fa; */
   background-color: #1E1E20;
   padding: 12px 6px 12px 6px;

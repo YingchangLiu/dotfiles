@@ -35,9 +35,43 @@ for name in ${dotfiles}/*; do
   fi
 done
 
+## font and icons, themes to ~/.fonts and ~/.icons ./themes
+## if not exist, create it
+if [ ! -d "$HOME/.fonts" ]; then
+    mkdir $HOME/.fonts
+fi
+if [ ! -d "$HOME/.icons" ]; then
+    mkdir $HOME/.icons
+fi
+if [ ! -d "$HOME/.themes" ]; then
+    mkdir $HOME/.themes
+fi
+for name in ${dotfiles}/fonts/*; do
+
+    target="$HOME/.fonts/"
+    #backup $target
+    ln -sf $name $target
+
+done
+for name in ${dotfiles}/icons/*; do
+
+    target="$HOME/.icons/"
+    #backup $target
+    ln -sf $name $target
+
+done
+for name in ${dotfiles}/themes/*; do
+
+    target="$HOME/.themes/"
+    #backup $target
+    ln -sf $name $target
+
+done
 
 
-
+if [ ! -d "$HOME/.config" ]; then
+    mkdir $HOME/.config
+fi
 for name in ${dotfiles}/config/*; do
 
     target="$HOME/.config/"
