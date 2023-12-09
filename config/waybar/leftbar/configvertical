@@ -1,7 +1,6 @@
 {
   "include": "~/.config/waybar/leftbar/modulesvertical",
   "layer": "top",
-  "mode": "dock",
   "exclusive": true,
   "passthrough": false,
   "position": "left",
