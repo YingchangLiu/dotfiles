@@ -278,8 +278,9 @@ window#waybar.hidden {
   padding: 10px 6px 10px 6px;
   margin-top: 8px;
   margin-bottom: 8px;
-  background-color: #94c3f5;
-  color: #101013;
+  /* background-color: #032448; */
+  background-color: #1E1E20;
+  color: #e4313d;
 }
 
 #custom-power {

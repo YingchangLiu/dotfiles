@@ -94,6 +94,8 @@ $lock)
 		betterlockscreen -l
 	elif [[ -x '/usr/bin/i3lock' ]]; then
 		i3lock
+    else
+        swaylock
 	fi
 	;;
 $suspend)
