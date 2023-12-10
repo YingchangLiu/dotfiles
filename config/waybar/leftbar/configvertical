@@ -8,8 +8,8 @@
   "fixed-center": true,
   "ipc": true,
   "modules-left": ["custom/menu", "hyprland/workspaces", "custom/pctlpr", "custom/pctlps", "custom/pctln"],
-  "modules-center": ["custom/cpuicon", "cpu", "custom/memicon", "memory","custom/tempicon", "temperature", "custom/baticon", "battery"],
-  "modules-right": ["custom/volicon","pulseaudio", "custom/blicon", "backlight", "custom/neticon", "network", "tray", "clock", "custom/power"],
+  "modules-center": ["custom/cpuicon", "cpu", "custom/memicon", "memory", "clock", "custom/tempicon", "temperature", "custom/baticon", "battery"],
+  "modules-right": ["custom/volicon","pulseaudio", "custom/blicon", "backlight", "custom/neticon", "network", "tray", "custom/power"],
   // "modules-center": ["clock"],
   // "modules-right": ["custom/cpuicon", "cpu", "custom/memicon", "memory", "custom/baticon", "battery", "custom/volicon","pulseaudio", "custom/blicon", "backlight", "custom/neticon", "network",  "custom/power"],
 

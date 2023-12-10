@@ -85,9 +85,10 @@
 		"rotate": 0,
 		//"bat": "BAT1",
 		//"adapter": "ACAD",
-		"full-at": 100,
+		"full-at": 96,
 		"design-capacity": false,
     "states": {
+      "full": 100,
       "good": 95,
       "low": 75,
       "warning": 30,
@@ -123,7 +124,7 @@
 
     "clock": {
       "format": "{:%H\n%M}",
-      "format-alt": "{:%m/%d\n%a}",
+      "format-alt": "{:%m/%d\n %a}",
       "tooltip-format": "<big>{:%Y-%m-%d, %A}</big>\n<tt><small>{calendar}</small></tt>",
       "calendar": {
                   "mode"          : "months",
