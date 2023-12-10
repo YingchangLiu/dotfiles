@@ -35,6 +35,7 @@ window#waybar.hidden {
 #cpu,
 #disk,
 #memory,
+#temperature,
 #mode,
 #tray,
 #pulseaudio,
@@ -63,9 +64,11 @@ window#waybar.hidden {
 #custom-neticon,
 #custom-memicon,
 #custom-diskicon,
+#custom-tempicon,
 #custom-blicon,
 #custom-baticon,
 #custom-clockicon,
+#custom-dateicon,
 #custom-micicon,
 #custom-spotify,
 #custom-weather,
@@ -99,6 +102,35 @@ window#waybar.hidden {
   color: #eba0ac;
 
 }
+
+#custom-cpuicon{
+
+  color: #89dceb;
+
+}
+
+#custom-tempicon{
+
+  color: #e83232;
+
+}
+
+#custom-neticon{
+
+  color: rgb(210, 241, 210);
+  /* background-color: #1E1E20;
+  padding: 12px 6px 12px 6px; */
+
+}
+
+#custom-baticon{
+
+  color: #EDCA8C;
+  /* padding: 8px 6px 8px 6px; */
+
+}
+
+
 
 #cpu,
 #disk,
@@ -142,6 +174,9 @@ window#waybar.hidden {
 #custom-pctlpr,
 #custom-blicon,
 #custom-clockicon,
+#custom-tempicon,
+#custom-neticon,
+#custom-dateicon,
 #custom-micicon,
 #custom-baticon {
 
@@ -151,42 +186,25 @@ window#waybar.hidden {
 
 }
 
-#custom-cpuicon{
 
-  color: #89dceb;
-
-}
 
 #workspaces,
 #pulseaudio,
 #battery,
+#temperature,
 #tray,
 #backlight,
+#network,
 #clock,
 #cpu,
 #memory,
-#custom-neticon,
 #custom-power{
 
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 
 }
 
-#custom-neticon{
 
-  color: rgb(0, 255, 0);
-  /* background-color: #89b4fa; */
-  background-color: #1E1E20;
-  padding: 12px 6px 12px 6px;
-
-}
-
-#custom-baticon{
-
-  color: #EDCA8C;
-  padding: 8px 6px 8px 6px;
-
-}
 
 #workspaces {
   color: #F9E2AF;
@@ -288,6 +306,8 @@ window#waybar.hidden {
   color: #101013;
   background-color: #C5676D;
   font-size: 15px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 #custom-updater {
@@ -438,6 +458,19 @@ window#waybar.hidden {
   color: #26a65b;
   /* background-color: #26a65b; */
 }
+#battery.discharging.good {
+  color: rgb(9, 117, 225);
+  /* background-color: #26a65b; */
+}
+#battery.discharging.low {
+  color: #f39c12;
+  /* background-color: #f39c12; */
+}
+#battery.discharging.warning {
+  color: #e74c3c;
+  /* background-color: #e74c3c; */
+}
+
 
 @keyframes blink {
   to {
@@ -493,13 +526,19 @@ label:focus {
   background-color: #ffa000;
 }
 
-#temperature {
+
+#temperature.critical {
+  color: #eb4d4b;
+}
+/* #temperature {
   background-color: #f0932b;
 }
 
+
 #temperature.critical {
   background-color: #eb4d4b;
-}
+} */
+
 
 #tray > .passive {
   -gtk-icon-effect: dim;

@@ -1,23 +1,24 @@
 {
-  "backlight": {
-    // "device": "intel_backlight",
-    "device": "DP-1",
-    "format": "{percent}%",
-    "format-icons": ["󰃞", "󰃟", "󰃠"],
-    // "on-scroll-up": "brightnessctl set 5%+",
-    // "on-scroll-down": "brightnessctl set 5%-",
-    "min-length": 6
-},
-  
   "hyprland/workspaces": {
+      //"format": "{icon}\n{windows}",
       "format": "{icon}",
+      "format-window-separator": "\n",
+      "window-rewrite-default": "",
+        "window-rewrite": {
+            "brave-browser": "",
+            "emacs": "",
+            "firefox": "",
+            "kitty": "",
+            "pavucontrol": "󰓃",
+            "slack": "󰒱"
+        },
       "on-scroll-up":"hyprctl dispatch workspace e+1",
       "on-scroll-down":"hyprctl dispatch workspace e-1",
       "on-click": "activate",
       "all-outputs": true,
       "sort-by-number": true,
       "persistent-workspaces":{
-          "*": 6,
+          "*": 5,
       },
       "format-icons": {
         //"1": " ",
@@ -80,7 +81,7 @@
 	
   "battery": {
 		"interval": 60,
-		"align": 0,
+		// "align": 0,
 		"rotate": 0,
 		//"bat": "BAT1",
 		//"adapter": "ACAD",
@@ -88,15 +89,19 @@
 		"design-capacity": false,
     "states": {
       "good": 95,
+      "low": 75,
       "warning": 30,
       "critical": 15
     },
     "format": "{capacity}%",
-    "format-charging": " {capacity}%",
+    "format-CC": " {capacity}%",
     "format-plugged": " {capacity}%",
     "format-full": "{capacity}%",
-    //"format-good": "",
-    "format-alt": "{time}",
+    "format-discharging-good": "{capacity}%",
+    "format-discharging-low": "{capacity}%",
+    "format-discharging-warning": "{capacity}%",
+    "format-discharging-critical": "{capacity}%",
+    "format-time": "{m}m",
     "format-icons": ["", "", "", "", ""],
     "tooltip": true,
     // "format": "{icon} {capacity}%",
@@ -109,12 +114,40 @@
 
   },
 
+    // "clock": {
+    //   //"tooltip": false,
+    //   "format": "{:%H\n%M}",
+    //   "format-alt": "{:%a\n%m/%d}",
+    //   "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    // },
+
     "clock": {
-      //"tooltip": false,
       "format": "{:%H\n%M}",
-      "format-alt": "{:%a\n%m/%d}",
-      "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
-    },
+      "format-alt": "{:%m/%d\n%a}",
+      "tooltip-format": "<big>{:%Y-%m-%d, %A}</big>\n<tt><small>{calendar}</small></tt>",
+      "calendar": {
+                  "mode"          : "months",
+                  "mode-mon-col"  : 3,
+                  "weeks-pos"     : "right",
+                  "on-scroll"     : 1,
+                  "on-click-right": "mode",
+                  "format": {
+                            "months":     "<span color='#ffead3'><b>{}</b></span>",
+                            "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                            "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                            "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                            "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                            }
+                  },
+      "actions":  {
+                  "on-click-right": "mode",
+                  "on-click-forward": "tz_up",
+                  "on-click-backward": "tz_down",
+                  "on-scroll-up": "shift_up",
+                  "on-scroll-down": "shift_down"
+                  }
+  },
+
   "cpu": {
     // "interval": 5,
     // "format": " {usage}%",
@@ -167,6 +200,11 @@
   "custom/baticon": {
 
     "format": "  "
+  },
+  "custom/tempicon": {
+
+    "format": "  "
+
   },
   "custom/neticon": {
 
@@ -346,7 +384,17 @@
     "format-disabled": "Disabled",
     "on-click": "sh ~/.config/rofi/nmcli-rofi/nmcli-rofi"
   },
-
+  
+  "backlight": {
+    // "device": "intel_backlight",
+    "device": "DP-1",
+    "format": "{percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    // "on-scroll-up": "brightnessctl set 5%+",
+    // "on-scroll-down": "brightnessctl set 5%-",
+    "min-length": 6
+},
+  
   "custom/updater":{
     "format": " {}",
     "exec": "checkupdates | wc -l",
@@ -402,10 +450,12 @@
 },
 
 "temperature": {
-    "thermal-zone": 1,
-    "format": " {temperatureC}°C",
+    "thermal-zone": 7,
+    // "format": " {temperatureC}°C",
+    "format": "{temperatureC}°C",
     "critical-threshold": 70,
-    "format-critical": " {temperatureC}°C",
+    // "format-critical": " {temperatureC}°C",
+    "format-critical": "{temperatureC}°C",
     "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
 },
 
