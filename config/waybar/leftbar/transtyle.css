@@ -7,7 +7,7 @@
 
 #waybar {
   /* Transparent waybar. Make sure to comment out background-color: and border: */
-  background: rgba(16, 16, 19, 0.2);
+  background: transparent;
   color: #ffffff;
   border-radius: 8px;
   border-top: 8px transparent;
@@ -19,10 +19,10 @@
 }
 
 tooltip {
-    background: #1e1e2e;
+    background: rgb(29, 32, 41);
     border-width: 2px;
     border-style: solid;
-    border-color: #11111b;
+    /* border-color: #11111b; */
 }
 
 window#waybar.hidden {
@@ -86,7 +86,7 @@ window#waybar.hidden {
   border-radius: 10px;
   margin: 0 6px;
   padding: 6px 2px 6px 2px;
-  background: #1E1E20;
+  background: transparent;
   color: #ffffff;
   /*border: 2px solid #3a3b3c; */
 }
@@ -132,7 +132,7 @@ window#waybar.hidden {
 #temperature,
 #battery,
 #network{
-  background-color: #252527;
+  /* background-color: #252527; */
   padding: 8px 0px 8px 0px;
   border-radius: 0px 0px 10px 10px;
 }
@@ -152,7 +152,7 @@ window#waybar.hidden {
 #custom-pctlpr,
 #custom-pctlps,
 #custom-pctln{
-  color: #86B4FA;
+  color: #ffffff;
   font-size: 15px;
 }
 
@@ -171,7 +171,7 @@ window#waybar.hidden {
 
     padding: 6px 0px 6px 0px;
     border-radius: 10px 10px 0px 0px;
-    background-color: #1E1E20;
+    /* background-color: #1E1E20; */
 
 }
 
@@ -193,7 +193,7 @@ window#waybar.hidden {
 
 
 #workspaces {
-  color: #F9E2AF;
+  color: #ffffff;
 }
 
 #window{
@@ -202,7 +202,7 @@ window#waybar.hidden {
   /* border-radius: 20px; */
   /* padding-left: 10px; */
   /* padding-right: 10px; */
-  color: #64727d;
+  color: #ffffff;
 
 }
 
@@ -215,23 +215,15 @@ window#waybar.hidden {
 }
 
 
-
+#tray,
 #disk {
-  color: #b4befe;
-}
-
-#tray {
-  color: #b4befe;
+  color: #ffffff;
 }
 
 
 #workspaces button {
-  /* background: rgba(0,0,0,0.0);
-  color: #d9e0ee;
-  border: 2px solid #3a3b3c; */
-
   padding: 5px 5px;
-  color: #95a7dd;
+  color: #ffffff;
   background-color: transparent;
   background: transparent;
   /* Use box-shadow instead of border so the text isn't offset */
@@ -246,6 +238,7 @@ window#waybar.hidden {
 }
 #workspaces button.active {
   background-color: #36363b;
+  color:#0dae15;
   padding: 2px 0px 2px 0px;
   margin-right: 2px;
   margin-left: 2px;
@@ -267,8 +260,8 @@ window#waybar.hidden {
   margin-top: 8px;
   margin-bottom: 8px;
   /* background-color: #032448; */
-  background-color: #276dd7;
-  color: #b2b3b3;
+  background-color: rgba(32, 126, 233, 0.734);
+  color: #ffffff;
 }
 
 #clock {
@@ -283,43 +276,27 @@ window#waybar.hidden {
 
 #custom-power {
   padding: 6px 6px 3px 6px;
-  color: #101013;
+  color: #ffffff;
   background-color: #C5676D;
   font-size: 15px;
   margin-top: 8px;
   margin-bottom: 8px;
 }
 
+#custom-uptime,
+#custom-weather,
+#custom-hyprpicker,
+#custom-cycle_wall,
+#custom-vpn_check,
+#custom-cputemp,
+#custom-keybindings,
 #custom-updater {
-  color: #e6ed7b;
+  color: #ffffff;
 }
 
-#custom-uptime {
-  color: #e6ed7b;
-}
 
-#custom-weather {
-  color: #fff;
-}
-
-#custom-hyprpicker {
-  color: #fff;
-}
-
-#custom-cycle_wall {
-  color: #89dceb;
-}
-
-#custom-vpn_check {
-  color: #a6e3a1;
-}
-
-#custom-cputemp {
-  color: #86b4fa;
-}
 
 #custom-keybindings {
-  color: #86b4fa;
   font-size: 24px;
 }
 
@@ -340,24 +317,18 @@ window#waybar.hidden {
 }
 
 #pulseaudio {
-  color: #7d9bba;
+  color: #ffffff;
 }
 
 #pulseaudio.bluetooth {
-  color: #f5c2e7;
+  color: #ffffff;
 }
 #pulseaudio.muted {
   
-  color: #cdd6f4;
+  color: #bec3d4;
 }
 
-#network {
-  color: #89b4fa;
-}
-#network.disconnected,#network.disabled {
-  
-  color: #cdd6f4;
-}
+
 
 #custom-power-menu {
   border-radius: 9.5px;
@@ -419,11 +390,11 @@ window#waybar.hidden {
 
 #backlight {
   /* color: #EBCB8B; */
-  color: #8fbcbb;
+  color: #ffffff;
 }
 
 #battery {
-  color: #c0caf5;
+  color: #ffffff;
   /* background-color: #90b1b1; */
 }
 
@@ -482,7 +453,7 @@ label:focus {
 }
 
 #network {
-  color: #b48ead;
+  color: #ffffff;
 }
 
 #network.disconnected {
@@ -507,14 +478,6 @@ label:focus {
 #temperature.critical {
   color: #eb4d4b;
 }
-/* #temperature {
-  background-color: #f0932b;
-}
-
-
-#temperature.critical {
-  background-color: #eb4d4b;
-} */
 
 
 #tray > .passive {
