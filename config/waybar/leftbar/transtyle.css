@@ -7,7 +7,7 @@
 
 #waybar {
   /* Transparent waybar. Make sure to comment out background-color: and border: */
-  background: transparent;
+  background: rgba(0, 0, 0, 0.3);
   color: #e3e3e3;
   border-radius: 8px;
   border-top: 8px transparent;
@@ -237,7 +237,7 @@ window#waybar.hidden {
   color: #bf616a;
 }
 #workspaces button.active {
-  background-color: #36363b;
+  background-color: rgba(30, 34, 42, 0.213);
   color:#0dae15;
   padding: 2px 0px 2px 0px;
   margin-right: 2px;
