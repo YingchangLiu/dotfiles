@@ -8,7 +8,7 @@
 #waybar {
   /* Transparent waybar. Make sure to comment out background-color: and border: */
   background: transparent;
-  color: #ffffff;
+  color: #e3e3e3;
   border-radius: 8px;
   border-top: 8px transparent;
   /* border-right: 2px solid #252E3C;*/
@@ -87,7 +87,7 @@ window#waybar.hidden {
   margin: 0 6px;
   padding: 6px 2px 6px 2px;
   background: transparent;
-  color: #ffffff;
+  color: #e3e3e3;
   /*border: 2px solid #3a3b3c; */
 }
 
@@ -152,7 +152,7 @@ window#waybar.hidden {
 #custom-pctlpr,
 #custom-pctlps,
 #custom-pctln{
-  color: #ffffff;
+  color: #e3e3e3;
   font-size: 15px;
 }
 
@@ -193,7 +193,7 @@ window#waybar.hidden {
 
 
 #workspaces {
-  color: #ffffff;
+  color: #e3e3e3;
 }
 
 #window{
@@ -202,7 +202,7 @@ window#waybar.hidden {
   /* border-radius: 20px; */
   /* padding-left: 10px; */
   /* padding-right: 10px; */
-  color: #ffffff;
+  color: #e3e3e3;
 
 }
 
@@ -217,13 +217,13 @@ window#waybar.hidden {
 
 #tray,
 #disk {
-  color: #ffffff;
+  color: #e3e3e3;
 }
 
 
 #workspaces button {
   padding: 5px 5px;
-  color: #ffffff;
+  color: #e3e3e3;
   background-color: transparent;
   background: transparent;
   /* Use box-shadow instead of border so the text isn't offset */
@@ -261,13 +261,13 @@ window#waybar.hidden {
   margin-bottom: 8px;
   /* background-color: #032448; */
   background-color: rgba(32, 126, 233, 0.734);
-  color: #ffffff;
+  color: #e3e3e3;
 }
 
 #clock {
   padding: 6px 6px 3px 6px;
   background-color: #c39426;
-  color: #ffffff;
+  color: #e3e3e3;
   font-size: 12px;
   margin-top: 8px;
   margin-bottom: 8px;
@@ -276,7 +276,7 @@ window#waybar.hidden {
 
 #custom-power {
   padding: 6px 6px 3px 6px;
-  color: #ffffff;
+  color: #e3e3e3;
   background-color: #C5676D;
   font-size: 15px;
   margin-top: 8px;
@@ -291,7 +291,7 @@ window#waybar.hidden {
 #custom-cputemp,
 #custom-keybindings,
 #custom-updater {
-  color: #ffffff;
+  color: #e3e3e3;
 }
 
 
@@ -317,11 +317,11 @@ window#waybar.hidden {
 }
 
 #pulseaudio {
-  color: #ffffff;
+  color: #e3e3e3;
 }
 
 #pulseaudio.bluetooth {
-  color: #ffffff;
+  color: #e3e3e3;
 }
 #pulseaudio.muted {
   
@@ -390,11 +390,11 @@ window#waybar.hidden {
 
 #backlight {
   /* color: #EBCB8B; */
-  color: #ffffff;
+  color: #e3e3e3;
 }
 
 #battery {
-  color: #ffffff;
+  color: #e3e3e3;
   /* background-color: #90b1b1; */
 }
 
@@ -404,14 +404,14 @@ window#waybar.hidden {
   /* background-color: #26a65b; */
 }
 #battery.full {
-  color: #ffffff;
+  color: #e3e3e3;
 }
 #battery.discharging.critical {
   color: #e74c3c;
   /* background-color: #e74c3c; */
 }
 #battery.discharging.full {
-  color: #ffffff;
+  color: #e3e3e3;
 }
 #battery.discharging.good {
   color: rgb(9, 117, 225);
@@ -453,7 +453,7 @@ label:focus {
 }
 
 #network {
-  color: #ffffff;
+  color: #e3e3e3;
 }
 
 #network.disconnected {
