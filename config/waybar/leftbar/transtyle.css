@@ -62,6 +62,7 @@ window#waybar.hidden {
 #custom-cpuicon,
 #custom-volicon,
 #custom-neticon,
+#network.icon,
 #custom-memicon,
 #custom-diskicon,
 #custom-tempicon,
@@ -111,9 +112,10 @@ window#waybar.hidden {
   color: #e83232;
 
 }
+#network.icon,
 #custom-neticon{
 
-  color: rgb(210, 241, 210);
+  color: rgb(8, 119, 223);
   /* background-color: #1E1E20;
   padding: 12px 6px 12px 6px; */
 }
@@ -165,6 +167,7 @@ window#waybar.hidden {
 #custom-clockicon,
 #custom-tempicon,
 #custom-neticon,
+#network.icon,
 #custom-dateicon,
 #custom-micicon,
 #custom-baticon {
@@ -488,7 +491,11 @@ label:focus {
 }
 
 #network {
+  font-size: 9px;
   color: #e3e3e3;
+}
+#network.icon {
+  font-size: 12px;
 }
 
 #network.disconnected {

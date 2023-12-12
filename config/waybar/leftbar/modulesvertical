@@ -207,12 +207,7 @@
     "format": "  "
 
   },
-  "custom/neticon": {
-
-    "format": "  ",
-    "on-click": "sh ~/.config/rofi/nmcli/nmcli"
-
-  },
+  
   "custom/clockicon": {
 
     "format": " ⏱  "
@@ -373,17 +368,33 @@
     "format": "{used:0.1f}G",
   },
 
+  "custom/neticon": {
+
+    "format": "  ",
+    "on-click": "sh ~/.config/rofi/nmcli/nmcli"
+
+  },
+  "network#icon": {
+    "interval": 5,
+    "format-wifi": " ",
+    "format-ethernet": " ",
+    "format-disconnected": "󰌙 ",
+    "format-disabled": "󰯡 ",
+    "on-click": "sh ~/.config/rofi/nmcli/nmcli"
+  },
   "network": {
     "interval": 5,
-    "format-wifi": "{essid}",
+    // "format-wifi": "{essid}",
     // "format-wifi": " {signalStrength}%",
-    "format-ethernet": "{ipaddr}/{cidr}",
+    // "format": "{bandwidthTotalBytes}",
+    // "format-ethernet": "{ipaddr}/{cidr}",
     // "format-ethernet": " wired",
-    "format-linked": "{ifname} (No IP)",
+    // "format-linked": "{ifname} (No IP)",
     // "format-disconnected": " Disconnected",
-    "format-disconnected": "",
-    "format-disabled": "Disabled",
-    "on-click": "sh ~/.config/rofi/nmcli-rofi/nmcli-rofi"
+    // "format-disconnected": "",
+    // "format-disabled": "Disabled",
+    "format" : "{bandwidthTotalBytes}",
+    "on-click": "sh ~/.config/rofi/nmcli/nmcli"
   },
   
   "backlight": {
