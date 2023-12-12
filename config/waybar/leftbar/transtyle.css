@@ -9,7 +9,7 @@
   /* Transparent waybar. Make sure to comment out background-color: and border: */
   background: rgba(0, 0, 0, 0.3);
   color: #e3e3e3;
-  border-radius: 8px;
+  border-radius: 0px;
   border-top: 8px transparent;
   /* border-right: 2px solid #252E3C;*/
   /* background-color: #1e1e2e; */
@@ -84,7 +84,7 @@ window#waybar.hidden {
 #custom-weather.default,
 #network {
   border-radius: 10px;
-  margin: 0 6px;
+  margin: 0 2px;
   padding: 6px 2px 6px 2px;
   background: transparent;
   color: #e3e3e3;
@@ -221,36 +221,65 @@ window#waybar.hidden {
 }
 
 
+#workspaces {
+    margin-right: 8px;
+}
+
+/* non-empty workspaces */
 #workspaces button {
-  padding: 5px 5px;
+  padding: 5px 5px;  
   color: #e3e3e3;
   background-color: transparent;
   background: transparent;
+
   /* Use box-shadow instead of border so the text isn't offset */
   box-shadow: inset 0 -3px transparent;
-  /* Avoid rounded borders under each workspace name */
+
+  transition: all 0.2s ease;
+
   border: none;
   border-radius: 0;
+}
 
+#workspaces button:hover {
+  /* transition-duration: .1s; */
+  color: #eceff4;
+  box-shadow: inset 0 -2px #ffffff;
+  /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+  text-shadow: inherit;
+  background-color: transparent;
 }
-#workspaces button.focused {
-  color: #bf616a;
+
+/* non-empty persistent workspaces */
+#workspaces button.persistent {
+  background-color: transparent;
+  color: #e3e3e3;
 }
-#workspaces button.active {
+
+/* empty persistent workspaces */
+#workspaces button.empty {
+  background-color: transparent;
+  color: #4c566a;
+}
+
+/* active or visible workspaces */
+#workspaces button.active,
+#workspaces button.visible {
+  /* background-color: #4c566a; */
+  /* box-shadow: inset 0 -4px #eceff4; */
   background-color: rgba(30, 34, 42, 0.213);
   color:#0dae15;
   padding: 2px 0px 2px 0px;
   margin-right: 2px;
   margin-left: 2px;
   border-radius: 10px;
+
 }
 #workspaces button.urgent {
-  background-color: #eb4d4b;
+  color: #bf616a;
 }
 
-#workspace button.hover {
-	background-color: transparent;
-}
+
 
 
 

@@ -68,7 +68,7 @@ conky.config = {
 	no_buffers = true,							-- Subtract (file system) buffers from used memory?
 	temperature_unit = 'celsius',				-- fahrenheit or celsius
 	text_buffer_size = 2048,					-- size of buffer for display of content of large variables - default 256
-	update_interval = 2,						-- update interval
+	update_interval = 3,						-- update interval
 	imlib_cache_size = 0,                       -- disable image cache to get a new spotify cover per song
     --Display
     nvidia_display = ':0',
@@ -251,7 +251,8 @@ ${color2}Battery:${color} ${goto 1530}${battery_short}${alignr}${voffset 1}${bat
 ${color5}${voffset 3}${font Roboto:size=10}C P U  ${hr 2}${font}${color}${voffset 2}
 ${color2}Name:${color}${alignr}${execp  env LANG=en_US.UTF-8 lscpu | sed -nr '/Model name/ s/.*:\s*(.*) CPU .*/\1/p'}
 ${color2}Frequency:${color} $alignr${freq_g (1)} GHz
-${color2}Temperature:${color} $alignr${execi 30 sensors | grep 'Core 0' | awk {'print $3'}}
+#${color2}Temperature:${color} $alignr${execi 30 sensors | grep 'Core 0' | awk {'print $3'}}
+${color2}Temperature:${color} $alignr${hwmon 5 temp 1} ℃ 
 ${color2}Usage:${color}${alignr}${cpu}% ${color} ${cpubar 15,100}
 ${cpubar cpu1 8,72} ${cpubar cpu2 8,72} ${cpubar cpu3 8,72} ${cpubar cpu4 8,72}
 ${cpubar cpu5 8,72} ${cpubar cpu6 8,72} ${cpubar cpu7 8,72} ${cpubar cpu8 8,72}

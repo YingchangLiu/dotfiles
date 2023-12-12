@@ -43,11 +43,11 @@
         "8": "8",
         "9": "9",
         "urgent": "󰊠",
+        "persistent":"󰊠",
         "active": "󰮯",
         "default": "",
-        "empty":"󰊠",
-        "persistent":"󰊠",
         "special": "󰊠", 
+        "empty":"󰊠",
         //"urgent": "",
         //"active": "",
         //"default": ""
@@ -451,7 +451,8 @@
 },
 
 "temperature": {
-    "thermal-zone": 7,
+    // "thermal-zone": 7,
+    "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
     // "format": " {temperatureC}°C",
     "format": "{temperatureC}°C",
     "critical-threshold": 70,

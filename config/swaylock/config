@@ -11,8 +11,7 @@ image=$(find ${HOME}/dotfile/wallpaper/ -type f | shuf -n 1)
 
 effect-blur=45x3
 effect-scale=1
-effect-pixelate=12
-effect-scale=1
+#effect-pixelate=12
 
 indicator
 indicator-radius=150
