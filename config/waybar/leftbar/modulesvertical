@@ -376,9 +376,9 @@
   },
   "network#icon": {
     "interval": 5,
-    "format-wifi": " ",
-    "format-ethernet": " ",
-    "format-disconnected": "󰌙 ",
+    "format-wifi": "  ",
+    "format-ethernet": "  ",
+    "format-disconnected": " 󰌙 ",
     "format-disabled": "󰯡 ",
     "on-click": "sh ~/.config/rofi/nmcli/nmcli"
   },
