@@ -79,13 +79,28 @@
     "on-scroll-down": "hyprctl dispatch workspace e-1",
   },
 	
+
+  "battery#icon": {
+    "interval": 60,
+    "format": " {icon}",
+    // "format-icons": ["", "", "", "", ""],
+    "format-icons": [
+          "<span color='#dd532e'></span>", // red
+          "<span color='#ff9977'></span>", // orange
+          "<span color='#ffffa5'></span>", // yellow
+          "<span color='#2aa9ff></span>", // blue
+          "<span color='#69ff94'></span>" // green
+      ],
+    // "max-length": 25
+ },
+
   "battery": {
 		"interval": 60,
 		// "align": 0,
 		"rotate": 0,
 		//"bat": "BAT1",
 		//"adapter": "ACAD",
-		"full-at": 96,
+		"full-at": 100,
 		"design-capacity": false,
     "states": {
       "full": 100,
@@ -95,15 +110,14 @@
       "critical": 15
     },
     "format": "{capacity}%",
-    "format-CC": " {capacity}%",
-    "format-plugged": " {capacity}%",
+    "format-CC": "{capacity}%",
+    "format-plugged": "{capacity}%",
     "format-full": "{capacity}%",
     "format-discharging-good": "{capacity}%",
     "format-discharging-low": "{capacity}%",
     "format-discharging-warning": "{capacity}%",
     "format-discharging-critical": "{capacity}%",
     "format-time": "{m}m",
-    "format-icons": ["", "", "", "", ""],
     "tooltip": true,
     // "format": "{icon} {capacity}%",
     // "format-warning": "{icon} {capacity}%",
@@ -154,6 +168,33 @@
     // "format": " {usage}%",
     "interval": 1,
     "format": "{usage}%",
+  },
+
+  "cpu#icon": {
+      "interval": 1,
+      "format": "{icon}",
+      "format-icons": "",
+      // "format-icons": [
+      //     "<span color='#69ff94'>▁</span>", // green
+      //     "<span color='#2aa9ff'>▂</span>", // blue
+      //     "<span color='#f8f8f2'>▃</span>", // white
+      //     "<span color='#f8f8f2'>▄</span>", // white
+      //     "<span color='#ffffa5'>▅</span>", // yellow
+      //     "<span color='#ffffa5'>▆</span>", // yellow
+      //     "<span color='#ff9977'>▇</span>", // orange
+      //     "<span color='#dd532e'>█</span>"  // red
+      // ],
+      // "format-icons":[
+      //   "<span color='#69ff94'>󰝦</span>", // green
+      //   "<span color='#2aa9ff'>󰪞</span>", // blue
+      //   "<span color='#f8f8f2'>󰪟</span>", // white
+      //   "<span color='#f8f8f2'>󰪠</span>", // white
+      //   "<span color='#ffffa5'>󰪡</span>", // yellow
+      //   "<span color='#ffffa5'>󰪢</span>", // yellow
+      //   "<span color='#ff9977'>󰪣</span>", // orange
+      //   "<span color='#dd532e'>󰪤</span>",  // red
+      //   "<span color='#dd532e'>󰪥</span>"  // red
+      // ],
   },
 
   "custom/cpuicon": {
@@ -420,11 +461,11 @@
     /*"format": "{icon} {volume}",*/
     /*"format": "{icon}",*/
     // "format-muted": "0",
-    "format-muted": "",
+    // "format-muted": "",
     // "format-bluetooth": "{volume}%",
     // "format-bluetooth-muted": "Mute",
-    "format-bluetooth": "  {volume}%",
-    "format-bluetooth-muted": " ",
+    //"format-bluetooth": "  {volume}%",
+    //"format-bluetooth-muted": " ",
     "format-source": "{volume}",
     "format-source-muted": "",
     "format-icons": {
@@ -444,6 +485,23 @@
     // "on-scroll-down": "sh ~/.config/hypr/scripts/volume --dec",
     "smooth-scrolling-threshold": 1
   },
+  "pulseaudio#icon": {
+    "format": "{icon}",
+    "format-bluetooth": "",
+    "format-muted": "",
+    "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", ""]
+    },
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "ignored-sinks": ["Easy Effects Sink"]
+},
 
   "bluetooth": {
     "on-click": "~/.config/waybar/leftbar/scripts/rofi-bluetooth &",
@@ -460,7 +518,19 @@
     "on-scroll-down": "pamixer --default-source -d 5",
     "scroll-step": 5
 },
-
+"temperature#icon": {
+    "interval": 5,
+    "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
+    "format": "{icon}",
+    "format-icons": [
+      "<span color='#69ff94'></span>", // green
+      "<span color='#2aa9ff'></span>", // blue
+      "<span color='#ffffa5'></span>", // yellow
+      "<span color='#ff9977'></span>", // orange
+      "<span color='#dd532e'></span>"  // red
+    ],
+    "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+},
 "temperature": {
     // "thermal-zone": 7,
     "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",

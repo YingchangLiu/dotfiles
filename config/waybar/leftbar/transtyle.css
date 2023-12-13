@@ -28,7 +28,12 @@ tooltip {
 window#waybar.hidden {
   opacity: 0.5;
 }
-
+#pulseaudio.icon,
+#network.icon,
+#cpu.icon,
+#temperature.icon,
+#memory.icon,
+#battery.icon,
 #backlight,
 #battery,
 #clock,
@@ -62,7 +67,6 @@ window#waybar.hidden {
 #custom-cpuicon,
 #custom-volicon,
 #custom-neticon,
-#network.icon,
 #custom-memicon,
 #custom-diskicon,
 #custom-tempicon,
@@ -102,6 +106,7 @@ window#waybar.hidden {
   color: #eba0ac;
 
 }
+#cpu.icon,
 #custom-cpuicon{
 
   color: #89dceb;
@@ -157,7 +162,11 @@ window#waybar.hidden {
   color: #e3e3e3;
   font-size: 15px;
 }
-
+#pulseaudio.icon,
+#cpu.icon,
+#temperature.icon,
+#memory.icon,
+#battery.icon,
 #custom-cpuicon,
 #custom-volicon,
 #custom-memicon,
@@ -338,11 +347,12 @@ window#waybar.hidden {
   font-size: 24px;
 }
 
+#pulseaudio.icon,
 #custom-volicon,
 #custom-micicon,
 #custom-clockicon {
 
-    color: #74DD91;
+    color: #1fbfdf;
 
 }
 
@@ -364,6 +374,9 @@ window#waybar.hidden {
 #pulseaudio.muted {
   
   color: #bec3d4;
+}
+#pulseaudio.icon.muted {
+  color: #8895be;
 }
 
 
