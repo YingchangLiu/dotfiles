@@ -523,15 +523,17 @@
     "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
     "format": "{icon}",
     "format-icons": [
-      "<span color='#69ff94'></span>", // green
-      "<span color='#2aa9ff'></span>", // blue
-      "<span color='#ffffa5'></span>", // yellow
+      "<span color='#2aa9ff'></span>", // blue
+      "<span color='#2af1e7'></span>", // cyan
+      "<span color='#69ff94'></span>", // green
       "<span color='#ff9977'></span>", // orange
       "<span color='#dd532e'></span>"  // red
+
     ],
     "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
 },
 "temperature": {
+    "interval": 5,
     // "thermal-zone": 7,
     "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
     // "format": " {temperatureC}°C",
