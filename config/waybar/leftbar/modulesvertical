@@ -526,6 +526,7 @@
       "<span color='#2aa9ff'></span>", // blue
       "<span color='#2af1e7'></span>", // cyan
       "<span color='#69ff94'></span>", // green
+      "<span color='#ffffa5'></span>", // yellow
       "<span color='#ff9977'></span>", // orange
       "<span color='#dd532e'></span>"  // red
 
