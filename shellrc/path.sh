@@ -55,4 +55,4 @@ source /opt/conda/etc/profile.d/conda.sh 2>/dev/null
 source ~/opt/miniconda3/etc/profile.d/conda.sh 2>/dev/null
 
 source $RSFROOT/share/madagascar/etc/env.sh 2>/dev/null
-source /opt/intel/opeapi/setvars.sh >/dev/null 2>&1
+source /opt/intel/oneapi/setvars.sh >/dev/null 2>&1
