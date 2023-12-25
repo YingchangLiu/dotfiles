@@ -79,7 +79,7 @@ conky.config = {
 	alignment = 'middle_left',				    -- top_left,top_middle,top_right,bottom_left,bottom_middle,bottom_right,
 												-- middle_left,middle_middle,middle_right,none
 	--Arch Duoscreen
-	gap_x = 1270,								-- pixels between right or left border
+	gap_x = 1140,								-- pixels between right or left border
 	gap_y = 10,									-- pixels between bottom or left border
 	minimum_height = 300,						-- minimum height of window
 	minimum_width = 300,						-- minimum height of window
@@ -247,7 +247,7 @@ ${color2}Distro:${color}${alignr} ${alignr}${execi 6000 lsb_release -a | grep 'D
 ${color2}Kernel:${color}${alignr}${exec uname} ${exec uname -r}
 ${color2}Packages:${color}${alignr} ${execi 600 pacman -Qq | wc -l} (${execi 600 checkupdates | wc -l} update)
 ${color2}Uptime:${color} ${alignr}${uptime}
-${color2}Battery:${color} ${goto 1530}${battery_short}${alignr}${voffset 1}${battery_bar 14,80}${alignr}
+${color2}Battery:${color} ${goto 1400}${battery_short}${alignr}${voffset 1}${battery_bar 14,80}${alignr}
 ${color5}${voffset 3}${font Roboto:size=10}C P U  ${hr 2}${font}${color}${voffset 2}
 ${color2}Name:${color}${alignr}${execp  env LANG=en_US.UTF-8 lscpu | sed -nr '/Model name/ s/.*:\s*(.*) CPU .*/\1/p'}
 ${color2}Frequency:${color} $alignr${freq_g (1)} GHz
@@ -268,12 +268,12 @@ ${cpubar cpu5 8,72} ${cpubar cpu6 8,72} ${cpubar cpu7 8,72} ${cpubar cpu8 8,72}
 #${color2}${offset 30}CPU Core 8:${color} ${alignr}${offset -10}${cpu cpu8}%${alignr}${cpubar cpu8}
 ${color2}Processes: ${color}${alignr}$processes ($running_processes running)
 ${color2}Threads: ${color}${alignr}$threads ($running_threads running)
-${color2}     Highest${goto 1440} CPU%${goto 1530}PID${color}
+${color2}     Highest${goto 1310} CPU%${goto 1400}PID${color}
 ${voffset 2}\
-     1  -  ${top name 1}${alignr} ${goto 1440}${top cpu 1} ${goto 1510}${top pid 1}
-     2  -  ${top name 2}${alignr} ${goto 1440}${top cpu 2} ${goto 1510}${top pid 2}
-     3  -  ${top name 3}${alignr} ${goto 1440}${top cpu 3} ${goto 1510}${top pid 3}
-     4  -  ${top name 4}${alignr} ${goto 1440}${top cpu 4} ${goto 1510}${top pid 4}
+     1  -  ${top name 1}${alignr} ${goto 1310}${top cpu 1} ${goto 1380}${top pid 1}
+     2  -  ${top name 2}${alignr} ${goto 1310}${top cpu 2} ${goto 1380}${top pid 2}
+     3  -  ${top name 3}${alignr} ${goto 1310}${top cpu 3} ${goto 1380}${top pid 3}
+     4  -  ${top name 4}${alignr} ${goto 1310}${top cpu 4} ${goto 1380}${top pid 4}
 ${color5}${voffset 3}${font Roboto:size=10}G P U  ${hr 2}${font}${color}${voffset 2}
 ${color2}Name:${color}${alignr}${execp  nvidia-smi --query-supported-clocks=gpu_name --format=csv,noheader}
 ${color2}Version:${color}${alignr}${execi 60000 nvidia-smi | grep "Driver Version"| awk {'print $3'}}
@@ -282,12 +282,12 @@ ${color2}Menory:${color}${alignr}${execi 10 nvidia-settings -q [gpu:0]/UsedDedic
 ${color5}${voffset 3}${font Roboto:size=10}G E N E R A L   ${hr 2}${font}${color}${voffset 2}
 ${color2}RAM: ${color}${alignr}${offset -10}${mem} / ${memmax}${alignr}${membar}
 ${color2}Swap:${color} ${alignr}${offset -10}${swap} / ${swapmax}${alignr}${swapbar}
-${color2}     Highest${goto 1440} MEM${goto 1530}PID${color}
+${color2}     Highest${goto 1310} MEM${goto 1400}PID${color}
 ${voffset 2}\
-     1  -  ${top_mem name 1}${alignr} ${goto 1440}${top_mem mem_res 1} ${goto 1510}${top_mem pid 1}
-     2  -  ${top_mem name 2}${alignr} ${goto 1440}${top_mem mem_res 2} ${goto 1510}${top_mem pid 2}
-     3  -  ${top_mem name 3}${alignr} ${goto 1440}${top_mem mem_res 3} ${goto 1510}${top_mem pid 3}
-     4  -  ${top_mem name 4}${alignr} ${goto 1440}${top_mem mem_res 4} ${goto 1510}${top_mem pid 4}
+     1  -  ${top_mem name 1}${alignr} ${goto 1310}${top_mem mem_res 1} ${goto 1380}${top_mem pid 1}
+     2  -  ${top_mem name 2}${alignr} ${goto 1310}${top_mem mem_res 2} ${goto 1380}${top_mem pid 2}
+     3  -  ${top_mem name 3}${alignr} ${goto 1310}${top_mem mem_res 3} ${goto 1380}${top_mem pid 3}
+     4  -  ${top_mem name 4}${alignr} ${goto 1310}${top_mem mem_res 4} ${goto 1380}${top_mem pid 4}
 ${color5}${voffset 3}${font Roboto:size=10}D I S K S   ${hr 2}${font}${color}${voffset 2}
 ${offset 20}${color2}Root:${color} ${alignr}${offset -10}${fs_used /} / ${fs_size /}${alignr}${fs_bar}
 ${offset 30}${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/nvme0n1}${alignr}${diskiograph_read /dev/nvme0n1 8,100 000000 FFFFFF}
