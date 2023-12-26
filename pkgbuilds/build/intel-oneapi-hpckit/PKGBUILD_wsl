@@ -58,18 +58,19 @@ package() {
   # We have to run as a user different from root
   # otherwise the installer wants to write to /opt, /var
   # which is not possible in fakeroot.
+  runuser -u $USER -- rm -rf /home/$USER/intel
   runuser -u $USER -- sh "l_BaseKit_p_${pkgver_base}_offline.sh" -a \
     --silent --eula accept \
     --components all \
     --install-dir "${pkgdir}"/opt/intel/oneapi \
     --log-dir "${srcdir}"/ --ignore-errors
-
+   source ${pkgdir}/opt/intel/oneapi/setvars.sh
+  runuser -u $USER -- rm -rf /home/$USER/intel
   runuser -u $USER -- sh "l_HPCKit_p_${pkgver_hpc}_offline.sh" -a \
     --silent --eula accept \
     --components all \
     --install-dir "${pkgdir}"/opt/intel/oneapi \
     --log-dir "${srcdir}"/ --ignore-errors
-    
   runuser -u $USER -- rm -rf /home/$USER/intel
 
   # allow low level compiler libs to be found

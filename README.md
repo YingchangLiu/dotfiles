@@ -53,6 +53,7 @@ A concise guide to archlinux in Chinese https://arch.icekylin.online/
 - zsh, working with autojump, autosuggestions, command-not-found, completions, history-substring-search and syntax-highlighting
 
 ### PKGBUILDs
+Research packages that are maintained and archived by me.
 - seismic-unix
 - madagascar
 - cuda-multiversion
@@ -60,7 +61,7 @@ A concise guide to archlinux in Chinese https://arch.icekylin.online/
 - matlab
 
 ### Geophysical codes.
-This is a list about some geophysical codes. The following packages are not been packaged.
+A list of geophysical codes. The following packages are not been packaged.
 - CREWES, DENISE, Devito, GMT, HypoDD, k-wave, IFOS, IRIS, Obspy, sac, SLIM, SOFI, etc. 
 
 ### Scripts
