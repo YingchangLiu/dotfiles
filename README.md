@@ -52,11 +52,15 @@ A concise guide to archlinux in Chinese https://arch.icekylin.online/
 - waybar
 - zsh, working with autojump, autosuggestions, command-not-found, completions, history-substring-search and syntax-highlighting
 
-### PKGBUILD records
-Not every software has its pkgbuild, and some softwares are not visible due to privacy agreements. I will only list the names of these softwares.
-- seismicunix
+### PKGBUILDs
+- seismic-unix
 - madagascar
 - cuda-multiversion
+- intel-oneapi-hpckit (include oneapi-basekit)
+- matlab
+
+### Geophysical codes.
+This is a list about some geophysical codes. The following packages are not been packaged.
 - CREWES, DENISE, Devito, GMT, HypoDD, k-wave, IFOS, IRIS, Obspy, sac, SLIM, SOFI, etc. 
 
 ### Scripts
