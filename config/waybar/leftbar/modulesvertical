@@ -82,13 +82,13 @@
 
   "battery#icon": {
     "interval": 60,
-    "format": " {icon}",
+    "format": "{icon}",
     // "format-icons": ["", "", "", "", ""],
     "format-icons": [
           "<span color='#dd532e'></span>", // red
           "<span color='#ff9977'></span>", // orange
           "<span color='#ffffa5'></span>", // yellow
-          "<span color='#2aa9ff></span>", // blue
+          "<span color='#2aa9ff'></span>", // blue
           "<span color='#69ff94'></span>" // green
       ],
     // "max-length": 25
@@ -199,31 +199,31 @@
 
   "custom/cpuicon": {
 
-    "format": "  "
+    "format": ""
 
   },
   "custom/memicon": {
 
-	"format": "  "
+	"format": ""
 
   },
   "custom/diskicon": {
 
-    "format": " 󰋊 "
+    "format": "󰋊"
 
   },
   "custom/wifi":{
 
-    "format": " ᯤ ",
-    "format-alt": " 睊 ",
+    "format": "ᯤ",
+    "format-alt": "睊",
     "on-click":"nmcli radio wifi off",
     "on-click-right": "nmcli radio wifi on"
 
   },
   "custom/volicon": {
 
-    "format": " 󰕾 ",
-    "format-alt": " 󰖁 ",
+    "format": "󰕾",
+    "format-alt": "󰖁",
 		"on-click": "pamixer -t",
     "scroll-step": 5.0,
     "on-click-right": "pavucontrol",
@@ -234,30 +234,30 @@
   },
   "custom/blicon": {
 
-    "format": " 󰃠 ",
+    "format": "󰃠",
     "on-scroll-up": "brightnessctl set 5%+",
     "on-scroll-down": "brightnessctl set 5%-"
 
   },
   "custom/baticon": {
 
-    "format": "  "
+    "format": ""
   },
   "custom/tempicon": {
 
-    "format": "  "
+    "format": ""
 
   },
   
   "custom/clockicon": {
 
-    "format": " ⏱  "
+    "format": "⏱"
 
   },
   "custom/micicon": {
 
-    "format": "  ",
-    "format-alt": "  ",
+    "format": "",
+    "format-alt": "",
     "on-click": "pamixer --default-source -t"
 
   },
@@ -411,15 +411,15 @@
 
   "custom/neticon": {
 
-    "format": "  ",
+    "format": "",
     "on-click": "sh ~/.config/rofi/nmcli/nmcli"
 
   },
   "network#icon": {
     "interval": 5,
-    "format-wifi": "  ",
-    "format-ethernet": "  ",
-    "format-disconnected": " 󰌙 ",
+    "format-wifi": "",
+    "format-ethernet": "",
+    "format-disconnected": "󰌙",
     "format-disabled": "󰯡 ",
     "on-click": "sh ~/.config/rofi/nmcli/nmcli"
   },
