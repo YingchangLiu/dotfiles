@@ -1,3 +1,4 @@
+alacritty
 archlinuxcn-keyring
 autojump
 base
@@ -53,6 +54,7 @@ obs-studio
 os-prober
 otf-font-awesome
 pacman-contrib
+pamixer
 paru
 pipewire-pulse
 pkgfile
@@ -71,13 +73,14 @@ ufw
 v2raya-git
 vim
 visual-studio-code-bin
+vlc
 vulkan-intel
-waybar-hyprland-git
+waybar-git
 wofi
 xdg-desktop-portal-hyprland
 xorg-xeyes
 zsh-autosuggestions
 zsh-completions
 zsh-history-substring-search
-zsh-syntax-highlighting
+zsh-syntax-highlighting-git
 zsh-theme-powerlevel10k
