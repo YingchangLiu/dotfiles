@@ -8,7 +8,7 @@ add_path() {
 ## CUDA
 # export PATH=/usr/local/cuda/bin:$PATH 2>/dev/null
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
-export NVCC_PREPEND_FLAGS='-ccbin /usr/local/cuda/bin'
+# export NVCC_PREPEND_FLAGS='-ccbin /usr/local/cuda/bin'
 add_path /usr/local/cuda/bin
 
 
