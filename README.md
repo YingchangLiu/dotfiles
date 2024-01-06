@@ -37,8 +37,8 @@ A concise guide to archlinux in Chinese https://arch.icekylin.online/
 - dust
 - eww
 - fastfetch
+- fcitx5 with rime-ice
 - gBar
-- htop
 - kitty
 - mpd
 - nnn
@@ -46,10 +46,13 @@ A concise guide to archlinux in Chinese https://arch.icekylin.online/
 - picom
 - pip
 - powerlevel10k
+- rofi
 - swaylock-effects
 - thefuck
 - vim
+- wallpaper engine on linux
 - waybar
+- wofi
 - zsh, working with autojump, autosuggestions, command-not-found, completions, history-substring-search and syntax-highlighting
 
 ### PKGBUILDs
@@ -73,6 +76,7 @@ A list of geophysical codes. The following packages are not been packaged.
 - logout
 - maintenace
 - pytorch cuda test
+- screenshot
 - volume control
 - wayland session lock
 

@@ -22,3 +22,5 @@ export SHELLROOT="$HOME/dotfile/shellrc"
 [ -f "$SHELLROOT/alias.sh" ] && source "$SHELLROOT/alias.sh"
 [ -f "$SHELLROOT/path.sh" ] && source "$SHELLROOT/path.sh"
 [ -f "$SHELLROOT/language.sh" ] && source "$SHELLROOT/language.sh"
+
+[ -f "$SHELLROOT/custom.sh" ] && source "$SHELLROOT/custom.sh"  2>/dev/null
