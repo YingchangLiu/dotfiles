@@ -20,10 +20,10 @@ echo 'root:passwd' | chpasswd
 
 pacman -S intel-ucode
 pacman -S grub efibootmgr os-prober
-grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
+grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
-systemctl enable dhcpcd
+systemctl enable --now NetworkManager
 useradd -m -G wheel -s /bin/zsh kelen
 usermod -aG video kelen
 echo "kelen:passwd" | chpasswd
@@ -38,9 +38,7 @@ Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 EOF
 pacman -Syyu
 pacman -S archlinuxcn-keyring
-#pacman -S paru wqy-zenhei firefox otf-font-awesome alacritty autojump fzf mako mpv pacman-contrib pipewire pipewire-pulse neofetch pkgfile polkit-gnome swaybg swayidle swaylock sway timeshift v2ray v2raya waybar wofi  zsh-autosuggestions zsh-completions zsh-syntax-highlighting zsh-theme-powerlevel10k
 
-#paru -S river-noxwayland-git swhkd-git
 
 exit
 umount -R /mnt

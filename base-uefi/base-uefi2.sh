@@ -1,5 +1,5 @@
 #!/bin/bash
 
-pacstrap /mnt base base-devel linux linux-firmware dhcpcd vim bash-completion zsh zsh-completions ntfs-3g
+pacstrap /mnt base base-devel linux linux-firmware vim bash-completion  zsh-completions networkmanager
 
 genfstab -U /mnt > /mnt/etc/fstab
