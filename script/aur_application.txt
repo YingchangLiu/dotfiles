@@ -5,6 +5,7 @@ linuxqq
 madagascar-git
 ntfsprogs-ntfs3
 qqmusic-bin
+rime-ice
 seismic-unix-git
 swaylock-effects-git
 ttf-material-design-icons-git

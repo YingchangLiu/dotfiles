@@ -13,12 +13,8 @@ discord
 dunst
 efibootmgr
 fastfetch
-fcitx5
-fcitx5-chinese-addons
 fcitx5-configtool
-fcitx5-gtk
-fcitx5-pinyin-moegirl
-fcitx5-qt
+fcitx5-rime
 firefox
 gnome-keyring
 grim
@@ -47,6 +43,7 @@ network-manager-applet
 networkmanager
 nnn
 noto-fonts-cjk
+noto-fonts-emoji
 nvidia-dkms
 nvidia-prime
 nvidia-settings
@@ -56,6 +53,7 @@ otf-font-awesome
 pacman-contrib
 pamixer
 paru
+pcmanfm
 pipewire-pulse
 pkgfile
 polkit-gnome
