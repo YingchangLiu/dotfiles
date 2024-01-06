@@ -1,7 +1,8 @@
 **histfile*
 
 __pycache__
-.idea
+**/.idea/
+
 *.log
 .vscode
 temp
@@ -14,6 +15,8 @@ temp
 **/fcitx5/rime/build
 **/fcitx5/rime/sync
 **/fcitx5/rime/*.userdb
+**/fcitx5/rime/installation.yaml
+**/fcitx5/rime/cn_dicts/temp.txt
 
 
 **/mpv/watch_later

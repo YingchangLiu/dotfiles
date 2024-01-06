@@ -33,15 +33,20 @@ schema:
 # reset: 默认状态。 注释掉后，切换窗口时不会重置到默认状态。
 switches:
   - name: ascii_mode
-    states: [ 中, A ]
+    states: [ 中, Ａ ]
+    reset: 0
   - name: ascii_punct # 中英标点
     states: [ ¥, $ ]
+    reset: 0
   - name: traditionalization
     states: [ 简, 繁 ]
+    reset: 0
   - name: emoji
     states: [ 💀, 😄 ]
+    reset: 1
   - name: full_shape
     states: [ 半角, 全角 ]
+    reset: 0
 
 
 # 输入引擎
@@ -66,6 +71,7 @@ engine:
     - punct_translator
     - script_translator
     - lua_translator@date_translator      # 时间、日期、星期
+    - lua_translator@lunar                # 农历
     - table_translator@custom_phrase      # 自定义短语 custom_phrase_double.txt
     - table_translator@melt_eng           # 英文输入
     - reverse_lookup_translator@liangfen  # 反查，两分拼字
@@ -89,21 +95,47 @@ date_translator:
   timestamp: timestamp  # 时间戳： 1669716794
 
 
-# Lua 配置: 降低部分英语单词在候选项的位置
+# Lua 配置：农历
+lunar: lunar  # 癸卯年(兔)冬月廿一  二〇二四年冬月廿一
+
+
+# Lua 配置：为 corrector 格式化 comment，占位符为 {comment}
+# 默认 "{comment}" 输入 hun dun 时会在「馄饨」旁边生成 hún tun 的 comment
+# 例如左右加个括号 "({comment})" 就会变成 (hún tun)
+corrector: "{comment}"
+
+
+# Lua 配置: 降低部分英语单词在候选项的位置。
 # 详细介绍 https://dvel.me/posts/make-rime-en-better/#短单词置顶的问题
 # 正常情况： 输入 rug 得到 「1.rug 2.如果 …… 」
 # 降低之后： 输入 rug 得到 「1.如果 2.rug …… 」
+# 几种模式：
+# all     降低所有 3~4 位长度、前 2~3 位是完整拼音、最后一位是声母的单词
+# none    不降低任何单词，相当于没有启用这个 Lua
+# custom  自定义，只降低 words 里的
+# （匹配的是编码，不是单词）
 reduce_english_filter:
-  # 降低到第 idx 个位置
-  idx: 2
-  # 要降低的单词，匹配的是输入码，即全小写。
-  words: [nav, uid, wig,
-  rug, bus, ship, laos, bail, bam, bans, bib, bos, chic, chit, dab, dag,
-  dal, dit, dub, dug, fab, gam, ger, gus, hem, hep, hud, kat, lam, lax, lex, lug,
-  lux, moc, mos, mot, mum, nad, nay, nib, nip, pak, pap, pax, rig, rum, sac, sal,
-  sax, sec, shin, sis, ska, slang, sus, tad, taj, tac, tic, yep, yum, fax, cain,
-  key, mob, buy, dam, wap, yes, but, put, lag, buf, lip, aid, aim, dig, dim, din,
-  dip, pail, cad, chap, bend, lid, gem, tin, tum]
+  mode: custom  # all | none | custom
+  idx: 2        # 降低到第 idx 个位置
+  # 自定义的单词列表，示例列表没有降低部分常用单词，如 and cat mail Mac but bad shit ……
+  words: [aid, ann,
+  bail, bait, bam, band, bans, bat, bay, bend, bent, benz, bib, bid, bien, biz, boc, bop, bos, bud, buf,
+  cab, cad, cain, cam, cans, cap, cas, cef, chad, chan, chap, chef, cher, chew, chic, chin, chip, chit, coup, cum, cunt, cur,
+  dab, dag, dal, dam, dent, dew, dial, diet, dim, din, dip, dis, dit, doug, dub, dug, dunn,
+  fab, fax, fob, fog, foul, fur,
+  gag, gail, gain, gal, gam, gaol, ged, gel, ger, guam, gus, gut,
+  hail, ham, hank, hans, hat, hay, heil, heir, hem, hep, hud, hum, hung, hunk, hut,
+  jim, jug,
+  kat,
+  lab, lad, lag, laid, lam, laos, lap, lat, lax, lay, led, leg, lex, liam, lib, lid, lied, lien, lies, linn, lip, lit, liz, lob, lug, lund, lung, lux,
+  mag, maid, mann, mar, mat, med, mel, mend, mens, ment, mil, mins, mint, mob, moc, mod, mop, mos, mot, mud, mug, mum, nail,
+  nap, nat, nay, neil, nib, nip, noun, nous, nun, nut,
+  pac, paid, pail, pain, pair, pak, pal, pam, pans, pant, pap, par, pat, paw, pax, pens, pic, pier, pies, pins, pint, pit, pix, pod, pop, pos, pot, pour, pow, pub,
+  rand, rant, rent, rep, res, ret, rex, rib, rid, rig, rim, rub, rug, rum, runc, runs,
+  sac, sail, sal, sam, sans, sap, saw, sax, sew, sham, shaw, shin, sig, sin, sip, sis, suit, sung, suns, sup, sur, sus,
+  tad, tail, taj, tar, tax, tec, ted, tel, ter, tex, tic, tied, tier, ties, tim, tin, tit, tour, tout, tum,
+  wag, wand, womens, wap, wax, weir, won,
+  yan, yen]
 
 
 # 主翻译器，拼音
@@ -240,7 +272,7 @@ speller:
     - xform/^zh/Ⓥ/
     - xform/uo$/Ⓞ/
     - xform/ie$/Ⓟ/
-    - xform/i?ong$/Ⓢ/
+    - xform/(.)i?ong$/$1Ⓢ/
     - xform/ing$|uai$/Ⓚ/
     - xform/(.)ai$/$1Ⓓ/
     - xform/(.)en$/$1Ⓕ/
@@ -256,5 +288,4 @@ speller:
     - xform/ui$/Ⓥ/
     - xform/in$/Ⓑ/
     - xlit/ⓆⓌⓇⓉⓎⓊⒾⓄⓅⓈⒹⒻⒼⒽⒿⓀⓁⓏⓍⒸⓋⒷⓃⓂ/qwrtyuiopsdfghjklzxcvbnm/
-    - abbrev/^(.).+$/$1/  # 首字母简拼
-  
+    # - abbrev/^(.).+$/$1/  # 首字母简拼，开启后会导致 3 个字母时 kj'x 变成 k'jx 的问题

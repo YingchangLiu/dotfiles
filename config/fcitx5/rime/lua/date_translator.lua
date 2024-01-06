@@ -11,7 +11,7 @@ local M = {}
 
 function M.init(env)
     local config = env.engine.schema.config
-    M.name_space = env.name_space:gsub('^*', '')
+    env.name_space = env.name_space:gsub('^*', '')
     M.date = config:get_string(env.name_space .. '/date') or 'rq'
     M.time = config:get_string(env.name_space .. '/time') or 'sj'
     M.week = config:get_string(env.name_space .. '/week') or 'xq'
@@ -24,16 +24,16 @@ function M.func(input, seg, env)
     if (input == M.date) then
         local current_time = os.time()
         yield_cand(seg, os.date('%Y-%m-%d', current_time))
-        --yield_cand(seg, os.date('%Y/%m/%d', current_time))
-        --yield_cand(seg, os.date('%Y.%m.%d', current_time))
-        --yield_cand(seg, os.date('%Y%m%d', current_time))
-        yield_cand(seg, os.date('%Y 年 %m 月 %d 日', current_time):gsub(' 0', ' '))
+        yield_cand(seg, os.date('%Y/%m/%d', current_time))
+        yield_cand(seg, os.date('%Y.%m.%d', current_time))
+        yield_cand(seg, os.date('%Y%m%d', current_time))
+        yield_cand(seg, os.date('%Y年%m月%d日', current_time):gsub('年0', '年'):gsub('月0','月'))
 
     -- 时间
     elseif (input == M.time) then
         local current_time = os.time()
+        yield_cand(seg, os.date('%H:%M', current_time))
         yield_cand(seg, os.date('%H:%M:%S', current_time))
-        yield_cand(seg, os.date('%Y-%m-%d %H:%M:%S', current_time))
 
     -- 星期
     elseif (input == M.week) then
