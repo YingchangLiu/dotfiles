@@ -13,7 +13,7 @@ alias nekoray='nekoray -many'
 # OBS from xwayland
 # alias obs='QT_QPA_PLATFORM=xcb obs'
 # Fcitx5-configtool from xwayland
-QT_QPA_PLATFORM=xcb fcitx5-configtool
+alias fcitx5-configtool='QT_QPA_PLATFORM=xcb fcitx5-configtool'
 # alacritty with wayland
 # alias alacritty='Exec=env WAYLAND_DISPLAY= alacritty'
 

@@ -26,6 +26,9 @@ export SHELLROOT="$HOME/dotfile/shellrc"
 [ -f "$SHELLROOT/path.sh" ] && source "$SHELLROOT/path.sh" 2>/dev/null
 [ -f "$SHELLROOT/language.sh" ] && source "$SHELLROOT/language.sh"  2>/dev/null
 
+[ -f "$SHELLROOT/custom.sh" ] && source "$SHELLROOT/custom.sh"  2>/dev/null
+
+
 # Change default editor to vim
 export EDITOR='vim'
 

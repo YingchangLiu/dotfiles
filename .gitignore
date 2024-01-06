@@ -6,7 +6,7 @@ __pycache__
 *.log
 .vscode
 temp
-
+shellrc/custom.sh
 
 **/fcitx/dbus
 **/fcitx5/pinyin/*.dict
