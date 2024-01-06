@@ -69,6 +69,7 @@ for name in ${dotfiles}/themes/*; do
 done
 
 
+## config
 if [ ! -d "$HOME/.config" ]; then
     mkdir $HOME/.config
 fi
@@ -83,6 +84,18 @@ for name in ${dotfiles}/config/*; do
     fi
 
 done
+
+## local/share
+if [ ! -d "$HOME/.local/share" ]; then
+    mkdir -p $HOME/.local/share
+fi
+for name in ${dotfiles}/local/share/*; do
+
+    target="$HOME/.local/share/"
+    #backup $target
+    ln -sf $name $target
+done
+
 for name in ${dotfiles}/x11/*; do
 
     target="$HOME/.config/"
