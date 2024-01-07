@@ -85,6 +85,6 @@ EOF
 setenv CWPROOT /opt/$pkgname
 setenv PATH \${PATH}:\${CWPROOT}/bin
 EOF
-    chmod 755 "$pkgdir/etc/profile.d/$pkgname"{.sh,.csh}
+    chmod 644 "$pkgdir/etc/profile.d/$pkgname"{.sh,.csh}
 }
 md5sums=('8dac66e953b3998ee8acbaeacb0bce77')
