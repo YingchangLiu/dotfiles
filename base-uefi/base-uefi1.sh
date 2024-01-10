@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "This is first script for base-uefi, mainly for setting up the time and mirrorlist before partitioning the disks."
+
 systemctl stop reflector.service
 timedatectl set-ntp true
 mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak

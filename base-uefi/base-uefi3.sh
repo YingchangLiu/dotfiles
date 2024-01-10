@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "This is third script for base-uefi, mainly for setting up the system and user configuration after installing the base system."
+
 echo "arch" >> /etc/hostname
 echo "127.0.0.1 localhost" >> /etc/hosts
 echo "::1       localhost" >> /etc/hosts
@@ -39,8 +41,10 @@ EOF
 pacman -Syyu
 pacman -S archlinuxcn-keyring
 
+echo "Now exit the chroot environment and unmount the partitions, then reboot into the new system."
+echo "After rebooting into the new system, run the fourth script."
 
-exit
-umount -R /mnt
-reboot
+# exit
+# umount -R /mnt
 
+# reboot

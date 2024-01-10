@@ -19,7 +19,7 @@ This will create symlinks from this repo to your home folder.
 ## Contents
 
 ### Alias
-Please check in dotfile/shellrc/aliasrc.sh
+Please check in [dotfile/shellrc/alias.sh](./shellrc/alias.sh).
 
 ### Arch installation guide
 - base-uefi
@@ -56,16 +56,17 @@ A concise guide to archlinux in Chinese https://arch.icekylin.online/
 - zsh, working with autojump, autosuggestions, command-not-found, completions, history-substring-search and syntax-highlighting
 
 ### PKGBUILDs
-Research packages that are maintained and archived by me.
-- seismic-unix
-- madagascar
+Research packages that are maintained by me or archived for geophysics.
 - cuda-multiversion
 - intel-oneapi-hpckit (include oneapi-basekit)
+- madagascar
+- mathematica
 - matlab
+- miniconda3
+- plplot
+- seismic-unix
+- [more codes that are not packaged.](./pkgbuilds/README)
 
-### Geophysical codes.
-A list of geophysical codes. The following packages are not been packaged.
-- CREWES, DENISE, Devito, GMT, HypoDD, k-wave, IFOS, IRIS, Obspy, sac, SLIM, SOFI, etc. 
 
 ### Scripts
 - background-changer
@@ -81,7 +82,7 @@ A list of geophysical codes. The following packages are not been packaged.
 - wayland session lock
 
 ### Wallpapers
-Please check in dotfile/wallpaper.
+Please check in [dotfile/wallpaper](./wallpaper/).
 
 ### Window manager
 - Awesomewm
