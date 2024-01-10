@@ -1,6 +1,16 @@
 Some pkgbuild files are from AUR or github. 
 These are either poorly maintained or are geophysics-related packages. 
 I Have forked them for preservation and reference.
+- cuda-multiversion
+- intel-oneapi-hpckit (include oneapi-basekit)
+- madagascar
+- mathematica
+- matlab
+- miniconda3
+- plplot
+- seismic-unix
+
+
 
 And there is another list of geophysical codes, which are not packaged yet.
 - [CREWES]
@@ -12,8 +22,9 @@ And there is another list of geophysical codes, which are not packaged yet.
 - [Obspy]
 - [sac]
 - [SOFI]
-- etc. 
+- etc.
 
+The list is not exhaustive. If you are looking for more geophysics-related codes, https://seismo-learn.org/links/codes/ is a good place to start.
 
 <!-- Link labels: -->
 [CREWES]: https://www.crewes.org/ResearchLinks/FreeSoftware/

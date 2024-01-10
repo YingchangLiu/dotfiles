@@ -65,7 +65,7 @@ Research packages that are maintained by me or archived for geophysics.
 - miniconda3
 - plplot
 - seismic-unix
-- [more codes that are not packaged.](./pkgbuilds/README)
+A geophysics-related code list that is not packaged can be found [here](./pkgbuilds/README.md).
 
 
 ### Scripts
