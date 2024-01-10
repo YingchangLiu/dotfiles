@@ -72,7 +72,8 @@ You can find a list of the geophysical codes that I am currently utilizing for m
 ### Scripts
 - background-changer
 - check kernel: reboot required or not
-- gitclean
+- gitreset
+- gitshrink
 - killprocess
 - linux-wallpaperengine
 - logout
