@@ -3,7 +3,7 @@
 **__pycache__
 **/.idea/
 
-*.log
+**.log
 .vscode
 temp
 shellrc/custom.sh
