@@ -1,14 +1,27 @@
 
 #alias matlab='/home/kelen/bin/matlab/bin/matlab'
 
+# Fastfetch 
 alias fetch='fastfetch -c ~/.config/fastfetch/kelen.jsonc'
+# VNC 
 alias vnc='vncviewer -passwd ~/.vnc/passwd 127.0.0.1:1'
 
-# view image using mpv
+# MPV for viewing images
 alias mvi='mpv --config-dir=$HOME/.config/mvi'
 
-alias v2start='systemctl start v2ray v2raya'
-alias v2stop='systemctl stop v2ray v2raya'
+
+# V2Ray control
+v2control() {
+    if [ "$1" = "start" ] || [ "$1" = "stop" ]; then
+        systemctl $1 v2ray v2raya
+    else
+        echo "Invalid argument. Use 'start' or 'stop'."
+    fi
+}
+alias v2run='v2control start'
+alias v2stop='v2control stop'
+
+
 alias nekoray='nekoray -many'
 # OBS from xwayland
 # alias obs='QT_QPA_PLATFORM=xcb obs'
@@ -153,28 +166,48 @@ if (( UID != 0 )); then
 
 fi
 
-DISTRO=`lsb_release -d | awk -F"\t" '{print $2}'`
+get_distro() {
+    if command -v lsb_release > /dev/null; then
+        DISTRO=$(lsb_release -i | cut -d: -f2 | sed s/'^\t'//)
+    elif [ -f /etc/os-release ]; then
+        . /etc/os-release
+        DISTRO=$ID
+    else
+        DISTRO="unknown"
+    fi
+    echo $DISTRO
+}
+
+DISTRO=$(get_distro)
 case $DISTRO in
-    *Arch*)
+    *Arch*|*arch*)
         alias update='sudo pacman -Syy'
         alias upgrade='sudo pacman -Syyu'
         alias install='sudo pacman -Sy'
         ;;
-    *Debian*|*Ubuntu*)
-        alias update='sudo apt-get update'
-        alias upgrade='sudo apt-get upgrade'
-        alias install='sudo apt-get install'
+    *Debian*|*Ubuntu*|*debian*|*ubuntu*)
+        alias update='sudo apt update'
+        alias upgrade='sudo apt upgrade'
+        alias install='sudo apt install'
         ;;
-    *Fedora*|*CentOS*)
+    *Fedora*|*CentOS*|*fedora*|*centos*)
         alias update='sudo dnf update'
         alias upgrade='sudo dnf upgrade'
+        alias install='sudo dnf install'
         ;;
-    *SUSE*)
+    *SUSE*|*suse*)
         alias update='sudo zypper refresh'
         alias upgrade='sudo zypper update'
         alias install='sudo zypper in'
         ;;
+    *unknown*)
+        alias update='echo "Unknown package manager"'
+        alias upgrade='echo "Unknown package manager"'
+        alias install='echo "Unknown package manager"'
+        ;;
 esac
+
+
 ## Safety features
 alias cp='cp -iv'
 alias mv='mv -iv'

@@ -32,5 +32,3 @@ export SHELLROOT="$HOME/dotfile/shellrc"
 # Change default editor to vim
 export EDITOR='vim'
 
-# To customize prompt, run `p10k configure` or edit ~/dotfile/shellrc/p10k.zsh.
-[[ ! -f ~/dotfile/shellrc/p10k.zsh ]] || source ~/dotfile/shellrc/p10k.zsh
