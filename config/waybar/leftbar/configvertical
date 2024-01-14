@@ -1,0 +1,22 @@
+{
+  "include": "~/.config/waybar/leftbar/modulesvertical",
+  "layer": "top",
+  "exclusive": true,
+  "passthrough": false,
+  "position": "left",
+  "spacing": 0,
+  "fixed-center": true,
+  "ipc": true,
+  "modules-left": ["custom/menu", "hyprland/workspaces", "custom/pctlpr", "custom/pctlps", "custom/pctln"],
+  "modules-center": ["cpu#icon", "cpu", "custom/memicon", "memory", "clock", "temperature#icon", "temperature", "battery#icon", "battery"],
+  "modules-right": ["pulseaudio#icon","pulseaudio", "custom/blicon", "backlight", "network#icon", "network", "tray", "custom/power"],
+  // "modules-center": ["clock"],
+  // "modules-right": ["custom/cpuicon", "cpu", "custom/memicon", "memory", "custom/baticon", "battery", "custom/volicon","pulseaudio", "custom/blicon", "backlight", "custom/neticon", "network",  "custom/power"],
+
+  "hyprland/window": {
+    "max-length": 15
+  },
+  "custom/spotify": {
+    "max-length": 25
+  },
+}

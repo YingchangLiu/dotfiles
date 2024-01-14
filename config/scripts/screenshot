@@ -1,0 +1,22 @@
+#!/bin/sh
+function full {
+	IMG=~/Pictures/screenshots/$(date | sed "s/\s/-/g" | sed "s/--/-/g").png && grim 
+		 $IMG && cat $IMG | wl-copy -t image/png < $IMG \
+		&& notify-send "Screenshot has been saved and copied to your clipboard" -a "grim" -u critical -t 2000
+}
+function area {
+	IMG=~/Pictures/screenshots/$(date | sed "s/\s/-/g" | sed "s/--/-/g").png && grim -g "$(slurp -d)" \
+		 $IMG && cat $IMG | wl-copy -t image/png < $IMG \
+		&& notify-send "Screenshot has been saved and copied to your clipboard" -a "grim" -u critical -t 2000
+}
+
+whichMode(){
+    if [ "$1" = "full" ] || [ "$1" = "" ]; then
+        full
+    elif [ "$1" = "area" ]; then
+        area
+    else
+        notify-send "Please select 'area' or 'full'"
+    fi
+}
+whichMode "$@"

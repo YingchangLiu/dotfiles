@@ -1,0 +1,552 @@
+{
+  "hyprland/workspaces": {
+      //"format": "{icon}\n{windows}",
+      "format": "{icon}",
+      "format-window-separator": "\n",
+      "window-rewrite-default": "",
+        "window-rewrite": {
+            "brave-browser": "",
+            "emacs": "",
+            "firefox": "",
+            "kitty": "",
+            "pavucontrol": "󰓃",
+            "slack": "󰒱"
+        },
+      "on-scroll-up":"hyprctl dispatch workspace e+1",
+      "on-scroll-down":"hyprctl dispatch workspace e-1",
+      "on-click": "activate",
+      "all-outputs": true,
+      "sort-by-number": true,
+      "persistent-workspaces":{
+          "*": 5,
+      },
+      "format-icons": {
+        //"1": " ",
+        //"2": " ",
+        //"3": " ",
+        //"4": " ",
+        //"5": " ",
+        //"6": " ",
+        //"7": " ",
+        //"8": " ",
+        //"9": " ",
+        //"urgent": " ",
+        //"active": " ",
+        //"default": " "
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8",
+        "9": "9",
+        "urgent": "󰊠",
+        "persistent":"󰊠",
+        "active": "󰮯",
+        "default": "",
+        "special": "󰊠", 
+        "empty":"󰊠",
+        //"urgent": "",
+        //"active": "",
+        //"default": ""
+      },
+  },
+
+  "wlr/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "all-outputs": true,
+    "sort-by-number": true,
+    "format-icons": {
+
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
+      "focused": "",
+      "default": ""
+      
+    },
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+  },
+	
+
+  "battery#icon": {
+    "interval": 60,
+    "format": "{icon}",
+    // "format-icons": ["", "", "", "", ""],
+    "format-icons": [
+          "<span color='#dd532e'></span>", // red
+          "<span color='#ff9977'></span>", // orange
+          "<span color='#ffffa5'></span>", // yellow
+          "<span color='#2aa9ff'></span>", // blue
+          "<span color='#69ff94'></span>" // green
+      ],
+    // "max-length": 25
+ },
+
+  "battery": {
+		"interval": 60,
+		// "align": 0,
+		"rotate": 0,
+		//"bat": "BAT1",
+		//"adapter": "ACAD",
+		"full-at": 100,
+		"design-capacity": false,
+    "states": {
+      "full": 100,
+      "good": 95,
+      "low": 75,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}%",
+    "format-CC": "{capacity}%",
+    "format-plugged": "{capacity}%",
+    "format-full": "{capacity}%",
+    "format-discharging-good": "{capacity}%",
+    "format-discharging-low": "{capacity}%",
+    "format-discharging-warning": "{capacity}%",
+    "format-discharging-critical": "{capacity}%",
+    "format-time": "{m}m",
+    "tooltip": true,
+    // "format": "{icon} {capacity}%",
+    // "format-warning": "{icon} {capacity}%",
+    // "format-critical": "{icon} {capacity}%",
+    // "format-charging": "<span font-family='Font Awesome 6 Free'></span> {capacity}%",
+    // "format-plugged": "  {capacity}%",
+    // "format-alt": "{icon} {time}",
+    // "format-full": "  {capacity}%",
+
+  },
+
+    // "clock": {
+    //   //"tooltip": false,
+    //   "format": "{:%H\n%M}",
+    //   "format-alt": "{:%a\n%m/%d}",
+    //   "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    // },
+
+    "clock": {
+      "format": "{:%H\n%M}",
+      "format-alt": "{:%m/%d\n %a}",
+      "tooltip-format": "<big>{:%Y-%m-%d, %A}</big>\n<tt><small>{calendar}</small></tt>",
+      "calendar": {
+                  "mode"          : "months",
+                  "mode-mon-col"  : 3,
+                  "weeks-pos"     : "right",
+                  "on-scroll"     : 1,
+                  "on-click-right": "mode",
+                  "format": {
+                            "months":     "<span color='#ffead3'><b>{}</b></span>",
+                            "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                            "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                            "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                            "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                            }
+                  },
+      "actions":  {
+                  "on-click-right": "mode",
+                  "on-click-forward": "tz_up",
+                  "on-click-backward": "tz_down",
+                  "on-scroll-up": "shift_up",
+                  "on-scroll-down": "shift_down"
+                  }
+  },
+
+  "cpu": {
+    // "interval": 5,
+    // "format": " {usage}%",
+    "interval": 1,
+    "format": "{usage}%",
+  },
+
+  "cpu#icon": {
+      "interval": 1,
+      "format": "{icon}",
+      "format-icons": "",
+      // "format-icons": [
+      //     "<span color='#69ff94'>▁</span>", // green
+      //     "<span color='#2aa9ff'>▂</span>", // blue
+      //     "<span color='#f8f8f2'>▃</span>", // white
+      //     "<span color='#f8f8f2'>▄</span>", // white
+      //     "<span color='#ffffa5'>▅</span>", // yellow
+      //     "<span color='#ffffa5'>▆</span>", // yellow
+      //     "<span color='#ff9977'>▇</span>", // orange
+      //     "<span color='#dd532e'>█</span>"  // red
+      // ],
+      // "format-icons":[
+      //   "<span color='#69ff94'>󰝦</span>", // green
+      //   "<span color='#2aa9ff'>󰪞</span>", // blue
+      //   "<span color='#f8f8f2'>󰪟</span>", // white
+      //   "<span color='#f8f8f2'>󰪠</span>", // white
+      //   "<span color='#ffffa5'>󰪡</span>", // yellow
+      //   "<span color='#ffffa5'>󰪢</span>", // yellow
+      //   "<span color='#ff9977'>󰪣</span>", // orange
+      //   "<span color='#dd532e'>󰪤</span>",  // red
+      //   "<span color='#dd532e'>󰪥</span>"  // red
+      // ],
+  },
+
+  "custom/cpuicon": {
+
+    "format": ""
+
+  },
+  "custom/memicon": {
+
+	"format": ""
+
+  },
+  "custom/diskicon": {
+
+    "format": "󰋊"
+
+  },
+  "custom/wifi":{
+
+    "format": "ᯤ",
+    "format-alt": "睊",
+    "on-click":"nmcli radio wifi off",
+    "on-click-right": "nmcli radio wifi on"
+
+  },
+  "custom/volicon": {
+
+    "format": "󰕾",
+    "format-alt": "󰖁",
+		"on-click": "pamixer -t",
+    "scroll-step": 5.0,
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "sh ~/.config/scripts/volume --inc",
+    "on-scroll-down": "sh ~/.config/scripts/volume --dec",
+    "smooth-scrolling-threshold": 1
+
+  },
+  "custom/blicon": {
+
+    "format": "󰃠",
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "brightnessctl set 5%-"
+
+  },
+  "custom/baticon": {
+
+    "format": ""
+  },
+  "custom/tempicon": {
+
+    "format": ""
+
+  },
+  
+  "custom/clockicon": {
+
+    "format": "⏱"
+
+  },
+  "custom/micicon": {
+
+    "format": "",
+    "format-alt": "",
+    "on-click": "pamixer --default-source -t"
+
+  },
+
+"custom/spotify": {
+    "exec": "python3 ~/.config/scripts/mediaplayer.py",
+    "format": "♫  {}",
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+},
+
+"custom/playerctl": {
+      "format": "{icon}",
+      "return-type": "json",
+      "max-length": 64,
+      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+      "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+      "on-click": "playerctl play-pause",
+      "format-icons": {
+        "Playing": " 󰒮  󰏥  󰒭 ",
+        "Paused": " 󰒮  󰐌  󰒭 "
+      },
+    },
+
+    "custom/pctlpr": {
+      "format": "{icon}",
+      "return-type": "json",
+      "max-length": 64,
+      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+      "on-scroll-up": "playerctl next",
+      "on-scroll-down": "playerctl previous",
+      "on-click": "playerctl previous",
+      "format-icons": {
+        "Playing": " 󰒮 ",
+        "Paused": " 󰒮 "
+      },
+    },
+
+    "custom/pctlps": {
+      "format": "{icon}",
+      "return-type": "json",
+      "max-length": 64,
+      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+      "on-scroll-up": "playerctl next",
+      "on-scroll-down": "playerctl previous",
+      "on-click": "playerctl play-pause",
+      "format-icons": {
+        "Playing": " 󰏥 ",
+        "Paused": " 󰐌 "
+      },
+    },
+
+    "custom/pctln": {
+      "format": "{icon}",
+      "return-type": "json",
+      "max-length": 64,
+      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+      "on-scroll-up": "playerctl next",
+      "on-scroll-down": "playerctl previous",
+      "on-click": "playerctl next",
+      "format-icons": {
+        "Playing": " 󰒭 ",
+        "Paused": " 󰒭 "
+      },
+    },
+
+
+     "custom/playerlabel": {
+      "format": "<span>{}</span>",
+      "return-type": "json",
+      "max-length": 40,
+      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+      "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+      "on-click": "playerctl play-pause",
+      "format-icons": {
+        "Playing": "󰒮  󰐌  󰒭",
+        "Paused": "󰒮  󰏥  󰒭"
+      },
+    },
+    
+  "custom/hyprpicker": {
+    "format": "󰈋",
+    "on-click": "hyprpicker -a -f hex",
+    "on-click-right": "hyprpicker -a -f rgb"
+  },
+           
+  "custom/menu": {
+    "format": "󰣇",
+    "tooltip": false,
+    "on-click": "rofi -show drun -show-icons -theme ~/.config/rofi/launchers/type-1/style-14.rasi",
+    "on-click-right": "$HOME/.config/scripts/menu",
+  },
+
+  "custom/weather": {
+        "format": "{}",
+        "format-alt": "{alt}: {}",
+        "format-alt-click": "click-right",
+        "interval": 3600,
+        "exec": "curl -s 'https://wttr.in/Sivas?format=1'",
+        //"return-type": "json",
+        // "exec": "/usr/bin/python3 ~/.config/hypr/scripts/weath.py",
+        "exec-if": "ping wttr.in -c1",
+
+        // "exec": "python3 ~/.config/waybar/scripts/weather.py",
+        // "restart-interval": 300,
+        // "return-type": "json",
+        // "on-click": "xdg-open https://weather.com/en-IN/weather/today/l/11c24e55644a1b4dd4488aae2c4bbae14d0ba3817508bf7b5a2c7e54d84578d4"
+
+    },
+
+  "custom/power": {
+    "format": " ⏻ ",
+    // "on-click": "rofi -show power-menu -modi power-menu:rofi-power-menu -theme ~/.config/rofi/launchers/type-1/style-14.rasi",
+    "on-click": "bash  ~/.config/rofi/powermenu/type-4/powermenu.sh",
+  },
+  "custom/launcher": {
+    "format": " <span color='#6a92d7'> </span>",
+    "on-click": "rofi -show drun",
+},
+  "custom/terminal": {
+    "format": " >_ ",
+    "tooltip": false,
+    "on-click": "kitty",
+  },
+
+  "custom/cycle_wall":{
+    "format":" Change Wallpaper",
+    "on-click": "~/.config/scripts/changeWallpaper",
+    "tooltip-format": "Change wallpaper",
+  },
+
+  "custom/keybindings": {
+  "format":"爵",
+  "tooltip": false,
+  "on-click": "~/.config/scripts/keyhint",
+  },
+
+  "disk": {
+    "interval": 30,
+    "format": "{free}",
+  },
+
+  "memory": {
+    "interval": 10,
+    "format": "{used:0.1f}G",
+  },
+
+  "custom/neticon": {
+
+    "format": "",
+    "on-click": "sh ~/.config/rofi/nmcli/nmcli"
+
+  },
+  "network#icon": {
+    "interval": 5,
+    "format-wifi": "",
+    "format-ethernet": "",
+    "format-disconnected": "󰌙",
+    "format-disabled": "󰯡 ",
+    "on-click": "sh ~/.config/rofi/nmcli/nmcli"
+  },
+  "network": {
+    "interval": 5,
+    // "format-wifi": "{essid}",
+    // "format-wifi": " {signalStrength}%",
+    // "format": "{bandwidthTotalBytes}",
+    // "format-ethernet": "{ipaddr}/{cidr}",
+    // "format-ethernet": " wired",
+    // "format-linked": "{ifname} (No IP)",
+    // "format-disconnected": " Disconnected",
+    // "format-disconnected": "",
+    // "format-disabled": "Disabled",
+    "format" : "{bandwidthTotalBytes}",
+    "on-click": "sh ~/.config/rofi/nmcli/nmcli"
+  },
+  
+  "backlight": {
+    // "device": "intel_backlight",
+    "device": "DP-1",
+    "format": "{percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    // "on-scroll-up": "brightnessctl set 5%+",
+    // "on-scroll-down": "brightnessctl set 5%-",
+    "min-length": 6
+},
+  
+  "custom/updater":{
+    "format": " {}",
+    "exec": "checkupdates | wc -l",
+    "exec-if": "[[ $(checkupdates | wc -l) ]]",
+    "interval": 10800,
+    "on-click": "kitty --class update -T update -o font_size=13 -e yay -Syu && notify-send 'The system has been updated' "
+  },
+
+  "pulseaudio": {
+    "format": "{volume}%",
+    /*"format": "{icon} {volume}",*/
+    /*"format": "{icon}",*/
+    // "format-muted": "0",
+    // "format-muted": "",
+    // "format-bluetooth": "{volume}%",
+    // "format-bluetooth-muted": "Mute",
+    //"format-bluetooth": "  {volume}%",
+    //"format-bluetooth-muted": " ",
+    "format-source": "{volume}",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["󰕾", "󰕾", "󰕾"]
+    },
+    "scroll-step": 5.0,
+    "on-click": "pavucontrol",
+    // "on-click": "pamixer -t",
+    // "on-click-right": "pavucontrol-qt",
+    // "on-scroll-up": "sh ~/.config/hypr/scripts/volume --inc",
+    // "on-scroll-down": "sh ~/.config/hypr/scripts/volume --dec",
+    "smooth-scrolling-threshold": 1
+  },
+  "pulseaudio#icon": {
+    "format": "{icon}",
+    "format-bluetooth": "",
+    "format-muted": "",
+    "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", ""]
+    },
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "ignored-sinks": ["Easy Effects Sink"]
+},
+
+  "bluetooth": {
+    "on-click": "~/.config/waybar/leftbar/scripts/rofi-bluetooth &",
+    "format": " {status}",
+  },
+
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": "{volume}%",
+    "format-source-muted": "Mute",
+    "on-click": "pamixer --default-source -t",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "pamixer --default-source -i 5",
+    "on-scroll-down": "pamixer --default-source -d 5",
+    "scroll-step": 5
+},
+"temperature#icon": {
+    "interval": 5,
+    "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
+    "format": "{icon}",
+    "format-icons": [
+      "<span color='#2aa9ff'></span>", // blue
+      "<span color='#2af1e7'></span>", // cyan
+      "<span color='#69ff94'></span>", // green
+      "<span color='#ffffa5'></span>", // yellow
+      "<span color='#ff9977'></span>", // orange
+      "<span color='#dd532e'></span>"  // red
+
+    ],
+    "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+},
+"temperature": {
+    "interval": 5,
+    // "thermal-zone": 7,
+    "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
+    // "format": " {temperatureC}°C",
+    "format": "{temperatureC}°C",
+    "critical-threshold": 70,
+    // "format-critical": " {temperatureC}°C",
+    "format-critical": "{temperatureC}°C",
+    "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+},
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 6
+  }
+}

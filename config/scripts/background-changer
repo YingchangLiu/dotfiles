@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+
+while true; do
+    ~/dotfile/config/scripts/wallpaper.sh
+    sleep 30m
+done
