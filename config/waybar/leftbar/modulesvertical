@@ -141,7 +141,7 @@
       "format-alt": "{:%m/%d\n %a}",
       "tooltip-format": "<big>{:%Y-%m-%d, %A}</big>\n<tt><small>{calendar}</small></tt>",
       "calendar": {
-                  "mode"          : "months",
+                  "mode"          : "month",
                   "mode-mon-col"  : 3,
                   "weeks-pos"     : "right",
                   "on-scroll"     : 1,
