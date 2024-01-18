@@ -23,4 +23,5 @@ shellrc/custom.sh
 **/mpd/mpdstate
 **/mpd/mpd.db
 **/mpd/sticker.sql
+**/mpd/log
 **/mpv/scripts/mpvremote
