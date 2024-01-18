@@ -21,6 +21,7 @@ run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 run nm-applet  # network-manager-applet
 #run waybar --bar main-bar --log-level error --config ~/.config/waybar/configvertical --style ~/.config/waybar/stylevertical.css
 run waybar
+run mpd
 
 #run copyq --start-server
 #run gBar bar 0
@@ -33,8 +34,6 @@ run waybar
 #run xfce4-power-manager
 #run picom
 #run slstatus
-#run nm-applet  # network-manager-applet
-#run mpd
 #run xfce4-power-manager --no-daemon
 #run blueman-applet
 #run thunar --daemon
