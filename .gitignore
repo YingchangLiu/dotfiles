@@ -24,6 +24,7 @@ shellrc/custom.sh
 **/mpd/sticker.sql
 **/mpd/log
 **/mpd/pid
+**/mpd/playlists
 
 **/mpv/scripts/mpvremote
 **/mpv/watch_later
