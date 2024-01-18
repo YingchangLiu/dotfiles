@@ -19,9 +19,11 @@ shellrc/custom.sh
 **/fcitx5/rime/cn_dicts/temp.txt
 
 
-**/mpv/watch_later
-**/mpd/mpdstate
-**/mpd/mpd.db
+**/mpd/state
+**/mpd/database
 **/mpd/sticker.sql
 **/mpd/log
+**/mpd/pid
+
 **/mpv/scripts/mpvremote
+**/mpv/watch_later
