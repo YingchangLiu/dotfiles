@@ -3,6 +3,7 @@ freefilesync-bin
 intel-oneapi-hpckit
 linuxqq
 madagascar-git
+mpd-mpris
 ntfsprogs-ntfs3
 qqmusic-bin
 rime-ice-git

@@ -34,6 +34,8 @@ linux-headers
 lsb-release
 man-db
 miniconda
+mpc
+mpd
 mpich
 mpv
 namcap
@@ -60,7 +62,6 @@ polkit-gnome
 python-requests
 rofi
 slurp
-sway
 swaybg
 swayidle
 telegram-desktop
