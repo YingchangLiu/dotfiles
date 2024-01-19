@@ -23,6 +23,9 @@ run nm-applet  # network-manager-applet
 run waybar
 run mpd
 
+
+run sleep 1
+run mpd-mpris
 #run copyq --start-server
 #run gBar bar 0
 # run blueman-applet
