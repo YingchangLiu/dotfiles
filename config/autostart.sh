@@ -9,6 +9,7 @@ function run {
 }
 
 
+run mpd
 run ~/dotfile/config/scripts/background-changer
 run ~/dotfile/config/scripts/idle.sh
 run wl-paste -t text -w cliphist store
@@ -21,10 +22,7 @@ run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 run nm-applet  # network-manager-applet
 #run waybar --bar main-bar --log-level error --config ~/.config/waybar/configvertical --style ~/.config/waybar/stylevertical.css
 run waybar
-run mpd
 
-
-run sleep 1
 run mpd-mpris
 #run copyq --start-server
 #run gBar bar 0

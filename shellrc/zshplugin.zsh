@@ -16,10 +16,8 @@ case $DISTRO in
     source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
     source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh 2>/dev/null
     source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-    # You should install "pkgfile" and exec 'sudo pkgfile -u' to use the cnf.zsh.
     ;;
     *Debian*|*debian*)
-    source /usr/share/doc/pkgfile/command-not-found.zsh 2>/dev/null
     source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
     source ~/.config/powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null
     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
@@ -29,6 +27,8 @@ case $DISTRO in
 #     echo "This is not Arch Linux or Debian. You need fix the plugin path for your distrobution."
 esac
 
+# You should install "pkgfile" and exec 'sudo pkgfile -u' in archlinux or "command-not-found" in debian to use the script.
+source /usr/share/doc/pkgfile/command-not-found.zsh 2>/dev/null
 
 source /usr/share/autojump/autojump.zsh 2>/dev/null
 autoload -Uz compinit
