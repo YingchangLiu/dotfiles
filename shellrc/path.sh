@@ -27,7 +27,7 @@ export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64:
 set_path /usr/local/cuda/bin
 
 
-## My own programs 
+## My own programs
 # export OPTROOT='/opt'
 export OPTROOT='~/opt'
 
@@ -73,4 +73,4 @@ for conda_path in "${conda_optpaths[@]}"; do
 done
 
 source $RSFROOT/share/madagascar/etc/env.sh 2>/dev/null
-source /opt/intel/oneapi/setvars.sh >/dev/null 2>&1
+# source /opt/intel/oneapi/setvars.sh >/dev/null 2>&1
