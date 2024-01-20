@@ -19,7 +19,7 @@ log () {
 
 lock () {
 	if [ ! -f "${NOLOCK}" ]; then
-        playerctl pause
+        playerctl -a pause
 		swaylock -F -l -i $img 
 	else
 		log "${NOLOCK} found, not locking"
