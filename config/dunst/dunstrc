@@ -29,7 +29,7 @@
 
 	# Alignment of message text.
 	# Possible values are "left", "center" and "right"
-	alignment = left
+	alignment = center
 
 	# The frequency with wich text that is longer than the notification
 	# window allows bounces back and forth.
@@ -54,15 +54,15 @@
 	### Geometry ###
 
 	# dynamic width from 0 to 300
-	# width = (0, 300)
+	width = (0, 300)
 	# constant width of 300
-	width = 320
+	# width = 320
 
 	# The maximum height of a single notification, excluding the frame.
 	height = 500
 
 	# Position of the notification
-	origin = top-right
+	origin = top-center
 
 	# Offset from the origin
 	offset = 10x12
