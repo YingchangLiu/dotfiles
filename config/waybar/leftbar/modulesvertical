@@ -408,6 +408,19 @@
     "interval": 10,
     "format": "{used:0.1f}G",
   },
+  "memory#icon": {
+    "interval": 10,
+    "format": "{icon}",
+    "format-icons": "",
+    // "format-icons": [
+    //   "<span color='#2aa9ff'>󰍛</span>", // blue
+    //   "<span color='#2af1e7'>󰍜</span>", // cyan
+    //   "<span color='#69ff94'>󰍝</span>", // green
+    //   "<span color='#ffffa5'>󰍞</span>", // yellow
+    //   "<span color='#ff9977'>󰍟</span>", // orange
+    //   "<span color='#dd532e'>󰍠</span>"  // red
+    // ],
+  },
 
   "custom/neticon": {
 
@@ -442,11 +455,20 @@
     // "device": "intel_backlight",
     "device": "DP-1",
     "format": "{percent}%",
+    // "format-icons": ["󰃞", "󰃟", "󰃠"],
+    // "on-scroll-up": "brightnessctl set 5%+",
+    // "on-scroll-down": "brightnessctl set 5%-",
+    "min-length": 6
+  },
+  "backlight#icon": {
+    // "device": "intel_backlight",
+    "device": "DP-1",
+    "format": "{icon}",
     "format-icons": ["󰃞", "󰃟", "󰃠"],
     // "on-scroll-up": "brightnessctl set 5%+",
     // "on-scroll-down": "brightnessctl set 5%-",
     "min-length": 6
-},
+  },
   
   "custom/updater":{
     "format": " {}",
@@ -501,7 +523,7 @@
     "scroll-step": 1,
     "on-click": "pavucontrol",
     "ignored-sinks": ["Easy Effects Sink"]
-},
+  },
 
   "bluetooth": {
     "on-click": "~/.config/waybar/leftbar/scripts/rofi-bluetooth &",
@@ -543,7 +565,7 @@
     // "format-critical": " {temperatureC}°C",
     "format-critical": "{temperatureC}°C",
     "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
-},
+  },
 
   "tray": {
     "icon-size": 18,

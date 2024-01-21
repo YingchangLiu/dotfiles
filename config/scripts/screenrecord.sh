@@ -14,19 +14,20 @@ choice=$(printf '%s\n' "${options[@]}" | rofi -dmenu -theme $HOME/.config/rofi/t
 if [ "$choice" = "Take screenshot" ]; then 
     geometry=$(slurp)
     notify-send "Screenshot in 3 seconds..."
-    rm -rf $HOME/screen.png
+
     sleep 3
-    grim -g "$geometry" - > $HOME/screen.png
-    wl-copy $HOME/screen.png -t image/png
+    shotfile=~/Pictures/$(date +"%Y-%m-%d_%H:%M:%S.png")
+    grim -g "$geometry" - > $shotfile
+    wl-copy $shotfile -t image/png
     notify-send "Screenshot taken!"
-    read -r W H <<< $(identify -format "%w %h\n" ~/screen.png)
-    if [ "$W" -gt "300" ] || [ "$H" -gt "300" ]; then
-        pqiv ~/screen.png -z 0.45 &
-    else 
-        pqiv ~/screen.png &
-    fi 
+    read -r W H <<< $(identify -format "%w %h\n" $shotfile)
+    # if [ "$W" -gt "300" ] || [ "$H" -gt "300" ]; then
+    #     mvi $shotfile -z 0.45 &
+    # else 
+        mpv --config-dir=$HOME/.config/mvi $shotfile &
+    # fi 
     sleep 3
-    pkill pqiv 
+    pkill mpv 
 elif [ "$choice" = "Record screencast" ]; then
     geometry=$(slurp)
     if [ $? -ne 0 ]; then

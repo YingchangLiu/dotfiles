@@ -1,5 +1,5 @@
 * {
-  font-family: "JetBrainsMono Nerd Font";
+  /* font-family: ; */
     font-weight: bold;
     font-size: 11px;
     /* color: #3A3B3C; */
@@ -95,12 +95,13 @@ window#waybar.hidden {
   color: #e3e3e3;
   /*border: 2px solid #3a3b3c; */
 }
-
+#backlight.icon,
 #custom-blicon{
 
   color: #cba6f7;
 
 }
+#memory.icon,
 #custom-memicon{
 
   color: #eba0ac;
@@ -167,6 +168,8 @@ window#waybar.hidden {
 #temperature.icon,
 #memory.icon,
 #battery.icon,
+#backlight.icon,
+#network.icon,
 #custom-cpuicon,
 #custom-volicon,
 #custom-memicon,
@@ -176,12 +179,11 @@ window#waybar.hidden {
 #custom-clockicon,
 #custom-tempicon,
 #custom-neticon,
-#network.icon,
 #custom-dateicon,
 #custom-micicon,
 #custom-baticon {
 
-    padding: 6px 0px 6px 0px;
+    padding: 2px 0px 2px 0px;
     border-radius: 10px 10px 0px 0px;
     /* background-color: #1E1E20; */
 
