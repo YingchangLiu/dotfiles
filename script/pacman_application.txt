@@ -16,6 +16,7 @@ fastfetch
 fcitx5-configtool
 fcitx5-rime
 firefox
+freeplane
 gnome-keyring
 grim
 grub
@@ -28,6 +29,7 @@ lib32-mesa
 lib32-nvidia-utils
 lib32-vulkan-intel
 libva-nvidia-driver
+light-git
 linux
 linux-firmware
 linux-headers
@@ -67,6 +69,8 @@ swayidle
 telegram-desktop
 thefuck
 timeshift
+ttf-roboto
+ttf-roboto-mono-nerd
 udiskie
 ufw
 v2raya
@@ -75,10 +79,12 @@ visual-studio-code-bin
 vlc
 vulkan-intel
 waybar
+wf-recorder
 wofi
 xdg-desktop-portal-hyprland
 xorg-xeyes
 zerotier-one
+zotero-bin
 zsh-autosuggestions
 zsh-completions
 zsh-history-substring-search
