@@ -8,10 +8,11 @@
 ![image](./assets/desktop.png)
 ![image](./assets/windows.png)
 
-> ri • cing /ry-sing/
+> ri • cing 
+> /ry-sing/
 >
-> - Making visual improvements and customization to your desktop and/or phone that can simplify your desktop environment but (generally) are completely pointless.
-> - Wasting time because aesthetic.
+> 1. Making visual improvements and customization to your desktop and/or phone that can simplify your desktop environment but (generally) are completely pointless.
+> 2. Wasting time because aesthetic.
 
 ## Installing
 
