@@ -1,7 +1,7 @@
 --[[
 #=====================================================================================
 #                               all_archlinux
-# Date    : 2022/03/16
+# Date    : 2024/01/21
 # Author  : Kelen.YC.Liu 
 # Version : None
 # License : Distributed under the terms of GNU GPL version 2 or later
@@ -95,7 +95,7 @@ conky.config = {
 	default_gauge_height = 25,					-- default is 25
 	default_gauge_width =40,					-- default is 40
 	default_graph_height = 40,					-- default is 25
-	default_graph_width = 0,					-- default is 0 - full width
+	default_graph_width = 10,					-- default is 0 - full width
 	default_shade_color = '#000000',			-- default shading colour
 	default_outline_color = '#000000',			-- default outline colour
 	draw_borders = false,						-- draw borders around text
@@ -196,51 +196,6 @@ conky.config = {
 conky.text = [[\
 ${color6}${voffset 3}${font GE Inspira:size=34}${alignc}${time %H}:${time %M}${font}${color}
 ${color6}${voffset 3}${font GE Inspira:size=12}${alignc}${time %A} ${time %B} ${time %e}, ${time %Y}${font}${color}
-#\
-#\
-#${if_existing /proc/net/route wlp0s20f3}\
-#${execi 300 ~/.config/conky/conky_weather/get_internet}\
-#${if_existing /home/kelen/.cache/conky-vision/internet.json}\
-#${execi 300 ~/.config/conky/conky_weather/get_weather ${template6} ${template7} ${template8} ${template9}}\
-#\
-#${font Poiret One:size=11}${color}\
-#${voffset 1}\
-#${goto 10}${execi 1800 jq .main.temp ~/.cache/conky-vision/weather.json | awk '{print int($1+0.5)}' # round num}°\
-#${font}${color}\
-#\
-#${font Poiret One:size=10}${color3}\
-#${goto  80}${execi 1800 ~/.config/conky/conky_weather/parse_weather 'max' '.main.temp' '1'}°\
-#${goto 140}${execi 1800 ~/.config/conky/conky_weather/parse_weather 'max' '.main.temp' '2'}°\
-#${goto 200}${execi 1800 ~/.config/conky/conky_weather/parse_weather 'max' '.main.temp' '3'}°\
-#${goto 260}${execi 1800 ~/.config/conky/conky_weather/parse_weather 'max' '.main.temp' '4'}°\
-#${font}${color}\
-#\
-#${font Poiret One:size=10}${color3}\
-#${voffset 35}\
-#${goto 110}${execi 1800 ~/.config/conky/conky_weather/parse_weather 'min' '.main.temp' '1'}°\
-#${goto 170}${execi 1800 ~/.config/conky/conky_weather/parse_weather 'min' '.main.temp' '2'}°\
-#${goto 230}${execi 1800 ~/.config/conky/conky_weather/parse_weather 'min' '.main.temp' '3'}°\
-#${goto 290}${execi 1800 ~/.config/conky/conky_weather/parse_weather 'min' '.main.temp' '4'}°\
-#${font}${color}\
-#\
-#${font Poiret One:size=9}${color}\
-#${voffset 10}\
-#${goto  30}${execi 1800 LANG=${template9} LC_TIME=${template9} date +%a | gawk '{print toupper($0);}'}\
-#${goto  90}${execi 1800 LANG=${template9} LC_TIME=${template9} date -d +1day  +%a | gawk '{print toupper($0);}'}\
-#${goto 150}${execi 1800 LANG=${template9} LC_TIME=${template9} date -d +2days +%a | gawk '{print toupper($0);}'}\
-#${goto 210}${execi 1800 LANG=${template9} LC_TIME=${template9} date -d +3days +%a | gawk '{print toupper($0);}'}\
-#${goto 270}${execi 1800 LANG=${template9} LC_TIME=${template9} date -d +4days +%a | gawk '{print toupper($0);}'}\
-#${font}${color}
-#\
-#${execi 1800 cp -f ${template0}/$(jq .weather[0].id ~/.cache/conky-vision/weather.json).png ~/.cache/conky-vision/current.png}${image ~/.cache/conky-vision/current.png -p 10,95 -s 32x32}\
-#${execi 1800 cp -f ${template1}/$(~/.config/conky/conky_weather/parse_weather 'first' '.weather[0].id' '1').png ~/.cache/conky-vision/forecast-1.png}${image ~/.cache/conky-vision/forecast-1.png -p  70,95 -s 32x32}\
-#${execi 1800 cp -f ${template2}/$(~/.config/conky/conky_weather/parse_weather 'first' '.weather[0].id' '2').png ~/.cache/conky-vision/forecast-2.png}${image ~/.cache/conky-vision/forecast-2.png -p 130,95 -s 32x32}\
-#${execi 1800 cp -f ${template3}/$(~/.config/conky/conky_weather/parse_weather 'first' '.weather[0].id' '3').png ~/.cache/conky-vision/forecast-3.png}${image ~/.cache/conky-vision/forecast-3.png -p 190,95 -s 32x32}\
-#${execi 1800 cp -f ${template4}/$(~/.config/conky/conky_weather/parse_weather 'first' '.weather[0].id' '4').png ~/.cache/conky-vision/forecast-4.png}${image ~/.cache/conky-vision/forecast-4.png -p 250,95 -s 32x32}\
-#${endif}${endif}
-#\
-#\
-#${color5}${font Roboto:size=10}${voffset -15}S Y S T E M   ${hr 2}${font}${color}${voffset 2}
 ${color5}${voffset 3}${font Roboto:size=10}S Y S T E M  ${hr 2}${font}${color}${voffset 2}
 ${color2}User:${color} ${alignr}${user_names}@${nodename}
 ${color2}Distro:${color}${alignr} ${alignr}${execi 6000 lsb_release -a | grep 'Description'|awk {'print $2,$3 '}}
@@ -256,16 +211,6 @@ ${color2}Temperature:${color} $alignr${hwmon 5 temp 1} ℃
 ${color2}Usage:${color}${alignr}${cpu}% ${color} ${cpubar 15,100}
 ${cpubar cpu1 8,72} ${cpubar cpu2 8,72} ${cpubar cpu3 8,72} ${cpubar cpu4 8,72}
 ${cpubar cpu5 8,72} ${cpubar cpu6 8,72} ${cpubar cpu7 8,72} ${cpubar cpu8 8,72}
-#
-#
-#${color2}${offset 30}CPU Core 1:${color} ${alignr}${offset -10}${cpu cpu1}%${alignr}${cpubar cpu1}
-#${color2}${offset 30}CPU Core 2:${color} ${alignr}${offset -10}${cpu cpu2}%${alignr}${cpubar cpu2}
-#${color2}${offset 30}CPU Core 3:${color} ${alignr}${offset -10}${cpu cpu3}%${alignr}${cpubar cpu3}
-#${color2}${offset 30}CPU Core 4:${color} ${alignr}${offset -10}${cpu cpu4}%${alignr}${cpubar cpu4}
-#${color2}${offset 30}CPU Core 5:${color} ${alignr}${offset -10}${cpu cpu5}%${alignr}${cpubar cpu5}
-#${color2}${offset 30}CPU Core 6:${color} ${alignr}${offset -10}${cpu cpu6}%${alignr}${cpubar cpu6}
-#${color2}${offset 30}CPU Core 7:${color} ${alignr}${offset -10}${cpu cpu7}%${alignr}${cpubar cpu7}
-#${color2}${offset 30}CPU Core 8:${color} ${alignr}${offset -10}${cpu cpu8}%${alignr}${cpubar cpu8}
 ${color2}Processes: ${color}${alignr}$processes ($running_processes running)
 ${color2}Threads: ${color}${alignr}$threads ($running_threads running)
 ${color2}     Highest${goto 1440} CPU%${goto 1530}PID${color}
@@ -278,7 +223,8 @@ ${color5}${voffset 3}${font Roboto:size=10}G P U  ${hr 2}${font}${color}${voffse
 ${color2}Name:${color}${alignr}${execp  nvidia-smi --query-supported-clocks=gpu_name --format=csv,noheader}
 ${color2}Version:${color}${alignr}${execi 60000 nvidia-smi | grep "Driver Version"| awk {'print $3'}}
 ${color2}Temperature:${color}${alignr}${execi 10 nvidia-settings -t -q [gpu:0]/GPUCoreTemp} °C
-${color2}Menory:${color}${alignr}${execi 10 nvidia-settings -q [gpu:0]/UsedDedicatedGPUMemory -t| awk '{if ($1 > 1024){printf ("%.2f G", $1 /1024)}else {printf ("%d M",$1)}}'} / ${exec nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t | awk '{printf ("%.2f G", $1 / 1024)}'}  ${nvidiabar memutil}
+${color2}Usage:${color}${alignr}${execi 5 "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits"}% ${execbar "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits"}
+${color2}Memory:${color}${alignr}${execi 10 nvidia-settings -q [gpu:0]/UsedDedicatedGPUMemory -t| awk '{if ($1 > 1024){printf ("%.2f G", $1 /1024)}else {printf ("%d M",$1)}}'} / ${exec nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t | awk '{printf ("%.2f G", $1 / 1024)}'}  ${nvidiabar memutil}
 ${color5}${voffset 3}${font Roboto:size=10}G E N E R A L   ${hr 2}${font}${color}${voffset 2}
 ${color2}RAM: ${color}${alignr}${offset -10}${mem} / ${memmax}${alignr}${membar}
 ${color2}Swap:${color} ${alignr}${offset -10}${swap} / ${swapmax}${alignr}${swapbar}
@@ -297,28 +243,8 @@ ${offset 20}${color2}Home :${color} ${alignr}${offset -10}${fs_used /home} / ${f
 ${offset 30}${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/sda}${alignr}${diskiograph_read /dev/sda 8,100 000000 FFFFFF}
 ${offset 30}${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /dev/sda}${alignr}${diskiograph_write /dev/sda 8,100 000000 FFFFFF}
 ${voffset 3}\
-#${offset 20}${color2}Code :${color} ${alignr}${offset -10}${fs_used /run/media/code} / ${fs_size /run/media/code}${alignr}${fs_bar /run/media/code}
-#${offset 30}${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/sda5}${alignr}${diskiograph_read sda5 8,100}
-#${offset 30}${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /dev/sda5}${alignr}${diskiograph_write sda5 8,100}
-#${voffset -10}
-#${offset 30}${color2}Backup :${color} ${alignr}${offset -10}${fs_used /run/timeshift/backup} / ${fs_size /run/timeshift/backup}${alignr}${fs_bar /run/timeshift/backup}
-#${offset 30}${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/sda4}${alignr}${diskiograph_read sda4 8,100}
-#${offset 30}${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /dev/sda4}${alignr}${diskiograph_write sda4 8,100}
-#
-#${offset 30}${color2}Windows :${color} ${alignr}${offset -10}${fs_used /run/media/windows} / ${fs_size /run/media/windows}${alignr}${fs_bar /run/media/windows}
-#${offset 30}${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/nvme0n1p4}${alignr}${diskiograph_read nvme0n1p4 8,100}
-#${offset 30}${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /dev/nvm3on1p4}${alignr}${diskiograph_write nvme0n1p4 8,100}
 #${color5}${voffset 4}${font Roboto:size=10}N E T W O R K   ${hr 2}${font}${color}${voffset 2}
 #${color2}${offset 30}IP Address: ${color} ${alignr}${offset -10$}${addrs wlp0s20f3}
 #${color2}${offset 30}Up:${color} ${alignr}${offset -10$}${upspeed wlp0s20f3}${alignr}${upspeedgraph wlp0s20f3 8,100}
 #${color2}${offset 30}Down:${color} ${alignr}${offset -10$}${downspeed wlp0s20f3}${alignr}${downspeedgraph wlp0s20f3 8,100}
-#${font Roboto:size=10}N V I D I A   ${hr 2}${font}
-#${font Roboto:size=10,weight:bold}${color5}${execp  nvidia-smi --query-supported-clocks=gpu_name --format=csv,noheader}${font}
-#${font StyleBats:size=20}u${font}${offset 8}${voffset -12}GPU Temp ${alignr}${execi 60 nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader} °C
-#${offset 30}Fan Speed ${alignr}${execi 60 nvidia-settings -q [fan:0]/GPUCurrentFanSpeed -t} %
-#${offset 30}GPU Clock ${alignr}${execi 60 nvidia-settings -q GPUCurrentClockFreqs | grep -m 1 Attribute | awk '{print $4}' | sed -e 's/\.//' | cut -d, -f1} MHz
-#${offset 30}Mem Clock ${alignr}${execi 86400 nvidia-settings -q all| grep -m 1 GPUCurrentProcessorClockFreqs | awk '{print $4}' | sed 's/.$//'} MHz
-#${color5}${voffset 4}${font Roboto:size=10}P A C K A G E S   ${hr 2}${font}${color}${voffset 2}
-#${color2}Installed:${color}${alignr}${execi 3000 pacman -Qq | wc -l} 
-#${color2}Available updates:${color}${alignr}${execi 12000 pacman -Qu | wc -l} 
 ]];
