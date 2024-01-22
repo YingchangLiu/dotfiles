@@ -1,13 +1,17 @@
 # kelen's dotfiles
 
-**Warning**: Don’t blindly use my settings unless you know what that entails. Use at your own risk!
+***Warning***: I'm working with **Arch Linux** and **Debian.** Don’t blindly use my settings unless you know what that entails. Use at your own risk!
 
-I'm working with Arch Linux and Debian.
-
+---
 ## Styles  
 **"Keep it simple stupid."**
 ![image](./assets/desktop.png)
 ![image](./assets/windows.png)
+
+> ri • cing /ry-sing/
+>
+> - Making visual improvements and customization to your desktop and/or phone that can simplify your desktop environment but (generally) are completely pointless.
+> - Wasting time because aesthetic.
 
 ## Installing
 
@@ -35,7 +39,6 @@ A concise guide to archlinux in Chinese https://arch.icekylin.online/
 - btop
 - conky
 - dust
-- eww
 - fastfetch
 - fcitx5 with rime-ice
 - gBar
@@ -58,7 +61,7 @@ A concise guide to archlinux in Chinese https://arch.icekylin.online/
 ### PKGBUILDs
 Research packages that are maintained by me or archived for geophysics.
 - cuda-multiversion
-- intel-oneapi-hpckit (include oneapi-basekit)
+- intel-oneapi-hpckit (with oneapi-basekit)
 - madagascar
 - mathematica
 - matlab
@@ -79,6 +82,7 @@ You can find a list of the geophysical codes that I am currently utilizing for m
 - logout
 - maintenace
 - pytorch cuda test
+- screenrecord
 - screenshot
 - volume control
 - wayland session lock
@@ -87,9 +91,9 @@ You can find a list of the geophysical codes that I am currently utilizing for m
 Please check in [dotfile/wallpaper](./wallpaper/).
 
 ### Window manager
-- Awesomewm
-- dwm
-- Hyprland
+- dwm (Xorg)
+- GNOME (DE on workstation)
+- Hyprland (Wayland)
 
 ## License
 The code is available under the [MIT license][license].
