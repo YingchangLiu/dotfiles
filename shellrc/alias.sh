@@ -70,28 +70,31 @@ alias hosts2='sudo wget https://scaffrey.coding.net/p/hosts/d/hosts/git/raw/mast
 alias hosts3='sudo wget https://git.qvq.network/googlehosts/hosts/raw/master/hosts-files/hosts -O /etc/hosts'
 
 # ex - archive extractor
-# usage: ex <file>
+# usage: ex <file> [directory]
 ex ()
 {
     if [ -f $1 ] ; then
+        FILENAME=$(basename $1)
+        DIR=${2:-${FILENAME%%.*}}
+        mkdir -p $DIR
         case $1 in
-            *.tar.bz2)  tar xjf $1      ;;
-            *.tar.gz)   tar xzf $1      ;;
-            *.tar.xz)   tar xJf $1      ;;
-            *.tar.zst)  tar xf  $1      ;;
-            *.bz2)      bunzip2 $1      ;;
-            *.rar)      unrar x $1      ;;
-            *.gz)       gunzip $1       ;;
-            *.tar)      tar xf $1       ;;
-            *.tbz2)     tar xjf $1      ;;
-            *.tgz)      tar xzf $1      ;;
-            *.zip)      unzip $1        ;;
-            *.Z)        uncompress $1   ;;
-            *.7z)       7z x $1         ;;
-            *.xz)       unxz $1         ;;
-            *.exe)      cabextract $1   ;;
-            *.deb)      ar x $1         ;;
-            *.lzma)     unlzma $1       ;;
+            *.tar.bz2)  tar xjf $1 -C $DIR      ;;
+            *.tar.gz)   tar xzf $1 -C $DIR      ;;
+            *.tar.xz)   tar xJf $1 -C $DIR      ;;
+            *.tar.zst)  tar xf  $1 -C $DIR      ;;
+            *.bz2)      bunzip2 $1 -C $DIR      ;;
+            *.rar)      unrar x $1 $DIR      ;;
+            *.gz)       gunzip $1 -C $DIR       ;;
+            *.tar)      tar xf $1 -C $DIR       ;;
+            *.tbz2)     tar xjf $1 -C $DIR      ;;
+            *.tgz)      tar xzf $1 -C $DIR      ;;
+            *.zip)      unzip $1 -d $DIR        ;;
+            *.Z)        uncompress $1 -C $DIR   ;;
+            *.7z)       7z x $1 -o$DIR         ;;
+            *.xz)       unxz $1 -C $DIR         ;;
+            *.exe)      cabextract $1 -d $DIR   ;;
+            *.deb)      ar x $1 $DIR         ;;
+            *.lzma)     unlzma $1 -C $DIR       ;;
             *)           echo "'$1' cannot be extracted via ex()" ;;
         esac
     else
@@ -99,6 +102,37 @@ ex ()
     fi
 }
 
+
+# cx - archive creator
+# usage: cx <file_or_dir> [file]
+cx ()
+{
+    if [ -e $1 ] ; then
+        FILE=${2:-$(basename $1).tar.gz}
+        case $FILE in
+            *.tar.bz2)  tar cjf $FILE -C $(dirname $1) $(basename $1)      ;;
+            *.tar.gz)   tar czf $FILE -C $(dirname $1) $(basename $1)      ;;
+            *.tar.xz)   tar cJf $FILE -C $(dirname $1) $(basename $1)      ;;
+            *.tar.zst)  tar cf  $FILE -C $(dirname $1) $(basename $1)      ;;
+            *.bz2)      bzip2 -c $1 > $FILE ;;
+            *.rar)      rar a $FILE $1        ;;
+            *.gz)       gzip -c $1 > $FILE ;;
+            *.tar)      tar cf $FILE -C $(dirname $1) $(basename $1)       ;;
+            *.tbz2)     tar cjf $FILE -C $(dirname $1) $(basename $1)      ;;
+            *.tgz)      tar czf $FILE -C $(dirname $1) $(basename $1)      ;;
+            *.zip)      zip -r $FILE $1       ;;
+            *.Z)        compress -c $1 > $FILE ;;
+            *.7z)       7z a $FILE $1         ;;
+            *.xz)       xz -c $1 > $FILE ;;
+            *.exe)      echo "'$1' cannot be compressed to '$FILE' via cx()" ;;
+            *.deb)      echo "'$1' cannot be compressed to '$FILE' via cx()" ;;
+            *.lzma)     lzma -c $1 > $FILE ;;
+            *)          echo "'$1' cannot be compressed to '$FILE' via cx()" ;;
+        esac
+    else
+        echo "'$1' is not a valid file or directory"
+    fi
+}
 
 # unalias run-help
 alias help=run-help
