@@ -44,6 +44,7 @@ mpv
 namcap
 ncmpcpp
 needrestart
+nerd-fonts-iosevka
 network-manager-applet
 networkmanager
 nnn
