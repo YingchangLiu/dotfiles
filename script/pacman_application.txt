@@ -23,6 +23,7 @@ grub
 hyprland
 intel-ucode
 jq
+julia
 kitty
 less
 lib32-mesa
