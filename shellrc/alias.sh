@@ -1,9 +1,9 @@
 
 #alias matlab='/home/kelen/bin/matlab/bin/matlab'
 
-# Fastfetch 
+# Fastfetch
 alias fetch='fastfetch -c ~/.config/fastfetch/kelen.jsonc'
-# VNC 
+# VNC
 alias vnc='vncviewer -passwd ~/.vnc/passwd 127.0.0.1:1'
 
 # MPV for viewing images
@@ -62,11 +62,6 @@ alias checkclass='sh ~/dotfile/script/checkclass.sh'
 # start sway without nvidia
 alias sway='sway --unsupported-gpu'
 
-# start some desktop from xinitrc
-alias awesome='startx ~/dotfile/xinitrc/xinitrc.awesome'
-alias gnome='startx ~/dotfile/xinitrc/xinitrc.gnome'
-alias bspwm='startx ~/dotfile/xinitrc/xinitrc.bspwm'
-alias dwm='startx ~/dotfile/xinitrc/xinitrc.dwm'
 alias xfce4='env LANG=zh_CN.UTF-8 startxfce4'
 
 # change hosts for connect some adress

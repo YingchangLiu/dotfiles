@@ -1,4 +1,5 @@
 cuda11-tools
+electronic-wechat-uos-bin
 freefilesync-bin
 intel-oneapi-hpckit
 linuxqq
@@ -10,3 +11,4 @@ rime-ice-git
 seismic-unix-git
 swaylock-effects-git
 ttf-material-design-icons-git
+wps-office
