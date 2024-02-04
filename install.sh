@@ -96,6 +96,14 @@ for name in ${dotfiles}/local/share/*; do
     ln -sf $name $target
 done
 
+## vscode/argv.json, for gnome-keyring
+if [ ! -d "$HOME/.vscode" ]; then
+    mkdir -p $HOME/.vscode
+fi
+target="$HOME/.vscode/argv.json"
+#backup $target
+ln -sf ${dotfiles}/config/vscode/argv.json $target
+
 
 #ln -sf /run/media/code/linuxcache/.conda $HOME/ 2>/dev/null
 
