@@ -18,8 +18,10 @@ fcitx5-rime
 firefox
 freeplane
 gnome-keyring
+google-chrome
 grim
 grub
+hugo
 hyprland
 intel-ucode
 jq
@@ -44,10 +46,11 @@ mpv
 namcap
 ncmpcpp
 needrestart
-nerd-fonts-iosevka
+net-tools
 network-manager-applet
 networkmanager
 nnn
+noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 nvidia
@@ -59,6 +62,7 @@ otf-font-awesome
 pacman-contrib
 pamixer
 paru
+pavucontrol
 pcmanfm
 pipewire-pulse
 pkgfile
@@ -71,10 +75,12 @@ swayidle
 telegram-desktop
 thefuck
 timeshift
+ttf-iosevka-nerd
 ttf-roboto
 ttf-roboto-mono-nerd
 udiskie
 ufw
+unzip
 v2raya
 vim
 visual-studio-code-bin

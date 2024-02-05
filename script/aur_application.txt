@@ -4,6 +4,7 @@ freefilesync-bin
 intel-oneapi-hpckit
 linuxqq
 madagascar-git
+matlab
 mpd-mpris
 ntfsprogs-ntfs3
 qqmusic-bin
