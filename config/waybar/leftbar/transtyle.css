@@ -305,7 +305,7 @@ window#waybar.hidden {
 
 #custom-menu {
   font-size: 15px;
-  padding: 10px 6px 10px 6px;
+  padding: 6px 3px 6px 0px;
   margin-top: 8px;
   margin-bottom: 8px;
   /* background-color: #032448; */
@@ -324,7 +324,7 @@ window#waybar.hidden {
 
 
 #custom-power {
-  padding: 6px 6px 3px 6px;
+  padding: 6px 3px 6px 0px;
   color: #e3e3e3;
   background-color: #C5676D;
   font-size: 15px;
