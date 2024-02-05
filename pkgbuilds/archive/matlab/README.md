@@ -1,12 +1,5 @@
 # MATLAB with Arch Build System
 
-Synopsis:
-1. Download a license key from https://mathworks.com/licensecenter/
-2. Download the matlab installer from https://mathworks.com/downloads/
-3. Get these to make sure the installer runs: `pacman -Syu --asdeps freetype2 libxcrypt-compat`
-4. Run `./install.sh`. In the matlab installer, select "I want to download without installing".
-5. After the matlab installer finishes downloading the installation files, wait for makepkg to package it.
-
 This PKGBUILD creates an Arch Linux package for MATLAB.
 
 Additionally, it also builds the Python engine. They are stored in `matlab` and `python-matlabengine` packages separately.
@@ -16,9 +9,7 @@ Additionally, it also builds the Python engine. They are stored in `matlab` and 
 ## Tips
 
 * You probably want to run this locally, since the package will be large. Turn off compression if this package will only be installed on the build machine.
-  * This cuts a fair amount of time from the build and compression is unnecessary on local machines.
-  * Compression can be turned off like so: `PKGEXT=".pkg.tar" makepkg [...]`
-  * See MAKEPKG(8) and MAKEPKG.CONF(5) for more info
+  This cuts a fair amount of time from the build and compression is unnecessary on local machines.
 * You may also use `tar` instead of packing it into `zst` and modify the PKGBUILD when preparing the off-line installer.
 * If you are managing your own repos, depending on bandwidth and size constants,
   exclude this package from your work-flow.
