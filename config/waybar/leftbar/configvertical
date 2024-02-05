@@ -4,6 +4,7 @@
   "exclusive": true,
   "passthrough": false,
   "position": "left",
+  "width": 50,
   "spacing": 0,
   "fixed-center": true,
   "ipc": true,
