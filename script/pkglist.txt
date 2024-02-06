@@ -667,6 +667,7 @@ popt
 portaudio
 procps-ng
 protobuf
+prrte
 psmisc
 pyalpm
 python
