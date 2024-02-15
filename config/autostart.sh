@@ -18,7 +18,8 @@ run fcitx5 -d
 run udiskie
 run dunst
 run conky -c ~/.config/conky/wlconkyrc
-run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+#run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+run /usr/lib/polkit-kde-authentication-agent-1
 run nm-applet  # network-manager-applet
 #run waybar --bar main-bar --log-level error --config ~/.config/waybar/configvertical --style ~/.config/waybar/stylevertical.css
 run waybar
