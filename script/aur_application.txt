@@ -5,11 +5,10 @@ intel-oneapi-hpckit
 linuxqq
 madagascar-git
 matlab
+miniconda3
 mpd-mpris
 ntfsprogs-ntfs3
 qqmusic-bin
-rime-ice-git
 seismic-unix-git
-swaylock-effects-git
 ttf-material-design-icons-git
 wps-office
