@@ -1,6 +1,6 @@
 pkgbase = intel-oneapi-hpckit-2023
 	pkgdesc = Intel oneAPI Base and HPC Toolkit for Linux
-	pkgver = 2023.2.0
+	pkgver = 2.0
 	pkgrel = 1
 	url = https://software.intel.com/content/www/us/en/develop/tools/oneapi.html
 	install = intel-oneapi-hpckit.install
@@ -39,6 +39,7 @@ pkgbase = intel-oneapi-hpckit-2023
 	provides = intel-oneapi-vtune
 	provides = intel-oneapi-fpga-group
 	conflicts = intel-oneapi-basekit
+	conflicts = intel-oneapi-hpckit
 	noextract = l_BaseKit_p_2023.2.0.49397_offline.sh
 	noextract = l_HPCKit_p_2023.2.0.49440_offline.sh
 	options = !strip
