@@ -4,13 +4,14 @@ _pkgname=intel-oneapi-hpckit
 _major_ver=2023
 _minor_ver=2
 _patch_ver=0
-pkgver=$_major_ver.$_minor_ver.$_patch_ver
+pkgver=$_minor_ver.$_patch_ver
+_pkgver=$_major_ver.$_minor_ver.$_patch_ver
 # https://registrationcenter-download.intel.com/akdlm/IRC_NAS/992857b9-624c-45de-9701-f6445d845359/l_BaseKit_p_2023.2.0.49397_offline.sh
 # https://registrationcenter-download.intel.com/akdlm/IRC_NAS/0722521a-34b5-4c41-af3f-d5d14e88248d/l_HPCKit_p_2023.2.0.49440_offline.sh
 # https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html?operatingsystem=linux&distributions=offline&version=2024.0.1
 # https://www.intel.com/content/www/us/en/developer/tools/oneapi/hpc-toolkit-download.html?operatingsystem=linux&distributions=offline&version=2024.0.1
-pkgver_base=$pkgver.49397
-pkgver_hpc=$pkgver.49440
+pkgver_base=$_pkgver.49397
+pkgver_hpc=$_pkgver.49440
 _urlver_base=992857b9-624c-45de-9701-f6445d845359
 _urlver_hpc=0722521a-34b5-4c41-af3f-d5d14e88248d
 pkgrel=1
@@ -45,16 +46,16 @@ provides=('intel-oneapi-mkl' 'intel-oneapi-dnnl' 'intel-oneapi-tbb' 'intel-oneap
           'intel-oneapi-dpcpp-debugger' 'intel-oneapi-dev-utilities' 'intel-oneapi-dpcpp-cpp'
           'intel-oneapi-vpl' 'intel-oneapi-ipp' 'intel-oneapi-ippcp' 'intel-oneapi-advisor'
           'intel-oneapi-vtune' 'intel-oneapi-fpga-group')
-conflicts=('intel-oneapi-basekit')
-build() {
-  cd "${srcdir}"
-  sh "l_BaseKit_p_${pkgver_base}_offline.sh" \
-    --extract-folder "${srcdir}" --extract-only \
-    --remove-extracted-files no --log "${srcdir}"/extract.log
-  sh "l_HPCKit_p_${pkgver_hpc}_offline.sh" \
-    --extract-folder "${srcdir}" --extract-only \
-    --remove-extracted-files no --log "${srcdir}"/extract.log
-}
+conflicts=('intel-oneapi-basekit' 'intel-oneapi-hpckit')
+#build() {
+#  cd "${srcdir}"
+#  sh "l_BaseKit_p_${pkgver_base}_offline.sh" \
+#    --extract-folder "${srcdir}" --extract-only \
+#    --remove-extracted-files no --log "${srcdir}"/extract.log
+#  sh "l_HPCKit_p_${pkgver_hpc}_offline.sh" \
+#    --extract-folder "${srcdir}" --extract-only \
+#    --remove-extracted-files no --log "${srcdir}"/extract.log
+#}
 package() {
   cd "${srcdir}"
 
@@ -66,7 +67,8 @@ package() {
   ## The directory has to be removed first, otherwise the installer
   ## will complain that some components are already installed.
   runuser -u $USER -- rm -rf /home/$USER/intel
-  runuser -u $USER -- sh "${srcdir}/l_BaseKit_p_${pkgver_base}_offline"/install.sh \
+  #runuser -u $USER -- sh "${srcdir}/l_BaseKit_p_${pkgver_base}_offline"/install.sh \
+  runuser -u $USER -- sh "${srcdir}/l_BaseKit_p_${pkgver_base}_offline.sh" -a \
     --silent --eula accept \
     --components all \
     --install-dir "${pkgdir}"/opt/intel/oneapi \
@@ -77,7 +79,8 @@ package() {
   ## be safe but slow.
   # runuser -u $USER -- rm -rf /home/$USER/intel
 
-  runuser -u $USER -- sh "${srcdir}/l_HPCKit_p_${pkgver_hpc}_offline"/install.sh \
+  # runuser -u $USER -- sh "${srcdir}/l_HPCKit_p_${pkgver_hpc}_offline"/install.sh \
+  runuser -u $USER -- sh "${srcdir}/l_HPCKit_p_${pkgver_hpc}_offline.sh" -a \
     --silent --eula accept \
     --components all \
     --install-dir "${pkgdir}"/opt/intel/oneapi \
