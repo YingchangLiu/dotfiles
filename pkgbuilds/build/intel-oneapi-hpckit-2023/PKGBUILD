@@ -1,5 +1,6 @@
 # Maintainer: Yingchang Liu <yingchangliu at outlook dot com>
-pkgname=intel-oneapi-hpckit
+pkgname=intel-oneapi-hpckit-2023
+_pkgname=intel-oneapi-hpckit
 _major_ver=2023
 _minor_ver=2
 _patch_ver=0
@@ -25,7 +26,7 @@ sha384sums=('SKIP'
             'SKIP')
 depends=(level-zero-loader)
 options=(!strip staticlibs)
-install="$pkgname.install"
+install="$_pkgname.install"
 noextract=("l_BaseKit_p_${pkgver_base}_offline.sh"
            "l_HPCKit_p_${pkgver_hpc}_offline.sh")
 optdepends=('libnotify: VTune GUI'
@@ -88,23 +89,23 @@ package() {
   local _lib_path='/opt/intel/oneapi/compiler'
   local _ldso_conf="${pkgdir}"/etc/ld.so.conf.d
   install -d "${_ldso_conf}"
-  echo "${_lib_path}/latest/linux/lib" >> "${_ldso_conf}/${pkgname}.conf"
-  echo "${_lib_path}/latest/linux/lib/x64" >> "${_ldso_conf}/${pkgname}.conf"
-  echo "${_lib_path}/latest/linux/compiler/lib/intel64" >> "${_ldso_conf}/${pkgname}.conf"
+  echo "${_lib_path}/latest/linux/lib" >> "${_ldso_conf}/${_pkgname}.conf"
+  echo "${_lib_path}/latest/linux/lib/x64" >> "${_ldso_conf}/${_pkgname}.conf"
+  echo "${_lib_path}/latest/linux/compiler/lib/intel64" >> "${_ldso_conf}/${_pkgname}.conf"
 
   ## Collection of licenses used in OneAPI with pointers for all toolkits
   install -Dm644 "${pkgdir}/opt/intel/oneapi/licensing/${_major_ver}.${_minor_ver}.${_patch_ver}/license.htm" \
-                 "${pkgdir}/usr/share/licenses/${pkgname}/license.htm"
+                 "${pkgdir}/usr/share/licenses/${_pkgname}/license.htm"
 
 ## This will create a script in /etc/profile.d/intel-oneapi-hpckit.sh that sets the 
 ## environment variables for the current shell. If you want to create it automatically,
 ## uncomment the following lines. 
 
 #   install -dm755 "$pkgdir/etc/profile.d/"
-#   cat > "$pkgdir/etc/profile.d/$pkgname.sh" << EOF
+#   cat > "$pkgdir/etc/profile.d/$_pkgname.sh" << EOF
 # #!/bin/bash
 # export ONEAPI_ROOT="/opt/intel/oneapi"
 # source "/opt/intel/oneapi/setvars.sh >/dev/null 2>&1"
 # EOF
-#     chmod 644 "$pkgdir/etc/profile.d/$pkgname.sh"
+#     chmod 644 "$pkgdir/etc/profile.d/$_pkgname.sh"
 }
