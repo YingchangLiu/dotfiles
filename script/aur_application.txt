@@ -1,13 +1,14 @@
 cuda11-tools
 electronic-wechat-uos-bin
 freefilesync-bin
-intel-oneapi-hpckit
+intel-oneapi-hpckit-2023
 linuxqq
 madagascar-git
 matlab
 miniconda3
 mpd-mpris
 ntfsprogs-ntfs3
+openmpi4
 qqmusic-bin
 seismic-unix-git
 ttf-material-design-icons-git
