@@ -14,8 +14,10 @@ downgrade
 dunst
 efibootmgr
 fastfetch
+fcitx5-chinese-addons
 fcitx5-configtool
 fcitx5-gtk
+fcitx5-pinyin-moegirl
 fcitx5-rime
 firefox
 flameshot
@@ -31,6 +33,7 @@ intel-ucode
 jq
 julia
 kitty
+konsole
 less
 lib32-mesa
 lib32-nvidia-utils
@@ -96,6 +99,7 @@ vlc
 vulkan-intel
 waybar
 wf-recorder
+wget
 wofi
 wqy-zenhei
 xdg-desktop-portal-hyprland
