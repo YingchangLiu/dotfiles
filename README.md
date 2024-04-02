@@ -7,6 +7,7 @@
 **"Keep it simple stupid."**
 ![image](./assets/desktop.png)
 ![image](./assets/windows.png)
+![image](./assets/plasma.png)
 
 > ri • cing 
 > /ry-sing/
@@ -62,11 +63,12 @@ A concise guide to archlinux in Chinese https://arch.icekylin.online/
 ### PKGBUILDs
 Research packages that are maintained by me or archived for geophysics.
 - cuda-multiversion
-- intel-oneapi-hpckit (with oneapi-basekit)
+- intel-oneapi-hpckit (with oneapi-basekit) and its 2023.2.0 version
 - madagascar
 - mathematica
 - matlab
 - miniconda3
+- openmpi4
 - plplot
 - seismic-unix
 
@@ -93,7 +95,7 @@ Please check in [dotfile/wallpaper](./wallpaper/).
 
 ### Window manager
 - dwm (Xorg)
-- GNOME (DE on workstation)
+- KDE Plasma (DE on workstation)
 - Hyprland (Wayland)
 
 ## License
