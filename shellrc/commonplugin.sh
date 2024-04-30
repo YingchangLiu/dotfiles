@@ -4,5 +4,5 @@ source /usr/share/nnn/quitcd/quitcd.bash_sh_zsh 2>/dev/null
 [ -n "$NNNLVL" ] && PS1="N$NNNLVL $PS1"
 # Restart gnome-remote-desktop.service
 source ~/dotfile/script/grdp.sh 2>/dev/null
-
+source /etc/bash/bashrc.d/command-not-found.sh 2>/dev/null
 eval $(thefuck --alias)

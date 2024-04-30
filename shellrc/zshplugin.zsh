@@ -23,16 +23,22 @@ case $DISTRO in
     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
     . /etc/zsh_command_not_found 2>/dev/null  # need command-not-found
     ;;
+    *Gentoo*|*gentoo*)
+    source /usr/share/zsh/site-functions/powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null
+    source /usr/share/zsh/site-functions/zsh-autocomplete/zsh-autocomplete.plugin.zsh 2>/dev/null
+    source /usr/share/zsh/site-functions/zsh-autosuggestions.zsh 2>/dev/null
+    source /usr/share/zsh/site-functions/zsh-history-substring-search.zsh 2>/dev/null
+    source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh 2>/dev/null
+    ;;
 # else
-#     echo "This is not Arch Linux or Debian. You need fix the plugin path for your distrobution."
+#     echo "This is not Arch Linux / Debian or Gentoo. You need fix the plugin path for your distrobution."
 esac
 
 # You should install "pkgfile" and exec 'sudo pkgfile -u' in archlinux or "command-not-found" in debian to use the script.
 source /usr/share/doc/pkgfile/command-not-found.zsh 2>/dev/null
 
 source /usr/share/autojump/autojump.zsh 2>/dev/null
-autoload -Uz compinit
-compinit -u
+
 # kitty + complete setup zsh | source /dev/stdin 2>/dev/null
 
 __kitty_complete() {
@@ -44,4 +50,3 @@ __kitty_complete() {
     fi
 }
 autoload -Uz __kitty_complete
-
