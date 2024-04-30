@@ -1,6 +1,6 @@
 # kelen's dotfiles
 
-***Warning***: I'm working with **Arch Linux** and **Debian.** Don’t blindly use my settings unless you know what that entails. Use at your own risk!
+***Warning***: I'm working with **Arch Linux**, **Debian** and **Gentoo**. Don’t blindly use my settings unless you know what that entails. Use at your own risk!
 
 ---
 ## Styles  
@@ -58,7 +58,7 @@ A concise guide to archlinux in Chinese https://arch.icekylin.online/
 - wallpaper engine on linux
 - waybar
 - wofi
-- zsh, working with autojump, autosuggestions, command-not-found, completions, history-substring-search and syntax-highlighting
+- zsh, working with autocomplete, autojump, autosuggestions, command-not-found, completions, history-substring-search, powerlevel-10k and syntax-highlighting
 
 ### PKGBUILDs
 Research packages that are maintained by me or archived for geophysics.

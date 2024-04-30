@@ -45,3 +45,50 @@ autoload -U run-help
 autoload run-help-git
 autoload run-help-svn
 autoload run-help-svk
+
+get_distro() {
+    if command -v lsb_release > /dev/null; then
+        DISTRO=$(lsb_release -i | cut -d: -f2 | sed s/'^\t'//)
+    elif [ -f /etc/os-release ]; then
+        . /etc/os-release
+        DISTRO=$ID
+    else
+        DISTRO="unknown"
+    fi
+    echo $DISTRO
+}
+DISTRO=$(get_distro)
+autoload -Uz compinit promptinit
+compinit -u
+case $DISTRO in
+    *Arch*|*arch*)
+    promptinit
+    ;;
+    *Debian*|*debian*)
+    promptinit
+    ;;
+    *Gentoo*|*gentoo*)
+    promptinit; prompt gentoo
+    zstyle ':completion::complete:*' use-cache 1
+    ;;
+esac
+#bindkey              '^I'         menu-complete
+#bindkey "$terminfo[kcbt]" reverse-menu-complete
+bindkey              '^I' menu-select
+bindkey "$terminfo[kcbt]" menu-select
+bindkey -M menuselect              '^I'         menu-complete
+bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
+# Note: -e lets you specify a dynamically generated value.
+
+# Override default for all listings
+# $LINES is the number of lines that fit on screen.
+zstyle -e ':autocomplete:*:*' list-lines 'reply=( $(( LINES / 3 )) )'
+
+# Override for recent path search only
+zstyle ':autocomplete:recent-paths:*' list-lines 10
+
+# Override for history search only
+zstyle ':autocomplete:history-incremental-search-backward:*' list-lines 8
+
+# Override for history menu only
+zstyle ':autocomplete:history-search-backward:*' list-lines 2000
