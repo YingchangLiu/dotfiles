@@ -10,15 +10,22 @@ alias vnc='vncviewer -passwd ~/.vnc/passwd 127.0.0.1:1'
 alias mvi='mpv --config-dir=$HOME/.config/mvi'
 
 
-# V2Ray control
+# V2Ray control，兼容systemd和openrc
 v2control() {
     if [ "$1" = "start" ] || [ "$1" = "stop" ]; then
-        systemctl $1 v2ray v2raya
+        if [[ $(ps --no-headers -o comm 1) == "systemd" ]]; then
+            sudo systemctl $1 v2ray v2raya
+        elif [[ $(command -v openrc) ]]; then
+            sudo rc-service v2ray $1
+            sudo rc-service v2raya $1
+        else
+            echo "Neither systemd nor openrc is being used"
+        fi
     else
         echo "Invalid argument. Use 'start' or 'stop'."
     fi
 }
-alias v2run='v2control start'
+alias v2run=' v2control start'
 alias v2stop='v2control stop'
 
 
@@ -228,6 +235,11 @@ case $DISTRO in
         alias update='sudo zypper refresh'
         alias upgrade='sudo zypper update'
         alias install='sudo zypper in'
+        ;;
+    *Gentoo*|*gentoo*)
+        alias update='sudo emerge --ask --sync'
+        alias upgrade='sudo emerge --ask --verbose --update --deep --newuse @world'
+        alias install='sudo emerge --ask'
         ;;
     *unknown*)
         alias update='echo "Unknown package manager"'
