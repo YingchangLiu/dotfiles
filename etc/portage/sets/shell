@@ -1,0 +1,11 @@
+app-shells/gentoo-zsh-completions
+app-shells/zsh-autocomplete
+app-shells/zsh-history-substring-search
+app-shells/zsh-syntax-highlighting
+app-shells/zsh-theme-powerlevel10k
+app-shells/zsh-completions 
+app-shells/zsh-autosuggestions
+
+app-shells/thefuck
+app-portage/command-not-found
+app-shells/autojump
