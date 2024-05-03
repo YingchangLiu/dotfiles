@@ -1,0 +1,9 @@
+app-shells/zsh-autocomplete ~amd64
+app-shells/zsh-autosuggestions ~amd64
+app-shells/zsh-history-substring-search ~amd64
+app-shells/zsh-theme-powerlevel10k ~amd64
+
+app-shells/gitstatus ~amd64
+
+app-shells/thefuck ~amd64
+app-portage/command-not-found ~amd64
