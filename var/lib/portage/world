@@ -1,0 +1,15 @@
+app-editors/vscode
+app-i18n/fcitx-chinese-addons
+app-i18n/fcitx-configtool:5
+app-misc/fastfetch
+app-office/obsidian
+kde-apps/konsole
+kde-plasma/plasma-meta
+media-fonts/noto-cjk
+media-sound/qqmusic
+net-im/tencent-qq
+net-im/wechat-universal-bwrap
+net-proxy/v2ray-bin
+net-proxy/v2rayA
+sys-devel/gcc:11
+www-client/firefox-bin
