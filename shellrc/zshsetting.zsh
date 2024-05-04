@@ -46,17 +46,6 @@ autoload run-help-git
 autoload run-help-svn
 autoload run-help-svk
 
-get_distro() {
-    if command -v lsb_release > /dev/null; then
-        DISTRO=$(lsb_release -i | cut -d: -f2 | sed s/'^\t'//)
-    elif [ -f /etc/os-release ]; then
-        . /etc/os-release
-        DISTRO=$ID
-    else
-        DISTRO="unknown"
-    fi
-    echo $DISTRO
-}
 DISTRO=$(get_distro)
 autoload -Uz compinit promptinit
 compinit -u

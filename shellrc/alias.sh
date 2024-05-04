@@ -9,22 +9,7 @@ alias vnc='vncviewer -passwd ~/.vnc/passwd 127.0.0.1:1'
 # MPV for viewing images
 alias mvi='mpv --config-dir=$HOME/.config/mvi'
 
-
-# V2Ray control，兼容systemd和openrc
-v2control() {
-    if [ "$1" = "start" ] || [ "$1" = "stop" ]; then
-        if [[ $(ps --no-headers -o comm 1) == "systemd" ]]; then
-            sudo systemctl $1 v2ray v2raya
-        elif [[ $(command -v openrc) ]]; then
-            sudo rc-service v2ray $1
-            sudo rc-service v2raya $1
-        else
-            echo "Neither systemd nor openrc is being used"
-        fi
-    else
-        echo "Invalid argument. Use 'start' or 'stop'."
-    fi
-}
+# V2ray
 alias v2run=' v2control start'
 alias v2stop='v2control stop'
 
@@ -76,74 +61,9 @@ alias hosts='sudo wget https://raw.githubusercontent.com/googlehosts/hosts/maste
 alias hosts2='sudo wget https://scaffrey.coding.net/p/hosts/d/hosts/git/raw/master/hosts-files/hosts -O /etc/hosts'
 alias hosts3='sudo wget https://git.qvq.network/googlehosts/hosts/raw/master/hosts-files/hosts -O /etc/hosts'
 
-# ex - archive extractor
-# usage: ex <file> [directory]
-ex ()
-{
-    if [ -f $1 ] ; then
-        FILENAME=$(basename $1)
-        DIR=${2:-${FILENAME%%.*}}
-        mkdir -p $DIR
-        case $1 in
-            *.tar.bz2)  tar xjf $1 -C $DIR      ;;
-            *.tar.gz)   tar xzf $1 -C $DIR      ;;
-            *.tar.xz)   tar xJf $1 -C $DIR      ;;
-            *.tar.zst)  tar xf  $1 -C $DIR      ;;
-            *.bz2)      bunzip2 $1 -C $DIR      ;;
-            *.rar)      unrar x $1 $DIR      ;;
-            *.gz)       gunzip $1 -C $DIR       ;;
-            *.tar)      tar xf $1 -C $DIR       ;;
-            *.tbz2)     tar xjf $1 -C $DIR      ;;
-            *.tgz)      tar xzf $1 -C $DIR      ;;
-            *.zip)      unzip $1 -d $DIR        ;;
-            *.Z)        uncompress $1 -C $DIR   ;;
-            *.7z)       7z x $1 -o$DIR         ;;
-            *.xz)       unxz $1 -C $DIR         ;;
-            *.exe)      cabextract $1 -d $DIR   ;;
-            *.deb)      ar x $1 $DIR         ;;
-            *.lzma)     unlzma $1 -C $DIR       ;;
-            *)           echo "'$1' cannot be extracted via ex()" ;;
-        esac
-    else
-        echo "'$1' is not a valid file"
-    fi
-}
-
-
-# cx - archive creator
-# usage: cx <file_or_dir> [file]
-cx ()
-{
-    if [ -e $1 ] ; then
-        FILE=${2:-$(basename $1).tar.gz}
-        case $FILE in
-            *.tar.bz2)  tar cjf $FILE -C $(dirname $1) $(basename $1)      ;;
-            *.tar.gz)   tar czf $FILE -C $(dirname $1) $(basename $1)      ;;
-            *.tar.xz)   tar cJf $FILE -C $(dirname $1) $(basename $1)      ;;
-            *.tar.zst)  tar cf  $FILE -C $(dirname $1) $(basename $1)      ;;
-            *.bz2)      bzip2 -c $1 > $FILE ;;
-            *.rar)      rar a $FILE $1        ;;
-            *.gz)       gzip -c $1 > $FILE ;;
-            *.tar)      tar cf $FILE -C $(dirname $1) $(basename $1)       ;;
-            *.tbz2)     tar cjf $FILE -C $(dirname $1) $(basename $1)      ;;
-            *.tgz)      tar czf $FILE -C $(dirname $1) $(basename $1)      ;;
-            *.zip)      zip -r $FILE $1       ;;
-            *.Z)        compress -c $1 > $FILE ;;
-            *.7z)       7z a $FILE $1         ;;
-            *.xz)       xz -c $1 > $FILE ;;
-            *.exe)      echo "'$1' cannot be compressed to '$FILE' via cx()" ;;
-            *.deb)      echo "'$1' cannot be compressed to '$FILE' via cx()" ;;
-            *.lzma)     lzma -c $1 > $FILE ;;
-            *)          echo "'$1' cannot be compressed to '$FILE' via cx()" ;;
-        esac
-    else
-        echo "'$1' is not a valid file or directory"
-    fi
-}
 
 # unalias run-help
 alias help=run-help
-
 
 
 ## Modified commands
@@ -202,17 +122,6 @@ if (( UID != 0 )); then
 
 fi
 
-get_distro() {
-    if command -v lsb_release > /dev/null; then
-        DISTRO=$(lsb_release -i | cut -d: -f2 | sed s/'^\t'//)
-    elif [ -f /etc/os-release ]; then
-        . /etc/os-release
-        DISTRO=$ID
-    else
-        DISTRO="unknown"
-    fi
-    echo $DISTRO
-}
 
 DISTRO=$(get_distro)
 case $DISTRO in
@@ -324,13 +233,3 @@ alias gss='git stash save'
 alias gd='git diff --color-words'
 alias gl='git log --oneline --decorate'
 alias gslog="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset)                %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
-
-# Useful functions
-delete_branches_except() {
-    cmd='git branch'
-     for i in $*; do
-       cmd=$cmd' | grep -v "'$i'"'
-     done
-     cmd=$cmd' | xargs git branch -D'
-     eval $cmd
-}

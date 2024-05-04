@@ -13,9 +13,14 @@ export EDITOR='vim'
 
 
 export SHELLROOT="$HOME/dotfile/shellrc"
-##
+
+## environment
 [[ ! -f $SHELLROOT/history.sh ]] || source "$SHELLROOT/history.sh" 2>/dev/null
 [[ ! -f $SHELLROOT/environment.sh ]] || source "$SHELLROOT/environment.sh" 2>/dev/null
+
+## Load functions
+[[ ! -f $SHELLROOT/functions.sh ]] || source "$SHELLROOT/functions.sh" 2>/dev/null
+
 [[ ! -f $SHELLROOT/commonplugin.sh ]] || source $SHELLROOT/commonplugin.sh 2>/dev/null
 [[ ! -f $SHELLROOT/bashplugin.sh ]] || source "$SHELLROOT/bashplugin.sh" 2>/dev/null
 [ -f "$SHELLROOT/alias.sh" ] && source "$SHELLROOT/alias.sh"
