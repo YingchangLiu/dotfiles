@@ -1,28 +1,8 @@
 ##  add directories to PATH.
 
-set_path(){
-    # Check if user id is 0 (root) or 1000 or higher
-    [[ "$(id -u)" -eq 0 ]] || [[ "$(id -u)" -ge 1000 ]] || return
-
-    for i in "$@";
-    do
-        # Check if the directory exists and is not empty
-        [[ -d "$i" && -n "$i" ]] || continue
-
-        # Convert to absolute path
-        i=$(realpath "$i")
-
-        # Check if it is not already in your $PATH.
-        [[ ":$PATH:" == *":$i:"* ]] && continue
-
-        # Then append it to $PATH and export it
-        export PATH="$i:${PATH}"
-    done
-}
-
 
 ## CUDA
-export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
+set_ld_library_path /usr/local/cuda/lib64 /usr/local/cuda/extras/CUPTI/lib64
 # export NVCC_PREPEND_FLAGS='-ccbin /usr/local/cuda/bin'
 set_path /usr/local/cuda/bin
 
@@ -60,12 +40,12 @@ set_path ~/dotfile/script
 
 
 ## Enable conda in command line
-conda_optpaths=(
+__conda_optpaths=(
     "/opt/miniconda"
     "/opt/conda"
     "~/opt/miniconda3"
 )
-for conda_path in "${conda_optpaths[@]}"; do
+for conda_path in "${__conda_optpaths[@]}"; do
     if [ -d "$conda_path" ]; then
         source "$conda_path/etc/profile.d/conda.sh" 2>/dev/null
         break
