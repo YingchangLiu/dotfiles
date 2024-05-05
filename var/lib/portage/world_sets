@@ -1,4 +1,4 @@
-@cuda
 @genkernel
+@programming
 @shell
 @systools
