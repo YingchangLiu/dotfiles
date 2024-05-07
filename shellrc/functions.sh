@@ -82,7 +82,7 @@ get_distro() {
 
 # V2Ray control，rc-service or systemctl is optional
 v2control() {
-    if [ "$1" = "start" ] || [ "$1" = "stop" ]; then
+    if [ "$1" = "start" ] || [ "$1" = "stop" ]|| [ "$1" = "restart" ]; then
         if [[ $(ps --no-headers -o comm 1) == "systemd" ]]; then
             sudo systemctl $1 v2ray v2raya
         elif [[ $(command -v openrc) ]]; then
@@ -93,6 +93,21 @@ v2control() {
         fi
     else
         echo "Invalid argument. Use 'start' or 'stop'."
+    fi
+}
+
+# V2Ray control with auto detection. If v2raya is running, stop it. If not, start it.
+v2toggle() {
+    # Check if v2raya is running
+    if pgrep -x "v2raya" > /dev/null
+    then
+        # If running, stop it
+        echo "v2raya is running, stopping it"
+        v2control stop
+    else
+        # If not running, start it
+        echo "v2raya is not running, starting it"
+        v2control start
     fi
 }
 

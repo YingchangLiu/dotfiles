@@ -12,6 +12,7 @@ alias mvi='mpv --config-dir=$HOME/.config/mvi'
 # V2ray
 alias v2run=' v2control start'
 alias v2stop='v2control stop'
+alias v2restart='v2control restart'
 
 
 alias nekoray='nekoray -many'
