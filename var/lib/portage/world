@@ -3,6 +3,7 @@ app-i18n/fcitx-chinese-addons
 app-i18n/fcitx-configtool:5
 app-misc/fastfetch
 app-office/obsidian
+dev-build/scons
 kde-apps/konsole
 kde-plasma/plasma-meta
 media-fonts/noto-cjk
@@ -12,3 +13,4 @@ net-im/wechat-universal-bwrap
 net-proxy/v2ray-bin
 net-proxy/v2rayA
 www-client/firefox-bin
+www-client/microsoft-edge
