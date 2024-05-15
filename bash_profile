@@ -2,7 +2,7 @@
 # ~/.bash_profile
 #
 
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+[[ -f $HOME/.bashrc ]] && . $HOME/.bashrc
 export EDITOR='vim'
 
 ## ["$(ttf)" = "/dev/tty1"] && exec awesome

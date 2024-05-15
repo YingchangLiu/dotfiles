@@ -2,9 +2,9 @@
 #alias matlab='/home/kelen/bin/matlab/bin/matlab'
 
 # Fastfetch
-alias fetch='fastfetch -c ~/.config/fastfetch/kelen.jsonc'
+alias fetch='fastfetch -c $HOME/.config/fastfetch/kelen.jsonc'
 # VNC
-alias vnc='vncviewer -passwd ~/.vnc/passwd 127.0.0.1:1'
+alias vnc='vncviewer -passwd $HOME/.vnc/passwd 127.0.0.1:1'
 
 # MPV for viewing images
 alias mvi='mpv --config-dir=$HOME/.config/mvi'
@@ -35,8 +35,8 @@ alias pgg='ps -Af | grep'           # requires an argument
 alias aurupgrade='paru -Syu --aur'
 alias wttr='curl wttr.in'
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
-alias pkgbak='pacman -Qeqn > ~/dotfile/script/pacman_application.txt && pacman -Qeqm > ~/dotfile/script/aur_application.txt && pacman -Qq > ~/dotfile/script/pkglist.txt'
-alias maintenance='source ~/dotfile/script/maintenance.sh'
+alias pkgbak='pacman -Qeqn > $HOME/dotfile/script/pacman_application.txt && pacman -Qeqm > $HOME/dotfile/script/aur_application.txt && pacman -Qq > $HOME/dotfile/script/pkglist.txt'
+alias maintenance='source $HOME/dotfile/script/maintenance.sh'
 alias reinstall='pacman -Qqn | pacman -S -'
 alias ff='find . -name $1'
 
@@ -48,8 +48,8 @@ alias fu=fuck
 alias wtf=fuck
 
 # check kernel
-alias checkkernel='sh ~/dotfile/script/checkbootkernel.sh'
-alias checkclass='sh ~/dotfile/script/checkclass.sh'
+alias checkkernel='sh $HOME/dotfile/script/checkbootkernel.sh'
+alias checkclass='sh $HOME/dotfile/script/checkclass.sh'
 
 
 # start sway without nvidia
