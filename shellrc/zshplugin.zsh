@@ -10,7 +10,7 @@ case $DISTRO in
     ;;
     *Debian*|*debian*)
     source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
-    source ~/.config/powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null
+    source $HOME/.config/powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null
     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
     . /etc/zsh_command_not_found 2>/dev/null  # need command-not-found
     ;;

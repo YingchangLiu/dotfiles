@@ -43,7 +43,7 @@ set_path ~/dotfile/script
 __conda_optpaths=(
     "/opt/miniconda"
     "/opt/conda"
-    "~/opt/miniconda3"
+    "$HOME/opt/miniconda3"
 )
 for conda_path in "${__conda_optpaths[@]}"; do
     if [ -d "$conda_path" ]; then
