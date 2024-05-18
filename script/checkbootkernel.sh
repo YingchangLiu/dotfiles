@@ -1,32 +1,67 @@
 #!/bin/bash
 
-get_boot_kernel() {
-    local get_version=0
-    for field in $(file /boot/vmlinuz*); do
-        if [[ $get_version -eq 1 ]]; then
-            echo $field
-            return
-        elif [[ $field == version ]]; then
-            # the next field contains the version
-            get_version=1
+# get all kernels in /boot
+get_boot_kernels() {
+    local kernels=()
+    for kernel in /boot/vmlinuz*; do
+        local version=$(file $kernel | grep -oP 'version \K[^ ]+')
+        kernels+=("$version")
+    done
+    echo "${kernels[@]}"
+}
+
+# get the latest kernel in /boot
+get_latest_kernel() {
+    local latest_version=""
+    for kernel in /boot/vmlinuz*; do
+        local version=$(file $kernel | grep -oP 'version \K[^ ]+')
+        if [[ "$version" > "$latest_version" ]]; then
+            latest_version=$version
         fi
     done
+    echo $latest_version
 }
 
 rc=1
 
+# check if any deleted libraries are still in use
 libs=$(lsof -n +c 0 2> /dev/null | grep 'DEL.*lib' | awk '1 { print $1 ": " $NF }' | sort -u)
 if [[ -n $libs ]]; then
     cat <<< $libs
-    echo "# LIBS: reboot required"
+    echo "# LIBS: (QAQ) reboot required. Deleted libraries in use"
     rc=0
+else
+    echo "# LIBS: (^_^) No deleted libraries in use"
 fi
 
 active_kernel=$(uname -r)
-current_kernel=$(get_boot_kernel)
-if [[ $active_kernel != $current_kernel ]]; then
-    echo "$active_kernel < $current_kernel"
-    echo "# KERNEL: reboot required"
+boot_kernels=($(get_boot_kernels))
+latest_kernel=$(get_latest_kernel)
+kernel_matched=0
+
+# check if the current running kernel is in the list of kernels in /boot
+for kernel_version in "${boot_kernels[@]}"; do
+    if [[ "$active_kernel" == *"$kernel_version"* ]]; then
+        kernel_matched=1
+        break
+    fi
+done
+
+if [[ $kernel_matched -eq 0 ]]; then
+    echo "# KERNEL: Current running kernel does not match any in /boot"
     rc=0
 fi
+
+# check if the current running kernel is the latest kernel in /boot, 
+# if not, you can reboot to use the latest kernel
+if [[ "$active_kernel" != *"$latest_kernel"* ]]; then
+    echo "Current running kernel: $active_kernel"
+    echo "Latest kernel in /boot: $latest_kernel"
+    echo "# KERNEL: (QAQ) Newer kernel available"
+    rc=0
+else
+    echo " The running kernel: $active_kernel is the latest kernel in /boot"
+    echo "# KERNEL: (^_^) No reboot required"
+fi
+
 exit $rc
