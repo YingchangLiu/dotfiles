@@ -28,10 +28,10 @@ rc=1
 libs=$(lsof -n +c 0 2> /dev/null | grep 'DEL.*lib' | awk '1 { print $1 ": " $NF }' | sort -u)
 if [[ -n $libs ]]; then
     cat <<< $libs
-    echo "# LIBS: (QAQ) reboot required. Deleted libraries in use"
+    echo "# LIBS: (QAQ) logout required. Deleted libraries in use"
     rc=0
 else
-    echo "# LIBS: (^_^) No deleted libraries in use"
+    echo "# LIBS: (๑•̀ㅂ•́)و✧ No deleted libraries in use"
 fi
 
 active_kernel=$(uname -r)
@@ -57,11 +57,10 @@ fi
 if [[ "$active_kernel" != *"$latest_kernel"* ]]; then
     echo "Current running kernel: $active_kernel"
     echo "Latest kernel in /boot: $latest_kernel"
-    echo "# KERNEL: (QAQ) Newer kernel available"
+    echo "# KERNEL: (°ー°〃) Newer kernel available"
     rc=0
 else
-    echo " The running kernel: $active_kernel is the latest kernel in /boot"
-    echo "# KERNEL: (^_^) No reboot required"
+    echo "# KERNEL: (๑•̀ㅂ•́)و✧ No reboot required, running the latest kernel: $active_kernel "
 fi
 
 exit $rc
