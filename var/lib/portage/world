@@ -5,6 +5,7 @@ app-misc/fastfetch
 app-office/obsidian
 app-text/zotero-bin
 dev-build/scons
+dev-util/nvidia-cuda-toolkit
 kde-apps/ark
 kde-apps/dolphin
 kde-apps/konsole
