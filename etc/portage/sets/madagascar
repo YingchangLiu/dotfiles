@@ -1,0 +1,9 @@
+media-libs/glu
+media-libs/freeglut
+media-libs/netpbm
+media-libs/gd
+sci-libs/plplot
+sci-libs/lapack
+dev-python/numpy
+sci-libs/fftw
+sci-libs/suitesparse
