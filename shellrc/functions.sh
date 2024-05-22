@@ -128,16 +128,25 @@ set_path(){
     [[ "$(id -u)" -eq 0 ]] || [[ "$(id -u)" -ge 1000 ]] || return
 
     # Split the iput into an array using ' ' and ':' as the delimiters
-    IFS=': ' read -r -a paths <<< "$@"
+    if [[ $SHELL == *"zsh"* ]]; then
+        IFS=': ' read -r -A paths <<< "$@"
+    else
+        IFS=': ' read -r -a paths <<< "$@"
+    fi
 
-    for i in "${PATHS[@]}";
+    for i in "${paths[@]}";
     do
+        
+        # Expand ~ and environment variables in $i
+        i=$(eval echo $i)
+
         # Check if the directory exists and is not empty
         [[ -d "$i" && -n "$i" ]] || continue
+        # [[ -d "$i" && -n "$i" ]] || { echo "Invalid path: $i"; continue; }
 
         # Convert to absolute path
         i=$(realpath "$i")
-
+        
         # Check if it is not already in your $PATH.
         [[ ":$PATH:" == *":$i:"* ]] && continue
 
@@ -152,12 +161,21 @@ set_ld_library_path(){
     [[ "$(id -u)" -eq 0 ]] || [[ "$(id -u)" -ge 1000 ]] || return
 
     # Split the iput into an array using ' ' and ':' as the delimiters
-    IFS=': ' read -r -a paths <<< "$@"
+    if [[ $SHELL == *"zsh"* ]]; then
+        IFS=': ' read -r -A paths <<< "$@"
+    else
+        IFS=': ' read -r -a paths <<< "$@"
+    fi
 
-    for i in "${PATHS[@]}";
+    for i in "${paths[@]}";
     do
+
+        # Expand ~ and environment variables in $i
+        i=$(eval echo $i)
+
         # Check if the directory exists and is not empty
         [[ -d "$i" && -n "$i" ]] || continue
+        # [[ -d "$i" && -n "$i" ]] || { echo "Invalid path: $i"; continue; }
 
         # Convert to absolute path
         i=$(realpath "$i")
@@ -176,12 +194,20 @@ set_library_path(){
     [[ "$(id -u)" -eq 0 ]] || [[ "$(id -u)" -ge 1000 ]] || return
 
     # Split the iput into an array using ' ' and ':' as the delimiters
-    IFS=': ' read -r -a paths <<< "$@"
+    if [[ $SHELL == *"zsh"* ]]; then
+        IFS=': ' read -r -A paths <<< "$@"
+    else
+        IFS=': ' read -r -a paths <<< "$@"
+    fi
 
-    for i in "${PATHS[@]}";
+    for i in "${paths[@]}";
     do
+        # Expand ~ and environment variables in $i
+        i=$(eval echo $i)
+
         # Check if the directory exists and is not empty
         [[ -d "$i" && -n "$i" ]] || continue
+        # [[ -d "$i" && -n "$i" ]] || { echo "Invalid path: $i"; continue; }
 
         # Convert to absolute path
         i=$(realpath "$i")
@@ -200,12 +226,20 @@ set_cpath(){
     [[ "$(id -u)" -eq 0 ]] || [[ "$(id -u)" -ge 1000 ]] || return
 
     # Split the iput into an array using ' ' and ':' as the delimiters
-    IFS=': ' read -r -a paths <<< "$@"
-
-    for i in "${PATHS[@]}";
+    if [[ $SHELL == *"zsh"* ]]; then
+        IFS=': ' read -r -A paths <<< "$@"
+    else
+        IFS=': ' read -r -a paths <<< "$@"
+    fi
+    for i in "${paths[@]}";
     do
+        
+        # Expand ~ and environment variables in $i
+        i=$(eval echo $i)
+
         # Check if the directory exists and is not empty
         [[ -d "$i" && -n "$i" ]] || continue
+        # [[ -d "$i" && -n "$i" ]] || { echo "Invalid path: $i"; continue; }
 
         # Convert to absolute path
         i=$(realpath "$i")
