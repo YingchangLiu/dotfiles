@@ -9,10 +9,10 @@ set_path /usr/local/cuda/bin
 
 ## My own programs
 # export OPTROOT='/opt'
-export OPTROOT='~/opt'
+export OPTROOT=$HOME/opt
 
 export RSFROOT="${RSFROOT:-${OPTROOT}/ahay}"
-export CWPROOT="${CWPROOT:-${OPTROOT}/cwp}"
+export CWPROOT="${CWPROOT:-${OPTROOT}/seisunix}"
 export SACROOT="${SACROOT:-${OPTROOT}/sac}"
 export LOCFLOWROOT="${LOCFLOWROOT:-${OPTROOT}/locflow}"
 export SOFI2DROOT="${SOFI2DROOT:-${OPTROOT}/SOFI2D}"
