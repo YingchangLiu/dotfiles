@@ -28,7 +28,7 @@ rc=1
 libs=$(lsof -n +c 0 2> /dev/null | grep 'DEL.*lib' | awk '1 { print $1 ": " $NF }' | sort -u)
 if [[ -n $libs ]]; then
     cat <<< $libs
-    echo "# LIBS: (QAQ) logout required. Deleted libraries in use"
+    echo "# LIBS: (QAQ) re-login required. Some deleted libraries in use"
     rc=0
 else
     echo "# LIBS: (๑•̀ㅂ•́)و✧ No deleted libraries in use"
@@ -52,7 +52,7 @@ if [[ $kernel_matched -eq 0 ]]; then
     rc=0
 fi
 
-# check if the current running kernel is the latest kernel in /boot, 
+# check if the current running kernel is the latest kernel in /boot,
 # if not, you can reboot to use the latest kernel
 if [[ "$active_kernel" != *"$latest_kernel"* ]]; then
     echo "Current running kernel: $active_kernel"
