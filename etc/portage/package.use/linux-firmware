@@ -1,2 +1,2 @@
 # Distribution kernels are capable of rebuilding kernel modules installed by other packages.
-x11-drivers/nvidia-drivers dist-kernel
+sys-kernel/linux-firmware dist-kernel
