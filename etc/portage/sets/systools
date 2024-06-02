@@ -14,7 +14,7 @@ app-admin/needrestart
 app-portage/eix
 app-portage/gentoolkit
 app-portage/pfl
-app-portage/elicense
+#app-portage/elicense
 app-eselect/eselect-repository
 
 net-misc/networkmanager
