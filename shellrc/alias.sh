@@ -34,10 +34,7 @@ alias openports='ss --all --numeric --processes --ipv4 --ipv6'
 alias pgg='ps -Af | grep'           # requires an argument
 alias aurupgrade='paru -Syu --aur'
 alias wttr='curl wttr.in'
-alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
-alias pkgbak='pacman -Qeqn > $HOME/dotfile/script/pacman_application.txt && pacman -Qeqm > $HOME/dotfile/script/aur_application.txt && pacman -Qq > $HOME/dotfile/script/pkglist.txt'
 alias maintenance='source $HOME/dotfile/script/maintenance.sh'
-alias reinstall='pacman -Qqn | pacman -S -'
 alias ff='find . -name $1'
 
 # the fuck
@@ -123,6 +120,8 @@ if (( UID != 0 )); then
 
 fi
 
+alias pkgbak='pacman -Qeqn > $HOME/dotfile/script/pacman_application.txt && pacman -Qeqm > $HOME/dotfile/script/aur_application.txt && pacman -Qq > $HOME/dotfile/script/pkglist.txt'
+alias reinstall='pacman -Qqn | pacman -S -'
 
 DISTRO=$(get_distro)
 case $DISTRO in
@@ -130,31 +129,43 @@ case $DISTRO in
         alias update='sudo pacman -Syy'
         alias upgrade='sudo pacman -Syyu'
         alias install='sudo pacman -Sy'
+        alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
+        alias remove='sudo pacman -Rns'
         ;;
     *Debian*|*Ubuntu*|*debian*|*ubuntu*)
         alias update='sudo apt update'
         alias upgrade='sudo apt upgrade'
         alias install='sudo apt install'
+        alias cleanup='sudo apt autoremove'
+        alias remove='sudo apt remove'
         ;;
     *Fedora*|*CentOS*|*fedora*|*centos*)
         alias update='sudo dnf update'
         alias upgrade='sudo dnf upgrade'
         alias install='sudo dnf install'
+        alias cleanup='sudo dnf autoremove'
+        alias remove='sudo dnf remove'
         ;;
     *SUSE*|*suse*)
         alias update='sudo zypper refresh'
         alias upgrade='sudo zypper update'
         alias install='sudo zypper in'
+        alias cleanup='sudo zypper clean'
+        alias remove='sudo zypper rm'
         ;;
     *Gentoo*|*gentoo*)
         alias update='sudo emerge --ask --sync'
         alias upgrade='sudo emerge --ask --verbose --update --deep --newuse @world'
         alias install='sudo emerge --ask'
+        alias cleanup='sudo emerge --ask --depclean'
+        alias remove='sudo emerge --ask --depclean --verbose'
         ;;
     *unknown*)
         alias update='echo "Unknown package manager"'
         alias upgrade='echo "Unknown package manager"'
         alias install='echo "Unknown package manager"'
+        alias cleanup='echo "Unknown package manager"'
+        alias remove='echo "Unknown package manager"'
         ;;
 esac
 
