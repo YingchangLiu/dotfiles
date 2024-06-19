@@ -19,6 +19,7 @@ net-im/tencent-qq
 net-im/wechat-universal-bwrap
 net-misc/zerotier
 net-p2p/qbittorrent
+net-proxy/clash-verge-bin
 net-proxy/v2ray-bin
 net-proxy/v2rayA
 www-client/firefox-bin
