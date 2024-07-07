@@ -157,7 +157,7 @@ case $DISTRO in
         alias update='sudo emerge --ask --sync'
         alias upgrade='sudo emerge --ask --verbose --update --deep --newuse @world'
         alias install='sudo emerge --ask'
-        alias cleanup='sudo emerge --ask --depclean'
+        alias cleanup='sudo emerge --ask --depclean --verbose=n'
         alias remove='sudo emerge --ask --depclean --verbose'
         ;;
     *unknown*)
