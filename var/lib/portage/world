@@ -9,6 +9,7 @@ dev-build/scons
 kde-apps/ark
 kde-apps/dolphin
 kde-apps/konsole
+kde-plasma/plasma-firewall
 kde-plasma/plasma-meta
 mail-client/thunderbird-bin
 media-fonts/noto-cjk
@@ -22,6 +23,8 @@ net-p2p/qbittorrent
 net-proxy/clash-verge-bin
 net-proxy/v2ray-bin
 net-proxy/v2rayA
+sys-process/btop
+sys-process/numactl
 www-client/firefox-bin
 www-client/microsoft-edge
 x11-drivers/nvidia-drivers
