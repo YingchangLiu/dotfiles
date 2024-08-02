@@ -6,6 +6,7 @@ app-misc/fastfetch
 app-office/obsidian
 app-text/zotero-bin
 dev-build/scons
+dev-python/ensurepip-setuptools
 kde-apps/ark
 kde-apps/dolphin
 kde-apps/konsole
@@ -18,6 +19,7 @@ media-sound/qqmusic
 media-video/obs-studio
 net-im/tencent-qq
 net-im/wechat-universal-bwrap
+net-libs/libssh
 net-misc/zerotier
 net-p2p/qbittorrent
 net-proxy/clash-verge-bin
