@@ -120,8 +120,7 @@ if (( UID != 0 )); then
 
 fi
 
-alias pkgbak='pacman -Qeqn > $HOME/dotfile/script/pacman_application.txt && pacman -Qeqm > $HOME/dotfile/script/aur_application.txt && pacman -Qq > $HOME/dotfile/script/pkglist.txt'
-alias reinstall='pacman -Qqn | pacman -S -'
+alias pkgbak='pacman -Qeqn > $HOME/dotfile/extra/pkgbuilds/pacman_application.txt && pacman -Qeqm > $HOME/dotfile/extra/pkgbuilds/aur_application.txt && pacman -Qq > $HOME/dotfile/extra/pkgbuilds/pkglist.txt'
 
 DISTRO=$(get_distro)
 case $DISTRO in
@@ -129,6 +128,7 @@ case $DISTRO in
         alias update='sudo pacman -Syy'
         alias upgrade='sudo pacman -Syyu'
         alias install='sudo pacman -Sy'
+        alias reinstall='pacman -Qqn | pacman -S -'
         alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
         alias remove='sudo pacman -Rns'
         ;;
@@ -136,6 +136,7 @@ case $DISTRO in
         alias update='sudo apt update'
         alias upgrade='sudo apt upgrade'
         alias install='sudo apt install'
+        alias reinstall='sudo apt install --reinstall'
         alias cleanup='sudo apt autoremove'
         alias remove='sudo apt remove'
         ;;
@@ -143,6 +144,7 @@ case $DISTRO in
         alias update='sudo dnf update'
         alias upgrade='sudo dnf upgrade'
         alias install='sudo dnf install'
+        alias reinstall='sudo dnf reinstall'
         alias cleanup='sudo dnf autoremove'
         alias remove='sudo dnf remove'
         ;;
@@ -150,6 +152,7 @@ case $DISTRO in
         alias update='sudo zypper refresh'
         alias upgrade='sudo zypper update'
         alias install='sudo zypper in'
+        alias reinstall='sudo zypper in -f'
         alias cleanup='sudo zypper clean'
         alias remove='sudo zypper rm'
         ;;
@@ -157,6 +160,7 @@ case $DISTRO in
         alias update='sudo emerge --ask --sync'
         alias upgrade='sudo emerge --ask --verbose --update --deep --newuse @world'
         alias install='sudo emerge --ask'
+        alias reinstall='sudo emerge --ask --noreplace'
         alias cleanup='sudo emerge --ask --depclean --verbose=n'
         alias remove='sudo emerge --ask --depclean --verbose'
         ;;
@@ -164,6 +168,7 @@ case $DISTRO in
         alias update='echo "Unknown package manager"'
         alias upgrade='echo "Unknown package manager"'
         alias install='echo "Unknown package manager"'
+        alias reinstall='echo "Unknown package manager"'
         alias cleanup='echo "Unknown package manager"'
         alias remove='echo "Unknown package manager"'
         ;;
