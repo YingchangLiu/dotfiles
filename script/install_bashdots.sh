@@ -14,7 +14,7 @@ create_directories() {
   )
   readonly dirs
   for dir in "${dirs[@]}"; do
-    [[ ! -d "$dir" ]] && mkdir -p "$dir"
+    [[ ! -d "$dir" ]] && mkdir -p "$dir" && echo "-----> Created directory $dir"
   done
 }
 
