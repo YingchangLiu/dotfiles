@@ -11,8 +11,10 @@ create_directories() {
     $HOME/.local/share
     $HOME/.vscode
   "
-  for dir in $dirs; do
-    [ ! -d "$dir" ] && mkdir -p "$dir"
+  # Use the IFS variable to split the string into an array
+  printf '%s\n' "$dirs" | while IFS= read -r dir; do
+    dir=$(echo "$dir" | xargs)  # Remove leading/trailing whitespace
+    [ ! -z "$dir" ] && [ ! -d "$dir" ] && mkdir -p "$dir" && echo "-----> Created directory $dir"
   done
 }
 
