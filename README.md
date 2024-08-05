@@ -7,11 +7,11 @@
 ## How to use
 This will create symlinks from this repo to your home folder.
 ```console
-$ sh ./install.sh
+$ sh ./install
 ```
 Typing uninstall will restore your original settings.
 ```
-$ sh ./install.sh uninstall
+$ sh ./install uninstall
 ```
 
 ## Styles  
