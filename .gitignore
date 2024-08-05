@@ -5,6 +5,7 @@
 
 **.log
 .vscode
+.history
 temp
 shellrc/custom.sh
 
