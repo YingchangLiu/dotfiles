@@ -3,6 +3,17 @@
 ***Warning***: I'm working with **Arch Linux**, **Debian** and **Gentoo**. Don’t blindly use my settings unless you know what that entails. Use at your own risk!
 
 ---
+
+## How to use
+This will create symlinks from this repo to your home folder.
+```console
+$ sh ./install.sh
+```
+Typing uninstall will restore your original settings.
+```
+$ sh ./install.sh uninstall
+```
+
 ## Styles  
 **"Keep it simple stupid."**
 ![image](./assets/desktop.png)
@@ -15,15 +26,6 @@
 > 1. Making visual improvements and customization to your desktop and/or phone that can simplify your desktop environment but (generally) are completely pointless.
 > 2. Wasting time because aesthetic.
 
-## How to use
-This will create symlinks from this repo to your home folder.
-```console
-$ sh ./install.sh
-```
-Typing uninstall will restore your original settings.
-```
-$ sh ./install.sh uninstall
-```
 
 ## Contents
 
