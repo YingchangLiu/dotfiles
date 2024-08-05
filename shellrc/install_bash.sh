@@ -2,7 +2,7 @@
 
 # Create directories if they don't exist
 create_directories() {
-  local readonly dirs=(
+  local dirs=(
     "$HOME/.fonts"
     "$HOME/.icons"
     "$HOME/.themes"
@@ -10,6 +10,7 @@ create_directories() {
     "$HOME/.local/share"
     "$HOME/.vscode"
   )
+  readonly dirs
   for dir in "${dirs[@]}"; do
     [[ ! -d "$dir" ]] && mkdir -p "$dir"
   done
@@ -78,18 +79,13 @@ install() {
   create_directories
 
   # Get the absolute path of the current script directory
-  local readonly dotfiles
-  if [[ -n "$BASH_SOURCE" ]]; then
-    dotfiles=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
-  elif [[ -n "$ZSH_VERSION" ]]; then
-    dotfiles=$(cd "$(dirname "${(%):-%N}")/.." && pwd)
-  else
-    echo "Unsupported shell. Let's try POSIX script."
-    exit 1
-  fi
-
-  local readonly exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$)"
+  local dotfiles
+  dotfiles=$(cd "$(dirname "$(realpath "$(ps -p $$ -o args= | awk '{print $2}')")")/.." && pwd)
   
+  readonly dotfiles
+  echo "-----> Dotfiles directory: $dotfiles"
+  local exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$)"
+  readonly exclude_files
   # For all files in the current folder except `*.sh`, `README.md`, `settings.json`, `config`, and `LICENSE`,
   # backup the target file located at `~/.$name` and symlink `$name` to `~/.$name`
   for name in "$dotfiles"/*; do
@@ -120,18 +116,13 @@ install() {
 }
 
 uninstall() {
-  local readonly dotfiles
-  if [[ -n "$BASH_SOURCE" ]]; then
-    dotfiles=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
-  elif [[ -n "$ZSH_VERSION" ]]; then
-    dotfiles=$(cd "$(dirname "${(%):-%N}")/.." && pwd)
-  else
-    echo "Unsupported shell. Let's try POSIX script."
-    exit 1
-  fi
+  local dotfiles
+  dotfiles=$(cd "$(dirname "$(realpath "$(ps -p $$ -o args= | awk '{print $2}')")")/.." && pwd)
+  readonly dotfiles
+  echo "-----> Dotfiles directory: $dotfiles"
 
-  local readonly exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$)"
-  
+  local exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$)"
+  readonly exclude_files
   # Remove symlinks for all files in the current folder except `*.sh`, `README.md`, `settings.json`, `config`, and `LICENSE`
   for name in "$dotfiles"/*; do
     if [[ ! -d "$name" ]]; then

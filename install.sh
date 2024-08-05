@@ -6,22 +6,21 @@ current_shell=$(ps -p $$ -ocomm=)
 # Check if the first argument is passed, otherwise set it to 'install'
 action=${1:-install}
 
+# 获取当前脚本所在的目录
+script_dir=$(dirname "$0")
+
 # Run the appropriate script based on the current shell
 case $current_shell in
   *bash)
     echo "Detected bash shell. Running install_bash.sh with argument $action..."
-    sh install_bash.sh "$action"
+    $current_shell "$script_dir/shellrc/install_bash.sh" "$action"
     ;;
   *zsh)
     echo "Detected zsh shell. Running install_bash.sh with argument $action..."
-    sh install_bash.sh "$action"
-    ;;
-  *fish)
-    echo "Detected fish shell. Running install_fish.fish with argument $action..."
-    fish install_fish.fish "$action"
+    $current_shell "$script_dir/shellrc/install_bash.sh" "$action"
     ;;
   *)
-    echo "Detected unknown shell. Running install_posix.sh with argument $action..."
-    sh install_posix.sh "$action"
+    echo "Detected $current_shell shell. Running install_posix.sh with argument $action..."
+    $current_shell "$script_dir/shellrc/install_posix.sh" "$action"
     ;;
 esac

@@ -75,7 +75,7 @@ function install
 
   # Get the absolute path of the current script directory
   set -l dotfiles (cd (dirname (status -f))/..; pwd)
-
+  echo "-----> Dotfiles directory: $dotfiles"
   set -l exclude_files "(\.sh$|README\.md$|settings\.json$|config$|LICENSE$)"
   
   # For all files in the current folder except `*.sh`, `README.md`, `settings.json`, `config`, and `LICENSE`,
@@ -109,7 +109,7 @@ end
 
 function uninstall
   set -l dotfiles (cd (dirname (status -f))/..; pwd)
-
+  echo "-----> Dotfiles directory: $dotfiles"
   set -l exclude_files "(\.sh$|README\.md$|settings\.json$|config$|LICENSE$)"
   
   # Remove symlinks for all files in the current folder except `*.sh`, `README.md`, `settings.json`, `config`, and `LICENSE`
