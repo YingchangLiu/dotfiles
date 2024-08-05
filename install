@@ -13,10 +13,10 @@ script_dir=$(dirname "$0")
 case $current_shell in
   *bash|*zsh)
     echo "Detected $current_shell shell. Running install_bash.sh with argument $action..."
-    $current_shell "$script_dir/shellrc/install_bash.sh" "$action"
+    $current_shell "$script_dir/script/install_bashdots.sh" "$action"
     ;;
   *)
     echo "Detected $current_shell shell. Running install_posix.sh with argument $action..."
-    $current_shell "$script_dir/shellrc/install_posix.sh" "$action"
+    $current_shell "$script_dir/script/install_posixdots.sh" "$action"
     ;;
 esac

@@ -79,7 +79,7 @@ install() {
   dotfiles=$(cd "$(dirname "$(realpath "$(ps -p $$ -o args= | awk '{print $2}')")")/.." && pwd)
   
   readonly dotfiles
-  echo "-----> Dotfiles directory: $dotfiles"
+  echo "Note: Dotfiles directory: $dotfiles"
   local exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$|install$)"
   readonly exclude_files
   # For all files in the current folder except `*.sh`, `README.md`, `settings.json`, `config`, and `LICENSE`,
@@ -115,7 +115,7 @@ uninstall() {
   local dotfiles
   dotfiles=$(cd "$(dirname "$(realpath "$(ps -p $$ -o args= | awk '{print $2}')")")/.." && pwd)
   readonly dotfiles
-  echo "-----> Dotfiles directory: $dotfiles"
+  echo "Note: Dotfiles directory: $dotfiles"
 
   local exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$|install$)"
   readonly exclude_files
