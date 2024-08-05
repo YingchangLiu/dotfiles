@@ -73,7 +73,7 @@ install() {
 
   # Get the absolute path of the current script directory
   dotfiles=$(cd "$(dirname "$0")/.." && pwd)
-
+  echo "-----> Dotfiles directory: $dotfiles"
   exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$)"
   
   # For all files in the current folder except `*.sh`, `README.md`, `settings.json`, `config`, and `LICENSE`,
@@ -108,7 +108,7 @@ install() {
 uninstall() {
   # Get the absolute path of the current script directory
   dotfiles=$(cd "$(dirname "$0")/.." && pwd)
-
+  echo "-----> Dotfiles directory: $dotfiles"
   exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$)"
   
   # Remove symlinks for all files in the current folder except `*.sh`, `README.md`, `settings.json`, `config`, and `LICENSE`
