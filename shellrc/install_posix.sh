@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+# Work with POSIX sh only, not Zsh.
+
 # Create directories if they don't exist
 create_directories() {
   dirs="
@@ -73,8 +75,12 @@ install() {
 
   # Get the absolute path of the current script directory
   dotfiles=$(cd "$(dirname "$0")/.." && pwd)
+  dotfiles2=$(cd "$(dirname "$(realpath "$(ps -p $$ -o args= | awk '{print $2}')")")/.." && pwd)
+  dotfiles3=$(cd "$(dirname "$(readlink -f "$(ps -p $$ -o args= | awk '{print $2}')")")/.." && pwd)
+  echo "-----> Dotfiles directory: $dotfiles2"
+  echo "-----> Dotfiles directory: $dotfiles3"
   echo "-----> Dotfiles directory: $dotfiles"
-  exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$)"
+  exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$|install$)"
   
   # For all files in the current folder except `*.sh`, `README.md`, `settings.json`, `config`, and `LICENSE`,
   # backup the target file located at `~/.$name` and symlink `$name` to `~/.$name`
@@ -109,7 +115,7 @@ uninstall() {
   # Get the absolute path of the current script directory
   dotfiles=$(cd "$(dirname "$0")/.." && pwd)
   echo "-----> Dotfiles directory: $dotfiles"
-  exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$)"
+  exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$|install$)"
   
   # Remove symlinks for all files in the current folder except `*.sh`, `README.md`, `settings.json`, `config`, and `LICENSE`
   for name in "$dotfiles"/*; do

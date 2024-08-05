@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Work with Bash/Zsh only, not POSIX sh
+
 # Create directories if they don't exist
 create_directories() {
   local dirs=(
@@ -69,12 +71,6 @@ unlink_files() {
   done
 }
 
-# Fallback to POSIX script if the current script fails
-fallback_to_posix() {
-  echo "-----> Operation failed, falling back to POSIX script"
-  sh shellrc/install_posix.sh "$1"
-}
-
 install() {
   create_directories
 
@@ -84,7 +80,7 @@ install() {
   
   readonly dotfiles
   echo "-----> Dotfiles directory: $dotfiles"
-  local exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$)"
+  local exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$|install$)"
   readonly exclude_files
   # For all files in the current folder except `*.sh`, `README.md`, `settings.json`, `config`, and `LICENSE`,
   # backup the target file located at `~/.$name` and symlink `$name` to `~/.$name`
@@ -121,7 +117,7 @@ uninstall() {
   readonly dotfiles
   echo "-----> Dotfiles directory: $dotfiles"
 
-  local exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$)"
+  local exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$|install$)"
   readonly exclude_files
   # Remove symlinks for all files in the current folder except `*.sh`, `README.md`, `settings.json`, `config`, and `LICENSE`
   for name in "$dotfiles"/*; do
@@ -150,10 +146,10 @@ uninstall() {
 # Check command line arguments
 case "$1" in
   install|"")
-    install || fallback_to_posix install
+    install
     ;;
   uninstall)
-    uninstall || fallback_to_posix uninstall
+    uninstall
     ;;
   *)
     echo "Usage: $0 {install|uninstall}"
