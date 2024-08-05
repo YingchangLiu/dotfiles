@@ -1,93 +1,95 @@
-#!/usr/bin/env sh
+#!/usr/bin/env fish
 
 # Create directories if they don't exist
-create_directories() {
-  dirs="
-    $HOME/.fonts
-    $HOME/.icons
-    $HOME/.themes
-    $HOME/.config
-    $HOME/.local/share
-    $HOME/.vscode
-  "
-  for dir in $dirs; do
-    [ ! -d "$dir" ] && mkdir -p "$dir"
-  done
-}
+function create_directories
+  set -l dirs \
+    "$HOME/.fonts" \
+    "$HOME/.icons" \
+    "$HOME/.themes" \
+    "$HOME/.config" \
+    "$HOME/.local/share" \
+    "$HOME/.vscode"
+  
+  for dir in $dirs
+    if not test -d $dir
+      mkdir -p $dir
+    end
+  end
+end
 
 # Rename a target file to target.backup if the file exists and is not a symlink
-backup() {
-  target=$1
-  if [ -e "$target" ] && [ ! -L "$target" ]; then
-    mv "$target" "$target.backup"
+function backup
+  set -l target $argv[1]
+  if test -e $target -a ! -L $target
+    mv $target $target.backup
     echo "-----> Moved your old $target config file to $target.backup"
-  fi
-}
+  end
+end
 
 # Create a symlink if it doesn't exist
-symlink() {
-  file=$1
-  link=$2
-  if [ ! -e "$link" ]; then
+function symlink
+  set -l file $argv[1]
+  set -l link $argv[2]
+  if not test -e $link
     echo "-----> Symlinking your new $link"
-    ln -sf "$file" "$link"
-  fi
-}
+    ln -sf $file $link
+  end
+end
 
 # Remove a symlink and restore a backup if it exists
-remove_symlink() {
-  link=$1
-  target=$2
-  if [ -L "$link" ] && [ "$(readlink "$link")" = "$target" ]; then
-    rm "$link"
+function remove_symlink
+  set -l link $argv[1]
+  set -l target $argv[2]
+  if test -L $link -a (readlink $link) = $target
+    rm $link
     echo "-----> Removed symlink $link"
-    if [ -e "$link.backup" ]; then
-      mv "$link.backup" "$link"
+    if test -e $link.backup
+      mv $link.backup $link
       echo "-----> Restored backup $link"
-    fi
-  fi
-}
+    end
+  end
+end
 
 # Process files in a directory
-link_files() {
-  src_dir=$1
-  dest_dir=$2
-  for name in "$src_dir"/*; do
-    target="$dest_dir/$(basename "$name")"
-    symlink "$name" "$target"
-  done
-}
+function link_files
+  set -l src_dir $argv[1]
+  set -l dest_dir $argv[2]
+  for name in $src_dir/*
+    set -l target "$dest_dir/(basename $name)"
+    symlink $name $target
+  end
+end
 
 # Remove symlinks in a directory
-unlink_files() {
-  src_dir=$1
-  dest_dir=$2
-  for name in "$src_dir"/*; do
-    target="$dest_dir/$(basename "$name")"
-    remove_symlink "$target" "$name"
-  done
-}
+function unlink_files
+  set -l src_dir $argv[1]
+  set -l dest_dir $argv[2]
+  for name in $src_dir/*
+    set -l target "$dest_dir/(basename $name)"
+    remove_symlink $target $name
+  end
+end
 
-install() {
+function install
   create_directories
 
   # Get the absolute path of the current script directory
-  dotfiles=$(cd "$(dirname "$0")/.." && pwd)
+  set -l dotfiles (cd (dirname (status -f))/..; pwd)
 
-  exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$)"
+  set -l exclude_files "(\.sh$|README\.md$|settings\.json$|config$|LICENSE$)"
   
   # For all files in the current folder except `*.sh`, `README.md`, `settings.json`, `config`, and `LICENSE`,
   # backup the target file located at `~/.$name` and symlink `$name` to `~/.$name`
-  for name in "$dotfiles"/*; do
-    if [ ! -d "$name" ]; then
-      target="$HOME/.`basename $name`"
-      if ! echo "$(basename "$name")" | grep -E "$exclude_files" > /dev/null; then
+  for name in $dotfiles/*
+    if not test -d $name
+      set -l target "$HOME/.(basename $name)"
+      if not echo (basename $name) | grep -E $exclude_files > /dev/null
         echo "-----> Processing $name"
-        backup "$target"
-        symlink "$name" "$target"
-      fi
-    fi
-  done
+        backup $target
+        symlink $name $target
+      end
+    end
+  end
 
   # Symlink fonts, icons, themes, config, and local/share directories
   link_files "$dotfiles/fonts" "$HOME/.fonts"
@@ -97,29 +99,28 @@ install() {
   link_files "$dotfiles/local/share" "$HOME/.local/share"
 
   # Special case for vim_runtime
-  if [ -d "$dotfiles/config/vim_runtime" ]; then
+  if test -d "$dotfiles/config/vim_runtime"
     symlink "$dotfiles/config/vim_runtime" "$HOME/.vim_runtime"
-  fi
+  end
 
   # Symlink vscode/argv.json for gnome-keyring
   symlink "$dotfiles/config/vscode/argv.json" "$HOME/.vscode/argv.json"
-}
+end
 
-uninstall() {
-  # Get the absolute path of the current script directory
-  dotfiles=$(cd "$(dirname "$0")/.." && pwd)
+function uninstall
+  set -l dotfiles (cd (dirname (status -f))/..; pwd)
 
-  exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$)"
+  set -l exclude_files "(\.sh$|README\.md$|settings\.json$|config$|LICENSE$)"
   
   # Remove symlinks for all files in the current folder except `*.sh`, `README.md`, `settings.json`, `config`, and `LICENSE`
-  for name in "$dotfiles"/*; do
-    if [ ! -d "$name" ]; then
-      target="$HOME/.`basename $name`"
-      if ! echo "$(basename "$name")" | grep -E "$exclude_files" > /dev/null; then
-        remove_symlink "$target" "$name"
-      fi
-    fi
-  done
+  for name in $dotfiles/*
+    if not test -d $name
+      set -l target "$HOME/.(basename $name)"
+      if not echo (basename $name) | grep -E $exclude_files > /dev/null
+        remove_symlink $target $name
+      end
+    end
+  end
 
   # Remove symlinks for fonts, icons, themes, config, and local/share directories
   unlink_files "$dotfiles/fonts" "$HOME/.fonts"
@@ -133,17 +134,14 @@ uninstall() {
 
   # Remove vscode/argv.json symlink
   remove_symlink "$HOME/.vscode/argv.json" "$dotfiles/config/vscode/argv.json"
-}
+end
 
 # Check command line arguments
-case "$1" in
-  install|"")
+switch $argv[1]
+  case install ''
     install
-    ;;
-  uninstall)
+  case uninstall
     uninstall
-    ;;
-  *)
+  case '*'
     echo "Usage: $0 {install|uninstall}"
-    ;;
-esac
+end

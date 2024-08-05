@@ -1,24 +1,24 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # Create directories if they don't exist
 create_directories() {
-  dirs="
-    $HOME/.fonts
-    $HOME/.icons
-    $HOME/.themes
-    $HOME/.config
-    $HOME/.local/share
-    $HOME/.vscode
-  "
-  for dir in $dirs; do
-    [ ! -d "$dir" ] && mkdir -p "$dir"
+  local readonly dirs=(
+    "$HOME/.fonts"
+    "$HOME/.icons"
+    "$HOME/.themes"
+    "$HOME/.config"
+    "$HOME/.local/share"
+    "$HOME/.vscode"
+  )
+  for dir in "${dirs[@]}"; do
+    [[ ! -d "$dir" ]] && mkdir -p "$dir"
   done
 }
 
 # Rename a target file to target.backup if the file exists and is not a symlink
 backup() {
-  target=$1
-  if [ -e "$target" ] && [ ! -L "$target" ]; then
+  local target=$1
+  if [[ -e "$target" && ! -L "$target" ]]; then
     mv "$target" "$target.backup"
     echo "-----> Moved your old $target config file to $target.backup"
   fi
@@ -26,9 +26,9 @@ backup() {
 
 # Create a symlink if it doesn't exist
 symlink() {
-  file=$1
-  link=$2
-  if [ ! -e "$link" ]; then
+  local file=$1
+  local link=$2
+  if [[ ! -e "$link" ]]; then
     echo "-----> Symlinking your new $link"
     ln -sf "$file" "$link"
   fi
@@ -36,12 +36,12 @@ symlink() {
 
 # Remove a symlink and restore a backup if it exists
 remove_symlink() {
-  link=$1
-  target=$2
-  if [ -L "$link" ] && [ "$(readlink "$link")" = "$target" ]; then
+  local link=$1
+  local target=$2
+  if [[ -L "$link" && "$(readlink "$link")" == "$target" ]]; then
     rm "$link"
     echo "-----> Removed symlink $link"
-    if [ -e "$link.backup" ]; then
+    if [[ -e "$link.backup" ]]; then
       mv "$link.backup" "$link"
       echo "-----> Restored backup $link"
     fi
@@ -50,37 +50,51 @@ remove_symlink() {
 
 # Process files in a directory
 link_files() {
-  src_dir=$1
-  dest_dir=$2
+  local src_dir=$1
+  local dest_dir=$2
   for name in "$src_dir"/*; do
-    target="$dest_dir/$(basename "$name")"
+    local target="$dest_dir/$(basename "$name")"
     symlink "$name" "$target"
   done
 }
 
 # Remove symlinks in a directory
 unlink_files() {
-  src_dir=$1
-  dest_dir=$2
+  local src_dir=$1
+  local dest_dir=$2
   for name in "$src_dir"/*; do
-    target="$dest_dir/$(basename "$name")"
+    local target="$dest_dir/$(basename "$name")"
     remove_symlink "$target" "$name"
   done
+}
+
+# Fallback to POSIX script if the current script fails
+fallback_to_posix() {
+  echo "-----> Operation failed, falling back to POSIX script"
+  sh shellrc/install_posix.sh "$1"
 }
 
 install() {
   create_directories
 
   # Get the absolute path of the current script directory
-  dotfiles=$(cd "$(dirname "$0")/.." && pwd)
+  local readonly dotfiles
+  if [[ -n "$BASH_SOURCE" ]]; then
+    dotfiles=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+  elif [[ -n "$ZSH_VERSION" ]]; then
+    dotfiles=$(cd "$(dirname "${(%):-%N}")/.." && pwd)
+  else
+    echo "Unsupported shell. Let's try POSIX script."
+    exit 1
+  fi
 
-  exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$)"
+  local readonly exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$)"
   
   # For all files in the current folder except `*.sh`, `README.md`, `settings.json`, `config`, and `LICENSE`,
   # backup the target file located at `~/.$name` and symlink `$name` to `~/.$name`
   for name in "$dotfiles"/*; do
-    if [ ! -d "$name" ]; then
-      target="$HOME/.`basename $name`"
+    if [[ ! -d "$name" ]]; then
+      local target="$HOME/.`basename $name`"
       if ! echo "$(basename "$name")" | grep -E "$exclude_files" > /dev/null; then
         echo "-----> Processing $name"
         backup "$target"
@@ -97,7 +111,7 @@ install() {
   link_files "$dotfiles/local/share" "$HOME/.local/share"
 
   # Special case for vim_runtime
-  if [ -d "$dotfiles/config/vim_runtime" ]; then
+  if [[ -d "$dotfiles/config/vim_runtime" ]]; then
     symlink "$dotfiles/config/vim_runtime" "$HOME/.vim_runtime"
   fi
 
@@ -106,15 +120,22 @@ install() {
 }
 
 uninstall() {
-  # Get the absolute path of the current script directory
-  dotfiles=$(cd "$(dirname "$0")/.." && pwd)
+  local readonly dotfiles
+  if [[ -n "$BASH_SOURCE" ]]; then
+    dotfiles=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+  elif [[ -n "$ZSH_VERSION" ]]; then
+    dotfiles=$(cd "$(dirname "${(%):-%N}")/.." && pwd)
+  else
+    echo "Unsupported shell. Let's try POSIX script."
+    exit 1
+  fi
 
-  exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$)"
+  local readonly exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$)"
   
   # Remove symlinks for all files in the current folder except `*.sh`, `README.md`, `settings.json`, `config`, and `LICENSE`
   for name in "$dotfiles"/*; do
-    if [ ! -d "$name" ]; then
-      target="$HOME/.`basename $name`"
+    if [[ ! -d "$name" ]]; then
+      local target="$HOME/.`basename $name`"
       if ! echo "$(basename "$name")" | grep -E "$exclude_files" > /dev/null; then
         remove_symlink "$target" "$name"
       fi
@@ -138,10 +159,10 @@ uninstall() {
 # Check command line arguments
 case "$1" in
   install|"")
-    install
+    install || fallback_to_posix install
     ;;
   uninstall)
-    uninstall
+    uninstall || fallback_to_posix uninstall
     ;;
   *)
     echo "Usage: $0 {install|uninstall}"
