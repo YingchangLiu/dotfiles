@@ -11,12 +11,8 @@ script_dir=$(dirname "$0")
 
 # Run the appropriate script based on the current shell
 case $current_shell in
-  *bash)
-    echo "Detected bash shell. Running install_bash.sh with argument $action..."
-    $current_shell "$script_dir/shellrc/install_bash.sh" "$action"
-    ;;
-  *zsh)
-    echo "Detected zsh shell. Running install_bash.sh with argument $action..."
+  *bash|*zsh)
+    echo "Detected $current_shell shell. Running install_bash.sh with argument $action..."
     $current_shell "$script_dir/shellrc/install_bash.sh" "$action"
     ;;
   *)
