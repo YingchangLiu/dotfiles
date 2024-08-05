@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Get the current shell
 current_shell=$(ps -p $$ -ocomm=)
@@ -6,7 +6,7 @@ current_shell=$(ps -p $$ -ocomm=)
 # Check if the first argument is passed, otherwise set it to 'install'
 action=${1:-install}
 
-# 获取当前脚本所在的目录
+# Get the directory of the script to run the appropriate script
 script_dir=$(dirname "$0")
 
 # Run the appropriate script based on the current shell
