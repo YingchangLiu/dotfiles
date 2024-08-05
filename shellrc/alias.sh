@@ -35,13 +35,13 @@ alias pgg='ps -Af | grep'           # requires an argument
 alias aurupgrade='paru -Syu --aur'
 alias wttr='curl wttr.in'
 alias maintenance='source $HOME/dotfile/script/maintenance.sh'
-alias ff='find . -name $1'
+# alias ff='find . -name $1'
 
 # the fuck
 alias fk=fuck
-alias f=fuck
-alias k=fuck
-alias fu=fuck
+# alias f=fuck
+# alias k=fuck
+# alias fu=fuck
 alias wtf=fuck
 
 # check kernel
