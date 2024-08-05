@@ -59,12 +59,13 @@ case $DISTRO in
     *Gentoo*|*gentoo*)
     promptinit; prompt gentoo
     zstyle ':completion::complete:*' use-cache 1
+    bindkey              '^I' menu-select
+    bindkey "$terminfo[kcbt]" menu-select
     ;;
 esac
 #bindkey              '^I'         menu-complete
 #bindkey "$terminfo[kcbt]" reverse-menu-complete
-bindkey              '^I' menu-select
-bindkey "$terminfo[kcbt]" menu-select
+
 bindkey -M menuselect              '^I'         menu-complete
 bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
 # Note: -e lets you specify a dynamically generated value.

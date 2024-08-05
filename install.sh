@@ -1,109 +1,138 @@
 #!/usr/bin/env bash
 
-# Define a function which rename a `target` file to `target.backup` if the file
-# exists and if it's a 'real' file, ie not a symlink
+# Create directories if they don't exist
+create_directories() {
+  local dirs=(
+    "$HOME/.fonts"
+    "$HOME/.icons"
+    "$HOME/.themes"
+    "$HOME/.config"
+    "$HOME/.local/share"
+    "$HOME/.vscode"
+  )
+  for dir in "${dirs[@]}"; do
+    [ ! -d "$dir" ] && mkdir -p "$dir"
+  done
+}
+
+# Rename a `target` file to `target.backup` if the file exists and if it's a 'real' file, ie not a symlink
 backup() {
-  target=$1
-  if [ -e "$target" ]; then
-    if [ ! -L "$target" ]; then
-      mv "$target" "$target.backup"
-      echo "-----> Moved your old $target config file to $target.backup"
-    fi
+  local target=$1
+  if [ -e "$target" ] && [ ! -L "$target" ]; then
+    mv "$target" "$target.backup"
+    echo "-----> Moved your old $target config file to $target.backup"
   fi
 }
 
+# Create a symlink if it doesn't exist
 symlink() {
-  file=$1
-  link=$2
+  local file=$1
+  local link=$2
   if [ ! -e "$link" ]; then
     echo "-----> Symlinking your new $link"
-    ln -sf $file $link
+    ln -sf "$file" "$link"
   fi
 }
 
-# For all files `$name` in the present folder except `*.sh`, `README.md`, `settings.json`,
-# and `config`, backup the target file located at `~/.$name` and symlink `$name` to `~/.$name`
-dotfiles=$(pwd)
-for name in ${dotfiles}/*; do
-  if [ ! -d "$name" ]; then
-      target="$HOME/.`basename $name`"
-    if [[ ! "$name" =~ '\.sh$' ]] && [[ ! "$name" =~ 'README.md' ]] && [[ ! "$name" =~ 'settings.json' ]] && [[ ! "$name" =~ 'config' ]] && [[ ! "$name" =~ 'LICENSE' ]]; then
-        echo "$name"
-        backup $target
-        symlink $name $target
+# Remove a symlink and restore a backup if it exists
+remove_symlink() {
+  local link=$1
+  if [ -L "$link" ]; then
+    rm "$link"
+    echo "-----> Removed symlink $link"
+    if [ -e "$link.backup" ]; then
+      mv "$link.backup" "$link"
+      echo "-----> Restored backup $link"
     fi
   fi
-done
+}
 
-## font and icons, themes to ~/.fonts and ~/.icons ./themes
-## if not exist, create it
-if [ ! -d "$HOME/.fonts" ]; then
-    mkdir $HOME/.fonts
-fi
-if [ ! -d "$HOME/.icons" ]; then
-    mkdir $HOME/.icons
-fi
-if [ ! -d "$HOME/.themes" ]; then
-    mkdir $HOME/.themes
-fi
-for name in ${dotfiles}/fonts/*; do
+# Process files in a directory
+link_files() {
+  local src_dir=$1
+  local dest_dir=$2
+  for name in "$src_dir"/*; do
+    local target="$dest_dir/$(basename "$name")"
+    symlink "$name" "$target"
+  done
+}
+# Remove symlinks in a directory
+unlink_files() {
+  local dest_dir=$1
+  for name in "$dest_dir"/*; do
+    remove_symlink "$name"
+  done
+}
 
-    target="$HOME/.fonts/"
-    #backup $target
-    ln -sf $name $target
+install() {
+  create_directories
 
-done
-for name in ${dotfiles}/icons/*; do
-
-    target="$HOME/.icons/"
-    #backup $target
-    ln -sf $name $target
-
-done
-for name in ${dotfiles}/themes/*; do
-
-    target="$HOME/.themes/"
-    #backup $target
-    ln -sf $name $target
-
-done
-
-
-## config
-if [ ! -d "$HOME/.config" ]; then
-    mkdir $HOME/.config
-fi
-for name in ${dotfiles}/config/*; do
-
-    target="$HOME/.config/"
-    #backup $target
-    ln -sf $name $target
-    if [ `basename $name` = "vim_runtime" ]; then
-	    target="$HOME/.vim_runtime"
-	    ln -sf $name $target
+  # For all files in the present folder except `*.sh`, `README.md`, `settings.json`, `config`, and `LICENSE`,
+  # backup the target file located at `~/.$name` and symlink `$name` to `~/.$name`
+  dotfiles=$(pwd)
+  exclude_files="(\.sh$|README.md|settings.json|config|LICENSE)"
+  for name in "$dotfiles"/*; do
+    if [ ! -d "$name" ]; then
+      target="$HOME/.`basename $name`"
+      if [[ ! "$name" =~ $exclude_files ]]; then
+        echo "$name"
+        backup "$target"
+        symlink "$name" "$target"
+      fi
     fi
+  done
 
-done
+  # Symlink fonts, icons, themes, config, and local/share directories
+  link_files "$dotfiles/fonts" "$HOME/.fonts"
+  link_files "$dotfiles/icons" "$HOME/.icons"
+  link_files "$dotfiles/themes" "$HOME/.themes"
+  link_files "$dotfiles/config" "$HOME/.config"
+  link_files "$dotfiles/local/share" "$HOME/.local/share"
 
-## local/share
-if [ ! -d "$HOME/.local/share" ]; then
-    mkdir -p $HOME/.local/share
-fi
-for name in ${dotfiles}/local/share/*; do
+  # Special case for vim_runtime
+  if [ -d "$dotfiles/config/vim_runtime" ]; then
+    symlink "$dotfiles/config/vim_runtime" "$HOME/.vim_runtime"
+  fi
 
-    target="$HOME/.local/share/"
-    #backup $target
-    ln -sf $name $target
-done
+  # Symlink vscode/argv.json for gnome-keyring
+  symlink "$dotfiles/config/vscode/argv.json" "$HOME/.vscode/argv.json"
+}
 
-## vscode/argv.json, for gnome-keyring
-if [ ! -d "$HOME/.vscode" ]; then
-    mkdir -p $HOME/.vscode
-fi
-target="$HOME/.vscode/argv.json"
-#backup $target
-ln -sf ${dotfiles}/config/vscode/argv.json $target
+uninstall() {
+  dotfiles=$(pwd)
+  exclude_files="(\.sh$|README.md|settings.json|config|LICENSE)"
+  for name in "$dotfiles"/*; do
+    if [ ! -d "$name" ]; then
+      target="$HOME/.`basename $name`"
+      if [[ ! "$name" =~ $exclude_files ]]; then
+        remove_symlink "$target"
+      fi
+    fi
+  done
 
+  # Remove symlinks for fonts, icons, themes, config, and local/share directories
+  unlink_files "$HOME/.fonts"
+  unlink_files "$HOME/.icons"
+  unlink_files "$HOME/.themes"
+  unlink_files "$HOME/.config"
+  unlink_files "$HOME/.local/share"
 
-#ln -sf /run/media/code/linuxcache/.conda $HOME/ 2>/dev/null
+  # remove vim_runtime
+  remove_symlink "$HOME/.vim_runtime"
 
+  # Remove vscode/argv.json symlink
+  remove_symlink "$HOME/.vscode/argv.json"
+}
+
+# Check if the first argument is 'install' or 'uninstall'
+case "$1" in
+  install|"")
+    install
+    ;;
+  uninstall)
+    uninstall
+    ;;
+  *)
+    echo "Usage: $0 {install|uninstall}"
+    ;;
+esac
