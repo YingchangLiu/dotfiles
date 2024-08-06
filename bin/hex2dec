@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# Check if hexadecimal numbers are provided as arguments
+[[ $# -eq 0 ]] && {
+  echo -e "Usage \n \t $0 hexadecimal_numbers"
+  exit 1
+}
+
+echo -en "Hexadecimal\tDecimal\n"
+for hexadecimal_number; do
+  # Check if the input is a valid hexadecimal number
+  if [[ ! "$hexadecimal_number" =~ ^[0-9A-Fa-f]+$ ]]; then
+    echo "Invalid hexadecimal number: \"$hexadecimal_number\""
+    continue
+  fi
+
+  # Convert hexadecimal to decimal
+  decimal_number=$((16#$hexadecimal_number))
+
+  printf "%-10s\t%s\n" "$hexadecimal_number" "$decimal_number"
+done

@@ -34,7 +34,6 @@ alias openports='ss --all --numeric --processes --ipv4 --ipv6'
 alias pgg='ps -Af | grep'           # requires an argument
 alias aurupgrade='paru -Syu --aur'
 alias wttr='curl wttr.in'
-alias maintenance='source $HOME/dotfile/script/maintenance.sh'
 # alias ff='find . -name $1'
 
 # the fuck
@@ -44,9 +43,6 @@ alias fk=fuck
 # alias fu=fuck
 alias wtf=fuck
 
-# check kernel
-alias checkkernel='sh $HOME/dotfile/script/checkbootkernel.sh'
-alias checkclass='sh $HOME/dotfile/script/checkclass.sh'
 
 
 # start sway without nvidia
@@ -121,7 +117,7 @@ if (( UID != 0 )); then
 fi
 
 alias pkgbak='pacman -Qeqn > $HOME/dotfile/extra/pkgbuilds/pacman_application.txt && pacman -Qeqm > $HOME/dotfile/extra/pkgbuilds/aur_application.txt && pacman -Qq > $HOME/dotfile/extra/pkgbuilds/pkglist.txt'
-
+# See https://wiki.archlinux.org/title/Pacman/Rosetta
 DISTRO=$(get_distro)
 case $DISTRO in
     *Arch*|*arch*)
@@ -131,6 +127,8 @@ case $DISTRO in
         alias reinstall='pacman -Qqn | pacman -S -'
         alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
         alias remove='sudo pacman -Rns'
+        alias search='sudo pacman -Ss'
+        alias provider='sudo pacman -F'
         ;;
     *Debian*|*Ubuntu*|*debian*|*ubuntu*)
         alias update='sudo apt update'
@@ -139,6 +137,8 @@ case $DISTRO in
         alias reinstall='sudo apt install --reinstall'
         alias cleanup='sudo apt autoremove'
         alias remove='sudo apt remove'
+        alias search='sudo apt search'
+        alias provider='sudo apt-file search'
         ;;
     *Fedora*|*CentOS*|*fedora*|*centos*)
         alias update='sudo dnf update'
@@ -147,6 +147,8 @@ case $DISTRO in
         alias reinstall='sudo dnf reinstall'
         alias cleanup='sudo dnf autoremove'
         alias remove='sudo dnf remove'
+        alias search='sudo dnf search'
+        alias provider='sudo dnf provider'
         ;;
     *SUSE*|*suse*)
         alias update='sudo zypper refresh'
@@ -155,6 +157,8 @@ case $DISTRO in
         alias reinstall='sudo zypper in -f'
         alias cleanup='sudo zypper clean'
         alias remove='sudo zypper rm'
+        alias search='sudo zypper search'
+        alias provider='sudo zypper what-provider'
         ;;
     *Gentoo*|*gentoo*)
         alias update='sudo emerge --ask --sync'
@@ -163,6 +167,9 @@ case $DISTRO in
         alias reinstall='sudo emerge --ask --noreplace'
         alias cleanup='sudo emerge --ask --depclean --verbose=n'
         alias remove='sudo emerge --ask --depclean --verbose'
+        alias search='sudo emerge --search'
+        alias provider='pfl'
+
         ;;
     *unknown*)
         alias update='echo "Unknown package manager"'
@@ -171,6 +178,8 @@ case $DISTRO in
         alias reinstall='echo "Unknown package manager"'
         alias cleanup='echo "Unknown package manager"'
         alias remove='echo "Unknown package manager"'
+        alias search='echo "Unknown package manager"'
+        alias provider='echo "Unknown package manager"'
         ;;
 esac
 
