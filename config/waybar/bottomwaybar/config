@@ -130,7 +130,7 @@
     },   
 
    "custom/spotify": {
-    "exec": "python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
+    "exec": "python3 ~/.config/hypr/scripts/mediaplayer.py --player spotify",
     "format": "{}  ",
     "return-type": "json",
     "on-click": "playerctl play-pause",

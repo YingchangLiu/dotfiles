@@ -1,22 +1,24 @@
 #!/bin/bash
 
 # Get the current shell
-current_shell=$(ps -p $$ -ocomm=)
+# current_shell=$(ps -p $$ -ocomm=)
+current_shell=$(basename "$SHELL")
+
 
 # Check if the first argument is passed, otherwise set it to 'install'
 action=${1:-install}
 
 # Get the directory of the script to run the appropriate script
-script_dir=$(dirname "$0")
+script_dir=$(dirname "$(realpath "$0")")
 
 # Run the appropriate script based on the current shell
 case $current_shell in
   *bash|*zsh)
-    echo "Detected $current_shell shell. Running install_bash.sh with argument $action..."
-    $current_shell "$script_dir/script/install_bashdots.sh" "$action"
+    echo "Detected $current_shell shell. Running install_bash.sh with argument '$action'..."
+    $current_shell "$script_dir/bin/install_bashdots" "$action"
     ;;
   *)
-    echo "Detected $current_shell shell. Running install_posix.sh with argument $action..."
-    $current_shell "$script_dir/script/install_posixdots.sh" "$action"
+    echo "Detected $current_shell shell. Running install_posix.sh with argument '$action'..."
+    $current_shell "$script_dir/bin/install_posixdots" "$action"
     ;;
 esac
