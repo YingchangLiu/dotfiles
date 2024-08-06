@@ -30,7 +30,31 @@ $ sh ./install uninstall
 ## Contents
 
 ### Alias
-Please check in [dotfile/shellrc/alias.sh](./shellrc/alias.sh).
+- wttr: weather
+- l/ll/la/l./lt etc.: ls commands
+- package manager commands (pacman, apt, dnf, zypper, emerge)
+    - install
+    - remove
+    - update
+    - upgrade
+    - reinstall
+    - cleanup
+    - search
+    - provider
+Please check in [shellrc/alias.sh](./shellrc/alias.sh) and [shellrc/functions.sh](./shellrc/functions.sh).
+
+### Bin
+- ap/rp: path converter (from https://github.com/oldratlee/useful-scripts)
+- archive: archive files
+- c: Run command and put output to system clipper (from https://github.com/oldratlee/useful-scripts)
+- checkboot: reboot required or not
+- dec2hex/hex2dec/dec2bin/bin2dec: number converter
+- extract: extract compressed files
+- installdots: dotfile installer
+- gitreset/gitshrink/gitpurge: git commands scripts
+- portagebackup: portage sync
+- etc.
+
 
 ### Configs
 - bash
@@ -48,6 +72,15 @@ Please check in [dotfile/shellrc/alias.sh](./shellrc/alias.sh).
 - pip
 - powerlevel10k
 - rofi
+- scripts
+    -- background-changer
+    -- idle lock
+    -- killprocess
+    -- screenrecord
+    -- screenshot
+    -- volume control
+    -- wallpaper changer
+    -- weather
 - swaylock-effects
 - thefuck
 - vim
@@ -56,31 +89,23 @@ Please check in [dotfile/shellrc/alias.sh](./shellrc/alias.sh).
 - wofi
 - zsh, working with autocomplete, autojump, autosuggestions, command-not-found, completions, history-substring-search, powerlevel-10k and syntax-highlighting
 
-### Scripts
-- background-changer
-- check kernel: reboot required or not
-- gitreset
-- gitshrink
-- killprocess
-- linux-wallpaperengine
-- logout
-- maintenace
-- pytorch cuda test
-- screenrecord
-- screenshot
-- volume control
-- wayland session lock
+### Extra
+External backups about package manager.
+- HPC test codes.
+- My packages backup.
+- Pkgbuilds (Arch linux) for programming. 
+
+### Fonts, icons
+
 
 ### Wallpapers
-Please check in [dotfile/wallpaper](./wallpaper/).
+Please check in [wallpaper](./wallpaper/).
 
 ### Window manager
 - dwm (Xorg)
 - KDE Plasma (DE on workstation)
 - Hyprland (Wayland)
 
-### Extra
-External backups about package manager.
 
 ## License
 The code is available under the [MIT license][license].

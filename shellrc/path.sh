@@ -28,7 +28,7 @@ set_path $SOFI2DROOT/bin $SOFI3DROOT/bin
 set_path $IFOS2DROOT/bin $IFOS3DROOT/bin
 set_path $LOCFLOWROOT/bin
 
-set_path ~/dotfile/script
+set_path $HOME/.local/bin
 
 
 # Automatically add /opt/**/bin to PATH

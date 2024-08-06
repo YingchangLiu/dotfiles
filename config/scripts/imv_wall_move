@@ -1,3 +1,0 @@
-#!/bin/sh
-mv $imv_current_file /usr/share/backgrounds
-notify-send Wallpaper "Moved image to /usr/share/backgrounds"

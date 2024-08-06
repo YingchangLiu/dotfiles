@@ -263,7 +263,7 @@
   },
 
 "custom/spotify": {
-    "exec": "python3 ~/.config/scripts/mediaplayer.py",
+    "exec": "python3 ~/.config/hypr/scripts/mediaplayer.py",
     "format": "♫  {}",
     "return-type": "json",
     "on-click": "playerctl play-pause",
