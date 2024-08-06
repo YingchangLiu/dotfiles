@@ -41,7 +41,7 @@ $ sh ./install uninstall
     - cleanup
     - search
     - provider
-Please check in [shellrc/alias.sh](./shellrc/alias.sh) and [shellrc/functions.sh](./shellrc/functions.sh).
+    - etc. Please check in [shellrc/alias.sh](./shellrc/alias.sh) and [shellrc/functions.sh](./shellrc/functions.sh).
 
 ### Bin
 - ap/rp: path converter (from https://github.com/oldratlee/useful-scripts)
@@ -73,14 +73,14 @@ Please check in [shellrc/alias.sh](./shellrc/alias.sh) and [shellrc/functions.sh
 - powerlevel10k
 - rofi
 - scripts
-    -- background-changer
-    -- idle lock
-    -- killprocess
-    -- screenrecord
-    -- screenshot
-    -- volume control
-    -- wallpaper changer
-    -- weather
+    - background-changer
+    - idle lock
+    - killprocess
+    - screenrecord
+    - screenshot
+    - volume control
+    - wallpaper changer
+    - weather
 - swaylock-effects
 - thefuck
 - vim
