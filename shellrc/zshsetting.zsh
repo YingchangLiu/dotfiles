@@ -41,40 +41,6 @@ case $DISTRO in
     ;;
 esac
 
-DIRSTACKFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/dirs"
-if [[ -f "$DIRSTACKFILE" ]] && (( ${#dirstack} == 0 )); then
-	dirstack=("${(@f)"$(< "$DIRSTACKFILE")"}")
-	[[ -d "${dirstack[1]}" ]] && cd -- "${dirstack[1]}"
-fi
-chpwd_dirstack() {
-	print -l -- "$PWD" "${(u)dirstack[@]}" > "$DIRSTACKFILE"
-}
-add-zsh-hook -Uz chpwd chpwd_dirstack
-function xterm_title_precmd () {
-	print -Pn -- '\e]2;%n@%m %~\a'
-	[[ "$TERM" == 'screen'* ]] && print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-}\e\\'
-}
-
-function xterm_title_preexec () {
-	print -Pn -- '\e]2;%n@%m %~ %# ' && print -n -- "${(q)1}\a"
-	[[ "$TERM" == 'screen'* ]] && { print -Pn -- '\e_\005{g}%n\005{-}@\005{m}%m\005{-} \005{B}%~\005{-} %# ' && print -n -- "${(q)1}\e\\"; }
-}
-
-if [[ "$TERM" == (Eterm*|alacritty*|aterm*|foot*|gnome*|konsole*|kterm*|putty*|rxvt*|screen*|wezterm*|tmux*|xterm*) ]]; then
-	add-zsh-hook -Uz precmd xterm_title_precmd
-	add-zsh-hook -Uz preexec xterm_title_preexec
-fi
-
-DIRSTACKSIZE='20'
-
-setopt AUTO_PUSHD PUSHD_SILENT PUSHD_TO_HOME
-
-## Remove duplicate entries
-setopt PUSHD_IGNORE_DUPS
-
-## This reverts the +/- operators.
-setopt PUSHD_MINUS
-
 
 # Lines configured by zsh-newuser-install
 bindkey -e
@@ -82,8 +48,8 @@ bindkey -e
 # Enable the history-substring-search with Up and Down
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-bindkey              '^I' menu-select
-bindkey "$terminfo[kcbt]" menu-select
+# bindkey              '^I' menu-select
+# bindkey "$terminfo[kcbt]" menu-select
 # bindkey -M menuselect  '^[[D' .backward-char  '^[OD' .backward-char
 # bindkey -M menuselect  '^[[C'  .forward-char  '^[OC'  .forward-char
 bindkey '^R' .history-incremental-search-backward
