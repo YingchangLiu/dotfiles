@@ -12,7 +12,6 @@ create_directories() {
     $HOME/.local/share/zsh/plugins
     $HOME/.vscode
     $HOME/.ssh
-    $HOME/.bak
   "
   # Use the IFS variable to split the string into an array
   printf '%s\n' "$dirs" | while IFS= read -r dir; do
