@@ -48,8 +48,8 @@ bindkey -e
 # Enable the history-substring-search with Up and Down
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-# bindkey              '^I' menu-select
-# bindkey "$terminfo[kcbt]" menu-select
+bindkey              '^I' menu-select
+bindkey "$terminfo[kcbt]" menu-select
 # bindkey -M menuselect  '^[[D' .backward-char  '^[OD' .backward-char
 # bindkey -M menuselect  '^[[C'  .forward-char  '^[OC'  .forward-char
 bindkey '^R' .history-incremental-search-backward
