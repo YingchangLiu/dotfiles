@@ -8,6 +8,7 @@ create_directories() {
     $HOME/.local/bin
     $HOME/.local/share
     $HOME/.local/share/fonts
+    $HOME/.local/share/wallpapers
     $HOME/.vscode
     $HOME/.ssh
   "
@@ -96,6 +97,7 @@ install() {
 
   # Symlink fonts, config, and local directories
   link_files "$dotfiles/fonts" "$HOME/.local/share/fonts"
+  link_files "$dotfiles/wallpapers" "$HOME/.local/share/wallpapers"
   link_files "$dotfiles/config" "$HOME/.config"
   link_files "$dotfiles/bin" "$HOME/.local/bin"
 
@@ -129,6 +131,7 @@ uninstall() {
 
   # Remove symlinks for fonts, config, and local directories
   unlink_files "$dotfiles/fonts" "$HOME/.local/share/fonts"
+  unlink_files "$dotfiles/wallpapers" "$HOME/.local/share/wallpapers"
   unlink_files "$dotfiles/config" "$HOME/.config"
   unlink_files "$dotfiles/bin" "$HOME/.local/bin"
 
