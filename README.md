@@ -11,6 +11,7 @@ git clone --depth 1 https://github.com/yingchangliu/dotfile.git
 cd ~/dotfile
 ./install
 ```
+Note: You may need to modify  [`shellrc/zshplugin.zsh`](./shellrc/zshplugin.zsh) to fit your distribution. Package managers put their plugins in different directories.
 Typing uninstall will restore your original settings.
 ```
 sh ./install uninstall
