@@ -134,20 +134,19 @@ split_args() {
     # Split the input string into an array
     args_array=($1)
 }
-# 
-: <<'EOF'
-#!/usr/bin/env zsh
-# Split the input arguments into an array using multiple delimiters
-function split_args() {
-    local IFS=': ,;|'
-    read -r -A args_array <<< "$@"
-}
-#!/usr/bin/env bash
-function split_args() {
-    local IFS=': ,;|'
-    read -r -a args_array <<< "$@"
-}
-EOF
+
+
+# #!/usr/bin/env zsh
+# # Split the input arguments into an array using multiple delimiters
+# function split_args() {
+#     local IFS=': ,;|'
+#     read -r -A args_array <<< "$@"
+# }
+# #!/usr/bin/env bash
+# function split_args() {
+#     local IFS=': ,;|'
+#     read -r -a args_array <<< "$@"
+# }
 
 
 ## set_path function is used to add directories to PATH.
