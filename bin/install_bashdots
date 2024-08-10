@@ -109,6 +109,9 @@ install() {
   if [[ ! -e "$HOME/.ssh/config" ]]; then
     symlink "$dotfiles/config/ssh/config" "$HOME/.ssh/config"
   fi
+
+  # Symlink shellrc to .config/shellrc
+  symlink "$dotfiles/config/shellrc" "$HOME/.config/shellrc"
 }
 
 uninstall() {

@@ -1,20 +1,25 @@
-# Enable help in zsh
+## Enable help in zsh
+(( ${+aliases[run-help]} )) && unalias run-help
 autoload -Uz run-help
-# HELPDIR="/usr/share/zsh/$(zsh --version | cut -d' ' -f2)/help"
-autoload -Uz run-help-git run-help-ip run-help-openssl run-help-p4 run-help-sudo run-help-svk run-help-svn
+alias help='run-help '
+## HELPDIR="/usr/share/zsh/$(zsh --version | cut -d' ' -f2)/help"
+# autoload -Uz run-help-git run-help-ip run-help-openssl run-help-p4 run-help-sudo run-help-svk run-help-svn
+
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
+# REMEMBERING RECENT DIRECTORIES
+autoload -Uz chpwd_recent_dirs cdr
+add-zsh-hook chpwd chpwd_recent_dirs
+
 autoload -Uz add-zsh-hook
-# Eliminate duplicate entries in history
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_ALL_DUPS
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 # setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
 setopt SHARE_HISTORY             # Share history between all sessions.
 setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
+## Eliminate duplicate entries in history
 setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
 setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
 setopt HIST_FIND_NO_DUPS         # Do not display a line previously found.
@@ -23,24 +28,29 @@ setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history 
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
-# Sovle 'no matches found' in zsh
+## Sovle 'no matches found' in zsh
 setopt no_nomatch
+## enable auto-correction
+setopt correctall
+## Auto cd
+setopt autocd
+## Enable extended globbing
+setopt extendedglob
+
+# Keep history of `cd` as in with `pushd` and make `cd -<TAB>` work.
+DIRSTACKSIZE=16
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushd_minus
+
+# Ignore lines prefixed with '#'.
+setopt interactivecomments
+
 
 DISTRO=$(get_distro)
 autoload -Uz compinit promptinit
 compinit -u
-case $DISTRO in
-    *Arch*|*arch*)
-    promptinit
-    ;;
-    *Debian*|*debian*)
-    promptinit
-    ;;
-    *Gentoo*|*gentoo*)
-    promptinit; prompt gentoo
-    ;;
-esac
-
+promptinit
 
 # Lines configured by zsh-newuser-install
 bindkey -e

@@ -1,7 +1,20 @@
 #!/bin/bash
 # Useful functions
 
-## split_args "$@" - read paths from input, zsh and bash are different, so we need to define this function. see shellrc/zshfuns.zsh and shellrc/bashfuns.sh
+# Colors.
+red='\e[0;31m'
+RED='\e[1;31m'
+green='\e[0;32m'
+GREEN='\e[1;32m'
+yellow='\e[0;33m'
+YELLOW='\e[1;33m'
+blue='\e[0;34m'
+BLUE='\e[1;34m'
+purple='\e[0;35m'
+PURPLE='\e[1;35m'
+cyan='\e[0;36m'
+CYAN='\e[1;36m'
+NC='\e[0m'
 
 # ex - archive extractor
 # usage: ex <file> [directory]
@@ -68,6 +81,68 @@ cx ()
     fi
 }
 
+## https://github.com/slashbeast/conf-mgmt/blob/master/roles/home_files/files/DOTzshrc
+# Fancy cd that can cd into parent directory, if trying to cd into file.
+# useful with ^F fuzzy searcher.
+unalias cd 2>/dev/null
+cd() 
+{
+    if (( $+2 )); then
+        builtin cd "$@"
+        return 0
+    fi
+
+    if [ -f "$1" ]; then
+        echo "${yellow}cd ${1:h}${NC}" >&2
+        builtin cd "${1:h}"
+    else
+        builtin cd "${@}"
+    fi
+}
+
+confirm() {
+    local answer
+    echo -ne "Sure you want to run '${YELLOW}$*${NC}' [yN]? "
+    read -q answer
+        echo
+    if [[ "${answer}" =~ ^[Yy]$ ]]; then
+        command "${@}"
+    else
+        return 1
+    fi
+}
+
+confirm_wrapper() {
+    if [ "$1" = '--root' ]; then
+        local as_root='true'
+        shift
+    fi
+
+    local prefix=''
+
+    if [ "${as_root}" = 'true' ] && [ "${USER}" != 'root' ]; then
+        prefix="sudo"
+    fi
+    confirm ${prefix} "$@"
+}
+unalias poweroff 2>/dev/null
+unalias reboot 2>/dev/null
+unalias hibernate 2>/dev/null
+poweroff() { confirm_wrapper --root $0 "$@"; }
+reboot() { confirm_wrapper --root $0 "$@"; }
+hibernate() { confirm_wrapper --root $0 "$@"; }
+
+reload () {
+    exec "${SHELL}" "$@"
+}
+over_ssh() {
+    if [ -n "${SSH_CLIENT}" ]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
 # get_distro - get the name of the distribution
 get_distro() {
     if command -v lsb_release > /dev/null; then
@@ -113,6 +188,20 @@ v2toggle() {
     fi
 }
 
+##  PS1 definition that color-codes the current branch as red for uncommitted changes, green for a clean directory, and yellow for stashed changes.
+git_branch() {
+  branch=$(git branch 2>/dev/null | grep '^*' | colrm 1 2)
+  if [ ! -z "$branch" ]; then
+    if [ -n "$(git status --porcelain)" ]; then
+      color="31"  # Red for changes
+    elif [ "$(git stash list)" ]; then
+      color="33"  # Yellow for stashed changes
+    else
+      color="32"  # Green for a clean state
+    fi
+    echo -e "\\e[0;${color}m${branch}\\e[0m"  
+  fi
+}
 
 delete_branches_except() {
     cmd='git branch'

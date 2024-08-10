@@ -5,10 +5,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
-
-
 export EDITOR='vim'
 
 export DOTROOT="/home/kelen/dotfile"
@@ -29,3 +25,9 @@ export SHELLROOT="${DOTROOT}/shellrc"
 [ -f "$SHELLROOT/language.sh" ] && source "$SHELLROOT/language.sh"
 
 [ -f "$SHELLROOT/custom.sh" ] && source "$SHELLROOT/custom.sh"  #2>/dev/null
+
+
+PS1="\e[0;32m\]\u@\h \w \$(git_branch)\$ "
+
+
+## exec zsh
