@@ -58,8 +58,12 @@ bindkey -e
 # Enable the history-substring-search with Up and Down
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-bindkey              '^I' menu-select
-bindkey "$terminfo[kcbt]" menu-select
+
+if [[ ${_autocomplete} == true ]]; then
+  bindkey '^I' menu-select
+  bindkey "$terminfo[kcbt]" menu-select
+fi
+
 # bindkey -M menuselect  '^[[D' .backward-char  '^[OD' .backward-char
 # bindkey -M menuselect  '^[[C'  .forward-char  '^[OC'  .forward-char
 bindkey '^R' .history-incremental-search-backward
@@ -88,15 +92,15 @@ key[Shift-Tab]="${terminfo[kcbt]}"
 [[ -n "${key[Insert]}"    ]] && bindkey -- "${key[Insert]}"     overwrite-mode
 [[ -n "${key[Backspace]}" ]] && bindkey -- "${key[Backspace]}"  backward-delete-char
 [[ -n "${key[Delete]}"    ]] && bindkey -- "${key[Delete]}"     delete-char
-[[ -n "${key[Up]}"        ]] && bindkey -- "${key[Up]}"         up-line-or-history
-[[ -n "${key[Down]}"      ]] && bindkey -- "${key[Down]}"       down-line-or-history
+# [[ -n "${key[Up]}"        ]] && bindkey -- "${key[Up]}"         up-line-or-history
+# [[ -n "${key[Down]}"      ]] && bindkey -- "${key[Down]}"       down-line-or-history
 # [[ -n "${key[Up]}"        ]] && bindkey -- "${key[Up]}"         up-line-or-beginning-search
 # [[ -n "${key[Down]}"      ]] && bindkey -- "${key[Down]}"       down-line-or-beginning-search
-[[ -n "${key[Left]}"      ]] && bindkey -- "${key[Left]}"       backward-char
-[[ -n "${key[Right]}"     ]] && bindkey -- "${key[Right]}"      forward-char
+# [[ -n "${key[Left]}"      ]] && bindkey -- "${key[Left]}"       backward-char
+# [[ -n "${key[Right]}"     ]] && bindkey -- "${key[Right]}"      forward-char
 [[ -n "${key[PageUp]}"    ]] && bindkey -- "${key[PageUp]}"     beginning-of-buffer-or-history
 [[ -n "${key[PageDown]}"  ]] && bindkey -- "${key[PageDown]}"   end-of-buffer-or-history
-[[ -n "${key[Shift-Tab]}" ]] && bindkey -- "${key[Shift-Tab]}"  reverse-menu-complete
+# [[ -n "${key[Shift-Tab]}" ]] && bindkey -- "${key[Shift-Tab]}"  reverse-menu-complete
 
 
 

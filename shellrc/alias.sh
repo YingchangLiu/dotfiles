@@ -24,6 +24,7 @@ alias fcitx5-configtool='QT_QPA_PLATFORM=xcb fcitx5-configtool'
 # alias matlab='env LD_PERLOAD=/usr/lib/libstdc++.so LD_LIBRARY_PATH=/usr/lib/xorg/modules/dri/ MESA_LOADER_DRIVER_OVERRIDE=i1965 LANG=zh_CN.UTF-8 matlab'
 
 
+
 # system
 alias da='date "+%A, %B %d, %Y [%T]"'
 alias du1='du --max-depth=1'
