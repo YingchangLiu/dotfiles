@@ -10,6 +10,7 @@ action=${1:-install}
 
 # Get the directory of the script to run the appropriate script
 dotfile=$(dirname "$(realpath "$0")")
+mkdir -p "$dotfile/bak"
 
 #  Update the DOTROOT variable in the zshrc file
 if [ -f "$dotfile/zshrc" ]; then
@@ -32,4 +33,4 @@ case $current_shell in
 esac
 fi
 
-exec "${SHELL}" "$@"
+exec "${SHELL}"

@@ -20,12 +20,15 @@ create_directories() {
   done
 }
 
-# Rename a target file to target.backup if the file exists and is not a symlink
+# Rename a target file to bak/target if the file exists and is not a symlink
 backup() {
   local target=$1
+  local backup_dir="$dotfiles/bak"
+  local backup_target="$backup_dir/$(basename "$target")"
   if [[ -e "$target" && ! -L "$target" ]]; then
-    mv "$target" "$target.backup"
-    echo "-----> Moved your old $target config file to $target.backup"
+    mkdir -p "$(dirname "$backup_target")"
+    mv "$target" "$backup_target"
+    echo "-----> Moved your old $target config file to $backup_target"
   fi
 }
 
@@ -43,11 +46,13 @@ symlink() {
 remove_symlink() {
   local link=$1
   local target=$2
+  local backup_dir="$dotfiles/bak"
+  local backup_target="$backup_dir/$(basename "$link")"
   if [[ -L "$link" && "$(readlink "$link")" == "$target" ]]; then
     rm "$link"
     echo "-----> Removed symlink $link"
-    if [[ -e "$link.backup" ]]; then
-      mv "$link.backup" "$link"
+    if [[ -e "$backup_target" ]]; then
+      mv "$backup_target" "$link"
       echo "-----> Restored backup $link"
     fi
   fi
@@ -113,7 +118,7 @@ install() {
   fi
 
   # Symlink shellrc to .config/shellrc
-  symlink "$dotfiles/config/shellrc" "$HOME/.config/shellrc"
+  symlink "$dotfiles/shellrc" "$HOME/.config/shellrc"
 }
 
 uninstall() {
