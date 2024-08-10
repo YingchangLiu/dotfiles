@@ -7,7 +7,7 @@
 ## How to use
 Run this:
 ```console
-git clone --depth 1 https://github.com/yingchangliu/dotfile.git
+git clone https://github.com/yingchangliu/dotfile.git --recurse-submodules --depth=1
 cd ~/dotfile
 ./install
 ```
