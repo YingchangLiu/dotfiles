@@ -50,11 +50,8 @@ alias hosts2='sudo wget https://scaffrey.coding.net/p/hosts/d/hosts/git/raw/mast
 alias hosts3='sudo wget https://git.qvq.network/googlehosts/hosts/raw/master/hosts-files/hosts -O /etc/hosts'
 
 
-(( ${+aliases[run-help]} )) && unalias run-help
-alias help='run-help '
-
 ## Modified commands
-alias diff='diff --color=auto'
+alias diff='diff --color=auto -Nuar'
 alias grep='grep --color=auto'
 alias df='df -h'
 alias du='du -c -h'
@@ -63,7 +60,7 @@ alias ping='ping -c 5'
 alias ip='ip --color=auto'
 
 # cd
-alias cd='cd'
+alias cd=' cd'
 alias CD='cd'
 alias cd..='cd ..'
 alias ..=' cd ..'
@@ -92,8 +89,6 @@ if (( UID != 0 )); then
     alias scat='sudo cat'
     alias svim='sudoedit'
     alias root='sudo -i'
-    alias reboot='sudo reboot'
-    alias poweroff='sudo poweroff'
     alias dmesg='sudo dmesg -HL'
     alias install-grub='sudo grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB'
     alias update-grub='sudo env LANG=en_US.UTF-8 grub-mkconfig -o /boot/grub/grub.cfg'
