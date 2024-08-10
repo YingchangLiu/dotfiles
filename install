@@ -31,3 +31,5 @@ case $current_shell in
     ;;
 esac
 fi
+
+exec "${SHELL}" "$@"
