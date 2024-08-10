@@ -12,6 +12,7 @@ create_directories() {
     $HOME/.local/share/zsh/plugins
     $HOME/.vscode
     $HOME/.ssh
+    $HOME/.bak
   "
   # Use the IFS variable to split the string into an array
   printf '%s\n' "$dirs" | while IFS= read -r dir; do
@@ -20,12 +21,14 @@ create_directories() {
   done
 }
 
-# Rename a target file to target.backup if the file exists and is not a symlink
+# Rename a target file to bak/target if the file exists and is not a symlink
 backup() {
   target=$1
+  bak_dir="$dotfiles/bak/$(dirname "$target" | sed "s|$HOME/||")"
+  mkdir -p "$bak_dir"
   if [ -e "$target" ] && [ ! -L "$target" ]; then
-    mv "$target" "$target.backup"
-    echo "-----> Moved your old $target config file to $target.backup"
+    mv "$target" "$bak_dir/$(basename "$target")"
+    echo "-----> Moved your old $target config file to $bak_dir/$(basename "$target")"
   fi
 }
 
@@ -43,11 +46,12 @@ symlink() {
 remove_symlink() {
   link=$1
   target=$2
+  bak_dir="$dotfiles/bak/$(dirname "$link" | sed "s|$HOME/||")"
   if [ -L "$link" ] && [ "$(readlink "$link")" = "$target" ]; then
     rm "$link"
     echo "-----> Removed symlink $link"
-    if [ -e "$link.backup" ]; then
-      mv "$link.backup" "$link"
+    if [ -e "$bak_dir/$(basename "$link")" ]; then
+      mv "$bak_dir/$(basename "$link")" "$link"
       echo "-----> Restored backup $link"
     fi
   fi
@@ -77,9 +81,7 @@ install() {
   create_directories
 
   # Get the absolute path of the current script directory
-  # dotfiles=$(cd "$(dirname "$0")/.." && pwd) # not working in zsh
   dotfiles=$(cd "$(dirname "$(realpath "$(ps -p $$ -o args= | awk '{print $2}')")")/.." && pwd)
-  # dotfiles=$(cd "$(dirname "$(readlink -f "$(ps -p $$ -o args= | awk '{print $2}')")")/.." && pwd)
   echo "Note: Dotfiles directory: $dotfiles"
   exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$|install$)"
   
@@ -112,15 +114,13 @@ install() {
   fi
 
   # Symlink shellrc to .config/shellrc
-  symlink "$dotfiles/config/shellrc" "$HOME/.config/shellrc"
+  symlink "$dotfiles/shellrc" "$HOME/.config/shellrc"
 
 }
 
 uninstall() {
   # Get the absolute path of the current script directory
-  # dotfiles=$(cd "$(dirname "$0")/.." && pwd) # not working in zsh
   dotfiles=$(cd "$(dirname "$(realpath "$(ps -p $$ -o args= | awk '{print $2}')")")/.." && pwd)
-  # dotfiles=$(cd "$(dirname "$(readlink -f "$(ps -p $$ -o args= | awk '{print $2}')")")/.." && pwd)
   echo "Note: Dotfiles directory: $dotfiles"
   exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$|install$)"
   
