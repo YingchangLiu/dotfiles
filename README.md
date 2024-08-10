@@ -5,13 +5,15 @@
 ---
 
 ## How to use
-This will create symlinks from this repo to your home folder.
+Run this:
 ```console
-$ sh ./install
+git clone --depth 1 https://github.com/yingchangliu/dotfile.git
+cd ~/dotfile
+./install
 ```
 Typing uninstall will restore your original settings.
 ```
-$ sh ./install uninstall
+sh ./install uninstall
 ```
 
 ## Styles  
@@ -99,11 +101,11 @@ External backups about package manager.
 - My packages backup.
 - Pkgbuilds (Arch linux) for programming. 
 
-### Fonts, icons
+### Fonts
 
 
 ### Wallpapers
-Please check in [wallpaper](./wallpaper/).
+Please check in [wallpapers](./wallpapers/).
 
 ### Window manager
 - dwm (Xorg)
