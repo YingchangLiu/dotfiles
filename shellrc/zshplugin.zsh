@@ -20,7 +20,7 @@ case $DISTRO in
     ;;
     *Gentoo*|*gentoo*)
     source /usr/share/zsh/site-functions/powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null
-    source /usr/share/zsh/site-functions/zsh-autocomplete/zsh-autocomplete.plugin.zsh2>/dev/null && _autocomplete=true
+    source /usr/share/zsh/site-functions/zsh-autocomplete/zsh-autocomplete.plugin.zsh 2>/dev/null && _autocomplete=true
     source /usr/share/zsh/site-functions/zsh-autosuggestions.zsh 2>/dev/null
     source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh 2>/dev/null
     source /usr/share/zsh/site-functions/zsh-history-substring-search.zsh 2>/dev/null
