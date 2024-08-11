@@ -58,6 +58,7 @@ bindkey -e
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+## Only if the zsh-autocomplete plugin is enabled in zshplugin.zsh, you can use the following key bindings.
 if [ -n "$_LOADED_ZSH_AUTOCOMPLETE" ]; then
   bindkey '^I' menu-select
   bindkey "$terminfo[kcbt]" menu-select
