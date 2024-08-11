@@ -58,7 +58,7 @@ bindkey -e
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-if [ -z "$_LOADED_ZSH_AUTOCOMPLETE" ]; then
+if [ -n "$_LOADED_ZSH_AUTOCOMPLETE" ]; then
   bindkey '^I' menu-select
   bindkey "$terminfo[kcbt]" menu-select
 fi
