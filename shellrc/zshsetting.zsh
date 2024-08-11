@@ -47,7 +47,6 @@ setopt pushd_minus
 setopt interactivecomments
 
 
-DISTRO=$(get_distro)
 autoload -Uz compinit promptinit
 compinit -u
 promptinit

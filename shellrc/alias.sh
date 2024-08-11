@@ -100,8 +100,8 @@ if (( UID != 0 )); then
 fi
 
 # See https://wiki.archlinux.org/title/Pacman/Rosetta
-DISTRO=$(get_distro)
-case $DISTRO in
+_DISTRO=$(get_distro)
+case $_DISTRO in
     *Arch*|*arch*)
         alias aurupgrade='paru -Syu --aur'
         alias pkgbak='pacman -Qeqn > ${DOTROOT}/extra/pkgbuilds/pacman_application.txt && pacman -Qeqm > ${DOTROOT}/extra/pkgbuilds/aur_application.txt && pacman -Qq > ${DOTROOT}/extra/pkgbuilds/pkglist.txt'

@@ -20,28 +20,29 @@ NC='\e[0m'
 # usage: ex <file> [directory]
 ex ()
 {
-    if [ -f $1 ] ; then
-        FILENAME=$(basename $1)
+    local FILENAME DIR
+    if [ -f "$1" ] ; then
+        FILENAME=$(basename "$1")
         DIR=${2:-${FILENAME%%.*}}
-        mkdir -p $DIR
-        case $1 in
-            *.tar.bz2)  tar xjf $1 -C $DIR      ;;
-            *.tar.gz)   tar xzf $1 -C $DIR      ;;
-            *.tar.xz)   tar xJf $1 -C $DIR      ;;
-            *.tar.zst)  tar xf  $1 -C $DIR      ;;
-            *.bz2)      bunzip2 $1 -C $DIR      ;;
-            *.rar)      unrar x $1 $DIR      ;;
-            *.gz)       gunzip $1 -C $DIR       ;;
-            *.tar)      tar xf $1 -C $DIR       ;;
-            *.tbz2)     tar xjf $1 -C $DIR      ;;
-            *.tgz)      tar xzf $1 -C $DIR      ;;
-            *.zip)      unzip $1 -d $DIR        ;;
-            *.Z)        uncompress $1 -C $DIR   ;;
-            *.7z)       7z x $1 -o$DIR         ;;
-            *.xz)       unxz $1 -C $DIR         ;;
-            *.exe)      cabextract $1 -d $DIR   ;;
-            *.deb)      ar x $1 $DIR         ;;
-            *.lzma)     unlzma $1 -C $DIR       ;;
+        mkdir -p "$DIR"
+        case "$1" in
+            *.tar.bz2)  tar xjf "$1" -C "$DIR"      ;;
+            *.tar.gz)   tar xzf "$1" -C "$DIR"      ;;
+            *.tar.xz)   tar xJf "$1" -C "$DIR"      ;;
+            *.tar.zst)  tar xf  "$1" -C "$DIR"      ;;
+            *.bz2)      bunzip2 "$1" -C "$DIR"      ;;
+            *.rar)      unrar x "$1" "$DIR"      ;;
+            *.gz)       gunzip "$1" -C "$DIR"       ;;
+            *.tar)      tar xf "$1" -C "$DIR"       ;;
+            *.tbz2)     tar xjf "$1" -C "$DIR"      ;;
+            *.tgz)      tar xzf "$1" -C "$DIR"      ;;
+            *.zip)      unzip "$1" -d "$DIR"        ;;
+            *.Z)        uncompress "$1" -C "$DIR"   ;;
+            *.7z)       7z x "$1" -o"$DIR"         ;;
+            *.xz)       unxz "$1" -C "$DIR"         ;;
+            *.exe)      cabextract "$1" -d "$DIR"   ;;
+            *.deb)      ar x "$1" "$DIR"         ;;
+            *.lzma)     unlzma "$1" -C "$DIR"       ;;
             *)           echo "'$1' cannot be extracted via ex()" ;;
         esac
     else
@@ -49,64 +50,62 @@ ex ()
     fi
 }
 
-
 # cx - archive creator
 # usage: cx <file_or_dir> [file]
 cx ()
 {
-    if [ -e $1 ] ; then
-        FILE=${2:-$(basename $1).tar.gz}
-        case $FILE in
-            *.tar.bz2)  tar cjf $FILE -C $(dirname $1) $(basename $1)      ;;
-            *.tar.gz)   tar czf $FILE -C $(dirname $1) $(basename $1)      ;;
-            *.tar.xz)   tar cJf $FILE -C $(dirname $1) $(basename $1)      ;;
-            *.tar.zst)  tar cf  $FILE -C $(dirname $1) $(basename $1)      ;;
-            *.bz2)      bzip2 -c $1 > $FILE ;;
-            *.rar)      rar a $FILE $1        ;;
-            *.gz)       gzip -c $1 > $FILE ;;
-            *.tar)      tar cf $FILE -C $(dirname $1) $(basename $1)       ;;
-            *.tbz2)     tar cjf $FILE -C $(dirname $1) $(basename $1)      ;;
-            *.tgz)      tar czf $FILE -C $(dirname $1) $(basename $1)      ;;
-            *.zip)      zip -r $FILE $1       ;;
-            *.Z)        compress -c $1 > $FILE ;;
-            *.7z)       7z a $FILE $1         ;;
-            *.xz)       xz -c $1 > $FILE ;;
+    local FILE
+    if [ -e "$1" ] ; then
+        FILE=${2:-$(basename "$1").tar.gz}
+        case "$FILE" in
+            *.tar.bz2)  tar cjf "$FILE" -C "$(dirname "$1")" "$(basename "$1")"      ;;
+            *.tar.gz)   tar czf "$FILE" -C "$(dirname "$1")" "$(basename "$1")"      ;;
+            *.tar.xz)   tar cJf "$FILE" -C "$(dirname "$1")" "$(basename "$1")"      ;;
+            *.tar.zst)  tar cf  "$FILE" -C "$(dirname "$1")" "$(basename "$1")"      ;;
+            *.bz2)      bzip2 -c "$1" > "$FILE" ;;
+            *.rar)      rar a "$FILE" "$1"        ;;
+            *.gz)       gzip -c "$1" > "$FILE" ;;
+            *.tar)      tar cf "$FILE" -C "$(dirname "$1")" "$(basename "$1")"       ;;
+            *.tbz2)     tar cjf "$FILE" -C "$(dirname "$1")" "$(basename "$1")"      ;;
+            *.tgz)      tar czf "$FILE" -C "$(dirname "$1")" "$(basename "$1")"      ;;
+            *.zip)      zip -r "$FILE" "$1"       ;;
+            *.Z)        compress -c "$1" > "$FILE" ;;
+            *.7z)       7z a "$FILE" "$1"         ;;
+            *.xz)       xz -c "$1" > "$FILE" ;;
             *.exe)      echo "'$1' cannot be compressed to '$FILE' via cx()" ;;
             *.deb)      echo "'$1' cannot be compressed to '$FILE' via cx()" ;;
-            *.lzma)     lzma -c $1 > $FILE ;;
+            *.lzma)     lzma -c "$1" > "$FILE" ;;
             *)          echo "'$1' cannot be compressed to '$FILE' via cx()" ;;
         esac
     else
         echo "'$1' is not a valid file or directory"
     fi
 }
-
-## https://github.com/slashbeast/conf-mgmt/blob/master/roles/home_files/files/DOTzshrc
+# https://github.com/slashbeast/conf-mgmt/blob/master/roles/home_files/files/DOTzshrc
 # Fancy cd that can cd into parent directory, if trying to cd into file.
-# useful with ^F fuzzy searcher.
 unalias cd 2>/dev/null
 cd() 
 {
-    if (( $+2 )); then
+    if [ $# -gt 1 ]; then
         builtin cd "$@"
         return 0
     fi
 
     if [ -f "$1" ]; then
-        echo "${yellow}cd ${1:h}${NC}" >&2
-        builtin cd "${1:h}"
+        echo -e "${yellow}cd $(dirname "$1")${NC}" >&2
+        builtin cd "$(dirname "$1")"
     else
-        builtin cd "${@}"
+        builtin cd "$@"
     fi
 }
 
 confirm() {
     local answer
     echo -ne "Sure you want to run '${YELLOW}$*${NC}' [yN]? "
-    read -q answer
-        echo
-    if [[ "${answer}" =~ ^[Yy]$ ]]; then
-        command "${@}"
+    read -r answer
+    echo
+    if [[ "$answer" =~ ^([Yy]|[Yy][Ee][Ss])$ ]]; then
+        "$@"
     else
         return 1
     fi
@@ -123,18 +122,20 @@ confirm_wrapper() {
     if [ "${as_root}" = 'true' ] && [ "${USER}" != 'root' ]; then
         prefix="sudo"
     fi
-    confirm ${prefix} "$@"
+    confirm "${prefix}" "$@"
 }
+
 unalias poweroff 2>/dev/null
 unalias reboot 2>/dev/null
 unalias hibernate 2>/dev/null
-poweroff() { confirm_wrapper --root $0 "$@"; }
-reboot() { confirm_wrapper --root $0 "$@"; }
-hibernate() { confirm_wrapper --root $0 "$@"; }
+poweroff() { confirm_wrapper --root "$0" "$@"; }
+reboot() { confirm_wrapper --root "$0" "$@"; }
+hibernate() { confirm_wrapper --root "$0" "$@"; }
 
 reload () {
     exec "${SHELL}" "$@"
 }
+
 over_ssh() {
     if [ -n "${SSH_CLIENT}" ]; then
         return 0
@@ -145,15 +146,16 @@ over_ssh() {
 
 # get_distro - get the name of the distribution
 get_distro() {
+    local DISTRO
     if command -v lsb_release > /dev/null; then
-        DISTRO=$(lsb_release -i | cut -d: -f2 | sed s/'^\t'//)
+        DISTRO=$(lsb_release -i | cut -d: -f2 | sed 's/^\t//')
     elif [ -f /etc/os-release ]; then
         . /etc/os-release
         DISTRO=$ID
     else
         DISTRO="unknown"
     fi
-    echo $DISTRO
+    echo "$DISTRO"
 }
 
 # V2Ray control，rc-service or systemctl is optional
@@ -161,10 +163,10 @@ v2control() {
     if [ "$1" = "start" ] || [ "$1" = "stop" ]|| [ "$1" = "restart" ]; then
         if [[ $(ps --no-headers -o comm 1) == "systemd" ]]; then
             sudo systemctl start v2ray
-            sudo systemctl $1  v2raya
+            sudo systemctl "$1"  v2raya
         elif [[ $(command -v openrc) ]]; then
             sudo rc-service v2ray start
-            sudo rc-service v2raya $1
+            sudo rc-service v2raya "$1"
         else
             echo "Neither systemd nor openrc is being used"
         fi
@@ -188,8 +190,9 @@ v2toggle() {
     fi
 }
 
-##  PS1 definition that color-codes the current branch as red for uncommitted changes, green for a clean directory, and yellow for stashed changes.
+# PS1 definition that color-codes the current branch as red for uncommitted changes, green for a clean directory, and yellow for stashed changes.
 git_branch() {
+    local branch color
   branch=$(git branch 2>/dev/null | grep '^*' | colrm 1 2)
   if [ ! -z "$branch" ]; then
     if [ -n "$(git status --porcelain)" ]; then
@@ -204,27 +207,26 @@ git_branch() {
 }
 
 delete_branches_except() {
+    local cmd
     cmd='git branch'
-     for i in $*; do
+     for i in "$@"; do
        cmd=$cmd' | grep -v "'$i'"'
      done
      cmd=$cmd' | xargs git branch -D'
-     eval $cmd
+     eval "$cmd"
 }
 
 # Split the input arguments into an array using multiple delimiters
 split_args() {
     # Temporarily set IFS to the desired delimiters
     local IFS=': ,;|'
-    
     # Enable sh_word_split in zsh if necessary
     [ -n "$ZSH_VERSION" ] && setopt localoptions sh_word_split
     
     # Split the input string into an array
+    local args_array
     args_array=($1)
 }
-
-
 # #!/usr/bin/env zsh
 # # Split the input arguments into an array using multiple delimiters
 # function split_args() {
@@ -238,23 +240,23 @@ split_args() {
 # }
 
 
-## set_path function is used to add directories to PATH.
+# set_path function is used to add directories to PATH.
 set_path(){
     # Check if user id is 0 (root) or 1000 or higher
     [[ "$(id -u)" -eq 0 ]] || [[ "$(id -u)" -ge 1000 ]] || return
 
-    # Split the iput into an array using ' ' and ':' as the delimiters
+    # Split the input into an array using ' ' and ':' as the delimiters
+    local args_array    
     split_args "$@"
 
-    for i in "${paths[@]}";
+    for i in "${args_array[@]}";
     do
-        
         # Expand ~ and environment variables in $i
-        i=$(eval echo $i)
+        local i
+        i=$(eval echo "$i")
 
         # Check if the directory exists and is not empty
         [[ -d "$i" && -n "$i" ]] || continue
-        # [[ -d "$i" && -n "$i" ]] || { echo "Invalid path: $i"; continue; }
 
         # Convert to absolute path
         i=$(realpath "$i")
@@ -267,23 +269,23 @@ set_path(){
     done
 }
 
-## set_ld_library_path function is used to add directories to LD_LIBRARY_PATH.
+# set_ld_library_path function is used to add directories to LD_LIBRARY_PATH.
 set_ld_library_path(){
-    # Check if user id is 0 (root) or 1000 or higher
+    # Check if user id is 0 (root) or 1000或更高
     [[ "$(id -u)" -eq 0 ]] || [[ "$(id -u)" -ge 1000 ]] || return
 
-    # Split the iput into an array using ' ' and ':' as the delimiters
+    # Split the input into an array using ' ' and ':' as the delimiters
+    local args_array
     split_args "$@"
 
-    for i in "${paths[@]}";
+    for i in "${args_array[@]}";
     do
-
         # Expand ~ and environment variables in $i
-        i=$(eval echo $i)
+        local i
+        i=$(eval echo "$i")
 
         # Check if the directory exists and is not empty
         [[ -d "$i" && -n "$i" ]] || continue
-        # [[ -d "$i" && -n "$i" ]] || { echo "Invalid path: $i"; continue; }
 
         # Convert to absolute path
         i=$(realpath "$i")
@@ -296,22 +298,23 @@ set_ld_library_path(){
     done
 }
 
-## set_library_path function is used to add directories to LIBRARY_PATH.
+# set_library_path function is used to add directories to LIBRARY_PATH.
 set_library_path(){
-    # Check if user id is 0 (root) or 1000 or higher
+    # Check if user id is 0 (root) or 1000或更高
     [[ "$(id -u)" -eq 0 ]] || [[ "$(id -u)" -ge 1000 ]] || return
 
-    # Split the iput into an array using ' ' and ':' as the delimiters
+    # Split the input into an array using ' ' and ':' as the delimiters
+    local args_array
     split_args "$@"
 
-    for i in "${paths[@]}";
+    for i in "${args_array[@]}";
     do
         # Expand ~ and environment variables in $i
-        i=$(eval echo $i)
+        local i
+        i=$(eval echo "$i")
 
         # Check if the directory exists and is not empty
         [[ -d "$i" && -n "$i" ]] || continue
-        # [[ -d "$i" && -n "$i" ]] || { echo "Invalid path: $i"; continue; }
 
         # Convert to absolute path
         i=$(realpath "$i")
@@ -324,22 +327,22 @@ set_library_path(){
     done
 }
 
-## set_cpath function is used to find include files.
+# set_cpath function is used to find include files.
 set_cpath(){
-    # Check if user id is 0 (root) or 1000 or higher
+    # Check if user id is 0 (root) or 1000或更高
     [[ "$(id -u)" -eq 0 ]] || [[ "$(id -u)" -ge 1000 ]] || return
 
-    # Split the iput into an array using ' ' and ':' as the delimiters
+    # Split the input into an array using ' ' and ':' as the delimiters
+    local args_array
     split_args "$@"
-    for i in "${paths[@]}";
+    for i in "${args_array[@]}";
     do
-        
         # Expand ~ and environment variables in $i
-        i=$(eval echo $i)
+        local i
+        i=$(eval echo "$i")
 
         # Check if the directory exists and is not empty
         [[ -d "$i" && -n "$i" ]] || continue
-        # [[ -d "$i" && -n "$i" ]] || { echo "Invalid path: $i"; continue; }
 
         # Convert to absolute path
         i=$(realpath "$i")

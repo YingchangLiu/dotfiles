@@ -40,17 +40,22 @@ set_path $HOME/.local/bin
 
 
 ## Enable conda in command line
-__conda_optpaths=(
-    "/opt/miniconda"
-    "/opt/conda"
-    "$HOME/opt/miniconda3"
-)
-for conda_path in "${__conda_optpaths[@]}"; do
-    if [ -d "$conda_path" ]; then
-        source "$conda_path/etc/profile.d/conda.sh" 2>/dev/null
-        break
-    fi
-done
+set_conda_paths() {
+    local __conda_optpaths=(
+        "/opt/miniconda"
+        "/opt/conda"
+        "$HOME/opt/miniconda3"
+    )
+    local conda_path
+    for conda_path in "${__conda_optpaths[@]}"; do
+        if [ -d "$conda_path" ]; then
+            source "$conda_path/etc/profile.d/conda.sh" 2>/dev/null
+            break
+        fi
+    done
+}
+set_conda_paths
+
 
 source $RSFROOT/share/madagascar/etc/env.sh 2>/dev/null
 # source /opt/intel/oneapi/setvars.sh >/dev/null 2>&1
