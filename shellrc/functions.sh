@@ -269,7 +269,8 @@ split_args() {
     
     # Split the input string into an array
     local args_array
-    args_array=($1)
+    args_array=($*)
+    echo "${args_array[@]}"
 }
 # #!/usr/bin/env zsh
 # # Split the input arguments into an array using multiple delimiters
@@ -291,12 +292,12 @@ set_path(){
 
     # Split the input into an array using ' ' and ':' as the delimiters
     local args_array    
-    split_args "$@"
-
+    args_array=($(split_args "$@"))
+    # echo "args_array: ${args_array[@]}"
+    local i
     for i in "${args_array[@]}";
     do
         # Expand ~ and environment variables in $i
-        local i
         i=$(eval echo "$i")
 
         # Check if the directory exists and is not empty
@@ -307,6 +308,7 @@ set_path(){
         
         # Check if it is not already in your $PATH.
         [[ ":$PATH:" == *":$i:"* ]] && continue
+        echo "Adding $i to PATH"
 
         # Then append it to $PATH and export it
         export PATH="$i:${PATH}"
@@ -320,12 +322,12 @@ set_ld_library_path(){
 
     # Split the input into an array using ' ' and ':' as the delimiters
     local args_array
-    split_args "$@"
-
+    args_array=($(split_args "$@"))
+    # echo "args_array: ${args_array[@]}"
+    local i
     for i in "${args_array[@]}";
     do
         # Expand ~ and environment variables in $i
-        local i
         i=$(eval echo "$i")
 
         # Check if the directory exists and is not empty
@@ -349,12 +351,12 @@ set_library_path(){
 
     # Split the input into an array using ' ' and ':' as the delimiters
     local args_array
-    split_args "$@"
-
+    args_array=($(split_args "$@"))
+    # echo "args_array: ${args_array[@]}"
+    local i
     for i in "${args_array[@]}";
     do
         # Expand ~ and environment variables in $i
-        local i
         i=$(eval echo "$i")
 
         # Check if the directory exists and is not empty
@@ -378,7 +380,8 @@ set_cpath(){
 
     # Split the input into an array using ' ' and ':' as the delimiters
     local args_array
-    split_args "$@"
+    args_array=($(split_args "$@"))
+    # echo "args_array: ${args_array[@]}"
     for i in "${args_array[@]}";
     do
         # Expand ~ and environment variables in $i
