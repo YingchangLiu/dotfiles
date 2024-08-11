@@ -1,5 +1,18 @@
+[ -z "$_LOADED_ZSH_AUTOJUMP" ] && source /usr/share/autojump/autojump.zsh 2>/dev/null && _LOADED_ZSH_AUTOJUMP=1
+
+# kitty + complete setup zsh | source /dev/stdin 2>/dev/null
+__kitty_complete() {
+    # load kitty completions if in kitty
+    if test "$TERM" = "xterm-kitty"; then
+        if (( $+commands[kitty] )); then
+            eval "$(kitty + complete setup zsh)"
+        fi
+    fi
+}
+autoload -Uz __kitty_complete
+
+
 _DISTRO=$(get_distro)
-_autocomplete=false
 case $_DISTRO in
     *Arch*|*arch*)
     [ -z "$_LOADED_ZSH_P10K" ]                      && source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null                                    && _LOADED_ZSH_P10K=1
@@ -12,7 +25,7 @@ case $_DISTRO in
     ;;
     *Debian*|*debian*)
     [ -z "$_LOADED_ZSH_P10K" ]                      && source $HOME/.local/share/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null                          && _LOADED_ZSH_P10K=1
-    [ -Z "$_LOADED_ZSH_AUTOSUGGESTIONS" ]           && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null                                        && _LOADED_ZSH_AUTOSUGGESTIONS=1
+    [ -z "$_LOADED_ZSH_AUTOSUGGESTIONS" ]           && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null                                        && _LOADED_ZSH_AUTOSUGGESTIONS=1
     [ -z "$_LOADED_ZSH_AUTOCOMPLETE" ]              && source $HOME/.local/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh 2>/dev/null                   && _LOADED_ZSH_AUTOCOMPLETE=1
     [ -z "$_LOADED_ZSH_SYNTAX_HIGHLIGHTING" ]       && source $HOME/.local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null            && _LOADED_ZSH_SYNTAX_HIGHLIGHTING=1
     [ -z "$_LOADED_ZSH_HISTORY_SUBSTRING_SEARCH" ]  && source $HOME/.local/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh 2>/dev/null  && _LOADED_ZSH_HISTORY_SUBSTRING_SEARCH=1
@@ -24,13 +37,8 @@ case $_DISTRO in
     [ -z "$_LOADED_ZSH_AUTOCOMPLETE" ]              && source /usr/share/zsh/site-functions/zsh-autocomplete/zsh-autocomplete.plugin.zsh 2>/dev/null                    && _LOADED_ZSH_AUTOCOMPLETE=1
     [ -z "$_LOADED_ZSH_SYNTAX_HIGHLIGHTING" ]       && source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh 2>/dev/null                                     && _LOADED_ZSH_SYNTAX_HIGHLIGHTING=1
     [ -z "$_LOADED_ZSH_HISTORY_SUBSTRING_SEARCH" ]  && source /usr/share/zsh/site-functions/zsh-history-substring-search.zsh 2>/dev/null                                && _LOADED_ZSH_HISTORY_SUBSTRING_SEARCH=1
+    # Command not found is available in Gentoo both in bash and zsh, so we source it in commonplugin.sh.
     ;;
 # else
 #     echo "This is not Arch Linux / Debian or Gentoo. You need fix the plugin path for your distrobution."
 esac
-
-
-[ -z "$_LOADED_ZSH_AUTOJUMP" ] && source /usr/share/autojump/autojump.zsh 2>/dev/null && _LOADED_ZSH_AUTOJUMP=1
-
-# kitty + complete setup zsh | source /dev/stdin 2>/dev/null
-autoload -Uz __kitty_complete
