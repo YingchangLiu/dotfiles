@@ -51,7 +51,7 @@ set_conda_paths() {
     local conda_path
     for conda_path in "${__conda_optpaths[@]}"; do
         if [ -d "$conda_path" ]; then
-            source "$conda_path/etc/profile.d/conda.sh" 2>/dev/null
+            [ -z "$_LOADED_CONDA_PATH" ] && source "$conda_path/etc/profile.d/conda.sh" 2>/dev/null && _LOADED_CONDA_PATH=1
             break
         fi
     done
