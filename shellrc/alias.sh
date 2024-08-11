@@ -35,6 +35,7 @@ alias wttr='curl wttr.in'
 # alias ff='find . -name $1'
 
 # the fuck
+eval $(thefuck --alias)
 alias fk=fuck
 alias wtf=fuck
 
