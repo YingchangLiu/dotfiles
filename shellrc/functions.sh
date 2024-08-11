@@ -308,7 +308,6 @@ set_path(){
         
         # Check if it is not already in your $PATH.
         [[ ":$PATH:" == *":$i:"* ]] && continue
-        echo "Adding $i to PATH"
 
         # Then append it to $PATH and export it
         export PATH="$i:${PATH}"
