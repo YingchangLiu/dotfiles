@@ -44,6 +44,8 @@ set_conda_paths() {
     local __conda_optpaths=(
         "/opt/miniconda"
         "/opt/conda"
+        "$OPTROOT/miniconda"
+        "$OPTROOT/miniconda3"
         "$HOME/opt/miniconda3"
     )
     local conda_path
@@ -56,6 +58,6 @@ set_conda_paths() {
 }
 set_conda_paths
 
+[ -z "$_LOADED_RSF_ENV" ] && source $RSFROOT/share/madagascar/etc/env.sh 2>/dev/null && _LOADED_RSF_ENV=1
 
-source $RSFROOT/share/madagascar/etc/env.sh 2>/dev/null
 # source /opt/intel/oneapi/setvars.sh >/dev/null 2>&1
