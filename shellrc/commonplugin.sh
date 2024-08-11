@@ -12,5 +12,3 @@ case $_DISTRO in
     source /etc/bash/bashrc.d/command-not-found.sh 2>/dev/null
     ;;
 esac
-
-eval $(thefuck --alias)
