@@ -1,6 +1,6 @@
-DISTRO=$(get_distro)
+_DISTRO=$(get_distro)
 _autocomplete=false
-case $DISTRO in
+case $_DISTRO in
     *Arch*|*arch*)
     source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null
     source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
