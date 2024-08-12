@@ -86,6 +86,17 @@ fi
 bindkey '^R' .history-incremental-search-backward
 bindkey '^S' .history-incremental-search-forward
 
+
+# bindkey "^[[H" beginning-of-line #Home key
+# bindkey "^[[4~" end-of-line #End key
+# bindkey "^[[P" delete-char #Del key
+# bindkey "^[[A" history-beginning-search-backward #Up Arrow
+# bindkey "^[[B" history-beginning-search-forward #Down Arrow
+# bindkey "^[[1;5C" forward-word # control + right arrow
+# bindkey "^[[1;5D" backward-word # control + left arrow
+# bindkey "^H" backward-kill-word # control + backspace
+# bindkey "^[[M" kill-word # control + delete
+
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
 typeset -g -A key
@@ -113,8 +124,12 @@ key[Shift-Tab]="${terminfo[kcbt]}"
 # [[ -n "${key[Down]}"      ]] && bindkey -- "${key[Down]}"       down-line-or-history
 # [[ -n "${key[Up]}"        ]] && bindkey -- "${key[Up]}"         up-line-or-beginning-search
 # [[ -n "${key[Down]}"      ]] && bindkey -- "${key[Down]}"       down-line-or-beginning-search
+# [[ -n "${key[Up]}"        ]] && bindkey -- "${key[Up]}"         history-beginning-search-backward
+# [[ -n "${key[Down]}"      ]] && bindkey -- "${key[Down]}"       history-beginning-search-forward
 # [[ -n "${key[Left]}"      ]] && bindkey -- "${key[Left]}"       backward-char
 # [[ -n "${key[Right]}"     ]] && bindkey -- "${key[Right]}"      forward-char
+# [[ -n "${key[Left]}"      ]] && bindkey -- "${key[Left]}"       backward-word
+# [[ -n "${key[Right]}"     ]] && bindkey -- "${key[Right]}"      forward-word
 [[ -n "${key[PageUp]}"    ]] && bindkey -- "${key[PageUp]}"     beginning-of-buffer-or-history
 [[ -n "${key[PageDown]}"  ]] && bindkey -- "${key[PageDown]}"   end-of-buffer-or-history
 # [[ -n "${key[Shift-Tab]}" ]] && bindkey -- "${key[Shift-Tab]}"  reverse-menu-complete
