@@ -236,7 +236,7 @@ v2toggle() {
 
 # PS1 definition that color-codes the current branch as red for uncommitted changes, green for a clean directory, and yellow for stashed changes.
 git_branch() {
-    local branch color
+  local branch color
   branch=$(git branch 2>/dev/null | grep '^*' | colrm 1 2)
   if [ ! -z "$branch" ]; then
     if [ -n "$(git status --porcelain)" ]; then
@@ -248,6 +248,122 @@ git_branch() {
     fi
     echo -e "\\e[0;${color}m${branch}\\e[0m"  
   fi
+}
+
+setup_git_prompt() {
+    if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+        unset git_prompt
+        return 0
+    fi
+    local git_status_dirty git_status_stash git_branch
+
+    if [ "$(git --no-optional-locks status --untracked-files='no' --porcelain)" ]; then
+        # git_status_dirty='%F{green}*'  ## for zsh
+        git_status_dirty='\[\e[32m\]*\[\e[0m\]'
+    else
+        unset git_status_dirty
+    fi
+
+    if [ "$(git stash list)" ]; then
+        # git_status_stash="%F{yellow}▲"
+        git_status_stash='\[\e[33m\]▲\[\e[0m\]'
+    else
+        unset git_status_stash
+    fi
+
+    git_branch="$(git symbolic-ref HEAD 2>/dev/null)"
+    git_branch="${git_branch#refs/heads/}"
+
+    if [ "${#git_branch}" -ge 24 ]; then
+        git_branch="${git_branch:0:21}..."
+    fi
+
+    git_branch="${git_branch:-no branch}"
+
+    # git_prompt=" %F{blue}[%F{253}${git_branch}${git_status_dirty}${git_status_stash}%F{blue}]"
+    git_prompt=" \[\e[34m\][\[\e[97m\]${git_branch}${git_status_dirty}${git_status_stash}\[\e[34m\]]\[\e[0m\]"
+}
+
+
+termtitle()
+{
+    case "$TERM" in
+        rxvt*|nxterm|screen-*|st|st-*|Eterm*|alacritty*|aterm*|foot*|gnome*|konsole*|kterm*|putty*|rxvt*|screen*|wezterm*|tmux*|xterm*)
+            # local prompt_host="${(%):-%m}"
+            # local prompt_user="${(%):-%n}"
+            # local prompt_char="${(%):-%~}"
+            local prompt_host="${HOSTNAME}"
+            local prompt_user="${USER}"
+            local prompt_char="${PWD/#$HOME/~}"  # Replace $HOME with ~
+            case "$1" in
+                precmd)
+                    printf '\e]0;%s@%s: %s\a' "${prompt_user}" "${prompt_host}" "${prompt_char}"
+                ;;
+                preexec)
+                    printf '\e]0;%s [%s@%s: %s]\a' "$2" "${prompt_user}" "${prompt_host}" "${prompt_char}"
+                ;;
+            esac
+        ;;
+    esac
+}
+
+
+# If running as root and nice >0, renice to 0.
+if [ "$USER" = 'root' ] && [ "$(cut -d ' ' -f 19 /proc/$$/stat)" -gt 0 ]; then
+    renice -n 0 -p "$$" && echo "# Adjusted nice level for current shell to 0."
+fi
+
+# Fancy prompt.
+set_ssh_prompt()
+{
+    if over_ssh && [ -z "${TMUX}" ]; then
+        # prompt_is_ssh='%F{blue}[%F{red}SSH%F{blue}] '
+        prompt_is_ssh='\[\e[34m\][\[\e[31m\]SSH\[\e[34m\]] '
+    elif over_ssh; then
+        # prompt_is_ssh='%F{blue}[%F{253}SSH%F{blue}] '
+        prompt_is_ssh='\[\e[34m\][\[\e[97m\]SSH\[\e[34m\]] '
+    else
+        unset prompt_is_ssh
+    fi
+}
+
+
+# Update the prompt for bash. Need 'PROMPT_COMMAND=update_prompt' in .bashrc
+update_prompt() {
+    # local git_prompt ssh_prompt
+    setup_git_prompt
+    set_ssh_prompt
+    case $USER in
+    root)
+        # PS1="%B%F{cyan}%m%k %(?..%F{blue}[%F{253}%?%F{blue}] )${prompt_is_ssh}%B%F{blue}%1~${git_prompt}%F{blue} %# %b%f%k"
+        PS1="\[\e[1m\]\[\e[36m\]\h\[\e[0m\] \[\e[34m\][\[\e[97m\]$?\[\e[34m\]] ${prompt_is_ssh}\[\e[1m\]\[\e[34m\]\w\[\e[0m\] ${git_prompt}\[\e[34m\] # \[\e[0m\]"
+    ;;
+    *)  
+        # PS1="%B%F{blue}%n@%m%k %(?..%F{blue}[%F{253}%?%F{blue}] )${prompt_is_ssh}%B%F{cyan}%1~${git_prompt}%F{cyan} %# %b%f%k"
+        PS1="\[\e[1m\]\[\e[34m\]\u@\h\[\e[0m\] \[\e[34m\][\[\e[97m\]$?\[\e[34m\]] ${prompt_is_ssh}\[\e[1m\]\[\e[36m\]\w\[\e[0m\] ${git_prompt}\[\e[36m\] # \[\e[0m\]"
+    ;;
+esac
+}
+
+precmd() {
+    # Set terminal title.
+    termtitle precmd
+
+    # Set optional git part of prompt.
+    update_prompt
+    # setup_git_prompt
+    # set_ssh_prompt
+}
+
+preexec() {
+    # Set terminal title along with current executed command pass as second argument
+    if [ -n "$ZSH_VERSION" ]; then
+        termtitle preexec "${(V)1}"
+    elif [ -n "$BASH_VERSION" ]; then
+        termtitle preexec "$BASH_COMMAND"
+    else
+        termtitle preexec "$1"
+    fi    
 }
 
 delete_branches_except() {

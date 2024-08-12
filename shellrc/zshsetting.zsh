@@ -9,6 +9,11 @@ autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
+# Control-x-e to open current line in $EDITOR, awesome when writting functions or editing multiline commands.
+autoload -U edit-command-line
+zle -N edit-command-line
+
+
 # REMEMBERING RECENT DIRECTORIES
 autoload -Uz chpwd_recent_dirs cdr
 add-zsh-hook chpwd chpwd_recent_dirs
@@ -36,6 +41,12 @@ setopt correctall
 setopt autocd
 ## Enable extended globbing
 setopt extendedglob
+# zmv -  a command for renaming files by means of shell patterns.
+autoload -U zmv
+# zargs, as an alternative to find -exec and xargs.
+autoload -U zargs
+# Turn on command substitution in the prompt (and parameter expansion and arithmetic expansion).
+setopt promptsubst
 
 # Keep history of `cd` as in with `pushd` and make `cd -<TAB>` work.
 DIRSTACKSIZE=16
@@ -53,6 +64,9 @@ promptinit
 
 # Lines configured by zsh-newuser-install
 bindkey -e
+
+# Control-x-e to open current line in $EDITOR, awesome when writting functions or editing multiline commands.
+bindkey '^x^e' edit-command-line
 
 # Enable the history-substring-search with Up and Down
 bindkey '^[[A' history-substring-search-up
@@ -107,6 +121,9 @@ key[Shift-Tab]="${terminfo[kcbt]}"
 # Rehash for automatically find new executables in the $PATH for example the files I installed in /usr/bin/
 zstyle ':completion:*' rehash true
 zstyle ':completion::complete:*' use-cache 1
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' completer _expand _complete _ignored _approximate
+
 # Enable autocompletion of privileged environment in privileged environment
 zstyle ':completion::complete:*' gain-privileges 1
 # Enable autocompletion with an arrow-key driven interface
