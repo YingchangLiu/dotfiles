@@ -53,10 +53,11 @@ setopt promptsubst
 
 # Keep history of `cd` as in with `pushd` and make `cd -<TAB>` work.
 DIRSTACKSIZE=16
-setopt auto_pushd
+setopt auto_pushd pushd_silent pushd_to_home
+## Remove duplicate entries
 setopt pushd_ignore_dups
+## This reverts the +/- operators.
 setopt pushd_minus
-
 # Ignore lines prefixed with '#'.
 setopt interactivecomments
 
