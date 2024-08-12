@@ -284,6 +284,20 @@ setup_git_prompt() {
     git_prompt=" \[\e[34m\][\[\e[97m\]${git_branch}${git_status_dirty}${git_status_stash}\[\e[34m\]]\[\e[0m\]"
 }
 
+# Fancy prompt.
+setup_ssh_prompt()
+{
+    if over_ssh && [ -z "${TMUX}" ]; then
+        # prompt_is_ssh='%F{blue}[%F{red}SSH%F{blue}] '
+        prompt_is_ssh='\[\e[34m\][\[\e[31m\]SSH\[\e[34m\]] '
+    elif over_ssh; then
+        # prompt_is_ssh='%F{blue}[%F{253}SSH%F{blue}] '
+        prompt_is_ssh='\[\e[34m\][\[\e[97m\]SSH\[\e[34m\]] '
+    else
+        unset prompt_is_ssh
+    fi
+}
+
 
 termtitle()
 {
@@ -308,31 +322,13 @@ termtitle()
 }
 
 
-# If running as root and nice >0, renice to 0.
-if [ "$USER" = 'root' ] && [ "$(cut -d ' ' -f 19 /proc/$$/stat)" -gt 0 ]; then
-    renice -n 0 -p "$$" && echo "# Adjusted nice level for current shell to 0."
-fi
-
-# Fancy prompt.
-set_ssh_prompt()
-{
-    if over_ssh && [ -z "${TMUX}" ]; then
-        # prompt_is_ssh='%F{blue}[%F{red}SSH%F{blue}] '
-        prompt_is_ssh='\[\e[34m\][\[\e[31m\]SSH\[\e[34m\]] '
-    elif over_ssh; then
-        # prompt_is_ssh='%F{blue}[%F{253}SSH%F{blue}] '
-        prompt_is_ssh='\[\e[34m\][\[\e[97m\]SSH\[\e[34m\]] '
-    else
-        unset prompt_is_ssh
-    fi
-}
 
 
 # Update the prompt for bash. Need 'PROMPT_COMMAND=update_prompt' in .bashrc
 update_prompt() {
     # local git_prompt ssh_prompt
     setup_git_prompt
-    set_ssh_prompt
+    setup_ssh_prompt
     case $USER in
     root)
         # PS1="%B%F{cyan}%m%k %(?..%F{blue}[%F{253}%?%F{blue}] )${prompt_is_ssh}%B%F{blue}%1~${git_prompt}%F{blue} %# %b%f%k"
@@ -352,7 +348,7 @@ xterm_title_precmd() {
     # Set optional git part of prompt.
     # update_prompt
     setup_git_prompt
-    set_ssh_prompt
+    setup_ssh_prompt
 }
 
 xterm_title_preexec() {
