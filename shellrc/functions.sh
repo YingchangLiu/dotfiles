@@ -148,7 +148,7 @@ confirm() {
     echo -ne "Sure you want to run '${YELLOW}$*${NC}' [yN]? "
     read -r answer
     echo
-    if [[ "$answer" =~ ^([Yy]|[Yy][Ee][Ss])$ ]]; then
+    if [[ -z "$answer" || "$answer" =~ ^([Yy]|[Yy][Ee][Ss])$ ]]; then
         "$@"
     else
         return 1
