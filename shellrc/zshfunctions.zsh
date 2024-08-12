@@ -1,3 +1,6 @@
+autoload -Uz add-zsh-hook
+
+
 # kitty + complete setup zsh | source /dev/stdin 2>/dev/null
 _kitty_complete() {
     # load kitty completions if in kitty
@@ -255,10 +258,64 @@ exit_zsh() { exit }
 zle -N exit_zsh
 bindkey '^D' exit_zsh
 # Clear the backbuffer using a key binding
-function clear-screen-and-scrollback() {
+function _clear-screen-and-scrollback() {
     printf '\x1Bc'
     zle clear-screen
 }
-zle -N clear-screen-and-scrollback
-bindkey '^L' clear-screen-and-scrollback
+zle -N _clear-screen-and-scrollback
+bindkey '^L' _clear-screen-and-scrollback
 
+# Reset the terminal when it's broken
+function _reset_broken_terminal () {
+	printf '%b' '\e[0m\e(B\e)0\017\e[?5l\e7\e[0;0r\e8'
+}
+# [ -z "$_LOADED_ZSH_RESET" ] && add-zsh-hook -Uz precmd _reset_broken_terminal && _LOADED_ZSH_RESET=1
+
+
+DIRSTACKFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/dirs"
+if [[ -f "$DIRSTACKFILE" ]] && (( ${#dirstack} == 0 )); then
+	dirstack=("${(@f)"$(< "$DIRSTACKFILE")"}")
+	[[ -d "${dirstack[1]}" ]] && cd -- "${dirstack[1]}"
+fi
+chpwd_dirstack() {
+	print -l -- "$PWD" "${(u)dirstack[@]}" > "$DIRSTACKFILE"
+}
+add-zsh-hook -Uz chpwd chpwd_dirstack
+DIRSTACKSIZE='20'
+setopt AUTO_PUSHD PUSHD_SILENT PUSHD_TO_HOME
+## Remove duplicate entries
+setopt PUSHD_IGNORE_DUPS
+## This reverts the +/- operators.
+setopt PUSHD_MINUS
+
+
+# Bind key to ncurses application: ncmpcpp ALT+L to show ncmpcpp
+ncmpcppShow() {
+  ncmpcpp <$TTY
+  zle redisplay
+}
+zle -N ncmpcppShow
+bindkey '^[\' ncmpcppShow
+
+
+## File manager key binds
+cdUndoKey() {
+  popd
+  zle       reset-prompt
+  print
+  ls
+  zle       reset-prompt
+}
+
+cdParentKey() {
+  pushd ..
+  zle      reset-prompt
+  print
+  ls
+  zle       reset-prompt
+}
+
+zle -N                 cdParentKey
+zle -N                 cdUndoKey
+bindkey '^[[1;3A'      cdParentKey # Alt+Up
+bindkey '^[[1;3D'      cdUndoKey  # Alt+Left
