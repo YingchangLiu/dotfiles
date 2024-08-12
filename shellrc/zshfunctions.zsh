@@ -248,3 +248,17 @@ zle -N _open_new_terminal_here
 bindkey "^F" _append_path_to_buffer
 bindkey "^T" _history_search_with_fzy
 bindkey "^A" _open_new_terminal_here
+
+
+# By default, Ctrl+d will not close your shell if the command line is filled, this fixes it:
+exit_zsh() { exit }
+zle -N exit_zsh
+bindkey '^D' exit_zsh
+# Clear the backbuffer using a key binding
+function clear-screen-and-scrollback() {
+    printf '\x1Bc'
+    zle clear-screen
+}
+zle -N clear-screen-and-scrollback
+bindkey '^L' clear-screen-and-scrollback
+
