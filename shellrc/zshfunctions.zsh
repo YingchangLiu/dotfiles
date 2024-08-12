@@ -254,9 +254,9 @@ bindkey "^A" _open_new_terminal_here
 
 
 # By default, Ctrl+d will not close your shell if the command line is filled, this fixes it:
-exit_zsh() { exit }
-zle -N exit_zsh
-bindkey '^D' exit_zsh
+_exit_zsh() { exit }
+zle -N _exit_zsh
+bindkey '^D' _exit_zsh
 # Clear the backbuffer using a key binding
 function _clear-screen-and-scrollback() {
     printf '\x1Bc'
@@ -284,16 +284,16 @@ function _reset_broken_terminal () {
 
 
 # Bind key to ncurses application: ncmpcpp ALT+L to show ncmpcpp
-ncmpcppShow() {
+_ncmpcppShow() {
   ncmpcpp <$TTY
   zle redisplay
 }
-zle -N ncmpcppShow
-bindkey '^[\' ncmpcppShow
+zle -N _ncmpcppShow
+bindkey '^[\' _ncmpcppShow
 
 
 ## File manager key binds
-cdUndoKey() {
+_cdUndoKey() {
   popd
   zle       reset-prompt
   print
@@ -301,7 +301,7 @@ cdUndoKey() {
   zle       reset-prompt
 }
 
-cdParentKey() {
+_cdParentKey() {
   pushd ..
   zle      reset-prompt
   print
@@ -309,7 +309,7 @@ cdParentKey() {
   zle       reset-prompt
 }
 
-zle -N                 cdParentKey
-zle -N                 cdUndoKey
-bindkey '^[[1;3A'      cdParentKey # Alt+Up
-bindkey '^[[1;3D'      cdUndoKey  # Alt+Left
+zle -N                 _cdParentKey
+zle -N                 _cdUndoKey
+bindkey '^[[1;3A'      _cdParentKey # Alt+Up
+bindkey '^[[1;3D'      _cdUndoKey  # Alt+Left
