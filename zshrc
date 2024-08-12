@@ -23,6 +23,8 @@ export SHELLROOT="${DOTROOT}/shellrc"
 # Enable some plugins of zsh installed by kelen
 [[ ! -f $SHELLROOT/zshplugin.zsh ]] || source "$SHELLROOT/zshplugin.zsh" #2>/dev/null
 [[ ! -f $SHELLROOT/zshsetting.zsh ]] || source "$SHELLROOT/zshsetting.zsh" #2>/dev/null
+[[ ! -f $SHELLROOT/zshfunctions.zsh ]] || source "$SHELLROOT/zshfunctions.zsh" #2>/dev/null
+
 
 # Load other shellrc
 [ -f "$SHELLROOT/alias.sh" ] && source "$SHELLROOT/alias.sh" #2>/dev/null
@@ -30,5 +32,3 @@ export SHELLROOT="${DOTROOT}/shellrc"
 [ -f "$SHELLROOT/language.sh" ] && source "$SHELLROOT/language.sh"  #2>/dev/null
 
 [ -f "$SHELLROOT/custom.sh" ] && source "$SHELLROOT/custom.sh"  #2>/dev/null
-
-update_prompt
