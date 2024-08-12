@@ -248,22 +248,22 @@ _open_new_terminal_here(){
 }
 zle -N _open_new_terminal_here
 
-bindkey "^F" _append_path_to_buffer
-bindkey "^T" _history_search_with_fzy
-bindkey "^A" _open_new_terminal_here
+bindkey "^F" _append_path_to_buffer     # Ctrl+f to append path to buffer
+bindkey "^T" _history_search_with_fzy   # Ctrl+t to search history with fzy
+bindkey "^A" _open_new_terminal_here    # Ctrl+a to open new terminal in current working directory
 
 
 # By default, Ctrl+d will not close your shell if the command line is filled, this fixes it:
 _exit_zsh() { exit }
 zle -N _exit_zsh
-bindkey '^D' _exit_zsh
+bindkey '^D' _exit_zsh                  # Ctrl+d to exit shell
 # Clear the backbuffer using a key binding
 function _clear-screen-and-scrollback() {
     printf '\x1Bc'
     zle clear-screen
 }
 zle -N _clear-screen-and-scrollback
-bindkey '^L' _clear-screen-and-scrollback
+bindkey '^L' _clear-screen-and-scrollback   # Ctrl+l to clear screen and scrollback
 
 # Reset the terminal when it's broken
 function _reset_broken_terminal () {
@@ -289,7 +289,7 @@ _ncmpcppShow() {
   zle redisplay
 }
 zle -N _ncmpcppShow
-bindkey '^[\' _ncmpcppShow
+bindkey '^[\' _ncmpcppShow # Alt+\ to show ncmpcpp
 
 
 ## File manager key binds
@@ -311,5 +311,5 @@ _cdParentKey() {
 
 zle -N                 _cdParentKey
 zle -N                 _cdUndoKey
-bindkey '^[[1;3A'      _cdParentKey # Alt+Up
-bindkey '^[[1;3D'      _cdUndoKey  # Alt+Left
+bindkey '^[[1;3A'      _cdParentKey # Alt+Up    to cd ..
+bindkey '^[[1;3D'      _cdUndoKey  # Alt+Left   to cd -

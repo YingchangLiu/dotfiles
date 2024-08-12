@@ -70,33 +70,33 @@ promptinit
 bindkey -e
 
 # Control-x-e to open current line in $EDITOR, awesome when writting functions or editing multiline commands.
-bindkey '^x^e' edit-command-line
+bindkey '^x^e' edit-command-line  # Ctrl+x Ctrl+e to open current line in $EDITOR
 
 # Enable the history-substring-search with Up and Down
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+bindkey '^[[A' history-substring-search-up    # Up Arrow to search history
+bindkey '^[[B' history-substring-search-down  # Down Arrow to search history
 
 ## Only if the zsh-autocomplete plugin is enabled in zshplugin.zsh, you can use the following key bindings.
 if [ -n "$_LOADED_ZSH_AUTOCOMPLETE" ]; then
-  bindkey '^I' menu-select
-  bindkey "$terminfo[kcbt]" menu-select
+  bindkey '^I' menu-select  # Tab to select completion
+  bindkey "$terminfo[kcbt]" menu-select # Shift+Tab to select completion
 fi
 
 # bindkey -M menuselect  '^[[D' .backward-char  '^[OD' .backward-char
 # bindkey -M menuselect  '^[[C'  .forward-char  '^[OC'  .forward-char
-bindkey '^R' .history-incremental-search-backward
-bindkey '^S' .history-incremental-search-forward
+bindkey '^R' .history-incremental-search-backward # Ctrl+r to search history
+bindkey '^S' .history-incremental-search-forward  # Ctrl+s to search history
 
 
-# bindkey "^[[H" beginning-of-line #Home key
-# bindkey "^[[4~" end-of-line #End key
-# bindkey "^[[P" delete-char #Del key
-# bindkey "^[[A" history-beginning-search-backward #Up Arrow
-# bindkey "^[[B" history-beginning-search-forward #Down Arrow
-# bindkey "^[[1;5C" forward-word # control + right arrow
-# bindkey "^[[1;5D" backward-word # control + left arrow
-# bindkey "^H" backward-kill-word # control + backspace
-# bindkey "^[[M" kill-word # control + delete
+# bindkey "^[[H" beginning-of-line #Home key to go to beginning of line
+# bindkey "^[[4~" end-of-line #End key to go to end of line
+# bindkey "^[[P" delete-char #Del key to delete character
+# bindkey "^[[A" history-beginning-search-backward #Up Arrow to search history
+# bindkey "^[[B" history-beginning-search-forward #Down Arrow to search history
+# bindkey "^[[1;5C" forward-word # control + right arrow to move forward word
+# bindkey "^[[1;5D" backward-word # control + left arrow to move backward word
+# bindkey "^H" backward-kill-word # control + backspace to delete word
+# bindkey "^[[M" kill-word # control + delete to delete word
 
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
