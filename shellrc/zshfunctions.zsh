@@ -120,10 +120,10 @@ _update_prompt() {
     _setup_ssh_prompt
     case $USER in
     root)
-        PS1="%B%F{cyan}%m%k %(?..%F{blue}[%F{253}%?%F{blue}] )${prompt_is_ssh}%B%F{blue}%1~${git_prompt}%F{blue} %# %b%f%k"
+        PS1="%B%F{cyan}%m%k %(?..%F{blue}[%F{253}%?%F{blue}] )${_prompt_is_ssh}%B%F{blue}%1~${_git_prompt}%F{blue} %# %b%f%k"
     ;;
     *)  
-        PS1="%B%F{blue}%n@%m%k %(?..%F{blue}[%F{253}%?%F{blue}] )${prompt_is_ssh}%B%F{cyan}%1~${git_prompt}%F{cyan} %# %b%f%k"
+        PS1="%B%F{blue}%n@%m%k %(?..%F{blue}[%F{253}%?%F{blue}] )${_prompt_is_ssh}%B%F{cyan}%1~${_git_prompt}%F{cyan} %# %b%f%k"
     ;;
 esac
 }
