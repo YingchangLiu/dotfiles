@@ -32,3 +32,6 @@ export SHELLROOT="${DOTROOT}/shellrc"
 [ -f "$SHELLROOT/language.sh" ] && source "$SHELLROOT/language.sh"  #2>/dev/null
 
 [ -f "$SHELLROOT/custom.sh" ] && source "$SHELLROOT/custom.sh"  #2>/dev/null
+
+# To customize prompt, run `p10k configure` or edit ~/dotfile/shellrc/p10k.zsh.
+[[ ! -f ~/dotfile/shellrc/p10k.zsh ]] || source ~/dotfile/shellrc/p10k.zsh

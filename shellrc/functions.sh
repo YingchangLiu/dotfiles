@@ -234,6 +234,11 @@ v2toggle() {
     fi
 }
 
+# Reset the terminal when it's broken
+function reset_broken_terminal () {
+	printf '%b' '\e[0m\e(B\e)0\017\e[?5l\e7\e[0;0r\e8'
+}
+
 # PS1 definition that color-codes the current branch as red for uncommitted changes, green for a clean directory, and yellow for stashed changes.
 git_branch() {
   local branch color

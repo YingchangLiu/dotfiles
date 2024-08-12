@@ -26,7 +26,6 @@ export SHELLROOT="${DOTROOT}/shellrc"
 
 
 # update_prompt will be called every time a command is executed.
-PROMPT_COMMAND=update_prompt
+PROMPT_COMMAND="reset_broken_terminal; update_prompt"
 # PS1="\e[0;32m\]\u@\h \w \$(git_branch)\$ "
-
 ## exec zsh
