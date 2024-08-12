@@ -1,17 +1,5 @@
 [ -z "$_LOADED_ZSH_AUTOJUMP" ] && source /usr/share/autojump/autojump.zsh 2>/dev/null && _LOADED_ZSH_AUTOJUMP=1
 
-# kitty + complete setup zsh | source /dev/stdin 2>/dev/null
-__kitty_complete() {
-    # load kitty completions if in kitty
-    if test "$TERM" = "xterm-kitty"; then
-        if (( $+commands[kitty] )); then
-            eval "$(kitty + complete setup zsh)"
-        fi
-    fi
-}
-[ -z "$_LOADED_KITTY_COMPLETE" ] && autoload -Uz __kitty_complete && _LOADED_KITTY_COMPLETE=1
-
-
 _DISTRO=$(get_distro)
 case $_DISTRO in
     *Arch*|*arch*)

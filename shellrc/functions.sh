@@ -285,43 +285,18 @@ setup_git_prompt() {
 }
 
 # Fancy prompt.
-setup_ssh_prompt()
-{
-    if over_ssh && [ -z "${TMUX}" ]; then
-        # prompt_is_ssh='%F{blue}[%F{red}SSH%F{blue}] '
-        prompt_is_ssh='\[\e[34m\][\[\e[31m\]SSH\[\e[34m\]] '
-    elif over_ssh; then
-        # prompt_is_ssh='%F{blue}[%F{253}SSH%F{blue}] '
-        prompt_is_ssh='\[\e[34m\][\[\e[97m\]SSH\[\e[34m\]] '
+setup_ssh_prompt() {
+    local over_ssh
+    over_ssh=$(echo "$SSH_CLIENT" | awk '{print $1}')
+
+    if [ -n "$over_ssh" ] && [ -z "${TMUX}" ]; then
+        prompt_is_ssh='%F{blue}[%F{red}SSH%F{blue}] '
+    elif [ -n "$over_ssh" ]; then
+        prompt_is_ssh='%F{blue}[%F{253}SSH%F{blue}] '
     else
         unset prompt_is_ssh
     fi
 }
-
-
-termtitle()
-{
-    case "$TERM" in
-        rxvt*|nxterm|screen-*|st|st-*|Eterm*|alacritty*|aterm*|foot*|gnome*|konsole*|kterm*|putty*|rxvt*|screen*|wezterm*|tmux*|xterm*)
-            # local prompt_host="${(%):-%m}"
-            # local prompt_user="${(%):-%n}"
-            # local prompt_char="${(%):-%~}"
-            local prompt_host="${HOSTNAME}"
-            local prompt_user="${USER}"
-            local prompt_char="${PWD/#$HOME/~}"  # Replace $HOME with ~
-            case "$1" in
-                precmd)
-                    printf '\e]0;%s@%s: %s\a' "${prompt_user}" "${prompt_host}" "${prompt_char}"
-                ;;
-                preexec)
-                    printf '\e]0;%s [%s@%s: %s]\a' "$2" "${prompt_user}" "${prompt_host}" "${prompt_char}"
-                ;;
-            esac
-        ;;
-    esac
-}
-
-
 
 
 # Update the prompt for bash. Need 'PROMPT_COMMAND=update_prompt' in .bashrc
@@ -339,27 +314,6 @@ update_prompt() {
         PS1="\[\e[1m\]\[\e[34m\]\u@\h\[\e[0m\] \[\e[34m\][\[\e[97m\]$?\[\e[34m\]] ${prompt_is_ssh}\[\e[1m\]\[\e[36m\]\w\[\e[0m\] ${git_prompt}\[\e[36m\] # \[\e[0m\]"
     ;;
 esac
-}
-
-xterm_title_precmd() {
-    # Set terminal title.
-    termtitle precmd
-
-    # Set optional git part of prompt.
-    # update_prompt
-    setup_git_prompt
-    setup_ssh_prompt
-}
-
-xterm_title_preexec() {
-    # Set terminal title along with current executed command pass as second argument
-    if [ -n "$ZSH_VERSION" ]; then
-        termtitle preexec "${(V)1}"
-    elif [ -n "$BASH_VERSION" ]; then
-        termtitle preexec "$BASH_COMMAND"
-    else
-        termtitle preexec "$1"
-    fi    
 }
 
 delete_branches_except() {
