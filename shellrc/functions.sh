@@ -345,17 +345,17 @@ update_prompt() {
 esac
 }
 
-precmd() {
+xterm_title_precmd() {
     # Set terminal title.
     termtitle precmd
 
     # Set optional git part of prompt.
-    update_prompt
-    # setup_git_prompt
-    # set_ssh_prompt
+    # update_prompt
+    setup_git_prompt
+    set_ssh_prompt
 }
 
-preexec() {
+xterm_title_preexec() {
     # Set terminal title along with current executed command pass as second argument
     if [ -n "$ZSH_VERSION" ]; then
         termtitle preexec "${(V)1}"
