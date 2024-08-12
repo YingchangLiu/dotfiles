@@ -271,16 +271,16 @@ function _reset_broken_terminal () {
 }
 # [ -z "$_LOADED_ZSH_RESET" ] && add-zsh-hook -Uz precmd _reset_broken_terminal && _LOADED_ZSH_RESET=1
 
-
-# DIRSTACKFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/dirs"
-# if [[ -f "$DIRSTACKFILE" ]] && (( ${#dirstack} == 0 )); then
-# 	dirstack=("${(@f)"$(< "$DIRSTACKFILE")"}")
-# 	[[ -d "${dirstack[1]}" ]] && cd -- "${dirstack[1]}"
-# fi
-# chpwd_dirstack() {
-# 	print -l -- "$PWD" "${(u)dirstack[@]}" > "$DIRSTACKFILE"
-# }
-# add-zsh-hook -Uz chpwd chpwd_dirstack
+# Always restore the working directory when the shell exits.
+DIRSTACKFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/dirs"
+if [[ -f "$DIRSTACKFILE" ]] && (( ${#dirstack} == 0 )); then
+	dirstack=("${(@f)"$(< "$DIRSTACKFILE")"}")
+	[[ -d "${dirstack[1]}" ]] && cd -- "${dirstack[1]}"
+fi
+_chpwd_dirstack() {
+	print -l -- "$PWD" "${(u)dirstack[@]}" > "$DIRSTACKFILE"
+}
+add-zsh-hook -Uz chpwd _chpwd_dirstack
 
 
 # Bind key to ncurses application: ncmpcpp ALT+L to show ncmpcpp
