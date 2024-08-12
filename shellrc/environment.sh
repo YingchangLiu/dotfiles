@@ -1,6 +1,9 @@
 ## Note that Display Environment Variables are not set here, it should be set in Window Manager's startup script.
 ## For example, Hyprland loads $HOME/.config/hypr/configs/env.conf first.
 
+# Change default editor to vim
+export EDITOR='vim'
+
 export NNN_FIFO=/tmp/nnn.fifo
 export TMPDIR=/tmp
 

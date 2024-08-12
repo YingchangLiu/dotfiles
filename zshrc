@@ -31,7 +31,4 @@ export SHELLROOT="${DOTROOT}/shellrc"
 
 [ -f "$SHELLROOT/custom.sh" ] && source "$SHELLROOT/custom.sh"  #2>/dev/null
 
-
-# Change default editor to vim
-export EDITOR='vim'
-
+update_prompt
