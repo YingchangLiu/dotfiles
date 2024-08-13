@@ -1,22 +1,8 @@
 # kelen's dotfiles
 
-***Warning***: I'm working with **Arch Linux**, **Debian** and **Gentoo**. Do not blindly use my settings unless you know what that entails. Use at your own risk!
+**This repository is designed to sync and restore my working environment, including: setting up bash/zsh with required environment variables, linking tool configs, restoring the window manager with backup options, and managing additional resources such as package management backups, symbol fonts, and wallpapers. I follow XDG standards for linking and provide an install script. Your existing dotfiles are backed up in a 'bak' folder for safety.**
 
 ---
-
-## How to use
-Run this:
-```console
-git clone https://github.com/yingchangliu/dotfiles.git --recurse-submodules --depth=1
-cd ~/dotfiles
-./install
-```
-Note: You may need to modify  [`shellrc/zshplugin.zsh`](./shellrc/zshplugin.zsh) to fit your distribution. Package managers put their plugins in different directories.
-
-Typing uninstall will restore your original settings.
-```
-sh ./install uninstall
-```
 
 ## Styles  
 **"Keep it simple stupid."**
@@ -31,6 +17,22 @@ sh ./install uninstall
 > 2. Wasting time because aesthetic.
 
 
+
+
+## How to use
+***Warning***: A word of caution, I am actively working with **Arch Linux**, **Debian** and **Gentoo**. Do not blindly use my settings unless you know what that entails. Use at your own risk!
+Run this:
+```console
+git clone https://github.com/yingchangliu/dotfiles.git --recurse-submodules --depth=1
+cd ~/dotfiles
+./install
+```
+Note: You may need to modify  [`shellrc/zshplugin.zsh`](./shellrc/zshplugin.zsh) to fit your distribution. Package managers put their plugins in different directories.
+
+Typing uninstall will restore your original settings.
+```
+sh ./install uninstall
+```
 ## Contents
 
 ### Alias
@@ -121,7 +123,7 @@ The code is available under the [MIT license][license].
 ---
 **Dotfiles** ©kelen. Released under the MIT License.
 
-Authored and maintained by kelen. Additionally, I have learned and borrowed a lot from the community.
+Authored and maintained by kelen. Additionally, I have learned and stolen a lot from the community.
 
 <!-- Link labels: -->
 [license]: LICENSE
