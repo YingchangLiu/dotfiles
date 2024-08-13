@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-export DOTROOT="/home/kelen/dotfile"
+export DOTROOT="/home/kelen/dotfiles"
 
 export SHELLROOT="${DOTROOT}/shellrc"
 

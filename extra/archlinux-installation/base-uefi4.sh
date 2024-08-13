@@ -8,10 +8,10 @@ paru -S ntfsprogs-ntfs3
 
 
 
-#git clone https://yingchangliu/dotfile.git ~/dotfile
-cd ~/dotfile
+#git clone https://yingchangliu/dotfiles.git ~/dotfiles
+cd ~/dotfiles
 bash install.sh
 
-sudo pacman -S $(cat ~/dotfile/script/pacman_application.txt)
-paru -S $(cat ~/dotfile/script/aur_application.txt)
+sudo pacman -S $(cat ~/dotfiles/script/pacman_application.txt)
+paru -S $(cat ~/dotfiles/script/aur_application.txt)
 
