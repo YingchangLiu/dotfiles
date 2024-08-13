@@ -116,7 +116,7 @@ Please check in [wallpapers](./wallpapers/).
 - dwm (Xorg)
 - KDE Plasma (DE on workstation)
 - Hyprland (Wayland)
-- Deprecated WMs which are no longer maintained
+- Deprecated WMs, for which their configurations are no longer maintained.
     - awesome
     - baswm
     - river
