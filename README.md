@@ -7,8 +7,8 @@
 ## How to use
 Run this:
 ```console
-git clone https://github.com/yingchangliu/dotfile.git --recurse-submodules --depth=1
-cd ~/dotfile
+git clone https://github.com/yingchangliu/dotfiles.git --recurse-submodules --depth=1
+cd ~/dotfiles
 ./install
 ```
 Note: You may need to modify  [`shellrc/zshplugin.zsh`](./shellrc/zshplugin.zsh) to fit your distribution. Package managers put their plugins in different directories.
@@ -58,7 +58,7 @@ Please check in [shellrc/alias.sh](./shellrc/alias.sh) and [shellrc/functions.sh
 - checkboot: reboot required or not
 - dec2hex/hex2dec/dec2bin/bin2dec: number converter
 - extract: extract compressed files
-- installdots: dotfile installer
+- installdots: dotfiles installer
 - gitreset/gitshrink/gitpurge: git commands scripts
 - portagebackup: portage sync
 - etc.
@@ -119,7 +119,7 @@ Please check in [wallpapers](./wallpapers/).
 The code is available under the [MIT license][license].
 
 ---
-**Dotfile** ©kelen. Released under the MIT License.
+**Dotfiles** ©kelen. Released under the MIT License.
 
 Authored and maintained by kelen. Additionally, I have learned and borrowed a lot from the community.
 

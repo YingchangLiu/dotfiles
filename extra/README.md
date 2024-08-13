@@ -32,7 +32,7 @@ The folder contains my gentoo portage files, such as `make.conf` `repos.conf` `w
 The code is available under the [MIT license][license].
 
 ---
-**Dotfile** ©kelen. Released under the MIT License.
+**Dotfiles** ©kelen. Released under the MIT License.
 
 Authored and maintained by kelen.
 

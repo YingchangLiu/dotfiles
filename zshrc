@@ -4,7 +4,7 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-export DOTROOT="/home/kelen/dotfile"
+export DOTROOT="/home/kelen/dotfiles"
 export SHELLROOT="${DOTROOT}/shellrc"
 
 # environment
@@ -17,7 +17,7 @@ export SHELLROOT="${DOTROOT}/shellrc"
 # Load common plugin
 [[ ! -f $SHELLROOT/commonplugin.sh ]] || source "$SHELLROOT/commonplugin.sh" #2>/dev/null
 
-# To customize prompt, run `p10k configure` or edit ~/dotfile/shellrc/p10k.zsh.
+# To customize prompt, run `p10k configure` or edit ~/dotfiles/shellrc/p10k.zsh.
 [[ ! -f $SHELLROOT/p10k.zsh ]] || source "$SHELLROOT/p10k.zsh" #2>/dev/null
 
 # Enable some plugins of zsh installed by kelen
@@ -32,6 +32,3 @@ export SHELLROOT="${DOTROOT}/shellrc"
 [ -f "$SHELLROOT/language.sh" ] && source "$SHELLROOT/language.sh"  #2>/dev/null
 
 [ -f "$SHELLROOT/custom.sh" ] && source "$SHELLROOT/custom.sh"  #2>/dev/null
-
-# To customize prompt, run `p10k configure` or edit ~/dotfile/shellrc/p10k.zsh.
-[[ ! -f ~/dotfile/shellrc/p10k.zsh ]] || source ~/dotfile/shellrc/p10k.zsh
