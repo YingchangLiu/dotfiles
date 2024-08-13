@@ -21,7 +21,8 @@
 
 ## How to use
 ***Warning***: A word of caution, I am actively working with **Arch Linux**, **Debian** and **Gentoo**. Do not blindly use my settings unless you know what that entails. Use at your own risk!
-Run this:
+
+Run this to install:
 ```console
 git clone https://github.com/yingchangliu/dotfiles.git --recurse-submodules --depth=1
 cd ~/dotfiles
@@ -80,7 +81,6 @@ Please check in [shellrc/alias.sh](./shellrc/alias.sh) and [shellrc/functions.sh
 - paru
 - picom
 - pip
-- powerlevel10k
 - rofi
 - scripts
     - background-changer
@@ -102,8 +102,9 @@ Please check in [shellrc/alias.sh](./shellrc/alias.sh) and [shellrc/functions.sh
 ### Extra
 External backups about package manager.
 - HPC test codes.
-- My packages backup.
+- My packages (pacman and portage) backup.
 - Pkgbuilds (Arch linux) for programming. 
+- Zshplugins which are not in Debian official repo.
 
 ### Fonts
 
@@ -115,6 +116,13 @@ Please check in [wallpapers](./wallpapers/).
 - dwm (Xorg)
 - KDE Plasma (DE on workstation)
 - Hyprland (Wayland)
+- Deprecated WMs which are no longer maintained
+    - awesome
+    - baswm
+    - river
+    - sway
+    - xfce4
+
 
 
 ## License
