@@ -351,7 +351,7 @@
   "custom/menu": {
     "format": "󰣇",
     "tooltip": false,
-    "on-click": "rofi -show drun -show-icons -theme ~/.config/rofi/launchers/type-1/style-14.rasi",
+    "on-click": "rofi -show drun -show-icons",
     "on-click-right": "$HOME/.config/scripts/menu",
   },
 
@@ -374,8 +374,8 @@
 
   "custom/power": {
     "format": " ⏻ ",
-    // "on-click": "rofi -show power-menu -modi power-menu:rofi-power-menu -theme ~/.config/rofi/launchers/type-1/style-14.rasi",
-    "on-click": "bash  ~/.config/rofi/powermenu/type-4/powermenu.sh",
+    // "on-click": "rofi -show power-menu -modi power-menu:rofi-power-menu",
+    "on-click": "bash  ~/.config/rofi/powermenu/powermenu.sh",
   },
   "custom/launcher": {
     "format": " <span color='#6a92d7'> </span>",

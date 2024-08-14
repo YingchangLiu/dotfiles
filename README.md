@@ -6,9 +6,9 @@
 
 ## Styles  
 **"Keep it simple stupid."**
-![image](./assets/desktop.png)
-![image](./assets/windows.png)
-![image](./assets/plasma.png)
+![image](./assets/desktop.jpg)
+![image](./assets/windows.jpg)
+![image](./assets/plasma.jpg)
 
 > ri • cing 
 > /ry-sing/
@@ -81,7 +81,6 @@ Please check in [shellrc/alias.sh](./shellrc/alias.sh) and [shellrc/functions.sh
 - paru
 - picom
 - pip
-- rofi
 - scripts
     - background-changer
     - idle lock

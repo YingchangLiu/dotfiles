@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-THEME="-theme ~/.config/rofi/launchers/type-1/style-14.rasi"
+THEME="-theme ~/.config/rofi/nmcli/nmcli.rasi"
 
 # default config
 FIELDS=SSID,SECURITY,BARS
@@ -87,7 +87,7 @@ function menu () {
 
 function rofi_cmd () {
   # don't repeat lines with uniq -u
-  echo -e "$1" | uniq -u | rofi -dmenu -theme ~/.config/rofi/launchers/type-1/style-14.rasi -p "Wi-Fi SSID" -lines "$LINENUM" \
+  echo -e "$1" | uniq -u | rofi -dmenu -theme ~/.config/rofi/nmcli/nmcli.rasi -p "Wi-Fi SSID" -lines "$LINENUM" \
     -location "$POSITION" -yoffset "$YOFF" -xoffset "$XOFF" -font "$FONT" -width "$RWIDTH"
 }
 
@@ -152,11 +152,11 @@ function main () {
 
     elif [[ "$OPS" =~ 'Manual' ]]; then
       # Manual entry of the SSID
-      MSSID=$(echo -en "" | rofi -dmenu -theme ~/.config/rofi/launchers/type-1/style-14.rasi -p "SSID" -mesg "Enter the SSID of the network" \
+      MSSID=$(echo -en "" | rofi -dmenu -theme ~/.config/rofi/nmcli/nmcli.rasi -p "SSID" -mesg "Enter the SSID of the network" \
         -lines 0 -font "$FONT")
 
       # manual entry of the PASSWORD
-      MPASS=$(echo -en "" | rofi -dmenu -theme ~/.config/rofi/launchers/type-1/style-14.rasi -password -p "PASSWORD" -mesg \
+      MPASS=$(echo -en "" | rofi -dmenu -theme ~/.config/rofi/nmcli/nmcli.rasi -password -p "PASSWORD" -mesg \
         "Enter the PASSWORD of the network" -lines 0 -font "$FONT")
 
       # If the user entered a manual password, then use the password nmcli command
@@ -168,7 +168,7 @@ function main () {
 
     else
         if [[ "$OPS" =~ "WPA2" ]] || [[ "$OPS" =~ "WEP" ]]; then
-          WIFIPASS=$(echo -en "" | rofi -dmenu -theme ~/.config/rofi/launchers/type-1/style-14.rasi -password -p "PASSWORD" \
+          WIFIPASS=$(echo -en "" | rofi -dmenu -theme ~/.config/rofi/nmcli/nmcli.rasi -password -p "PASSWORD" \
             -mesg "Enter the PASSWORD of the network" -lines 0 -font "$FONT")
         fi
 
