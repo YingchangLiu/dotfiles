@@ -23,12 +23,12 @@
 ***Warning***: A word of caution, I am actively working with **Arch Linux**, **Debian** and **Gentoo**. Do not blindly use my settings unless you know what that entails. Use at your own risk!
 
 Run this to install:
-```console
+```
 git clone https://github.com/yingchangliu/dotfiles.git --recurse-submodules --depth=1
 cd ~/dotfiles
 ./install
 ```
-Note: You may need to modify  [`shellrc/zshplugin.zsh`](./shellrc/zshplugin.zsh) to fit your distribution. Package managers put their plugins in different directories.
+***Note***: You may need to modify  [`shellrc/zshplugin.zsh`](./shellrc/zshplugin.zsh) to fit your distribution. Package managers put their plugins in different directories.
 
 Typing uninstall will restore your original settings.
 ```
@@ -73,14 +73,16 @@ Please check in [shellrc/alias.sh](./shellrc/alias.sh) and [shellrc/functions.sh
 - conky
 - dust
 - fastfetch
-- fcitx5 with rime-ice
 - gBar
 - kitty
+- mako
 - mpd
 - nnn
+- pacman
 - paru
 - picom
 - pip
+- rofi
 - scripts
     - background-changer
     - idle lock
@@ -128,7 +130,7 @@ Please check in [wallpapers](./wallpapers/).
 The code is available under the [MIT license][license].
 
 ---
-**Dotfiles** ©kelen. Released under the MIT License.
+**Dotfiles** © [kelen](https://github.com/YingchangLiu/). Released under the MIT License.
 
 Authored and maintained by kelen. Additionally, I have learned and stolen a lot from the community.
 
