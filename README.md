@@ -117,7 +117,7 @@ Please check in [wallpapers](./wallpapers/).
 - Hyprland (Wayland)
 - Deprecated WMs, for which their configurations are no longer maintained.
     - awesome
-    - baswm
+    - bspwm
     - river
     - sway
     - xfce4
