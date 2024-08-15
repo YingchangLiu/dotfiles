@@ -62,9 +62,11 @@ setopt pushd_minus
 setopt interactivecomments
 
 
-autoload -Uz compinit promptinit
-compinit -u
+autoload -Uz  promptinit
 promptinit
+
+autoload -Uz compinit
+compinit -u
 
 # Lines configured by zsh-newuser-install
 bindkey -e
@@ -78,8 +80,30 @@ bindkey '^[[B' history-substring-search-down  # Down Arrow to search history
 
 ## Only if the zsh-autocomplete plugin is enabled in zshplugin.zsh, you can use the following key bindings.
 if [ -n "$_LOADED_ZSH_AUTOCOMPLETE" ]; then
+  # Make Tab and ShiftTab cycle completions on the command line
+  # This makes Tab and ShiftTab, when pressed on the command line, cycle through listed completions, without 
+  # changing what's listed in the menu:
+  # bindkey              '^I'         menu-complete
+  # bindkey "$terminfo[kcbt]" reverse-menu-complete
+
+  # Make Tab and ShiftTab go to the menu
+  # This makes Tab and ShiftTab, when pressed on the command line, enter the menu instead of inserting a completion:
   bindkey '^I' menu-select  # Tab to select completion
   bindkey "$terminfo[kcbt]" menu-select # Shift+Tab to select completion
+
+  # Make Tab and ShiftTab change the selection in the menu
+  # This makes Tab and ShiftTab move the selection in the menu right and left, respectively, instead of exiting the menu:
+  # bindkey -M menuselect              '^I'         menu-complete
+  # bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
+
+  # Make ← and → always move the cursor on the command line
+  # This makes ← and → always move the cursor on the command line, even when you are in the menu:
+  # bindkey -M menuselect  '^[[D' .backward-char  '^[OD' .backward-char
+  # bindkey -M menuselect  '^[[C'  .forward-char  '^[OC'  .forward-char
+
+  # Make Enter always submit the command line
+  # This makes Enter always submit the command line, even when you are in the menu:
+  # bindkey -M menuselect '^M' .accept-line
 fi
 
 # bindkey -M menuselect  '^[[D' .backward-char  '^[OD' .backward-char
@@ -141,6 +165,8 @@ key[Shift-Tab]="${terminfo[kcbt]}"
 zstyle ':completion:*' rehash true
 zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+# Insert prefix instead of substring
+zstyle ':completion:*:*' matcher-list 'm:{[:lower:]-}={[:upper:]_}' '+r:|[.]=**'
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 
 # Enable autocompletion of privileged environment in privileged environment
@@ -157,28 +183,40 @@ zstyle ':completion:*:kill:*'   force-list always
 zstyle ':completion:*:*:killall:*' menu yes select
 zstyle ':completion:*:killall:*'   force-list always
 
-## First insert the common substring
-# all Tab widgets
-zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
-# all history widgets
-zstyle ':autocomplete:*history*:*' insert-unambiguous yes
-# ^S
-zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
 
-# When inserting a completion, a space is added after certain types of completions.
-zstyle ':autocomplete:*' add-space \
-    executables aliases functions builtins reserved-words commands
+## Only if the zsh-autocomplete plugin is enabled in zshplugin.zsh, you can use the following zstyles.
+if [ -n "$_LOADED_ZSH_AUTOCOMPLETE" ]; then
+  ## First insert the common substring: 
+  # Make any completion widget first insert the longest sequence of characters that will complete to all 
+  # completions shown, if any, before inserting actual completions:
+  # all Tab widgets
+  zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
+  # all history widgets
+  zstyle ':autocomplete:*history*:*' insert-unambiguous yes
+  # ^S
+  zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
 
-# Note: -e lets you specify a dynamically generated value.
-# Override default for all listings
-# $LINES is the number of lines that fit on screen.
-zstyle -e ':autocomplete:*:*' list-lines 'reply=( $(( LINES / 3 )) )'
+  ## Add or don't add a space after certain completions
+  # When inserting a completion, a space is added after certain types of completions.
+  zstyle ':autocomplete:*' add-space \
+      executables aliases functions builtins reserved-words commands
 
-# Override for recent path search only
-zstyle ':autocomplete:recent-paths:*' list-lines 10
+  # Start each command line in history search mode
+  # This will make Autocomplete behave as if you pressed CtrlR at the start of each new command line:
+  # zstyle ':autocomplete:*' default-context history-incremental-search-backward
 
-# Override for history search only
-zstyle ':autocomplete:history-incremental-search-backward:*' list-lines 8
+  # Note: -e lets you specify a dynamically generated value.
+  # Override default for all listings
+  # $LINES is the number of lines that fit on screen.
+  zstyle -e ':autocomplete:*:*' list-lines 'reply=( $(( LINES / 3 )) )'
 
-# Override for history menu only
-zstyle ':autocomplete:history-search-backward:*' list-lines 2000
+  # Override for recent path search only
+  zstyle ':autocomplete:recent-paths:*' list-lines 10
+
+  # Override for history search only
+  zstyle ':autocomplete:history-incremental-search-backward:*' list-lines 8
+
+  # Override for history menu only
+  zstyle ':autocomplete:history-search-backward:*' list-lines 2000
+
+fi
