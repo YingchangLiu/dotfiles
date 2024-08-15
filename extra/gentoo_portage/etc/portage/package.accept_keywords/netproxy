@@ -5,6 +5,8 @@ app-alternatives/v2ray-geoip ~amd64
 app-alternatives/v2ray-geosite ~amd64
 dev-libs/v2ray-domain-list-community-bin ~amd64
 dev-libs/v2ray-geoip-bin ~amd64
+virtual/v2ray-geoip ~amd64
+virtual/v2ray-domain-list-community ~amd64
 
 net-proxy/clash-verge-bin ~amd64
 net-proxy/mihomo ~amd64
