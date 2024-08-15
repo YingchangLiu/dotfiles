@@ -68,8 +68,8 @@ promptinit
 autoload -Uz compinit
 compinit -u
 
-# Lines configured by zsh-newuser-install
-bindkey -e
+# Toggle the default keymap to emacs
+# bindkey -e
 
 # Control-x-e to open current line in $EDITOR, awesome when writting functions or editing multiline commands.
 bindkey '^x^e' edit-command-line  # Ctrl+x Ctrl+e to open current line in $EDITOR
@@ -106,10 +106,8 @@ if [ -n "$_LOADED_ZSH_AUTOCOMPLETE" ]; then
   # bindkey -M menuselect '^M' .accept-line
 fi
 
-# bindkey -M menuselect  '^[[D' .backward-char  '^[OD' .backward-char
-# bindkey -M menuselect  '^[[C'  .forward-char  '^[OC'  .forward-char
-bindkey '^R' .history-incremental-search-backward # Ctrl+r to search history
-bindkey '^S' .history-incremental-search-forward  # Ctrl+s to search history
+bindkey '^R' history-incremental-search-backward # Ctrl+r to search history
+bindkey '^S' history-incremental-search-forward  # Ctrl+s to search history
 
 
 # bindkey "^[[H" beginning-of-line #Home key to go to beginning of line
