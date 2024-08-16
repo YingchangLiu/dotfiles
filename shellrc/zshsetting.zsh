@@ -93,8 +93,8 @@ if [ -n "$_LOADED_ZSH_AUTOCOMPLETE" ]; then
 
   # Make Tab and ShiftTab change the selection in the menu
   # This makes Tab and ShiftTab move the selection in the menu right and left, respectively, instead of exiting the menu:
-  # bindkey -M menuselect              '^I'         menu-complete
-  # bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
+  bindkey -M menuselect              '^I'         menu-complete
+  bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
 
   # Make ← and → always move the cursor on the command line
   # This makes ← and → always move the cursor on the command line, even when you are in the menu:
