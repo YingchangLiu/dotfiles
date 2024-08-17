@@ -7,3 +7,9 @@
 [submodule "extra/zshplugins/zsh-autocomplete"]
 	path = extra/zshplugins/zsh-autocomplete
 	url = https://github.com/marlonrichert/zsh-autocomplete
+[submodule "extra/zshplugins/zsh-syntax-highlighting"]
+	path = extra/zshplugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
+[submodule "extra/zshplugins/zsh-autosuggestions"]
+	path = extra/zshplugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions

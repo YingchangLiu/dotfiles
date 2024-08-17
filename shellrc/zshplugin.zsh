@@ -28,6 +28,12 @@ case $_DISTRO in
     [ -z "$_LOADED_ZSH_HISTORY_SUBSTRING_SEARCH" ]  && source /usr/share/zsh/site-functions/zsh-history-substring-search.zsh 2>/dev/null                                && _LOADED_ZSH_HISTORY_SUBSTRING_SEARCH=1
     # Command not found is available in Gentoo both in bash and zsh, so we source it in commonplugin.sh.
     ;;
-# else
-#     echo "This is not Arch Linux / Debian or Gentoo. You need fix the plugin path for your distrobution."
+    *)
+    # For other distributions, we use the plugins in the user's home directory.
+    [ -z "$_LOADED_ZSH_P10K" ]                      && source $HOME/.local/share/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null                          && _LOADED_ZSH_P10K=1
+    [ -z "$_LOADED_ZSH_AUTOSUGGESTIONS" ]           && source $HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null                    && _LOADED_ZSH_AUTOSUGGESTIONS=1
+    [ -z "$_LOADED_ZSH_AUTOCOMPLETE" ]              && source $HOME/.local/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh 2>/dev/null                   && _LOADED_ZSH_AUTOCOMPLETE=1
+    [ -z "$_LOADED_ZSH_SYNTAX_HIGHLIGHTING" ]       && source $HOME/.local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null            && _LOADED_ZSH_SYNTAX_HIGHLIGHTING=1
+    [ -z "$_LOADED_ZSH_HISTORY_SUBSTRING_SEARCH" ]  && source $HOME/.local/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh 2>/dev/null  && _LOADED_ZSH_HISTORY_SUBSTRING_SEARCH=1
+    ;;
 esac
