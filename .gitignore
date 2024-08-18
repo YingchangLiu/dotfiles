@@ -9,6 +9,8 @@ bak
 temp
 shellrc/custom.sh
 
+extra/zshplugins/*
+
 **/fcitx/dbus
 **/fcitx5/pinyin/*.dict
 **/fcitx5/pinyin/*.history

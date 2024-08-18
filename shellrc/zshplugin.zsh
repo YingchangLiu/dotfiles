@@ -29,7 +29,8 @@ case $_DISTRO in
     # Command not found is available in Gentoo both in bash and zsh, so we source it in commonplugin.sh.
     ;;
     *)
-    # For other distributions, we use the plugins in the user's home directory.
+    # For other distributions, we use the plugins in the user's home directory. And we assume that the user has run the install script.
+    # But you can change it to the system directory.
     [ -z "$_LOADED_ZSH_P10K" ]                      && source $HOME/.local/share/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null                          && _LOADED_ZSH_P10K=1
     [ -z "$_LOADED_ZSH_AUTOSUGGESTIONS" ]           && source $HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null                    && _LOADED_ZSH_AUTOSUGGESTIONS=1
     [ -z "$_LOADED_ZSH_AUTOCOMPLETE" ]              && source $HOME/.local/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh 2>/dev/null                   && _LOADED_ZSH_AUTOCOMPLETE=1

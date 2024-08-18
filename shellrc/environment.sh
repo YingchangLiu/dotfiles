@@ -4,6 +4,9 @@
 # Change default editor to vim
 export EDITOR='vim'
 
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+
 export NNN_FIFO=/tmp/nnn.fifo
 export TMPDIR=/tmp
 
