@@ -1,0 +1,82 @@
+#!/bin/bash
+
+## https://web.archive.org/web/20190207210108/http://stevelorek.com/how-to-shrink-a-git-repository.html
+
+#set -x
+
+## 1. Track all remote branches in a local repository.
+
+# This script will track all remote branches in a local repository.
+# It is useful when you clone a repository and want to checkout all remote branches.
+for branch in $(git branch --all | grep '^\s*remotes' | egrep --invert-match '(:?HEAD|master)$'); do
+    git branch --track "${branch##*/}" "$branch"
+done
+
+
+## 2. Find the largest objects in a git repository.
+
+# Shows you the largest objects in your repo's pack file.
+# Written for osx.
+#
+# @see http://stubbisms.wordpress.com/2009/07/10/git-script-to-show-largest-pack-objects-and-trim-your-waist-line/
+# @author Antony Stubbs
+
+# set the internal field separator to line break, so that we can iterate easily over the verify-pack output
+IFS=$'\n';
+
+# list all objects including their size, sort by size, take top 10
+objects=$(git verify-pack -v .git/objects/pack/pack-*.idx | grep -v chain | sort -k3nr | head)
+
+echo "All sizes are in kB. The pack column is the size of the object, compressed, inside the pack file."
+
+output="size,pack,SHA,location"
+for y in $objects; do
+    # extract the size in bytes
+    size=$(( $(echo $y | cut -f 5 -d ' ') / 1024 ))
+    # extract the compressed size in bytes
+    compressedSize=$(( $(echo $y | cut -f 6 -d ' ') / 1024 ))
+    # extract the SHA
+    sha=$(echo $y | cut -f 1 -d ' ')
+    # find the objects location in the repository tree
+    other=$(git rev-list --all --objects | grep $sha)
+    output="${output}\n${size},${compressedSize},${other}"
+done
+
+echo -e $output | column -t -s ', '
+
+
+## 3. Cleanup unnecessary files and optimize the local repository.
+
+if command -v git-filter-repo &> /dev/null; then
+    echo "Cleaning the repository with git filter-repo..."
+    git filter-repo --path filename --invert-paths
+else
+    echo "You don't have git-filter-repo installed. Cleaning the repository with git filter-branch..."
+    git filter-branch --tag-name-filter cat --index-filter 'git rm -r --cached --ignore-unmatch filename' --prune-empty -f -- --all
+fi
+
+# After this command has finished executing, your repository should now be cleaned, with all branches and tags intact.
+
+
+## 4. Reclaim space
+# While we may have rewritten the history of the repository, those files still exist in there.
+
+rm -rf .git/refs/original/
+
+git reflog expire --expire=now --all
+
+git gc --prune=now
+
+git gc --aggressive --prune=now
+
+
+## 5. Push the cleaned repository
+
+# Now we need to push the changes back to the remote repository
+git push origin --force --all
+# Then push the newly-rewritten tags
+git push origin --force --tags
+
+
+## 6. Check the difference
+git count-objects -vH

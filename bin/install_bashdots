@@ -1,0 +1,196 @@
+#!/usr/bin/env bash
+
+# Work with Bash/Zsh only, not POSIX sh
+
+# Create directories if they don't exist
+create_directories() {
+  local dirs=(
+    "$HOME/.config"
+    "$HOME/.local/bin"
+    "$HOME/.local/share"
+    "$HOME/.local/share/fonts"
+    "$HOME/.local/share/wallpapers"
+    "$HOME/.local/share/zsh/plugins"
+    "$HOME/.vscode"
+    "$HOME/.ssh"
+  )
+  readonly dirs
+  for dir in "${dirs[@]}"; do
+    [[ ! -d "$dir" ]] && mkdir -p "$dir" && echo "-----> Created directory $dir"
+  done
+}
+
+get_distro() {
+    local DISTRO
+    if command -v lsb_release > /dev/null 2>&1; then
+        DISTRO=$(lsb_release -i | cut -d: -f2 | sed 's/^\t//')
+    elif [ -f /etc/os-release ]; then
+        . /etc/os-release
+        DISTRO=$ID
+    else
+        DISTRO="unknown"
+    fi
+    echo "$DISTRO"
+}
+
+# Rename a target file to bak/target if the file exists and is not a symlink
+backup() {
+  local target=$1
+  local backup_dir="$dotfiles/bak"
+  local backup_target="$backup_dir/$(basename "$target")"
+  if [[ -e "$target" && ! -L "$target" ]]; then
+    mkdir -p "$(dirname "$backup_target")"
+    mv "$target" "$backup_target"
+    echo "-----> Moved your old $target config file to $backup_target"
+  fi
+}
+
+# Create a symlink if it doesn't exist
+symlink() {
+  local file=$1
+  local link=$2
+  if [[ ! -e "$link" ]]; then
+    echo "-----> Symlinking your new $link"
+    ln -sf "$file" "$link"
+  fi
+}
+
+# Remove a symlink and restore a backup if it exists
+remove_symlink() {
+  local link=$1
+  local target=$2
+  local backup_dir="$dotfiles/bak"
+  local backup_target="$backup_dir/$(basename "$link")"
+  if [[ -L "$link" && "$(readlink "$link")" == "$target" ]]; then
+    rm "$link"
+    echo "-----> Removed symlink $link"
+    if [[ -e "$backup_target" ]]; then
+      mv "$backup_target" "$link"
+      echo "-----> Restored backup $link"
+    fi
+  fi
+}
+
+# Process files in a directory
+link_files() {
+  local src_dir=$1
+  local dest_dir=$2
+  for name in "$src_dir"/*; do
+    if [[ $(basename "$name") == _* ]]; then
+      continue
+    fi
+    local target="$dest_dir/$(basename "$name")"
+    symlink "$name" "$target"
+  done
+}
+
+# Remove symlinks in a directory
+unlink_files() {
+  local src_dir=$1
+  local dest_dir=$2
+  for name in "$src_dir"/*; do
+    if [[ $(basename "$name") == _* ]]; then
+      continue
+    fi
+    local target="$dest_dir/$(basename "$name")"
+    remove_symlink "$target" "$name"
+  done
+}
+
+install() {
+  create_directories
+
+  # Get the absolute path of the current script directory
+  local dotfiles
+  dotfiles=$(cd "$(dirname "$(realpath "$(ps -p $$ -o args= | awk '{print $2}')")")/.." && pwd)
+  
+  readonly dotfiles
+  echo "Note: Dotfiles directory: $dotfiles"
+  local exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$|install$)"
+  readonly exclude_files
+  # For all files in the current folder except `*.sh`, `README.md`, `settings.json`, `config`, and `LICENSE`,
+  # backup the target file located at `~/.$name` and symlink `$name` to `~/.$name`
+  for name in "$dotfiles"/*; do
+    if [[ ! -d "$name" ]]; then
+      local target="$HOME/.`basename $name`"
+      if ! echo "$(basename "$name")" | grep -E "$exclude_files" > /dev/null; then
+        echo "-----> Processing $name"
+        backup "$target"
+        symlink "$name" "$target"
+      fi
+    fi
+  done
+
+  ## If distro is not arch/debian/gentoo, run extra/zshplugins/_download_plugins.sh
+  local distro
+  distro=$(get_distro)
+if [ "$(echo "$distro" | tr '[:upper:]' '[:lower:]')" != "arch" ] && \
+   [ "$(echo "$distro" | tr '[:upper:]' '[:lower:]')" != "debian" ] && \
+   [ "$(echo "$distro" | tr '[:upper:]' '[:lower:]')" != "gentoo" ]; then
+    echo "-----> Running extra/zshplugins/_download_plugins.sh"
+    sh "$dotfiles/extra/zshplugins/_download_plugins.sh"
+  fi
+
+  # Symlink fonts, config, and local directories
+  link_files "$dotfiles/fonts" "$HOME/.local/share/fonts"
+  link_files "$dotfiles/wallpapers" "$HOME/.local/share/wallpapers"
+  link_files "$dotfiles/extra/zshplugins" "$HOME/.local/share/zsh/plugins"
+  link_files "$dotfiles/config" "$HOME/.config"
+  link_files "$dotfiles/bin" "$HOME/.local/bin"
+
+  # Symlink vscode/argv.json for gnome-keyring
+  symlink "$dotfiles/config/vscode/argv.json" "$HOME/.vscode/argv.json"
+
+  # Symlink ssh config, only if it doesn't exist
+  if [[ ! -e "$HOME/.ssh/config" ]]; then
+    symlink "$dotfiles/config/ssh/config" "$HOME/.ssh/config"
+  fi
+
+  # Symlink shellrc to .config/shellrc
+  symlink "$dotfiles/shellrc" "$HOME/.config/shellrc"
+}
+
+uninstall() {
+  local dotfiles
+  dotfiles=$(cd "$(dirname "$(realpath "$(ps -p $$ -o args= | awk '{print $2}')")")/.." && pwd)
+  readonly dotfiles
+  echo "Note: Dotfiles directory: $dotfiles"
+
+  local exclude_files="(\.sh$|README\.md$|settings\.json$|config$|LICENSE$|install$)"
+  readonly exclude_files
+  # Remove symlinks for all files in the current folder except `*.sh`, `README.md`, `settings.json`, `config`, and `LICENSE`
+  for name in "$dotfiles"/*; do
+    if [[ ! -d "$name" ]]; then
+      local target="$HOME/.`basename $name`"
+      if ! echo "$(basename "$name")" | grep -E "$exclude_files" > /dev/null; then
+        remove_symlink "$target" "$name"
+      fi
+    fi
+  done
+
+  # Remove symlinks for fonts, config, and local directories
+  unlink_files "$dotfiles/fonts" "$HOME/.local/share/fonts"
+  unlink_files "$dotfiles/wallpapers" "$HOME/.local/share/wallpapers"
+  unlink_files "$dotfiles/extra/zshplugins" "$HOME/.local/share/zsh/plugins"
+  unlink_files "$dotfiles/config" "$HOME/.config"
+  unlink_files "$dotfiles/bin" "$HOME/.local/bin"
+
+  # Remove vscode/argv.json symlink
+  remove_symlink "$HOME/.vscode/argv.json" "$dotfiles/config/vscode/argv.json"
+
+  # Remove ssh config symlink
+  remove_symlink "$HOME/.ssh/config" "$dotfiles/config/ssh/config"
+}
+
+# Check command line arguments
+case "$1" in
+  install|"")
+    install
+    ;;
+  uninstall)
+    uninstall
+    ;;
+  *)
+    echo "Usage: $0 {install|uninstall}"
+    ;;
+esac

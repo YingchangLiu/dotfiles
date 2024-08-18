@@ -1,0 +1,9 @@
+ window {
+
+transparency: "real";
+
+fullscreen: true;
+
+background-color: #282c34d0;
+
+} 

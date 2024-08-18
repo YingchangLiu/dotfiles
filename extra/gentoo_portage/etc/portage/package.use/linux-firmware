@@ -1,0 +1,2 @@
+# Distribution kernels are capable of rebuilding kernel modules installed by other packages.
+sys-kernel/linux-firmware dist-kernel

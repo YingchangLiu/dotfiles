@@ -1,0 +1,149 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    //"height": 30, // Waybar height (to be removed for auto height)
+    //"width": 10,
+    "margin-top": 1,
+    "margin-left": 10,
+    "margin-bottom": 0,
+    "margin-right": 10,
+    "spacing": 5, // Gaps between modules (4px)
+    "modules-left": ["custom/launcher","hyprland/workspaces", "cpu", "memory", "custom/weather"],
+    "modules-center": ["clock","custom/spotify"],
+    "modules-right": ["backlight", "pulseaudio", "network", "battery", "tray", "custom/power-menu"],
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "on-scroll-up":"hyprctl dispatch workspace e+1",
+      "on-scroll-down":"hyprctl dispatch workspace e-1",
+      "on-click": "activate",
+      "all-outputs": true,
+      "format-icons": {
+        //"1": " ",
+        //"2": " ",
+        //"3": " ",
+        //"4": " ",
+        //"5": " ",
+        //"6": " ",
+        //"7": " ",
+        //"8": " ",
+        //"9": " ",
+        //"urgent": " ",
+        //"active": " ",
+        //"default": " "
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8",
+        "9": "9",
+        "urgent": "",
+        "active": "",
+        "default": ""
+      },
+    },
+    "hyprland/window": {
+        "format": "{}"
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "format-alt": "<span color='#bf616a'> </span>{:%a %Y/%m/%d}",
+        "format": "<span color='#bf616a'> </span>{:%H:%M}",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    },
+
+    "cpu": {
+      "interval": 10,
+      "format": " {usage}%",
+      "max-length": 10,
+      "on-click": "",
+    },
+    "memory": {
+        "interval": 30,
+        "format": " {}%",
+        "format-alt":"{used:0.1f}G",
+        "max-length": 10,
+    },
+    "backlight": {
+        "device": "DP-1",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", ""],
+        "on-click": "",
+    },
+    "network": {
+        "format-wifi": " {signalStrength}%",
+        "format-ethernet": " wired",
+        "format-disconnected": "",
+        "on-click": "bash ~/.config/waybar/scripts/rofi-wifi-menu.sh",
+        "format-disconnected": "Disconnected  ",
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "  {volume}%",
+        "format-bluetooth-muted": " ",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "bluetooth": {
+        "on-click": "~/.config/waybar/scripts/rofi-bluetooth &",
+        "format": " {status}",
+    },
+
+    "battery": {
+      "bat": "BAT0",
+      "adapter": "ADP0",
+      "interval": 60,
+      "states": {
+          "warning": 30,
+          "critical": 15
+      },
+      "max-length": 20,
+      "format": "{icon} {capacity}%",
+      "format-warning": "{icon} {capacity}%",
+      "format-critical": "{icon} {capacity}%",
+      "format-charging": "<span font-family='Font Awesome 6 Free'></span> {capacity}%",
+      "format-plugged": "  {capacity}%",
+      "format-alt": "{icon} {time}",
+      "format-full": "  {capacity}%",
+      "format-icons": [" ", " ", " ", " ", " "],
+    },
+    "custom/weather": {
+      "exec": "python3 ~/.config/waybar/scripts/weather.py",
+      "restart-interval": 300,
+      "return-type": "json",
+      "on-click": "xdg-open https://weather.com/en-IN/weather/today/l/11c24e55644a1b4dd4488aae2c4bbae14d0ba3817508bf7b5a2c7e54d84578d4"
+    },   
+
+   "custom/spotify": {
+    "exec": "python3 ~/.config/hypr/scripts/mediaplayer.py --player spotify",
+    "format": "{}  ",
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "on-double-click-right": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    },
+    "custom/power-menu": {
+        "format": " <span color='#6a92d7'>⏻ </span>",
+        "on-click": "bash ~/.config/waybar/scripts/power-menu/powermenu.sh",
+    }, 
+    "custom/launcher": {
+        "format": " <span color='#6a92d7'> </span>",
+        "on-click": "rofi -show drun",
+    },
+}
+

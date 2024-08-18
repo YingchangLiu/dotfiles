@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+choice=$(printf "Shutdown\nReboot\nSuspend" | rofi -dmenu)
+if [[ $choice == "Shutdown" ]];then
+	systemctl poweroff
+elif [[ $choice == "Reboot" ]];then
+	systemctl reboot
+elif [[ $choice == "Suspend" ]];then
+	systemctl suspend
+fi

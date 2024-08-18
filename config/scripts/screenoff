@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ $(hyprctl monitors -j | jq ".[]|select(.name==\"eDP-1\").dpmsStatus") = "true" ] && pgrep -x "swaylock" > /dev/null
+then
+    hyprctl dispatch dpms off eDP-1
+else
+    echo "Screen is already off or monitor is not locked"
+fi

@@ -1,0 +1,7 @@
+net-im/tencent-qq ~amd64
+media-sound/qqmusic ~amd64
+net-im/wechat-universal-bwrap ~amd64
+
+x11-misc/flatpak-xdg-utils ~amd64
+x11-misc/snapd-xdg-open ~amd64
+media-libs/openslide ~amd64

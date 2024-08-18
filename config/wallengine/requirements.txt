@@ -1,0 +1,2 @@
+depends:glew freeimage glfw-x11
+opdepends: lib32-sdl_mixer glm
