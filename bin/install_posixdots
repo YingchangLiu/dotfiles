@@ -61,6 +61,9 @@ link_files() {
   src_dir=$1
   dest_dir=$2
   for name in "$src_dir"/*; do
+    if [[ $(basename "$name") == _* ]]; then
+      continue
+    fi
     target="$dest_dir/$(basename "$name")"
     symlink "$name" "$target"
   done
@@ -71,6 +74,9 @@ unlink_files() {
   src_dir=$1
   dest_dir=$2
   for name in "$src_dir"/*; do
+    if [[ $(basename "$name") == _* ]]; then
+      continue
+    fi
     target="$dest_dir/$(basename "$name")"
     remove_symlink "$target" "$name"
   done

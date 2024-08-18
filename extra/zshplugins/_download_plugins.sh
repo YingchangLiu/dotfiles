@@ -16,3 +16,17 @@
 # 	path = extra/zshplugins/zsh-autosuggestions
 # 	url = https://github.com/zsh-users/zsh-autosuggestions
 
+# Clone all submodules
+# git submodule update --init --recursive
+
+
+# Get current script directory
+_dir=$(dirname "$(realpath "$0")")
+
+# Clone all submodules
+git clone https://github.com/romkatv/powerlevel10k --depth=1 $_dir/powerlevel10k
+git clone https://github.com/zsh-users/zsh-history-substring-search --depth=1 $_dir/zsh-history-substring-search
+git clone https://github.com/marlonrichert/zsh-autocomplete --depth=1 $_dir/zsh-autocomplete
+git clone https://github.com/zsh-users/zsh-syntax-highlighting --depth=1 $_dir/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions --depth=1 $_dir/zsh-autosuggestions
+

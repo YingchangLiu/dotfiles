@@ -10,6 +10,7 @@ temp
 shellrc/custom.sh
 
 extra/zshplugins/*
+!extra/zshplugins/_download_plugins.sh
 
 **/fcitx/dbus
 **/fcitx5/pinyin/*.dict
