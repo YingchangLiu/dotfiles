@@ -22,7 +22,6 @@ create_directories() {
 
 
 get_distro() {
-    local DISTRO
     if command -v lsb_release > /dev/null 2>&1; then
         DISTRO=$(lsb_release -i | cut -d: -f2 | sed 's/^\t//')
     elif [ -f /etc/os-release ]; then
@@ -33,7 +32,6 @@ get_distro() {
     fi
     echo "$DISTRO"
 }
-
 
 # Rename a target file to bak/target if the file exists and is not a symlink
 backup() {
@@ -76,11 +74,10 @@ link_files() {
   src_dir=$1
   dest_dir=$2
   for name in "$src_dir"/*; do
-    if [[ $(basename "$name") == _* ]]; then
-      continue
+    if [ "$(basename "$name")" != "_*" ]; then
+      target="$dest_dir/$(basename "$name")"
+      symlink "$name" "$target"
     fi
-    target="$dest_dir/$(basename "$name")"
-    symlink "$name" "$target"
   done
 }
 
@@ -89,11 +86,10 @@ unlink_files() {
   src_dir=$1
   dest_dir=$2
   for name in "$src_dir"/*; do
-    if [[ $(basename "$name") == _* ]]; then
-      continue
+    if [ "$(basename "$name")" != "_*" ]; then
+      target="$dest_dir/$(basename "$name")"
+      remove_symlink "$target" "$name"
     fi
-    target="$dest_dir/$(basename "$name")"
-    remove_symlink "$target" "$name"
   done
 }
 
@@ -119,11 +115,12 @@ install() {
   done
 
   ## If distro is not arch/debian/gentoo, run extra/zshplugins/_download_plugins.sh
-  local distro
   distro=$(get_distro)
-  if [[ "$distro" != "arch" && "$distro" != "debian" && "$distro" != "gentoo" ]]; then
+  if [ "$(echo "$distro" | tr '[:upper:]' '[:lower:]')" != "arch" ] && \
+   [ "$(echo "$distro" | tr '[:upper:]' '[:lower:]')" != "debian" ] && \
+   [ "$(echo "$distro" | tr '[:upper:]' '[:lower:]')" != "gentoo" ]; then
     echo "-----> Running extra/zshplugins/_download_plugins.sh"
-    bash "$dotfiles/extra/zshplugins/_download_plugins.sh"
+    sh "$dotfiles/extra/zshplugins/_download_plugins.sh"
   fi
 
   # Symlink fonts, config, and local directories

@@ -124,9 +124,11 @@ install() {
   ## If distro is not arch/debian/gentoo, run extra/zshplugins/_download_plugins.sh
   local distro
   distro=$(get_distro)
-  if [[ "$distro" != "arch" && "$distro" != "debian" && "$distro" != "gentoo" ]]; then
+if [ "$(echo "$distro" | tr '[:upper:]' '[:lower:]')" != "arch" ] && \
+   [ "$(echo "$distro" | tr '[:upper:]' '[:lower:]')" != "debian" ] && \
+   [ "$(echo "$distro" | tr '[:upper:]' '[:lower:]')" != "gentoo" ]; then
     echo "-----> Running extra/zshplugins/_download_plugins.sh"
-    bash "$dotfiles/extra/zshplugins/_download_plugins.sh"
+    sh "$dotfiles/extra/zshplugins/_download_plugins.sh"
   fi
 
   # Symlink fonts, config, and local directories
