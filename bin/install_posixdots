@@ -20,6 +20,21 @@ create_directories() {
   done
 }
 
+
+get_distro() {
+    local DISTRO
+    if command -v lsb_release > /dev/null 2>&1; then
+        DISTRO=$(lsb_release -i | cut -d: -f2 | sed 's/^\t//')
+    elif [ -f /etc/os-release ]; then
+        . /etc/os-release
+        DISTRO=$ID
+    else
+        DISTRO="unknown"
+    fi
+    echo "$DISTRO"
+}
+
+
 # Rename a target file to bak/target if the file exists and is not a symlink
 backup() {
   target=$1
@@ -102,6 +117,14 @@ install() {
       fi
     fi
   done
+
+  ## If distro is not arch/debian/gentoo, run extra/zshplugins/_download_plugins.sh
+  local distro
+  distro=$(get_distro)
+  if [[ "$distro" != "arch" && "$distro" != "debian" && "$distro" != "gentoo" ]]; then
+    echo "-----> Running extra/zshplugins/_download_plugins.sh"
+    bash "$dotfiles/extra/zshplugins/_download_plugins.sh"
+  fi
 
   # Symlink fonts, config, and local directories
   link_files "$dotfiles/fonts" "$HOME/.local/share/fonts"
