@@ -1,1 +1,5 @@
+# Add support for WPA TKIP (deprecated due to security flaws in 2009)
 net-wireless/wpa_supplicant tkip
+
+
+net-misc/networkmanager iwd

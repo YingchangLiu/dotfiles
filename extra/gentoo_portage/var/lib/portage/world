@@ -4,6 +4,7 @@ app-i18n/fcitx-chinese-addons
 app-i18n/fcitx-configtool:5
 app-misc/fastfetch
 app-office/obsidian
+app-office/wps-office
 app-text/zotero-bin
 dev-build/scons
 dev-python/ensurepip-setuptools
