@@ -25,9 +25,10 @@ get_latest_kernel() {
 rc=1
 
 # check if any deleted libraries are still in use
-libs=$(lsof -n +c 0 2> /dev/null | grep 'DEL.*lib' | awk '1 { print $1 ": " $NF }' | sort -u)
+libs=$(lsof -n +c 0 2> /dev/null | grep 'DEL.*lib' | awk '{ print $1, $2, $NF }' | sort -u | column -t)
 if [[ -n $libs ]]; then
-    cat <<< $libs
+    echo "# Current running processes using deleted libraries:"
+    echo "$libs"
     echo "# LIBS: (QAQ) re-login required. Some deleted libraries in use"
     rc=0
 else
