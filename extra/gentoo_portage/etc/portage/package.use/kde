@@ -1,2 +1,2 @@
-kde*/* -systemd  elogind
-kde-plasma/plasma-meta elogind -systemd
+#kde*/* -systemd  elogind
+#kde-plasma/plasma-meta elogind -systemd
