@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Count the number of packages installed on the system
+
+_get_distro() {
+    local DISTRO
+    if command -v lsb_release > /dev/null; then
+        DISTRO=$(lsb_release -i | cut -d: -f2 | sed 's/^\t//')
+    elif [ -f /etc/os-release ]; then
+        . /etc/os-release
+        DISTRO=$ID
+    else
+        DISTRO="unknown"
+    fi
+    echo "$DISTRO"
+}
+
+_get_package_count() {
+    local DISTRO=$(_get_distro | tr '[:upper:]' '[:lower:]')
+    case $DISTRO in
+        *debian* | *ubuntu* | *mint*)
+            dpkg -l | grep ^ii | wc -l
+            ;;
+        *fedora* | *centos* | *rhel*)
+            rpm -qa | wc -l
+            ;;
+        *arch* | *manjaro*)
+            pacman -Qq | wc -l
+            ;;
+        *gentoo*)
+            eix-installed -a | wc -l
+            ;;
+        *suse*)
+            zypper se --installed-only | wc -l
+            ;;
+        *)
+            echo "Unknown distribution: $DISTRO"
+            exit 1
+            ;;
+    esac
+}
+
+_get_package_count
