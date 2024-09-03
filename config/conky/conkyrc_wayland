@@ -195,7 +195,7 @@ conky.config = {
 
 conky.text = [[\
 ${color6}${voffset 3}${font GE Inspira:size=34}${alignc}${time %H}:${time %M}${font}${color}
-${color6}${voffset 3}${font GE Inspira:size=12}${alignc}${time %A} ${time %B} ${time %e}, ${time %Y}${font}${color}
+${color6}${voffset 3}${font GE Inspira:size=12}${alignc}${time %A} ${time %m}-${time %d}, ${time %Y}${font}${color}
 ${color5}${voffset 3}${font Roboto:size=10}S Y S T E M  ${hr 2}${font}${color}${voffset 2}
 ${color2}User:${color} ${alignr}${user_names}@${nodename}
 ${color2}Distro:${color}${alignr} ${alignr}${execi 6000 lsb_release -a | grep 'Description'|awk {'print $2,$3 '}}
@@ -204,7 +204,7 @@ ${color2}Packages:${color}${alignr} ${execi 600 ~/.config/conky/countpackages}
 ${color2}Uptime:${color} ${alignr}${uptime}
 ${color2}Battery:${color} ${goto 1530}${battery_short}${alignr}${voffset 1}${battery_bar 14,80}${alignr}
 ${color5}${voffset 3}${font Roboto:size=10}C P U  ${hr 2}${font}${color}${voffset 2}
-${color2}Name:${color}${alignr}${execp  env LANG=en_US.UTF-8 lscpu | sed -nr '/Model name/ s/.*:\s*(.*) CPU .*/\1/p'}
+${color2}Name:${color}${alignr}${execp  env LANG=en_US lscpu | sed -nr '/Model name/ s/.*:\s*(.*) CPU .*/\1/p'}
 ${color2}Frequency:${color} $alignr${freq_g (1)} GHz
 #${color2}Temperature:${color} $alignr${execi 30 sensors | grep 'Core 0' | awk {'print $3'}}
 ${color2}Temperature:${color} $alignr${hwmon 5 temp 1} ℃ 
@@ -228,7 +228,7 @@ ${color2}Memory:${color}${alignr}${execi 10 nvidia-settings -q [gpu:0]/UsedDedic
 ${color5}${voffset 3}${font Roboto:size=10}G E N E R A L   ${hr 2}${font}${color}${voffset 2}
 ${color2}RAM: ${color}${alignr}${offset -10}${mem} / ${memmax}${alignr}${membar}
 ${color2}Swap:${color} ${alignr}${offset -10}${swap} / ${swapmax}${alignr}${swapbar}
-${color2}     Highest${goto 1360} MEM${goto 1530}PID${color}
+${color2}     Highest${goto 1360} MEM${goto 1450}PID${color}
 ${voffset 2}\
      1  -  ${top_mem name 1}${alignr} ${goto 1360}${top_mem mem_res 1} ${goto 1440}${top_mem pid 1}
      2  -  ${top_mem name 2}${alignr} ${goto 1360}${top_mem mem_res 2} ${goto 1440}${top_mem pid 2}
