@@ -1,0 +1,12 @@
+# https://github.com/catsout/wallpaper-engine-kde-plugin/tree/main
+# https://github.com/gentoo-mirror/gig/blob/master/kde-misc/wallpaper-engine-kde-plugin/wallpaper-engine-kde-plugin-9999.ebuild
+dev-util/vulkan-headers
+kde-plasma/plasma-workspace
+media-plugins/gst-plugins-libav
+media-video/mpv[vulkan]
+dev-python/websockets
+dev-qt/qtdeclarative
+dev-qt/qtwebsockets
+dev-qt/qtwebchannel
+app-arch/lz4
+media-libs/mesa[vulkan]
