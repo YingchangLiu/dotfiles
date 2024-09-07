@@ -1,0 +1,14 @@
+# dev-lang/rust need little more than 4GB RAM if MAKEOPTS="-j4"
+dev-lang/rust           j2.conf
+
+# webkit-gtk needs more than 8GB RAM if MAKEOPTS="-j6"
+net-libs/webkit-gtk     j2.conf
+
+# Firefox ESR needs more than 8GB RAM if jobs=6
+www-client/firefox      j2.conf
+
+# The Palemoon browser requires 9G minimum to build
+www-client/palemoon     j1.conf
+
+# Need more than 8GB RAM if MAKEOPTS="-j6"
+mail-client/evolution   j2.conf
