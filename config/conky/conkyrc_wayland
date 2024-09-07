@@ -80,7 +80,7 @@ conky.config = {
 												-- middle_left,middle_middle,middle_right,none
 	--Arch Duoscreen
 	gap_x = 1200,								-- pixels between right or left border
-	gap_y = 10,									-- pixels between bottom or left border
+	gap_y = 5,									-- pixels between bottom or left border
 	minimum_height = 300,						-- minimum height of window
 	minimum_width = 300,						-- minimum height of window
 	maximum_width = 300,						-- maximum height of window
@@ -194,7 +194,7 @@ conky.config = {
 };
 
 conky.text = [[\
-${color6}${voffset 3}${font GE Inspira:size=34}${alignc}${time %H}:${time %M}${font}${color}
+${color6}${voffset -5}${font GE Inspira:size=34}${alignc}${time %H}:${time %M}${font}${color}
 ${color6}${voffset 3}${font GE Inspira:size=12}${alignc}${time %A} ${time %m}-${time %d}, ${time %Y}${font}${color}
 ${color5}${voffset 3}${font Roboto:size=10}S Y S T E M  ${hr 2}${font}${color}${voffset 2}
 ${color2}User:${color} ${alignr}${user_names}@${nodename}
