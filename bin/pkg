@@ -1,0 +1,129 @@
+#!/bin/bash
+
+# get_distro - get the name of the distribution
+_get_distro() {
+    local DISTRO
+    if command -v lsb_release > /dev/null; then
+        DISTRO=$(lsb_release -i | cut -d: -f2 | sed 's/^\t//')
+    elif [ -f /etc/os-release ]; then
+        . /etc/os-release
+        DISTRO=$ID
+    else
+        DISTRO="unknown"
+    fi
+    echo "$DISTRO"
+}
+
+_DISTRO=$(_get_distro | tr '[:upper:]' '[:lower:]')
+
+case $_DISTRO in
+    *arch*)
+        PKG_UPDATE='sudo pacman -Syy'
+        PKG_UPGRADE='sudo pacman -Syyu'
+        PKG_INSTALL='sudo pacman -Sy'
+        PKG_REINSTALL='pacman -Qqn | pacman -S -'
+        PKG_CLEANUP='sudo pacman -Rns $(pacman -Qtdq)'
+        PKG_REMOVE='sudo pacman -Rns'
+        PKG_SEARCH='sudo pacman -Ss'
+        PKG_PROVIDER='sudo pacman -F'
+        ;;
+    *debian*|*ubuntu*)
+        PKG_UPDATE='sudo apt update'
+        PKG_UPGRADE='sudo apt upgrade'
+        PKG_INSTALL='sudo apt install'
+        PKG_REINSTALL='sudo apt install --reinstall'
+        PKG_CLEANUP='sudo apt autoremove'
+        PKG_REMOVE='sudo apt remove'
+        PKG_SEARCH='sudo apt search'
+        PKG_PROVIDER='sudo apt-file search'
+        ;;
+    *fedora*|*centos*)
+        PKG_UPDATE='sudo dnf update'
+        PKG_UPGRADE='sudo dnf upgrade'
+        PKG_INSTALL='sudo dnf install'
+        PKG_REINSTALL='sudo dnf reinstall'
+        PKG_CLEANUP='sudo dnf autoremove'
+        PKG_REMOVE='sudo dnf remove'
+        PKG_SEARCH='sudo dnf search'
+        PKG_PROVIDER='sudo dnf provider'
+        ;;
+    *suse*)
+        PKG_UPDATE='sudo zypper refresh'
+        PKG_UPGRADE='sudo zypper update'
+        PKG_INSTALL='sudo zypper in'
+        PKG_REINSTALL='sudo zypper in -f'
+        PKG_CLEANUP='sudo zypper clean'
+        PKG_REMOVE='sudo zypper rm'
+        PKG_SEARCH='sudo zypper search'
+        PKG_PROVIDER='sudo zypper what-provider'
+        ;;
+    *gentoo*)
+        PKG_UPDATE='sudo emerge --ask --sync'
+        PKG_UPGRADE='sudo emerge --ask --verbose --update --deep --newuse @world'
+        PKG_INSTALL='sudo emerge --ask'
+        PKG_REINSTALL='sudo emerge --ask --noreplace'
+        PKG_CLEANUP='sudo emerge --ask --depclean --verbose=n'
+        PKG_REMOVE='sudo emerge --ask --depclean --verbose'
+        PKG_SEARCH='eix'
+        PKG_PROVIDER='e-file'
+        ;;
+    *)
+        echo "Unknown distribution: $_DISTRO"
+        exit 1
+        ;;
+esac
+
+show_help() {
+    echo "Usage: pkg [command] [options]"
+    echo ""
+    echo "Commands:"
+    echo "  update, upd, up       Update package lists"
+    echo "  upgrade, upg, ug      Upgrade all packages"
+    echo "  install, ins, in      Install a package"
+    echo "  reinstall, reins, rin Reinstall a package"
+    echo "  cleanup, clean, cl    Clean up unused packages"
+    echo "  remove, rm, rem       Remove a package"
+    echo "  search, se, srch      Search for a package"
+    echo "  provider, prov, prv   Find which package provides a file"
+    echo "  help, h               Show this help message"
+}
+
+case $1 in
+    update|upd|up)
+        eval $PKG_UPDATE
+        ;;
+    upgrade|upg|ug)
+        eval $PKG_UPGRADE
+        ;;
+    install|ins|in)
+        shift
+        eval $PKG_INSTALL "$@"
+        ;;
+    reinstall|reins|rin)
+        shift
+        eval $PKG_REINSTALL "$@"
+        ;;
+    cleanup|clean|cl)
+        eval $PKG_CLEANUP
+        ;;
+    remove|rm|rem)
+        shift
+        eval $PKG_REMOVE "$@"
+        ;;
+    search|se|srch)
+        shift
+        eval $PKG_SEARCH "$@"
+        ;;
+    provider|prov|prv)
+        shift
+        eval $PKG_PROVIDER "$@"
+        ;;
+    help|h)
+        show_help
+        ;;
+    *)
+        echo "Unknown command: $1"
+        show_help
+        exit 1
+        ;;
+esac
