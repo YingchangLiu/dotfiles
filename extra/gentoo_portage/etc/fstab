@@ -1,0 +1,43 @@
+# /etc/fstab: static file system information.
+#
+# See the manpage fstab(5) for more information.
+#
+# NOTE: The root filesystem should have a pass number of either 0 or 1.
+#       All other filesystems should have a pass number of 0 or greater than 1.
+#
+# NOTE: Even though we list ext4 as the type here, it will work with ext2/ext3
+#       filesystems.  This just tells the kernel to use the ext4 driver.
+#
+# NOTE: You can use full paths to devices like /dev/sda3, but it is often
+#       more reliable to use filesystem labels or UUIDs. See your filesystem
+#       documentation for details on setting a label. To obtain the UUID, use
+#       the blkid(8) command.
+
+# <fs>			<mountpoint>	<type>		<opts>		<dump> <pass>
+
+#LABEL=boot		/boot		ext4		defaults	1 2
+#UUID=58e72203-57d1-4497-81ad-97655bd56494		/		xfs		defaults		0 1
+#LABEL=swap		none		swap		sw		0 0
+#/dev/cdrom		/mnt/cdrom	auto		noauto,ro	0 0
+
+
+# /dev/nvme0n1p7
+UUID=83fb1497-940d-4492-b317-b33e34ed6191	/         	xfs       	rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota	0 1
+
+# /dev/nvme0n1p3
+UUID=C692-9279      	/efi      	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,errors=remount-ro	0 2
+
+# /dev/sda7
+UUID=09ce8ba7-09c6-494d-a7f4-314508f55a56	/home     	ext4      	rw,relatime	0 2
+
+# /dev/nvme0n1p6
+UUID=325bf59f-8acd-4b5c-880c-0deec179ea62	none      	swap      	defaults  	0 0
+
+# /dev/sda6
+UUID=7126f65e-bfc2-45f0-9475-7746d9a5e91d	none      	swap      	defaults  	0 0
+
+# /dev/sda5 LABEL=data
+# UUID=0B3B598EFF99B782	/mnt/data 		ntfs3     	rw,relatime,uid=0,gid=0,iocharset=utf8		0 0
+UUID=0B3B598EFF99B782	/mnt/data 		ntfs3     	rw,relatime,uid=1000,gid=1000,iocharset=utf8		0 0
+
+tmpfs			/var/tmp/portage 	tmpfs		size=8G,uid=portage,gid=portage,mode=775	0 0

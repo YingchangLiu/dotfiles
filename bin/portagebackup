@@ -2,4 +2,9 @@
 # Backup portage configuration
 rsync -av --delete --exclude 'gnupg' /etc/portage/*  ${DOTROOT}/extra/gentoo_portage/etc/portage/
 rsync -av --delete /var/lib/portage/world* ${DOTROOT}/extra/gentoo_portage/var/lib/portage/
+
+# Backup fstab and grub
+rsync -av /etc/fstab ${DOTROOT}/extra/gentoo_portage/etc/
+rsync -av /etc/default/grub ${DOTROOT}/extra/gentoo_portage/etc/default/
+
 echo "Portage configuration backed up to ${DOTROOT}/extra/gentoo_portage"
