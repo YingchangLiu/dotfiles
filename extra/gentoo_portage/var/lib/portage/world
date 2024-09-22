@@ -28,4 +28,5 @@ net-proxy/v2rayA
 sys-process/btop
 sys-process/numactl
 www-client/firefox-bin
+www-client/firefox-developer-bin
 www-client/microsoft-edge
