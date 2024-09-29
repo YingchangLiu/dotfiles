@@ -1,0 +1,5 @@
+# required by app-backup/timeshift-23.07.1::guru
+# required by @selected
+# required by @world (argument)
+>=x11-libs/xapp-2.8.5 vala introspection
+
