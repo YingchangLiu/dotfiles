@@ -94,10 +94,15 @@ if (( UID != 0 )); then
     alias dmesg='sudo dmesg -HL'
     alias install-grub='sudo grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB'
     alias update-grub='sudo env LANG=en_US.UTF-8 grub-mkconfig -o /boot/grub/grub.cfg'
-
     #alias mount='sudo mount'
     #alias umount='sudo umount'
-
+else
+    alias scat='cat'
+    alias svim='vim'
+    alias root='exit'
+    alias dmesg='dmesg -HL'
+    alias install-grub='grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB'
+    alias update-grub='env LANG=en_US.UTF-8 grub-mkconfig -o /boot/grub/grub.cfg'
 fi
 
 # See https://wiki.archlinux.org/title/Pacman/Rosetta
