@@ -7,8 +7,8 @@
 ## Styles  
 **"Keep it simple stupid."**
 ![image](./assets/desktop.jpg)
-![image](./assets/windows.jpg)
 ![image](./assets/plasma.jpg)
+<!-- ![image](./assets/windows.jpg) -->
 
 > ri • cing 
 > /ry-sing/
