@@ -11,11 +11,14 @@ sys-block/io-scheduler-udev-rules
 dev-vcs/git
 app-admin/sudo
 app-admin/needrestart
-app-portage/eix
+
+app-eselect/eselect-repository
 app-portage/gentoolkit
+app-portage/portage-utils
+app-portage/eix
 app-portage/pfl
 app-portage/elicense
-app-eselect/eselect-repository
+app-portage/genlop
 
 net-misc/networkmanager
 #net-misc/dhcpcd
