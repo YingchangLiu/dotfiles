@@ -1,6 +1,6 @@
 # kelen's dotfiles
 
-**This repository is designed to sync and restore my working environment, including: setting up bash/zsh with required environment variables, linking tool configs, restoring the window manager with backup options, and managing additional resources such as package management backups, symbol fonts, and wallpapers. I follow XDG standards for linking and provide an install script. Your existing dotfiles are backed up in a 'bak' folder for safety.**
+**This repository is designed to sync and restore my working environment, including: setting up bash/zsh with required environment variables, linking tool configs (mainly about scientific calculations and seismic waveform inversion), restoring the window manager with backup options, and managing additional resources such as package management backups, symbol fonts, and wallpapers. I follow XDG standards for linking and provide an install script. Your existing dotfiles are backed up in a 'bak' folder for safety.**
 
 ---
 
@@ -20,7 +20,7 @@
 
 
 ## How to use
-***Warning***: A word of caution, I am actively working with **Arch Linux**, **Debian** and **Gentoo**. Do not blindly use my settings unless you know what that entails. Use at your own risk!
+***Warning***: A word of caution, I am actively working with **Debian** and **Gentoo**. Do not blindly use my settings unless you know what that entails. Use at your own risk!
 
 Run this to install:
 ```
@@ -30,7 +30,7 @@ cd ~/dotfiles
 ```
 ***Note***: You may need to modify  [`shellrc/zshplugin.zsh`](./shellrc/zshplugin.zsh) to fit your distribution. Package managers put their plugins in different directories.
 
-Typing uninstall will restore your original settings.
+Typing `uninstall` will restore your original settings.
 ```
 sh ./install uninstall
 ```
@@ -114,12 +114,12 @@ External backups about package manager.
 Please check in [wallpapers](./wallpapers/).
 
 ### Window manager
-- dwm (Xorg)
 - KDE Plasma (DE on workstation)
 - Hyprland (Wayland)
 - Deprecated WMs, for which their configurations are no longer maintained.
     - awesome
     - bspwm
+    - dwm
     - river
     - sway
     - xfce4
