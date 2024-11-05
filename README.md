@@ -10,13 +10,11 @@
 ![image](./assets/plasma.jpg)
 <!-- ![image](./assets/windows.jpg) -->
 
-> ri • cing 
-> /ry-sing/
+> **R**ace **I**nspired **C**osmetic **E**nhancement
 >
-> 1. Making visual improvements and customization to your desktop and/or phone that can simplify your desktop environment but (generally) are completely pointless.
-> 2. Wasting time because aesthetic.
-
-
+> [1. Making visual improvements and customization to your desktop and/or phone that can simplify your desktop environment but (generally) are completely pointless.](https://github.com/chloechantelle/)
+> 
+> [2. Wasting time because aesthetic.](https://github.com/chloechantelle/)
 
 
 ## How to use
