@@ -15,7 +15,8 @@ set_conda_env() {
     local conda_path
     for conda_path in "${__conda_optpaths[@]}"; do
         if [ -d "$conda_path" ]; then
-            [ -z "$_LOADED_CONDA_ENV" ] && source "$conda_path/etc/profile.d/conda.sh" 2>/dev/null && export _LOADED_CONDA_ENV=1
+            # [ -z "$_LOADED_CONDA_ENV" ] && source "$conda_path/etc/profile.d/conda.sh" 2>/dev/null && export _LOADED_CONDA_ENV=1
+            source "$conda_path/etc/profile.d/conda.sh" 2>/dev/null ## Conda needs to be loaded in every shell
             break
         fi
     done
