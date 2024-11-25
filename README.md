@@ -32,6 +32,8 @@ Typing `uninstall` will restore your original settings.
 ```
 sh ./install uninstall
 ```
+Feel free to change the dotfiles as you see fit.
+
 ## Contents
 
 ### Alias

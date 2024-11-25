@@ -1,0 +1,6 @@
+net-misc/networkmanager
+#net-misc/dhcpcd
+#net-dialup/ppp
+#net-wireless/iw
+#net-wireless/wpa_supplicant
+net-firewall/ufw

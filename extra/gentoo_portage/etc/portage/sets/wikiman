@@ -1,0 +1,7 @@
+app-shells/fzf
+sys-apps/ripgrep
+app-alternatives/awk
+www-client/w3m
+sys-process/parallel
+
+app-text/tldr
