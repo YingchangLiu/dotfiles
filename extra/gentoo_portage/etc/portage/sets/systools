@@ -1,15 +1,34 @@
+## Boot loader
 sys-boot/grub
 sys-boot/os-prober
+
+## Cron daemon
 sys-process/cronie
+
+## File indexing
 sys-apps/mlocate
+
+## Filesystem tools
+sys-block/io-scheduler-udev-rules
+
+## System logger
 app-admin/sysklogd
+
+## Temporarily elevating privileges
 app-admin/sudo
+
+## Time synchronization
 net-misc/chrony
 
+## Shell completion
 app-shells/bash-completion
+
+## Editor
 app-editors/vim
-sys-block/io-scheduler-udev-rules
-app-admin/needrestart
 
-dev-vcs/git
-
+## Network tools
+net-misc/networkmanager
+#net-misc/dhcpcd
+#net-dialup/ppp
+#net-wireless/iw
+#net-wireless/wpa_supplicant

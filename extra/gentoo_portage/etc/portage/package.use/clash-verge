@@ -1,0 +1,5 @@
+# required by net-proxy/mihomo-1.18.10-r2::gentoo-zh[-systemd,tun]
+# required by net-proxy/clash-verge-bin-1.6.6::gentoo-zh
+# required by @selected
+# required by @world (argument)
+sys-apps/openrc caps

@@ -4,6 +4,7 @@ media-libs/netpbm
 media-libs/gd
 sci-libs/plplot
 sci-libs/lapack
+dev-build/scons
 dev-python/numpy
 sci-libs/fftw
 sci-libs/suitesparse
