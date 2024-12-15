@@ -4,9 +4,11 @@ dev-lang/mono			notmpfs.conf
 dev-lang/rust			notmpfs.conf
 dev-lang/spidermonkey		notmpfs.conf
 mail-client/thunderbird		notmpfs.conf
-sys-devel/clang                 notmpfs.conf
+# move sys-devel/clang llvm-core/clang
+llvm-core/clang                 notmpfs.conf
 sys-devel/gcc			notmpfs.conf
-sys-devel/llvm                  notmpfs.conf
+# move sys-devel/llvm llvm-core/llvm
+llvm-core/llvm                  notmpfs.conf
 www-client/chromium		notmpfs.conf
 www-client/firefox		notmpfs.conf
 dev-qt/qtwebengine              notmpfs.conf
