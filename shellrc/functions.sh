@@ -522,3 +522,8 @@ mem() {
     echo "mem info:"
     free -h
 }
+
+# update micromamba
+update_micromamba() {
+    micromamba self-update
+}

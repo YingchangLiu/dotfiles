@@ -6,8 +6,12 @@
 ## Enable conda in command line
 set_conda_env() {
     local __conda_optpaths=(
+        "/opt/miniforge"
         "/opt/miniconda"
         "/opt/conda"
+        "$OPTROOT/miniforge"
+        "$OPTROOT/miniforge3"
+        "$HOME/opt/miniforge3"
         "$OPTROOT/miniconda"
         "$OPTROOT/miniconda3"
         "$HOME/opt/miniconda3"
@@ -17,6 +21,7 @@ set_conda_env() {
         if [ -d "$conda_path" ]; then
             # [ -z "$_LOADED_CONDA_ENV" ] && source "$conda_path/etc/profile.d/conda.sh" 2>/dev/null && export _LOADED_CONDA_ENV=1
             source "$conda_path/etc/profile.d/conda.sh" 2>/dev/null ## Conda needs to be loaded in every shell
+            source "$conda_path/etc/profile.d/mamba.sh" 2>/dev/null 
             break
         fi
     done
