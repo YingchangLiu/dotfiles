@@ -6,6 +6,7 @@
 @gui-wm
 @net-proxy
 @systools
+@tools-editor
 @tools-package
 @tools-portage
 @tools-programming

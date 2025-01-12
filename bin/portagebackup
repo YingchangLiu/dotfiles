@@ -7,4 +7,5 @@ rsync -av --delete /var/lib/portage/world* ${DOTROOT}/extra/gentoo_portage/var/l
 rsync -av --delete /etc/fstab ${DOTROOT}/extra/gentoo_portage/etc/
 rsync -av --delete /etc/default/grub ${DOTROOT}/extra/gentoo_portage/etc/default/
 
+
 echo "Portage configuration backed up to ${DOTROOT}/extra/gentoo_portage"
