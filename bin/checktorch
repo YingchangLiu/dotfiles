@@ -1,0 +1,72 @@
+#!/bin/bash
+
+# Function to check if torch can use CUDA
+check_torch_cuda() {
+    local python_cmd=$1
+    if ! command -v "$python_cmd" &> /dev/null; then
+        return 1
+    fi
+
+    if ! "$python_cmd" -c "import torch" &> /dev/null; then
+        return 1
+    fi
+
+    cuda_available=$("$python_cmd" -c "import torch; print(torch.cuda.is_available())")
+    if [ "$cuda_available" = "True" ]; then
+        echo "CUDA is available with $python_cmd."
+        return 0
+    else
+        echo "CUDA is not available with $python_cmd."
+        return 1
+    fi
+}
+
+# Flag to track if any Python environment with CUDA-enabled torch is found
+found_cuda_enabled_torch=false
+
+# Check system Python
+if ! check_torch_cuda python3; then
+    echo "System Python3 cannot use CUDA-enabled torch."
+else
+    found_cuda_enabled_torch=true
+fi
+
+if ! check_torch_cuda python; then
+    echo "System Python cannot use CUDA-enabled torch."
+else
+    found_cuda_enabled_torch=true
+fi
+
+# Check other Python environments
+python_paths=$(find /usr /opt /home -type f -executable -name python3 2>/dev/null)
+for python_cmd in $python_paths; do
+    if check_torch_cuda "$python_cmd"; then
+        found_cuda_enabled_torch=true
+    fi
+done
+
+python_paths=$(find /usr /opt /home -type f -executable -name python 2>/dev/null)
+for python_cmd in $python_paths; do
+    if check_torch_cuda "$python_cmd"; then
+        found_cuda_enabled_torch=true
+    fi
+done
+
+# Check Conda environments
+if command -v conda &> /dev/null; then
+    conda_envs=$(conda env list | awk '{print $1}' | grep -v "^#")
+    for env in $conda_envs; do
+        conda_python=$(conda run -n "$env" which python)
+        if check_torch_cuda "$conda_python"; then
+            found_cuda_enabled_torch=true
+        fi
+    done
+fi
+
+if [ "$found_cuda_enabled_torch" = true ]; then
+    echo "At least one Python environment with CUDA-enabled torch found."
+    exit 0
+else
+    echo "No Python environment with CUDA-enabled torch found."
+    exit 1
+fi
