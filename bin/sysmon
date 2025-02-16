@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+# Function to get CPU usage
+get_cpu_usage() {
+  top -bn1 | grep "Cpu(s)" | \
+  sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | \
+  awk '{printf "CPU: %-6s", 100 - $1"%"}'
+}
+
+# Function to get memory usage
+get_mem_usage() {
+  free -m | awk 'NR==2{printf "MEM: %-20s", $3 "/" $2 " MiB (" sprintf("%.1f", $3*100/$2) "%)"}'
+}
+
+# Function to get GPU usage and memory usage
+get_gpu_info() {
+  if command -v nvidia-smi > /dev/null 2>&1; then
+    nvidia-smi --query-gpu=utilization.gpu,memory.used,memory.total --format=csv,noheader,nounits | \
+    awk -F, '{printf "GPU Util: %-10s GPU Mem: %-20s", $1"%", $2 "/" $3 "MiB (" sprintf("%.1f", $2*100/$3) "%)"}'
+  elif command -v rocm-smi > /dev/null 2>&1; then
+    rocm-smi --showuse --showmemuse | grep -E "GPU|Memory"
+  else
+    printf "%-40s" "No supported GPU found"
+  fi
+}
+
+# Function to get disk usage
+get_disk_usage() {
+  df -h | awk '$NF=="/"{printf "Disk Usage: %-20s", $3 "/" $2 " (" $5 ")"}'
+}
+
+# Function to get network usage
+get_network_usage() {
+  rx_bytes=$(cat /sys/class/net/$(ip route show default | awk '/default/ {print $5}')/statistics/rx_bytes)
+  tx_bytes=$(cat /sys/class/net/$(ip route show default | awk '/default/ {print $5}')/statistics/tx_bytes)
+  printf "Net Usage: RX %-10s TX %-10s" "$(numfmt --to=iec $rx_bytes)" "$(numfmt --to=iec $tx_bytes)"
+}
+
+# Function to display system monitor information
+display_sysmon() {
+  echo "$(date +"%Y-%m-%d %H:%M:%S") | $(get_cpu_usage) $(get_mem_usage) | $(get_gpu_info) | $(get_disk_usage) | $(get_network_usage)"
+}
+
+# Main function to handle input arguments
+main() {
+  if [[ "$1" =~ ^-[0-9]+$ ]]; then
+    interval=${1:1}
+    while true; do
+      display_sysmon
+      sleep $interval
+    done
+  else
+    display_sysmon
+  fi
+}
+
+main "$@"
