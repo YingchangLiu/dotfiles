@@ -1,48 +1,55 @@
-#!/bin/bash
-# List of functions:
-# ex - archive extractor
-#    usage: ex <file> [directory]
-# cx - archive creator
-#    usage: cx <file_or_dir> [file]
-# cd - fancy cd that can cd into parent directory, if trying to cd into file
-# confirm - confirm before running a command
-#    usage: confirm <command>
-# confirm_wrapper - confirm before running a command, with optional root privileges
-#    usage: confirm_wrapper [--root] <command>
-# poweroff - power off the system, with confirmation
-# reboot - reboot the system, with confirmation
-# hibernate - hibernate the system, with confirmation
-# reload - reload the shell
-# over_ssh - check if the shell is running over SSH
-# get_distro - get the name of the distribution
-# v2control - control V2Ray service
-#    usage: v2control <start|stop|restart>
-# v2toggle - toggle V2Ray service
-# git_branch - color-code the current branch in the prompt
-# delete_branches_except - delete all branches except the ones specified
-# split_args - split the input arguments into an array using multiple delimiters
-#   usage: split_args <string>
-# set_path - add directories to PATH
-#   usage: set_path <dir1> <dir2> ...
-# set_ld_library_path - add directories to LD_LIBRARY_PATH
-#   usage: set_ld_library_path <dir1> <dir2> ...
-# set_library_path - add directories to LIBRARY_PATH
-#   usage: set_library_path <dir1> <dir2> ...
-# set_cpath - find include files
-#   usage: set_cpath <dir1> <dir2> ...
-# mkcd - make directory and change to it
-# back - go back to the previous directory
-# f - find a file in the current directory
-#   usage: f <filename>
-# ff - find a file whose name contains the given string
-#   usage: ff <string>
-# duh - check disk usage
-# netstat - check network status
-# psg - check process status
-#   usage: psg <process_name>
-# load - check system status
-# mem - check memory status
-# 
+#!/usr/bin/env bash
+
+# Function to display help information
+show_funcs() {
+  cat << EOF
+List of functions:
+ex - archive extractor
+   usage: ex <file> [directory]
+cx - archive creator
+   usage: cx <file_or_dir> [file]
+cd - fancy cd that can cd into parent directory, if trying to cd into file
+confirm - confirm before running a command
+   usage: confirm <command>
+confirm_wrapper - confirm before running a command, with optional root privileges
+   usage: confirm_wrapper [--root] <command>
+poweroff - power off the system, with confirmation
+reboot - reboot the system, with confirmation
+hibernate - hibernate the system, with confirmation
+reload - reload the shell
+over_ssh - check if the shell is running over SSH
+get_distro - get the name of the distribution
+v2control - control V2Ray service
+   usage: v2control <start|stop|restart>
+v2toggle - toggle V2Ray service
+git_branch - color-code the current branch in the prompt
+delete_branches_except - delete all branches except the ones specified
+split_args - split the input arguments into an array using multiple delimiters
+  usage: split_args <string>
+set_path - add directories to PATH
+  usage: set_path <dir1> <dir2> ...
+set_ld_library_path - add directories to LD_LIBRARY_PATH
+  usage: set_ld_library_path <dir1> <dir2> ...
+set_library_path - add directories to LIBRARY_PATH
+  usage: set_library_path <dir1> <dir2> ...
+set_cpath - find include files
+  usage: set_cpath <dir1> <dir2> ...
+mkcd - make directory and change to it
+back - go back to the previous directory
+f - find a file in the current directory
+  usage: f <filename>
+ff - find a file whose name contains the given string
+  usage: ff <string>
+duh - check disk usage
+netstat - check network status
+psg - check process status
+  usage: psg <process_name>
+load - check system status
+mem - check memory status
+update_micromamba - update micromamba (conda-like package manager)
+EOF
+}
+
 
 
 # Colors.
