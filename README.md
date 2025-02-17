@@ -18,7 +18,7 @@
 
 
 ## How to use
-***Warning***: A word of caution, I am actively working with **Debian** and **Gentoo**. Do not blindly use my settings unless you know what that entails. Use at your own risk!
+***Warning***: A word of caution, I am actively working on **Debian** and **Gentoo**. Do not blindly use my settings unless you know what that entails. Use at your own risk!
 
 Run this to install:
 ```
@@ -36,12 +36,16 @@ Feel free to change the dotfiles as you see fit.
 
 ## Contents
 
-### Alias
+### Alias and functions
 - wttr: weather
 - l/ll/la/l./lt etc.: ls commands
 - cp/mv/rm: Safety features
 - git: git commands
 - ex/cx: extract compressed files
+- reload: reload the shell environment
+- get_distro: get your distor name
+- load: check system status
+- mem: check memory status
 - package manager commands (pacman, apt, dnf, zypper, emerge)
     - install
     - remove
@@ -51,7 +55,10 @@ Feel free to change the dotfiles as you see fit.
     - cleanup
     - search
     - provider
+- set_path/set_ld_library_path/set_library_path/set_cpath: add dirs to $PATH, $LD_LIBRARY_PATH or $LIBRARY_PATH
+- update_micromamba: update micromamba (conda-like package manager)
 - etc. 
+
 Please check in [shellrc/alias.sh](./shellrc/alias.sh) and [shellrc/functions.sh](./shellrc/functions.sh).
 
 ### Bin
@@ -59,11 +66,13 @@ Please check in [shellrc/alias.sh](./shellrc/alias.sh) and [shellrc/functions.sh
 - archive: archive files
 - c: Run command and put output to system clipper (from https://github.com/oldratlee/useful-scripts)
 - checkboot: reboot required or not
+- checktorch: check if torch can use CUDA
 - dec2hex/hex2dec/dec2bin/bin2dec: number converter
 - extract: extract compressed files
 - installdots: dotfiles installer
 - gitreset/gitshrink/gitpurge: git commands scripts
 - portagebackup: portage sync
+- sysmon: monitor cpu/mem/gpu/net status when working.
 - etc.
 
 
@@ -76,8 +85,10 @@ Please check in [shellrc/alias.sh](./shellrc/alias.sh) and [shellrc/functions.sh
 - gBar
 - kitty
 - mako
+- mamba
 - mpd
 - nnn
+- nvim
 - pacman
 - paru
 - picom
