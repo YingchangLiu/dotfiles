@@ -39,7 +39,7 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 ## Sovle 'no matches found' in zsh
 setopt no_nomatch
 ## enable auto-correction
-setopt correctall
+# setopt correctall
 ## Auto cd
 setopt autocd
 ## Enable extended globbing
