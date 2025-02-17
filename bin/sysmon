@@ -31,8 +31,9 @@ get_disk_usage() {
 
 # Function to get network usage
 get_network_usage() {
-  rx_bytes=$(cat /sys/class/net/$(ip route show default | awk '/default/ {print $5}')/statistics/rx_bytes)
-  tx_bytes=$(cat /sys/class/net/$(ip route show default | awk '/default/ {print $5}')/statistics/tx_bytes)
+  interface=$(ip route show default | awk '/default/ {print $5}')
+  rx_bytes=$(cat /sys/class/net/$interface/statistics/rx_bytes)
+  tx_bytes=$(cat /sys/class/net/$interface/statistics/tx_bytes)
   printf "%-10s %-10s" "$(numfmt --to=iec $rx_bytes)" "$(numfmt --to=iec $tx_bytes)"
 }
 
