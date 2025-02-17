@@ -55,7 +55,7 @@ Feel free to change the dotfiles as you see fit.
     - cleanup
     - search
     - provider
-- set_path/set_ld_library_path/set_library_path/set_cpath: add dirs to $PATH, $LD_LIBRARY_PATH or $LIBRARY_PATH
+- set_path/set_ld_library_path/set_library_path/set_cpath: add dirs to PATH, LD_LIBRARY_PATH or LIBRARY_PATH
 - update_micromamba: update micromamba (conda-like package manager)
 - etc. 
 
