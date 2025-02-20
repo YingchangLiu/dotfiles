@@ -67,6 +67,8 @@ cyan='\e[0;36m'
 CYAN='\e[1;36m'
 NC='\e[0m'
 
+#! BEGIN SCRIPT of extractor
+#! FNAME: extract
 # ex - archive extractor
 # usage: ex <file> [directory]
 ex ()
@@ -100,7 +102,11 @@ ex ()
         echo "'$1' is not a valid file"
     fi
 }
+#! FRUN: ex "$@"
+#! END SCRIPT of extract
 
+#! BEGIN SCRIPT of archive
+#! FNAME: archive
 # cx - archive creator
 # usage: cx <file_or_dir> [file]
 cx ()
@@ -132,6 +138,9 @@ cx ()
         echo "'$1' is not a valid file or directory"
     fi
 }
+#! FRUN: cx "$@"
+#! END SCRIPT of archive
+
 # https://github.com/slashbeast/conf-mgmt/blob/master/roles/home_files/files/DOTzshrc
 # Fancy cd that can cd into parent directory, if trying to cd into file.
 unalias cd 2>/dev/null
@@ -195,6 +204,8 @@ over_ssh() {
     fi
 }
 
+#! BEGIN SCRIPT of get_distro
+#! FNAME: udistro
 # get_distro - get the name of the distribution
 get_distro() {
     local DISTRO
@@ -208,7 +219,11 @@ get_distro() {
     fi
     echo "$DISTRO"
 }
+#! FRUN: get_distro
+#! END SCRIPT of get_distro
 
+#! BEGIN SCRIPT of v2control
+#! FNAME: v2toggle
 # V2Ray control，rc-service or systemctl is optional
 v2control() {
     if [ "$1" = "start" ] || [ "$1" = "stop" ]|| [ "$1" = "restart" ]; then
@@ -226,6 +241,7 @@ v2control() {
     fi
 }
 
+
 # V2Ray control with auto detection. If v2raya is running, stop it. If not, start it.
 v2toggle() {
     # Check if v2raya is running
@@ -241,10 +257,14 @@ v2toggle() {
     fi
 }
 
+#! FRUN: v2toggle
+#! END SCRIPT of v2toggle
+
 # Reset the terminal when it's broken
 function reset_broken_terminal () {
 	printf '%b' '\e[0m\e(B\e)0\017\e[?5l\e7\e[0;0r\e8'
 }
+alias resetterm=reset_broken_terminal
 
 # PS1 definition that color-codes the current branch as red for uncommitted changes, green for a clean directory, and yellow for stashed changes.
 git_branch() {
@@ -530,7 +550,11 @@ mem() {
     free -h
 }
 
+#! BEGIN SCRIPT of update_micromamba
+#! FNAME: update_micromamba
 # update micromamba
 update_micromamba() {
     micromamba self-update
 }
+#! FRUN: update_micromamba
+#! END SCRIPT of update_micromamba

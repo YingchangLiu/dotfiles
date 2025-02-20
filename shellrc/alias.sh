@@ -1,6 +1,6 @@
-
 # Fastfetch
 alias fetch='fastfetch -c $HOME/.config/fastfetch/kelen.jsonc'
+
 # VNC
 alias vnc='vncviewer -passwd $HOME/.vnc/passwd 127.0.0.1:1'
 
@@ -8,51 +8,53 @@ alias vnc='vncviewer -passwd $HOME/.vnc/passwd 127.0.0.1:1'
 alias mvi='mpv --config-dir=$HOME/.config/mvi'
 
 # V2ray
-alias v2run=' v2control start'
+alias v2run='v2control start'
 alias v2stop='v2control stop'
 alias v2restart='v2control restart'
 
-
 alias nekoray='nekoray -many'
+
 # OBS from xwayland
 # alias obs='QT_QPA_PLATFORM=xcb obs'
+
 # Fcitx5-configtool from xwayland
 alias fcitx5-configtool='QT_QPA_PLATFORM=xcb fcitx5-configtool'
+
 # alacritty with wayland
 # alias alacritty='Exec=env WAYLAND_DISPLAY= alacritty'
 
-# alias matlab='env LD_PERLOAD=/usr/lib/libstdc++.so LD_LIBRARY_PATH=/usr/lib/xorg/modules/dri/ MESA_LOADER_DRIVER_OVERRIDE=i1965 LANG=zh_CN.UTF-8 matlab'
+# alias matlab='env LD_PRELOAD=/usr/lib/libstdc++.so LD_LIBRARY_PATH=/usr/lib/xorg/modules/dri/ MESA_LOADER_DRIVER_OVERRIDE=i965 LANG=zh_CN.UTF-8 matlab'
 
-
-
-# system
+# System
 alias da='date "+%A, %B %d, %Y [%T]"'
 alias du1='du --max-depth=1'
 alias hist='history 1 | grep'         # requires an argument
 alias openports='ss --all --numeric --processes --ipv4 --ipv6'
-alias pgg='ps -Af | grep'           # requires an argument
+alias pgg='ps -Af | grep'             # requires an argument
 alias wttr='curl wttr.in'
 # alias ff='find . -name $1'
 
 # the fuck
-[ -z "$_LOADED_THEFUCK_ALIAS" ] && eval $(thefuck --alias 2>/dev/null ) 2>/dev/null && _LOADED_THEFUCK_ALIAS=1
+[ -z "$_LOADED_THEFUCK_ALIAS" ] && eval $(thefuck --alias 2>/dev/null) 2>/dev/null && _LOADED_THEFUCK_ALIAS=1
 alias fk=fuck
 alias wtf=fuck
 
+# Make system happy
+alias please='sudo'
+alias pls='sudo'
 
-
-# start sway without nvidia
+# Start sway without nvidia
 alias sway='sway --unsupported-gpu'
 
+# Change the language environment of xfce4
 alias xfce4='env LANG=zh_CN.UTF-8 startxfce4'
 
-# change hosts for connect some adress
+# Change hosts for connect some address
 alias hosts='sudo wget https://raw.githubusercontent.com/googlehosts/hosts/master/hosts-files/hosts -O /etc/hosts'
 alias hosts2='sudo wget https://scaffrey.coding.net/p/hosts/d/hosts/git/raw/master/hosts-files/hosts -O /etc/hosts'
 alias hosts3='sudo wget https://git.qvq.network/googlehosts/hosts/raw/master/hosts-files/hosts -O /etc/hosts'
 
-
-## Modified commands
+# Modified commands
 alias diff='diff --color=auto -Nuar'
 alias grep='grep --color=auto'
 alias df='df -h'
@@ -62,17 +64,16 @@ alias ping='ping -c 5'
 alias ip='ip --color=auto'
 
 # cd
-alias cd=' cd'
+alias cd='cd'
 alias CD='cd'
 alias cd..='cd ..'
-alias ..=' cd ..'
-alias ...=' cd ../..'
-alias ....=' cd ../../..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 alias bd='cd -'
 
-
 # ls
-alias ls=' ls -hF --color=auto --group-directories-first'
+alias ls='ls -hF --color=auto --group-directories-first'
 alias l='ls -lah'
 alias lr='ls -R'                    # recursive ls
 alias ll='ls -l'
@@ -84,8 +85,6 @@ alias lm='la | more'
 alias l.='ls -d .* --color=auto'
 alias LS='ls'
 
-
-
 # Privileged access
 if (( UID != 0 )); then
     alias scat='sudo cat'
@@ -94,8 +93,8 @@ if (( UID != 0 )); then
     alias dmesg='sudo dmesg -HL'
     alias install-grub='sudo grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB'
     alias update-grub='sudo env LANG=en_US.UTF-8 grub-mkconfig -o /boot/grub/grub.cfg'
-    #alias mount='sudo mount'
-    #alias umount='sudo umount'
+    # alias mount='sudo mount'
+    # alias umount='sudo umount'
 else
     alias scat='cat'
     alias svim='vim'
@@ -159,7 +158,6 @@ case $_DISTRO in
         alias remove='sudo emerge --ask --depclean --verbose'
         alias search='eix'
         alias provider='e-file'
-
         ;;
     *unknown*)
         alias update='echo "Unknown package manager"'
@@ -173,25 +171,22 @@ case $_DISTRO in
         ;;
 esac
 
-
-## Safety features
+# Safety features
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias ln='ln -iv'
-# alias rm=' timeout 5 rm -Iv --one-file-system --preserve-root'   # 'rm -i' prompts for every file
+# alias rm='timeout 5 rm -Iv --one-file-system --preserve-root'   # 'rm -i' prompts for every file
 alias rm='rm -Iv --one-file-system --preserve-root'   # 'rm -i' prompts for every file
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 
-## Make Bash/Zsh error tolerant
-alias :q=' exit'
-alias :Q=' exit'
-alias :x=' exit'
+# Make Bash/Zsh error tolerant
+alias :q='exit'
+alias :Q='exit'
+alias :x='exit'
 
-
-
-## Git alias
+# Git alias
 # Git status alias
 alias g='git status -sb'
 # Git add and remove aliases
@@ -199,8 +194,8 @@ alias ga='git add'
 alias gr='git rm'
 # Git branch alias
 alias gb='git branch -v'
-alias gba='git for-each-ref --sort=committerdate refs/heads/ --format="%(authordate:short) %(color:red)%(objectname:short) %(color:yellow)%(refname:            short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))"'
-alias gbd='git for-each-ref --sort=-committerdate refs/heads/ --format="%(authordate:short) %(color:red)%(objectname:short) %(color:yellow)%(refname:           short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))"'
+alias gba='git for-each-ref --sort=committerdate refs/heads/ --format="%(authordate:short) %(color:red)%(objectname:short) %(color:yellow)%(refname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))"'
+alias gbd='git for-each-ref --sort=-committerdate refs/heads/ --format="%(authordate:short) %(color:red)%(objectname:short) %(color:yellow)%(refname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))"'
 # Git commit aliases
 alias gc='git commit'
 alias gca='git commit --amend'
@@ -248,4 +243,4 @@ alias gss='git stash save'
 # Git diff and log aliases
 alias gd='git diff --color-words'
 alias gl='git log --oneline --decorate'
-alias gslog="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset)                %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+alias gslog="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
