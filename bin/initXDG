@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Define the directories to create
 XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}

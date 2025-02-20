@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # get_distro - get the name of the distribution
 _get_distro() {

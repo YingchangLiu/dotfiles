@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Backup portage configuration
 rsync -av --delete --exclude 'gnupg' /etc/portage/*  ${DOTROOT}/extra/gentoo_portage/etc/portage/
 rsync -av --delete /var/lib/portage/world* ${DOTROOT}/extra/gentoo_portage/var/lib/portage/

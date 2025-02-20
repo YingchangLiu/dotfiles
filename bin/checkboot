@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # get all kernels in /boot
 get_boot_kernels() {

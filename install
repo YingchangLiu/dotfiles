@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Get the current shell
 # current_shell=$(ps -p $$ -ocomm=)

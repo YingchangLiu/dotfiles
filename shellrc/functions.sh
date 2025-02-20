@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 # Function to display help information
 show_funcs() {
   cat << EOF
