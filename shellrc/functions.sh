@@ -320,9 +320,11 @@ setup_ssh_prompt() {
     over_ssh=$(echo "$SSH_CLIENT" | awk '{print $1}')
 
     if [ -n "$over_ssh" ] && [ -z "${TMUX}" ]; then
-        prompt_is_ssh='%F{blue}[%F{red}SSH%F{blue}] '
+        # prompt_is_ssh='%F{blue}[%F{red}SSH%F{blue}] '
+        prompt_is_ssh="\[\e[34m\][\[\e[97m\]SSH\[\e[34m\]"
     elif [ -n "$over_ssh" ]; then
-        prompt_is_ssh='%F{blue}[%F{253}SSH%F{blue}] '
+        # prompt_is_ssh='%F{blue}[%F{253}SSH%F{blue}] '
+        prompt_is_ssh="\[\e[34m\][\[\e[97m\]SSH\[\e[34m\]"
     else
         unset prompt_is_ssh
     fi
