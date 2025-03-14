@@ -142,7 +142,7 @@ cx ()
 # https://github.com/slashbeast/conf-mgmt/blob/master/roles/home_files/files/DOTzshrc
 # Fancy cd that can cd into parent directory, if trying to cd into file.
 unalias cd 2>/dev/null
-cd() 
+cd()
 {
     if [ $# -gt 1 ]; then
         builtin cd "$@"
@@ -276,7 +276,7 @@ git_branch() {
     else
       color="32"  # Green for a clean state
     fi
-    echo -e "\\e[0;${color}m${branch}\\e[0m"  
+    echo -e "\\e[0;${color}m${branch}\\e[0m"
   fi
 }
 
@@ -321,10 +321,10 @@ setup_ssh_prompt() {
 
     if [ -n "$over_ssh" ] && [ -z "${TMUX}" ]; then
         # prompt_is_ssh='%F{blue}[%F{red}SSH%F{blue}] '
-        prompt_is_ssh="\[\e[34m\][\[\e[97m\]SSH\[\e[34m\]"
+        prompt_is_ssh="\[\e[34m\][\[\e[97m\]SSH\[\e[34m\]]"
     elif [ -n "$over_ssh" ]; then
         # prompt_is_ssh='%F{blue}[%F{253}SSH%F{blue}] '
-        prompt_is_ssh="\[\e[34m\][\[\e[97m\]SSH\[\e[34m\]"
+        prompt_is_ssh="\[\e[34m\][\[\e[97m\]SSH\[\e[34m\]]"
     else
         unset prompt_is_ssh
     fi
@@ -341,7 +341,7 @@ update_prompt() {
         # PS1="%B%F{cyan}%m%k %(?..%F{blue}[%F{253}%?%F{blue}] )${prompt_is_ssh}%B%F{blue}%1~${git_prompt}%F{blue} %# %b%f%k"
         PS1="\[\e[1m\]\[\e[36m\]\h\[\e[0m\] \[\e[34m\][\[\e[97m\]$?\[\e[34m\]] ${prompt_is_ssh}\[\e[1m\]\[\e[34m\]\w\[\e[0m\] ${git_prompt}\[\e[34m\] # \[\e[0m\]"
     ;;
-    *)  
+    *)
         # PS1="%B%F{blue}%n@%m%k %(?..%F{blue}[%F{253}%?%F{blue}] )${prompt_is_ssh}%B%F{cyan}%1~${git_prompt}%F{cyan} %# %b%f%k"
         PS1="\[\e[1m\]\[\e[34m\]\u@\h\[\e[0m\] \[\e[34m\][\[\e[97m\]$?\[\e[34m\]] ${prompt_is_ssh}\[\e[1m\]\[\e[36m\]\w\[\e[0m\] ${git_prompt}\[\e[36m\] # \[\e[0m\]"
     ;;
@@ -364,7 +364,7 @@ split_args() {
     local IFS=': ,;|'
     # Enable sh_word_split in zsh if necessary
     [ -n "$ZSH_VERSION" ] && setopt localoptions sh_word_split
-    
+
     # Split the input string into an array
     local args_array
     args_array=($*)
@@ -389,7 +389,7 @@ set_path(){
     [[ "$(id -u)" -eq 0 ]] || [[ "$(id -u)" -ge 1000 ]] || return
 
     # Split the input into an array using ' ' and ':' as the delimiters
-    local args_array    
+    local args_array
     args_array=($(split_args "$@"))
     # echo "args_array: ${args_array[@]}"
     local i
@@ -403,7 +403,7 @@ set_path(){
 
         # Convert to absolute path
         i=$(realpath "$i")
-        
+
         # Check if it is not already in your $PATH.
         [[ ":$PATH:" == *":$i:"* ]] && continue
 
