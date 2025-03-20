@@ -6,3 +6,4 @@ app-portage/pfl
 app-portage/elicense
 app-portage/genlop
 
+app-admin/eclean-kernel # provide eclean-kernel like eclean-dist from app-portage/gentoolkit
