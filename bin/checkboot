@@ -9,17 +9,10 @@ get_boot_kernels() {
     done
     echo "${kernels[@]}"
 }
-
 # get the latest kernel in /boot
 get_latest_kernel() {
-    local latest_version=""
-    for kernel in /boot/vmlinuz*; do
-        local version=$(file $kernel | grep -oP 'version \K[^ ]+')
-        if [[ "$version" > "$latest_version" ]]; then
-            latest_version=$version
-        fi
-    done
-    echo $latest_version
+    local kernels=($(get_boot_kernels))
+    echo "${kernels[@]}" | tr ' ' '\n' | sort -V | tail -n 1
 }
 
 rc=1
