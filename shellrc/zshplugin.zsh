@@ -3,7 +3,6 @@
 _DISTRO=$(get_distro)
 case $_DISTRO in
     *Arch*|*arch*)
-    [ -z "$_LOADED_ZSH_P10K" ]                      && source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null                                    && _LOADED_ZSH_P10K=1
     [ -z "$_LOADED_ZSH_AUTOSUGGESTIONS" ]           && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null                            && _LOADED_ZSH_AUTOSUGGESTIONS=1
     [ -z "$_LOADED_ZSH_AUTOCOMPLETE" ]              && source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh 2>/dev/null                           && _LOADED_ZSH_AUTOCOMPLETE=1
     [ -z "$_LOADED_ZSH_SYNTAX_HIGHLIGHTING" ]       && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null                    && _LOADED_ZSH_SYNTAX_HIGHLIGHTING=1
@@ -12,7 +11,6 @@ case $_DISTRO in
     # You should install "pkgfile" and exec 'sudo pkgfile -u' in archlinux or "command-not-found" in debian to use the script.
     ;;
     *Debian*|*debian*)
-    [ -z "$_LOADED_ZSH_P10K" ]                      && source $HOME/.local/share/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null                          && _LOADED_ZSH_P10K=1
     [ -z "$_LOADED_ZSH_AUTOSUGGESTIONS" ]           && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null                                        && _LOADED_ZSH_AUTOSUGGESTIONS=1
     [ -z "$_LOADED_ZSH_AUTOCOMPLETE" ]              && source $HOME/.local/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh 2>/dev/null                   && _LOADED_ZSH_AUTOCOMPLETE=1
     [ -z "$_LOADED_ZSH_SYNTAX_HIGHLIGHTING" ]       && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null                                && _LOADED_ZSH_SYNTAX_HIGHLIGHTING=1
@@ -21,7 +19,6 @@ case $_DISTRO in
     ## Debian has neither powerlevel10k, zsh-autocomplete, zsh-history-substring-search in the official repository.
     ;;
     *Gentoo*|*gentoo*)
-    [ -z "$_LOADED_ZSH_P10K" ]                      && source /usr/share/zsh/site-functions/powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null                           && _LOADED_ZSH_P10K=1
     [ -z "$_LOADED_ZSH_AUTOSUGGESTIONS" ]           && source /usr/share/zsh/site-functions/zsh-autosuggestions.zsh 2>/dev/null                                         && _LOADED_ZSH_AUTOSUGGESTIONS=1
     [ -z "$_LOADED_ZSH_AUTOCOMPLETE" ]              && source /usr/share/zsh/site-functions/zsh-autocomplete/zsh-autocomplete.plugin.zsh 2>/dev/null                    && _LOADED_ZSH_AUTOCOMPLETE=1
     [ -z "$_LOADED_ZSH_SYNTAX_HIGHLIGHTING" ]       && source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh 2>/dev/null                                     && _LOADED_ZSH_SYNTAX_HIGHLIGHTING=1
@@ -31,7 +28,6 @@ case $_DISTRO in
     *)
     # For other distributions, we use the plugins in the user's home directory. And we assume that the user has run the install script.
     # But you can change it to the system directory.
-    [ -z "$_LOADED_ZSH_P10K" ]                      && source $HOME/.local/share/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme 2>/dev/null                          && _LOADED_ZSH_P10K=1
     [ -z "$_LOADED_ZSH_AUTOSUGGESTIONS" ]           && source $HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null                    && _LOADED_ZSH_AUTOSUGGESTIONS=1
     [ -z "$_LOADED_ZSH_AUTOCOMPLETE" ]              && source $HOME/.local/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh 2>/dev/null                   && _LOADED_ZSH_AUTOCOMPLETE=1
     [ -z "$_LOADED_ZSH_SYNTAX_HIGHLIGHTING" ]       && source $HOME/.local/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null            && _LOADED_ZSH_SYNTAX_HIGHLIGHTING=1

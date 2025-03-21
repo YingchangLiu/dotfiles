@@ -17,9 +17,6 @@ export SHELLROOT="${DOTROOT}/shellrc"
 # Load common plugin
 [[ ! -f $SHELLROOT/commonplugin.sh ]] || source "$SHELLROOT/commonplugin.sh" #2>/dev/null
 
-# To customize prompt, run `p10k configure` or edit ~/dotfiles/shellrc/p10k.zsh.
-[[ ! -f $SHELLROOT/p10k.zsh ]] || source "$SHELLROOT/p10k.zsh" #2>/dev/null
-
 # Enable some plugins of zsh installed by kelen
 [[ ! -f $SHELLROOT/zshplugin.zsh ]] || source "$SHELLROOT/zshplugin.zsh" #2>/dev/null
 [[ ! -f $SHELLROOT/zshsetting.zsh ]] || source "$SHELLROOT/zshsetting.zsh" #2>/dev/null
@@ -32,3 +29,5 @@ export SHELLROOT="${DOTROOT}/shellrc"
 [ -f "$SHELLROOT/language.sh" ] && source "$SHELLROOT/language.sh"  #2>/dev/null
 
 [ -f "$SHELLROOT/custom.sh" ] && source "$SHELLROOT/custom.sh"  #2>/dev/null
+
+[ -f "$SHELLROOT/theme.sh" ] && source "$SHELLROOT/theme.sh"  #2>/dev/null
