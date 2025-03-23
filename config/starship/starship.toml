@@ -1,0 +1,33 @@
+# 根据 schema 提供自动补全
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# 在提示符之间插入空行
+add_newline = false
+
+# 将提示符中的 '❯' 替换为 '➜'
+[character] # 此组件名称为 'character'
+success_symbol = '[➜](bold green)' # 将 'success_symbol' 字段设置成颜色为 'bold green' 的 '➜'  
+
+# 禁用 'package' 组件，将其隐藏
+[package]
+disabled = true
+
+# ~/.config/starship.toml
+
+# Use custom format
+format = '$all$directory$character'
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 10
+
+# Disable the blank line at the start of the prompt
+add_newline = false
+
+# Set 'foo' as custom color palette
+palette = 'foo'
+
+# Define custom colors
+[palettes.foo]
+# Overwrite existing color
+blue = '21'
+# Define new color
+mustard = '#af8700'
