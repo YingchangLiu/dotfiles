@@ -6,6 +6,8 @@ app-shells/zsh-theme-powerlevel10k
 app-shells/zsh-completions 
 app-shells/zsh-autosuggestions
 
+app-shells/starship
+
 app-shells/thefuck
 app-portage/command-not-found
 app-shells/autojump

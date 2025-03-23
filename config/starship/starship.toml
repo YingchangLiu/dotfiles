@@ -35,10 +35,10 @@ $character"""
 
 right_format = """
 $hostname\
+$os\
 $localip\
 $conda\
 $memory_usage\
-$os\
 $nix_shell$container\
 $battery\
 $time"""
@@ -214,7 +214,7 @@ disabled = false
 [memory_usage]
 symbol = "󰍛 "
 #symbol = "▪▫▪ "
-format = " [$ram_pct]($style)"
+format = " [$symbol$ram_pct]($style)"
 disabled = false
 threshold = -1
 
