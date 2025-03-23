@@ -4,7 +4,8 @@
 # https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 
-_ZSH_THEME="p10k"
+#_ZSH_THEME="p10k"
+_ZSH_THEME="starship"
 _BASH_THEME="starship"
 
 
@@ -19,6 +20,9 @@ fi
 _DISTRO=$(get_distro)
 # 检测当前 shell
 _CURRENT_SHELL=$(ps -p $$ -o comm=)
+
+
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 
 # 如果是 bash，禁用 powerlevel10k，启用 starship
