@@ -30,7 +30,6 @@ $shell\
 $env_var\
 $jobs\
 $sudo\
-$line_break\
 $python\
 $character"""
 
