@@ -31,7 +31,6 @@ get_disk_usage() {
 
 # Function to get network usage
 get_network_usage() {
-  # 获取所有网络接口
   interfaces=$(ls /sys/class/net)
   for interface in $interfaces; do
     if [ -d "/sys/class/net/$interface/statistics" ]; then
@@ -59,6 +58,35 @@ display_headers() {
 # Main function to handle input arguments
 main() {
   interval=1
+  max_lines=5  
+  info_buffer=()  
+
+  clear
+  header=$(display_headers)
+  echo "$header"
+
+  while true; do
+    current_info=$(display_sysmon)
+
+    info_buffer+=("$current_info")
+
+    if (( ${#info_buffer[@]} > max_lines )); then
+      info_buffer=("${info_buffer[@]:1}")
+    fi
+
+    clear
+    echo "$header"
+    for info in "${info_buffer[@]}"; do
+      echo "$info"
+    done
+
+    sleep $interval
+  done
+}
+
+# Main function to handle input arguments
+old() {
+  interval=1
   count=0
   if [[ "$1" =~ ^-([0-9]+(\.[0-9]+)?)$ ]]; then
     interval=${BASH_REMATCH[1]}
@@ -75,5 +103,6 @@ main() {
     display_sysmon
   fi
 }
+
 
 main "$@"
