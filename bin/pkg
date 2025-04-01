@@ -16,6 +16,8 @@ _get_distro() {
 
 _DISTRO=$(_get_distro | tr '[:upper:]' '[:lower:]')
 
+# See https://wiki.archlinux.org/title/Pacman/Rosetta
+
 case $_DISTRO in
     *arch*)
         PKG_UPDATE='sudo pacman -Syy'
@@ -73,6 +75,10 @@ case $_DISTRO in
         ;;
 esac
 
+show_version() {
+    echo "pkg version 0.1.0"
+}
+
 show_help() {
     echo "Usage: pkg [command] [options]"
     echo ""
@@ -120,6 +126,10 @@ case $1 in
         ;;
     help|h)
         show_help
+        ;;
+    version|ver|v)
+        show_version
+        exit 0
         ;;
     *)
         echo "Unknown command: $1"
