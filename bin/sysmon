@@ -66,6 +66,14 @@ main() {
   echo "$header"
 
   while true; do
+
+    if read -t 0.1 -n 1 key; then
+      case "$key" in
+        q) break ;;
+        *) ;;
+      esac
+    fi
+
     current_info=$(display_sysmon)
 
     info_buffer+=("$current_info")
