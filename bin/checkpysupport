@@ -1,0 +1,90 @@
+#!/usr/bin/env python3
+
+# Modified from 樟木容 (https://space.bilibili.com/1850005175)
+# https://www.bilibili.com/video/BV1ZPVcz1Epw/
+# https://www.bilibili.com/opus/1062981590901063704
+
+import os
+import re
+import sys
+import logging
+from collections import defaultdict
+from typing import Dict, Set
+from gentoolkit.query import Query
+
+PKG_INFO_DIR = '/var/db/pkg'
+
+class PackageInfo:
+    def __init__(self):
+        self.deps: Set[str] = set()
+        self.version: Set[str] = set()
+
+def process_package_dependencies(package: str, package_dependency_dict: Dict[str, PackageInfo], added_packages: Set[str]) -> None:
+    query = Query(package)
+    for package_info in query.find_installed():
+        for depend_type, atoms in package_info.deps.get_depends().items():
+            for atom in atoms:
+                if atom.category == 'dev-python' and atom.atom not in added_packages:
+                    added_packages.add(atom.atom)
+                    for installed_package in Query(atom).find_installed():
+                        if installed_package.cpv not in added_packages:
+                            added_packages.add(installed_package.cpv)
+                            package_dependency_dict[installed_package.cpv].deps.add(package)
+                            package_dependency_dict[installed_package.cpv].version.update(package_dependency_dict[package].version)
+
+def main(new_python3_support: str = '13') -> None:
+    logging.basicConfig(level=logging.INFO)
+    max_line = 30
+    python_support_pattern = re.compile(r'PYTHON_COMPAT=\( python3_\{\d+\.\.(\d+)\} \)')
+    package_dependency_dict = defaultdict(PackageInfo)
+    depend_check_list = []
+
+    for category in os.listdir(PKG_INFO_DIR):
+        for package in os.listdir(os.path.join(PKG_INFO_DIR, category)):
+            package_dir = os.path.join(PKG_INFO_DIR, category, package)
+            package_use_path = os.path.join(package_dir, 'USE')
+            if not os.path.exists(package_use_path):
+                continue
+
+            with open(package_use_path) as f:
+                package_use = f.read()
+                if 'python_single_target' not in package_use and 'python_targets' not in package_use:
+                    continue
+
+            package_ebuild = os.path.join(package_dir, f'{package}.ebuild')
+            if not os.path.exists(package_ebuild):
+                continue
+
+            with open(package_ebuild, 'r') as f:
+                python_line, inherit_line = None, None
+                for read_line_no, line in enumerate(f, start=1):
+                    if line.startswith('PYTHON_COMPAT'):
+                        python_line = line
+                    elif line.startswith('inherit'):
+                        inherit_line = line
+                    if python_line and inherit_line:
+                        match = python_support_pattern.search(python_line)
+                        if match:
+                            python_version = match.group(1)
+                            if int(python_version) < int(new_python3_support):
+                                package_atom = f"{category}/{package}"
+                                depend_check_list.append(package_atom)
+                                package_dependency_dict[package_atom].version.add(python_version)
+                        break
+                    if read_line_no > max_line:
+                        break
+
+    added_packages = set(depend_check_list)
+    package_check_task = list(added_packages)
+
+    while package_check_task:
+        package = package_check_task.pop()
+        process_package_dependencies(package, package_dependency_dict, added_packages)
+
+    for package, package_info in package_dependency_dict.items():
+        if package_info.deps:
+            targets = (f'python_targets_python3_{version}' for version in package_info.version)
+            print(f'>={package} {" ".join(targets)}')
+
+if __name__ == '__main__':
+    main(*sys.argv[1:])
