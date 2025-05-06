@@ -28,6 +28,8 @@ case $_DISTRO in
         PKG_REMOVE='sudo pacman -Rns'
         PKG_SEARCH='sudo pacman -Ss'
         PKG_PROVIDER='sudo pacman -F'
+        PKG_BELONGS='sudo pacman -Qo'
+        PKG_FILELIST='sudo pacman -Ql'
         ;;
     *debian*|*ubuntu*)
         PKG_UPDATE='sudo apt update'
@@ -38,6 +40,8 @@ case $_DISTRO in
         PKG_REMOVE='sudo apt remove'
         PKG_SEARCH='sudo apt search'
         PKG_PROVIDER='sudo apt-file search'
+        PKG_BELONGS='dpkg -S'
+        PKG_FILELIST='dpkg -L'
         ;;
     *fedora*|*centos*)
         PKG_UPDATE='sudo dnf update'
@@ -47,7 +51,9 @@ case $_DISTRO in
         PKG_CLEANUP='sudo dnf autoremove'
         PKG_REMOVE='sudo dnf remove'
         PKG_SEARCH='sudo dnf search'
-        PKG_PROVIDER='sudo dnf provider'
+        PKG_PROVIDER='sudo dnf provides'
+        PKG_BELONGS='sudo dnf whatprovides'
+        PKG_FILELIST='sudo dnf repoquery --list'
         ;;
     *suse*)
         PKG_UPDATE='sudo zypper refresh'
@@ -57,7 +63,9 @@ case $_DISTRO in
         PKG_CLEANUP='sudo zypper clean'
         PKG_REMOVE='sudo zypper rm'
         PKG_SEARCH='sudo zypper search'
-        PKG_PROVIDER='sudo zypper what-provider'
+        PKG_PROVIDER='sudo zypper what-provides'
+        PKG_BELONGS='rpm -qf'
+        PKG_FILELIST='rpm -ql'
         ;;
     *gentoo*)
         PKG_UPDATE='sudo emerge --ask --sync'
@@ -68,6 +76,8 @@ case $_DISTRO in
         PKG_REMOVE='sudo emerge --ask --depclean --verbose'
         PKG_SEARCH='eix'
         PKG_PROVIDER='e-file'
+        PKG_BELONGS='equery belongs'
+        PKG_FILELIST='equery files'
         ;;
     *)
         echo "Unknown distribution: $_DISTRO"
@@ -91,6 +101,8 @@ show_help() {
     echo "  remove, rm, rem       Remove a package"
     echo "  search, se, srch      Search for a package"
     echo "  provider, prov, prv   Find which package provides a file"
+    echo "  belongs, belong, bel  Find which package a file belongs to"
+    echo "  filelist, flist, fl   List files in a package"
     echo "  help, h               Show this help message"
 }
 
@@ -124,6 +136,14 @@ case $1 in
         shift
         eval $PKG_PROVIDER "$@"
         ;;
+    belongs|belong|bel)
+        shift
+        eval $PKG_BELONGS "$@"
+        ;;
+    filelist|flist|fl)
+        shift
+        eval $PKG_FILELIST "$@"
+        ;;
     help|h)
         show_help
         ;;
@@ -132,7 +152,7 @@ case $1 in
         exit 0
         ;;
     *)
-        echo "Unknown command: $1"
+        echo "Unknown command: '$1'"
         show_help
         exit 1
         ;;
