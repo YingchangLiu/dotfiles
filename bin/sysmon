@@ -7,12 +7,12 @@ get_cpu_usage() {
   awk '{printf "%-6s", 100 - $1"%"}'
 }
 
-# Function to get memory usage
+# get memory usage
 get_mem_usage() {
   free -m | awk 'NR==2{printf "%-20s", $3 "/" $2 " MiB (" sprintf("%.1f", $3*100/$2) "%)"}'
 }
 
-# Function to get GPU usage, memory usage, and power usage
+# get GPU usage, memory usage, and power usage
 get_gpu_info() {
   if command -v nvidia-smi > /dev/null 2>&1; then
     nvidia-smi --query-gpu=utilization.gpu,memory.used,memory.total,power.draw,power.limit --format=csv,noheader,nounits | \
@@ -24,12 +24,12 @@ get_gpu_info() {
   fi
 }
 
-# Function to get disk usage
+# get disk usage
 get_disk_usage() {
   df -h | awk '$NF=="/"{printf "%-20s", $3 "/" $2 " (" $5 ")"}'
 }
 
-# Function to get network usage
+# get network usage
 get_network_usage() {
   interfaces=$(ls /sys/class/net)
   for interface in $interfaces; do
@@ -43,19 +43,18 @@ get_network_usage() {
   printf "%-10s %-10s" "N/A" "N/A"
 }
 
-# Function to display system monitor information
+# display system monitor information
 display_sysmon() {
   printf "%-20s | %-10s  %-25s | %-55s | %-20s | %-30s\n" \
     "$(date +"%Y-%m-%d %H:%M:%S")" "$(get_cpu_usage)" "$(get_mem_usage)" "$(get_gpu_info)" "$(get_disk_usage)" "$(get_network_usage)"
 }
 
-# Function to display headers
+# headers
 display_headers() {
   printf "%-20s | %-10s  %-25s | %-55s | %-20s | %-30s\n" \
     "Time" "CPU Util" "CPU Mem" "GPU Util   GPU Mem               GPU Power" "Disk Usage" "Net RX     Net TX"
 }
 
-# Main function to handle input arguments
 main() {
   interval=1
   max_lines=5  
@@ -90,26 +89,6 @@ main() {
 
     sleep $interval
   done
-}
-
-# Main function to handle input arguments
-old() {
-  interval=1
-  count=0
-  if [[ "$1" =~ ^-([0-9]+(\.[0-9]+)?)$ ]]; then
-    interval=${BASH_REMATCH[1]}
-    while true; do
-      if (( count % 10 == 0 )); then
-        display_headers
-      fi
-      display_sysmon
-      sleep $interval
-      ((count++))
-    done
-  else
-    display_headers
-    display_sysmon
-  fi
 }
 
 
