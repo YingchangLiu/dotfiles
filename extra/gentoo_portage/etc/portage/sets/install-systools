@@ -23,6 +23,9 @@ net-misc/chrony
 ## Shell completion
 app-shells/bash-completion
 
+## GIT 
+dev-vcs/git
+
 ## Editor
 app-editors/vim
 

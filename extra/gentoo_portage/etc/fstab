@@ -21,23 +21,25 @@
 #/dev/cdrom		/mnt/cdrom	auto		noauto,ro	0 0
 
 
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
 # /dev/nvme0n1p7
-UUID=83fb1497-940d-4492-b317-b33e34ed6191	/         	xfs       	rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota	0 1
+UUID=0d877069-9300-4ceb-89d2-8bd7ddef094b	/         	xfs       	rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota	0 1
 
-# /dev/nvme0n1p3
-UUID=C692-9279      	/efi      	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,errors=remount-ro	0 2
+# /dev/nvme0n1p1 LABEL=SYSTEM
+UUID=CA2D-3079      	/efi      	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro	0 2
 
-# /dev/sda7
-UUID=09ce8ba7-09c6-494d-a7f4-314508f55a56	/home     	ext4      	rw,relatime	0 2
+# /dev/nvme1n1p7
+UUID=fddd187c-68e1-4df4-8c62-fb68a8cde770	/home     	ext4      	rw,relatime	0 2
 
-# /dev/nvme0n1p6
-UUID=325bf59f-8acd-4b5c-880c-0deec179ea62	none      	swap      	defaults  	0 0
+# /dev/nvme1n1p5 LABEL=data
+UUID=8CD585D197A0F3D9	/mnt/data 	ntfs3     	rw,relatime,uid=0,gid=0,iocharset=utf8	0 0
 
-# /dev/sda6
-UUID=7126f65e-bfc2-45f0-9475-7746d9a5e91d	none      	swap      	defaults  	0 0
+# /dev/nvme1n1p6
+UUID=8ae75374-7df3-4455-860e-fa5263bb7d50	none      	swap      	defaults  	0 0
 
-# /dev/sda5 LABEL=data
-# UUID=0B3B598EFF99B782	/mnt/data 		ntfs3     	rw,relatime,uid=0,gid=0,iocharset=utf8		0 0
-UUID=0B3B598EFF99B782	/mnt/data 		ntfs3     	rw,relatime,uid=1000,gid=1000,iocharset=utf8		0 0
-
-tmpfs			/var/tmp/portage 	tmpfs		size=8G,uid=portage,gid=portage,mode=775	0 0

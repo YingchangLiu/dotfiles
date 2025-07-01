@@ -1,0 +1,4 @@
+sys-kernel/linux-firmware
+# sys-firmware/sof-firmware
+# sys-firmware/intel-microcode
+sys-kernel/gentoo-kernel-bin

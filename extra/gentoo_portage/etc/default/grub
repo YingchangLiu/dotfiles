@@ -13,19 +13,17 @@ GRUB_DISTRIBUTOR="Gentoo"
 # Default menu entry
 #GRUB_DEFAULT=0
 
-# Use the last selected entry as the default entry
 GRUB_DEFAULT=saved
-# Save the last selected entry
+
 GRUB_SAVEDEFAULT=true
-# Disable submenus for simplicity
-#GRUB_DISABLE_SUBMENU=y
+
 
 # Boot the default entry this many seconds after the menu is displayed
 #GRUB_TIMEOUT=5
 #GRUB_TIMEOUT_STYLE=menu
 
 # Append parameters to the linux kernel command line
-#GRUB_CMDLINE_LINUX=""
+GRUB_CMDLINE_LINUX=""
 #
 # Examples:
 #
@@ -36,7 +34,8 @@ GRUB_SAVEDEFAULT=true
 # GRUB_CMDLINE_LINUX="init=/usr/lib/systemd/systemd"
 
 # Append parameters to the linux kernel command line for non-recovery entries
-#GRUB_CMDLINE_LINUX_DEFAULT=""
+#GRUB_CMDLINE_LINUX_DEFAULT="nvidia nvidia_modeset nvidia_uvm nvidia_drm nvidia-drm.modeset=1"
+GRUB_CMDLINE_LINUX_DEFAULT="nvidia-drm.modeset=1"
 
 # Uncomment to disable graphical terminal (grub-pc only)
 #GRUB_TERMINAL=console
@@ -81,6 +80,5 @@ GRUB_DISABLE_LINUX_PARTUUID=false
 # This is useful, for example, to allow users who can't see the screen
 # to know when they can make a choice on the menu.
 #GRUB_INIT_TUNE="60 800 1"
-
+#
 GRUB_DISABLE_OS_PROBER=false
-

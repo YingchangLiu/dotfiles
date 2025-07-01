@@ -1,11 +1,7 @@
 app-admin/needrestart
 app-admin/sysstat
 
-app-backup/timeshift
-
 app-i18n/fcitx-chinese-addons
 app-i18n/fcitx-configtool:5
-
-dev-vcs/git
 
 net-firewall/ufw

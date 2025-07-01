@@ -1,0 +1,4 @@
+app-shells/zsh-autocomplete
+app-shells/zsh-history-substring-search
+app-shells/zsh-theme-powerlevel10k
+app-shells/zsh-autosuggestions

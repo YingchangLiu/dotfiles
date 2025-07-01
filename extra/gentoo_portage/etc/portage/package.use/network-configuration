@@ -2,4 +2,4 @@
 net-wireless/wpa_supplicant tkip
 
 
-net-misc/networkmanager iwd
+#net-misc/networkmanager iwd

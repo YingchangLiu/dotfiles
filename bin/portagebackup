@@ -7,5 +7,9 @@ rsync -av --delete /var/lib/portage/world* ${DOTROOT}/extra/gentoo_portage/var/l
 rsync -av --delete /etc/fstab ${DOTROOT}/extra/gentoo_portage/etc/
 rsync -av --delete /etc/default/grub ${DOTROOT}/extra/gentoo_portage/etc/default/
 
+# display manager 
+rsync -av --delete /etc/sddm.conf.d/override.conf  ${DOTROOT}/extra/gentoo_portage/etc/sddm.conf.d/
+rsync -av --delete /etc/conf.d/display-manager ${DOTROOT}/extra/gentoo_portage/etc/conf.d/
+
 
 echo "Portage configuration backed up to ${DOTROOT}/extra/gentoo_portage"
