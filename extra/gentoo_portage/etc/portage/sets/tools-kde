@@ -1,6 +1,8 @@
 kde-plasma/plasma-meta
 kde-plasma/plasma-firewall
 
+kde-plasma/sddm-kcm
+
 kde-apps/ark
 kde-apps/konsole
 kde-apps/dolphin 
