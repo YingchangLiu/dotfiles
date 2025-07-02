@@ -19,8 +19,6 @@
 #UUID=58e72203-57d1-4497-81ad-97655bd56494		/		xfs		defaults		0 1
 #LABEL=swap		none		swap		sw		0 0
 #/dev/cdrom		/mnt/cdrom	auto		noauto,ro	0 0
-
-
 # /etc/fstab: static file system information.
 #
 # Use 'blkid' to print the universally unique identifier for a
@@ -29,17 +27,20 @@
 #
 # <file system> <mount point>   <type>  <options>       <dump>  <pass>
 # /dev/nvme0n1p7
-UUID=0d877069-9300-4ceb-89d2-8bd7ddef094b	/         	xfs       	rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota	0 1
+UUID=086347dc-5408-47ca-9b02-2a3338521708	/         	xfs       	rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota	0 1
+
+# /dev/nvme1n1p1 LABEL=ISO
+UUID=8AE0DAFCE0DAED87	/mnt/iso  	ntfs3     	rw,relatime,uid=0,gid=0,iocharset=utf8	0 0
 
 # /dev/nvme0n1p1 LABEL=SYSTEM
 UUID=CA2D-3079      	/efi      	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro	0 2
 
-# /dev/nvme1n1p7
-UUID=fddd187c-68e1-4df4-8c62-fb68a8cde770	/home     	ext4      	rw,relatime	0 2
-
-# /dev/nvme1n1p5 LABEL=data
+# /dev/nvme1n1p3 LABEL=data
 UUID=8CD585D197A0F3D9	/mnt/data 	ntfs3     	rw,relatime,uid=0,gid=0,iocharset=utf8	0 0
 
-# /dev/nvme1n1p6
-UUID=8ae75374-7df3-4455-860e-fa5263bb7d50	none      	swap      	defaults  	0 0
+# /dev/nvme1n1p5
+UUID=26beef50-7729-4310-8a6c-7a1b9d543b83	/home     	ext4      	rw,relatime	0 2
+
+# /dev/nvme1n1p4
+UUID=5a544e9a-d4ab-4b45-82b2-51d076bd99df	none      	swap      	defaults  	0 0
 
