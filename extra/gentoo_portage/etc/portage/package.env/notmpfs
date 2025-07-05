@@ -1,3 +1,4 @@
+app-emulation/qemu-kvm 		notmpfs.conf
 app-office/libreoffice		notmpfs.conf
 dev-lang/ghc			notmpfs.conf
 dev-lang/mono			notmpfs.conf

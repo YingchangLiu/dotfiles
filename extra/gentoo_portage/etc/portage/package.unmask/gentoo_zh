@@ -1,3 +1,24 @@
-virtual/v2ray*::gentoo-zh
-sys-apps/pacman::gentoo-zh
+#virtual/v2ray*::gentoo-zh
+#sys-apps/pacman::gentoo-zh
 
+net-proxy/mihomo-party-bin::gentoo-zh
+net-proxy/clash-verge-bin::gentoo-zh
+
+app-office/wps-office::gentoo-zh
+x11-misc/flatpak-xdg-utils::gentoo-zh
+app-shells/gitstatus::gentoo-zh
+dev-libs/v2ray-domain-list-community-bin::gentoo-zh
+media-sound/qqmusic-::gentoo-zh
+app-alternatives/v2ray-geoip::gentoo-zh
+dev-libs/v2ray-geoip-bin::gentoo-zh
+net-proxy/v2rayA::gentoo-zh
+net-proxy/v2ray-bin::gentoo-zh
+app-alternatives/v2ray-geosite::gentoo-zh
+net-im/wechat-universal-bwrap::gentoo-zh
+media-libs/openslide::gentoo-zh
+net-im/tencent-qq::gentoo-zh
+app-shells/zsh-theme-powerlevel10k::gentoo-zh
+
+virtual/v2ray-domain-list-community::gentoo-zh
+media-sound/qqmusic::gentoo-zh
+virtual/v2ray-geoip::gentoo-zh

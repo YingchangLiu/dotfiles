@@ -1,4 +1,6 @@
-net-proxy/clash-verge-bin
+#net-proxy/clash-verge-bin
 #net-proxy/mihomo
-#net-proxy/v2ray-bin
-#net-proxy/v2rayA
+net-proxy/v2ray-bin
+net-proxy/v2rayA
+net-proxy/mihomo-party-bin
+net-proxy/nekoray

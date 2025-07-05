@@ -11,3 +11,17 @@ virtual/v2ray-domain-list-community ~amd64
 net-proxy/clash-verge-bin ~amd64
 net-proxy/mihomo ~amd64
 
+# required by @thirdparty-proxy
+# required by @selected
+# required by @world (argument)
+net-proxy/nekoray ~amd64
+# required by @thirdparty-proxy
+# required by @selected
+# required by @world (argument)
+net-proxy/mihomo-party-bin ~amd64
+# required by net-proxy/nekoray-4.3.5-r1::guru
+# required by @thirdparty-proxy
+# required by @selected
+# required by @world (argument)
+dev-libs/qhotkey ~amd64
+

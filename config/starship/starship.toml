@@ -323,8 +323,9 @@ symbol = " "
 [sudo]
 format = "[$symbol]($style)"
 style = "bold italic bright-purple"
-symbol = "⋈┈"
-disabled = false
+#symbol = "⋈┈"
+symbol = "🧙"
+disabled = true
 
 [swift]
 symbol = " "
