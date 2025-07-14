@@ -1,0 +1,4 @@
+app-emulation/qemu
+app-emulation/virt-manager
+#app-emulation/libvirt
+

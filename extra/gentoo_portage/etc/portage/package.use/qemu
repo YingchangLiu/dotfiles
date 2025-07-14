@@ -1,0 +1,10 @@
+app-emulation/qemu QEMU_SOFTMMU_TARGETS: arm x86_64 sparc QEMU_USER_TARGETS: x86_64
+
+# The traditional USE flag syntax:
+# app-emulation/qemu qemu_softmmu_targets_arm qemu_softmmu_targets_x86_64 qemu_softmmu_targets_sparc
+# app-emulation/qemu qemu_user_targets_x86_64
+
+app-emulation/qemu usbredir spice
+
+app-emulation/libvirt pcap virt-network numa fuse macvtap vepa qemu
+
