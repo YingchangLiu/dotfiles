@@ -5,3 +5,4 @@ app-shells/zsh-autosuggestions::guru
 media-fonts/nerdfonts::guru
 net-proxy/nekoray::guru
 app-backup/timeshift::guru
+dev-cpp/fkYAML::guru # for nekoray

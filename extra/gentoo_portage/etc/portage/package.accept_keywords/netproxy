@@ -15,6 +15,7 @@ net-proxy/mihomo ~amd64
 # required by @selected
 # required by @world (argument)
 net-proxy/nekoray ~amd64
+dev-cpp/fkYAML ~amd64
 # required by @thirdparty-proxy
 # required by @selected
 # required by @world (argument)
