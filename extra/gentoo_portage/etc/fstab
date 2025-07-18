@@ -44,3 +44,5 @@ UUID=26beef50-7729-4310-8a6c-7a1b9d543b83	/home     	ext4      	rw,relatime	0 2
 # /dev/nvme1n1p4
 UUID=5a544e9a-d4ab-4b45-82b2-51d076bd99df	none      	swap      	defaults  	0 0
 
+# tmpfs
+tmpfs			/tmp		tmpfs		rw,nosuid,nodev,size=8G,mode=1777	0 0
