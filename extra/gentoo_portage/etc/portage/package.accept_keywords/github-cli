@@ -1,0 +1,5 @@
+# required by @tools-shell
+# required by @selected
+# required by @world (argument)
+dev-util/github-cli ~amd64
+

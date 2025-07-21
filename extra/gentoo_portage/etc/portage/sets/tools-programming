@@ -3,3 +3,4 @@ dev-util/nvidia-cuda-toolkit
 sys-devel/gcc:11
 sys-cluster/mpich
 dev-lang/julia-bin
+
