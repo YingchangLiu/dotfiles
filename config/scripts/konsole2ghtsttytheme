@@ -1,0 +1,51 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <konsole-theme-file>"
+    exit 1
+fi
+
+input_file="$1"
+output_file="$(basename "${input_file%.*}")"
+
+rgb_to_hex() {
+    local r=$1
+    local g=$2
+    local b=$3
+    printf "#%02x%02x%02x" $r $g $b
+}
+
+get_color() {
+    local section=$1
+    local value=$(grep -A 1 "^\[$section\]" "$input_file" | grep "Color=" | cut -d'=' -f2)
+    if [ -n "$value" ]; then
+        local r=$(echo $value | cut -d',' -f1)
+        local g=$(echo $value | cut -d',' -f2)
+        local b=$(echo $value | cut -d',' -f3)
+        rgb_to_hex $r $g $b
+    fi
+}
+
+{
+    for i in $(seq 0 7); do
+        color=$(get_color "Color$i")
+        [ -n "$color" ] && echo "palette = $i=$color"
+    done
+    
+    for i in $(seq 0 7); do
+        color=$(get_color "Color${i}Intense")
+        j=$((i + 8))
+        [ -n "$color" ] && echo "palette = $j=$color"
+    done
+    
+    background=$(get_color "Background")
+    foreground=$(get_color "Foreground")
+    [ -n "$background" ] && echo "background = $background"
+    [ -n "$foreground" ] && echo "foreground = $foreground"
+    [ -n "$foreground" ] && echo "cursor-color = $foreground"
+    [ -n "$foreground" ] && echo "selection-background = $foreground"
+    [ -n "$background" ] && echo "selection-foreground = $background"
+} > "$output_file"
+
+echo "Conversion completed. Output saved to: $output_file"
+

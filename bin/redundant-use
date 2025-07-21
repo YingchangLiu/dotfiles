@@ -1,0 +1,129 @@
+#!/bin/bash
+#
+# Prints diagnostics pertaining to redundant USE flags specified in
+# /etc/portage/make.conf and /etc/portage/package.use/*.
+
+shopt -s nullglob
+
+# . "$(dirname -- "$(readlink -e -- "${0}")")"/portage-utils.bash
+ . "$(dirname -- "$(dirname -- "$(readlink -e -- "${0}")")")/shellrc/functions.sh.d/portage-utils.bash"
+grep_non_comments() {
+	grep --no-filename --dereference-recursive '^[[:space:]]*[^#[:space:]]' -- "${@}"
+}
+
+# gather profile-default global USE flags
+accumulate PROFILE_USE $(
+	while read -r file ; do
+		( unset USE ; . "${file}" ; echo "${USE}" )
+	done <<< "$(collect_profile_files make.defaults)"
+)
+
+# gather profile-forced global USE flags
+accumulate FORCED_USE $(
+	mapfile -t files <<< "$(collect_profile_files use{,.stable}.force)"
+	grep_non_comments "${files[@]}"
+)
+
+# gather profile-masked global USE flags
+accumulate MASKED_USE $(
+	mapfile -t files <<< "$(collect_profile_files use{,.stable}.mask)"
+	grep_non_comments "${files[@]}"
+)
+
+# gather and check configured global USE flags
+accumulate GLOBAL_USE $(
+	for file in "${PORTAGE_CONFIGROOT}/etc/portage/make."{globals,conf}{,/*} ; do
+		[[ -f ${file} ]] && (
+			echo "${file}:" >&2
+			unset USE ; . "${file}" ; echo "${USE}"
+			unset _USE ; accumulate _USE ${USE}
+			for flag in ${!_USE[@]} ; do
+				if (( _USE[${flag}] )) ; then
+					(( !PROFILE_USE[${flag}] )) || echo "  redundant USE=\"${flag}\" (profile default)"
+					(( !FORCED_USE[${flag}] )) || echo "  redundant USE=\"${flag}\" (forced by profile)"
+					(( !MASKED_USE[${flag}] )) || echo "  defunct USE=\"${flag}\" (masked by profile)"
+				else
+					(( !FORCED_USE[${flag}] )) || echo "  defunct USE=\"-${flag}\" (forced by profile)"
+					(( !MASKED_USE[${flag}] )) || echo "  redundant USE=\"-${flag}\" (masked by profile)"
+				fi
+			done >&2
+		)
+	done
+) 2>&1
+
+# gather profile-default per-package USE flags
+declare -A PKGS_PROFILE_USE
+while read -r atom use ; do
+	split_atom "${atom}"
+	PKGS_PROFILE_USE[${CATEGORY}/${PN}]+="${atom} ${use}"$'\n'
+done <<< "$(
+	mapfile -t files <<< "$(collect_profile_files package.use)"
+	grep_non_comments "${files[@]}"
+)"
+
+# gather profile-forced per-package USE flags
+declare -A PKGS_FORCED_USE
+while read -r atom use ; do
+	split_atom "${atom}"
+	PKGS_FORCED_USE[${CATEGORY}/${PN}]+="${atom} ${use}"$'\n'
+done <<< "$(
+	mapfile -t files <<< "$(collect_profile_files package.use{,.stable}.force)"
+	grep_non_comments "${files[@]}"
+)"
+
+# gather profile-masked per-package USE flags
+declare -A PKGS_MASKED_USE
+while read -r atom use ; do
+	split_atom "${atom}"
+	PKGS_MASKED_USE[${CATEGORY}/${PN}]+="${atom} ${use}"$'\n'
+done <<< "$(
+	mapfile -t files <<< "$(collect_profile_files package.use{,.stable}.mask)"
+	grep_non_comments "${files[@]}"
+)"
+
+# check configured per-package USE flags
+for file in "${PORTAGE_CONFIGROOT%/}/etc/portage/package.use"{,/*} ; do
+	if [[ -f ${file} ]] ; then
+		echo "${file}:"
+		unset PKGS_ALREADY_USE ; declare -A PKGS_ALREADY_USE
+		grep_non_comments "${file}" | while read -r atom use ; do
+			split_atom "${atom}"
+			unset PKG_PROFILE_USE PKG_FORCED_USE PKG_MASKED_USE PKG_ALREADY_USE PKG_USE
+			declare -A PKG_PROFILE_USE PKG_FORCED_USE PKG_MASKED_USE PKG_ALREADY_USE PKG_USE
+			while read -r atom1 use1 ; do
+				[[ ${atom1} ]] && atom_matches "${atom1}" "${atom}" && accumulate PKG_PROFILE_USE ${use1}
+			done <<< "${PKGS_PROFILE_USE[${CATEGORY}/${PN}]}"
+			while read -r atom1 use1 ; do
+				[[ ${atom1} ]] && atom_matches "${atom1}" "${atom}" && accumulate PKG_FORCED_USE ${use1}
+			done <<< "${PKGS_FORCED_USE[${CATEGORY}/${PN}]}"
+			while read -r atom1 use1 ; do
+				[[ ${atom1} ]] && atom_matches "${atom1}" "${atom}" && accumulate PKG_MASKED_USE ${use1}
+			done <<< "${PKGS_MASKED_USE[${CATEGORY}/${PN}]}"
+			while read -r atom1 use1 ; do
+				[[ ${atom1} ]] && atom_matches "${atom1}" "${atom}" && accumulate PKG_ALREADY_USE ${use1}
+			done <<< "${PKGS_ALREADY_USE[${CATEGORY}/${PN}]}"
+			accumulate PKG_USE ${use}
+			for flag in "${!PKG_USE[@]}" ; do
+				if (( PKG_USE[${flag}] )) ; then
+					if [[ ${PKG_ALREADY_USE[${flag}]} ]] ; then
+						(( !PKG_ALREADY_USE[${flag}] )) || echo "  [${atom}] redundant USE=\"${flag}\" (already enabled by this file)"
+					else
+						(( !GLOBAL_USE[${flag}] )) || echo "  [${atom}] redundant USE=\"${flag}\" (enabled globally)"
+						(( !PROFILE_USE[${flag}] )) || [[ ${GLOBAL_USE[${flag}]} == 0 ]] || echo "  [${atom}] redundant USE=\"${flag}\" (profile default)"
+						(( !FORCED_USE[${flag}] && !PKG_FORCED_USE[${flag}] )) || echo "  [${atom}] redundant USE=\"${flag}\" (forced by profile)"
+						(( !MASKED_USE[${flag}] && !PKG_MASKED_USE[${flag}] )) || echo "  [${atom}] defunct USE=\"${flag}\" (masked by profile)"
+					fi
+				else
+					if [[ ${PKG_ALREADY_USE[${flag}]} ]] ; then
+						(( PKG_ALREADY_USE[${flag}] )) || echo "  [${atom}] redundant USE=\"-${flag}\" (already disabled by this file)"
+					else
+						[[ ${GLOBAL_USE[${flag}]} != 0 ]] || echo "  [${atom}] redundant USE=\"-${flag}\" (disabled globally)"
+						(( !FORCED_USE[${flag}] && !PKG_FORCED_USE[${flag}] )) || echo "  [${atom}] defunct USE=\"-${flag}\" (forced by profile)"
+						(( !MASKED_USE[${flag}] && !PKG_MASKED_USE[${flag}] )) || echo "  [${atom}] redundant USE=\"-${flag}\" (masked by profile)"
+					fi
+				fi
+			done
+			PKGS_ALREADY_USE[${CATEGORY}/${PN}]+="${atom} ${use}"$'\n'
+		done
+	fi
+done
