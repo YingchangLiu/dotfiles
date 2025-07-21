@@ -12,3 +12,6 @@ case $_DISTRO in
     [ -z "$_LOADED_GENTOO_COMMAND_NOT_FOUND" ] && source /etc/bash/bashrc.d/command-not-found.sh 2>/dev/null && _LOADED_GENTOO_COMMAND_NOT_FOUND=1
     ;;
 esac
+
+# Enable X-cmd plugin
+[ -z "$LOADED_XCMD_PLUGIN"] &&  [ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" 2>/dev/null  && _LOADED_XCMD_PLUGIN=1    # boot up x-cmd.
