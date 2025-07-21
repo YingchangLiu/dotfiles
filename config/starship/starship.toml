@@ -142,7 +142,7 @@ symbol = " "
 
 [git_branch]
 symbol = " "
-format = "[$branch]($style)"
+format = "[ $branch]($style)"
 style = "bright-black"
 
 [git_commit]

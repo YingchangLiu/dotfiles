@@ -4,3 +4,4 @@ sys-devel/gcc:11
 sys-cluster/mpich
 dev-lang/julia-bin
 
+dev-util/codeblocks

@@ -42,7 +42,37 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
+# The syntax is "key = value". The whitespace around the
+# equals doesn't matter.
+background = 282c34
+foreground = ffffff
+
+
+
 theme = tokyonight
 #theme = Breath
 
 gtk-titlebar = false
+
+
+# Comments start with a `#` and are only valid on their own line.
+# Blank lines are ignored!
+
+keybind = ctrl+z=close_surface
+keybind = ctrl+d=new_split:right
+
+# Empty values reset the configuration to the default value
+font-family =
+font-family = "Hack"
+
+font-size = 11
+
+shell-integration-features = no-cursor
+cursor-style = block
+adjust-cell-width = 1
+adjust-cell-height = 1
+
+mouse-hide-while-typing = true
+
+background-opacity = 0.7
+background-blur = 1
