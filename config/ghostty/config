@@ -44,8 +44,8 @@
 
 # The syntax is "key = value". The whitespace around the
 # equals doesn't matter.
-background = 282c34
-foreground = ffffff
+#background = 282c34
+#foreground = ffffff
 
 
 
@@ -74,5 +74,5 @@ adjust-cell-height = 1
 
 mouse-hide-while-typing = true
 
-background-opacity = 0.8
+background-opacity = 0.9
 background-blur = 1

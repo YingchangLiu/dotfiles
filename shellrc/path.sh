@@ -1,7 +1,16 @@
 ##  add directories to PATH.
 
+
+## My own programs
+# export OPTROOT='/opt'
+export OPTROOT=$HOME/opt
+
+
 ## Load madagascar environment
 [ -z "$_LOADED_RSF_ENV" ] && source $RSFROOT/share/madagascar/etc/env.sh 2>/dev/null && export _LOADED_RSF_ENV=1
+
+
+export MAMBA_ROOT_PREFIX="${MAMBA_ROOT_PREFIX:-${OPTROOT}/miniforge3}"
 
 ## Enable conda in command line
 set_conda_env() {
@@ -40,9 +49,6 @@ set_ld_library_path /usr/local/cuda/lib64 /usr/local/cuda/extras/CUPTI/lib64
 set_path /usr/local/cuda/bin
 
 
-## My own programs
-# export OPTROOT='/opt'
-export OPTROOT=$HOME/opt
 
 export RSFROOT="${RSFROOT:-${OPTROOT}/ahay}"
 export CWPROOT="${CWPROOT:-${OPTROOT}/seisunix}"
