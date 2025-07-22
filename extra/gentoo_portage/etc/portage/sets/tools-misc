@@ -14,4 +14,5 @@ www-client/microsoft-edge
 
 dev-util/github-cli
 x11-terms/ghostty
+x11-terms/kitty
 app-misc/byobu ## app-misc/tmux will be installed togather with byobu

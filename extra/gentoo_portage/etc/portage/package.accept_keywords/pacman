@@ -1,6 +1,0 @@
-# required by sys-apps/pacman-7.0.0::gentoo-zh
-# required by pacman (argument)
-=app-crypt/archlinux-keyring-20240208-r1 ~amd64
-# required by pacman (argument)
-=sys-apps/pacman-7.0.0 ~amd64
-
