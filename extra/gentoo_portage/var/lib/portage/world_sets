@@ -1,3 +1,5 @@
+@deps-madagascar
+@deps-seisunix
 @install-kernel
 @install-systools
 @thirdparty-backup
