@@ -3,6 +3,9 @@ app-shells/zsh-autocomplete::guru
 app-shells/zsh-history-substring-search::guru
 app-shells/zsh-autosuggestions::guru
 media-fonts/nerdfonts::guru
-net-proxy/nekoray::guru
+# Move net-proxy/nekoray::guru to Throne
+net-proxy/Throne::guru
+dev-go/protorpc::guru # for nekoray
 app-backup/timeshift::guru
 dev-cpp/fkYAML::guru # for nekoray
+gnome-extra/yad::guru # for winapps

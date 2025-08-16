@@ -22,3 +22,5 @@ app-shells/zsh-theme-powerlevel10k::gentoo-zh
 virtual/v2ray-domain-list-community::gentoo-zh
 media-sound/qqmusic::gentoo-zh
 virtual/v2ray-geoip::gentoo-zh
+
+sys-power/tlpui::gentoo-zh

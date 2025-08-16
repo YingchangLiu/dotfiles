@@ -1,0 +1,7 @@
+net-misc/curl
+dev-util/dialog
+net-misc/freerdp:3
+dev-vcs/git
+sys-apps/iproute2
+x11-libs/libnotify
+net-analyzer/openbsd-netcat

@@ -3,4 +3,5 @@
 net-proxy/v2ray-bin
 net-proxy/v2rayA
 net-proxy/mihomo-party-bin
-net-proxy/nekoray
+# move net-proxy/nekoray net-proxy/Throne
+net-proxy/Throne

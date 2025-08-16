@@ -1,5 +1,6 @@
 @deps-madagascar
 @deps-seisunix
+@deps-winapps
 @install-kernel
 @install-systools
 @thirdparty-backup
@@ -14,6 +15,7 @@
 @tools-media
 @tools-misc
 @tools-portage
+@tools-powermanagement
 @tools-programming
 @tools-shell
 @tools-system

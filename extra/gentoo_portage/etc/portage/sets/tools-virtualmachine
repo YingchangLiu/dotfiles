@@ -1,4 +1,8 @@
 app-emulation/qemu
 app-emulation/virt-manager
 #app-emulation/libvirt
+app-emulation/qemu-guest-agent
+app-emulation/spice-vdagent
+
+gnome-extra/yad # for winapps
 

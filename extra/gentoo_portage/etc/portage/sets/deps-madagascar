@@ -5,6 +5,7 @@ media-libs/gd
 sci-libs/plplot
 sci-libs/lapack
 dev-build/scons
+dev-lang/swig
 dev-python/numpy
 sci-libs/fftw
 sci-libs/suitesparse

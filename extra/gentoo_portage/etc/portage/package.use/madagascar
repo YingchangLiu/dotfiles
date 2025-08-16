@@ -1,0 +1,3 @@
+#sci-libs/cholmod lapack
+#sci-libs/suitesparse lapack
+#sci-libs/suitesparseconfig static-libs

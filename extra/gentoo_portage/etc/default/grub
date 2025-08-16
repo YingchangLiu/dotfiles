@@ -36,6 +36,7 @@ GRUB_CMDLINE_LINUX=""
 # Append parameters to the linux kernel command line for non-recovery entries
 #GRUB_CMDLINE_LINUX_DEFAULT="nvidia nvidia_modeset nvidia_uvm nvidia_drm nvidia-drm.modeset=1"
 #GRUB_CMDLINE_LINUX_DEFAULT="nvidia-drm.modeset=1 nvidia-drm.fbdev=1"
+#GRUB_CMDLINE_LINUX_DEFAULT="nvidia-drm.modeset=1 iommu=pt intel_iommu=on pcie_acs_override=downstream,multifunction"
 GRUB_CMDLINE_LINUX_DEFAULT="nvidia-drm.modeset=1"
 
 # Uncomment to disable graphical terminal (grub-pc only)
