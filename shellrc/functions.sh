@@ -1,10 +1,10 @@
 # automatically load functions from functions.sh.d directory
-_fsh_dir="$(dirname "${BASH_SOURCE[0]}")/functions.sh.d"
-if [[ -d $_fsh_dir ]]; then
-  for f in "$_fsh_dir"/*.sh; do
-    [[ -r "$f" ]] && source "$f"
-  done
-fi
+# _fsh_dir="$(dirname "${BASH_SOURCE[0]}")/functions.sh.d"
+# if [[ -d $_fsh_dir ]]; then
+#   for f in "$_fsh_dir"/*.sh; do
+#     [[ -r "$f" ]] && source "$f"
+#   done
+# fi
 
 # Function to display help information
 show_funcs() {

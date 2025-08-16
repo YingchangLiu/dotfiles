@@ -217,4 +217,18 @@ if [ -n "$_LOADED_ZSH_AUTOCOMPLETE" ]; then
   # Override for history menu only
   zstyle ':autocomplete:history-search-backward:*' list-lines 2000
 
+ # wait
+  zstyle ':autocomplete:*' delay 0.2
+
+  # time out
+  zstyle ':autocomplete:*' timeout 2.0
+
+  # stop completions with ...
+  zstyle ':autocomplete:*' ignored-input 'pip3##'
+
 fi
+
+export ZSH_AUTOSUGGEST_COMPLETION_IGNORE=("pip3 *")
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20 
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan'

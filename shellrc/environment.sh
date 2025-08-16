@@ -6,6 +6,14 @@ export EDITOR='vim'
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
+[[ -z "${LD_PRELOAD}" ]] && \
+export LD_PRELOAD="$(
+    [[ -f "/usr/lib/libstdc++.so" ]] && echo "/usr/lib/libstdc++.so" || \
+    [[ -f "/usr/lib/gcc/x86_64-pc-linux-gnu/14/libstdc++.so" ]] && echo "/usr/lib/gcc/x86_64-pc-linux-gnu/14/libstdc++.so" || \
+    echo ""
+)"
+
+#export CUDAFLAGS="-x cu --compiler-bindir=/usr/x86_64-pc-linux-gnu/gcc-bin/11/ -ccbin=/usr/bin/g++-11"
 
 export NNN_FIFO=/tmp/nnn.fifo
 export TMPDIR=/tmp
@@ -17,6 +25,7 @@ NNN_PLUG_INLINE='E:!go run "$nnn"*'
 NNN_PLUG="$NNN_PLUG_DEFAULT;$NNN_PLUG_INLINE"
 export NNN_PLUG
 
+export LIBVIRT_DEFAULT_URI="qemu:///system"
 
 
 ## Input method
