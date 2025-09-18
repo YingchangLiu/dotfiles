@@ -5,3 +5,8 @@ app-i18n/fcitx-qt ~amd64
 app-i18n/fcitx-chinese-addons ~amd64
 app-i18n/libime ~amd64
 x11-libs/xcb-imdkit ~amd64
+
+app-dicts/fcitx-pinyin-* ~amd64
+app-text/imewlconverter ~amd64
+dev-python/mw2fcitx ~amd64
+dev-python/pypinyin ~amd64

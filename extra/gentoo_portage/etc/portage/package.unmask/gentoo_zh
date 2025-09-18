@@ -24,3 +24,9 @@ media-sound/qqmusic::gentoo-zh
 virtual/v2ray-geoip::gentoo-zh
 
 sys-power/tlpui::gentoo-zh
+
+
+app-dicts/fcitx-pinyin-*::gentoo-zh
+app-text/imewlconverter::gentoo-zh
+dev-python/mw2fcitx::gentoo-zh
+dev-python/pypinyin::gentoo-zh
