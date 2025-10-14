@@ -1,0 +1,6 @@
+# required by app-emulation/libvirt-glib-5.0.0-r1::gentoo
+# required by app-emulation/virt-manager-5.1.0::gentoo
+# required by @tools-virtualmachine
+# required by @selected
+# required by @world (argument)
+=app-emulation/libvirt-11.1.0-r2 ~amd64

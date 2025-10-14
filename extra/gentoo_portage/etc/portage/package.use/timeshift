@@ -2,4 +2,9 @@
 # required by @selected
 # required by @world (argument)
 >=x11-libs/xapp-2.8.5 vala introspection
-
+# required by x11-libs/xapp-2.8.9::gentoo
+# required by app-backup/timeshift-23.07.1::guru
+# required by @thirdparty-backup
+# required by @selected
+# required by @world (argument)
+>=dev-libs/libdbusmenu-16.04.0-r3 gtk3

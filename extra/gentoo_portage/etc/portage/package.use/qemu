@@ -8,3 +8,8 @@ app-emulation/qemu usbredir spice
 
 app-emulation/libvirt pcap virt-network numa fuse macvtap vepa qemu
 
+# required by app-emulation/virt-manager-5.0.0-r2::gentoo[python_single_target_python3_13]
+# required by @tools-virtualmachine
+# required by @selected
+# required by @world (argument)
+dev-libs/libxml2 python
