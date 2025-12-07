@@ -3,7 +3,8 @@ media-libs/freeglut
 media-libs/netpbm
 media-libs/gd
 sci-libs/plplot
-sci-libs/lapack
+#sci-libs/lapack
+sci-libs/flexiblas
 dev-build/scons
 dev-lang/swig
 dev-python/numpy
