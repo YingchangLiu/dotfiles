@@ -3,4 +3,8 @@
 # required by @tools-virtualmachine
 # required by @selected
 # required by @world (argument)
-=app-emulation/libvirt-11.1.0-r2 ~amd64
+#app-emulation/libvirt ~amd64
+
+
+gnome-extra/yad ~amd64
+

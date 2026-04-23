@@ -1,4 +1,4 @@
-# */* PYTHON_TARGETS: -* python3_12
-# */* PYTHON_SINGLE_TARGET: -* python3_12
+# */* PYTHON_TARGETS: -* python3_14
+# */* PYTHON_SINGLE_TARGET: -* python3_14
 
-#app-shells/thefuck PYTHON_TARGETS: python3_12
+#app-shells/thefuck PYTHON_TARGETS: python3_14

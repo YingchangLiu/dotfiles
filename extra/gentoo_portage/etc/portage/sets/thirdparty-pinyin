@@ -1,4 +1,5 @@
 app-dicts/fcitx-pinyin-custom-pinyin-dictionary
 app-dicts/fcitx-pinyin-moegirl
-app-dicts/fcitx-pinyin-sougou-baidu
+# move app-dicts/fcitx-pinyin-sougou-baidu app-dicts/fcitx-pinyin-sougou-dict
+app-dicts/fcitx-pinyin-sougou-dict
 app-dicts/fcitx-pinyin-zhwiki

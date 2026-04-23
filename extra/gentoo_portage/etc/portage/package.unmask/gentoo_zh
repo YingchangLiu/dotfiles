@@ -4,7 +4,7 @@
 net-proxy/mihomo-party-bin::gentoo-zh
 net-proxy/clash-verge-bin::gentoo-zh
 
-app-office/wps-office::gentoo-zh
+#app-office/wps-office::gentoo-zh
 x11-misc/flatpak-xdg-utils::gentoo-zh
 app-shells/gitstatus::gentoo-zh
 dev-libs/v2ray-domain-list-community-bin::gentoo-zh
@@ -30,3 +30,11 @@ app-dicts/fcitx-pinyin-*::gentoo-zh
 app-text/imewlconverter::gentoo-zh
 dev-python/mw2fcitx::gentoo-zh
 dev-python/pypinyin::gentoo-zh
+
+
+media-libs/libdicom::gentoo-zh
+#(dependency required by "media-libs/openslide-4.0.0::gentoo-zh" [ebuild])
+#(dependency required by "net-im/tencent-qq-3.2.26_p260311::gentoo-zh" [installed])
+#(dependency required by "@thirdparty-tencent" [set])
+#(dependency required by "@selected" [set])
+#(dependency required by "@world" [argument])

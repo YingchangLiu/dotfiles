@@ -1,0 +1,4 @@
+# required by @tools-misc
+# required by @selected
+# required by @world (argument)
+>=www-client/google-chrome-143.0.7499.169 google-chrome

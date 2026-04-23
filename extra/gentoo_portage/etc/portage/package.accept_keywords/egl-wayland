@@ -1,0 +1,7 @@
+# required by x11-drivers/nvidia-drivers-590.48.01::gentoo[wayland]
+# required by sys-apps/hwloc-2.11.2-r1::gentoo[video_cards_nvidia]
+# required by sys-cluster/mpich-3.4.3-r1::gentoo
+# required by @tools-programming
+# required by @selected
+# required by @world (argument)
+gui-libs/egl-wayland2 ~amd64

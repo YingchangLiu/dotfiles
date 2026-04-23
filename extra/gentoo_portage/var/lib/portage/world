@@ -1,2 +1,5 @@
+dev-python/libvirt-python
+media-plugins/alsa-plugins
 net-libs/webkit-gtk
+sys-boot/grub
 x11-apps/mesa-progs

@@ -23,7 +23,7 @@ GRUB_SAVEDEFAULT=true
 #GRUB_TIMEOUT_STYLE=menu
 
 # Append parameters to the linux kernel command line
-GRUB_CMDLINE_LINUX=""
+#GRUB_CMDLINE_LINUX=""
 #
 # Examples:
 #
@@ -57,7 +57,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="nvidia-drm.modeset=1"
 # Path to theme spec txt file.
 # The starfield is by default provided with use truetype.
 # NOTE: when enabling custom theme, ensure you have required font/etc.
-#GRUB_THEME="/boot/grub/themes/starfield/theme.txt"
+GRUB_THEME="/boot/grub/themes/gentoo_glass/theme.txt"
 
 # Background image used on graphical terminal.
 # Can be in various bitmap formats.

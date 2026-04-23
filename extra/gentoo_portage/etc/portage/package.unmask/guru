@@ -5,7 +5,9 @@ app-shells/zsh-autosuggestions::guru
 media-fonts/nerdfonts::guru
 # Move net-proxy/nekoray::guru to Throne
 net-proxy/Throne::guru
+dev-go/protoc-gen-go-grpc::guru # for Throne
 dev-go/protorpc::guru # for nekoray
 app-backup/timeshift::guru
 dev-cpp/fkYAML::guru # for nekoray
 gnome-extra/yad::guru # for winapps
+
