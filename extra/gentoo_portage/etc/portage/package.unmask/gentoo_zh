@@ -8,7 +8,6 @@ net-proxy/clash-verge-bin::gentoo-zh
 x11-misc/flatpak-xdg-utils::gentoo-zh
 app-shells/gitstatus::gentoo-zh
 dev-libs/v2ray-domain-list-community-bin::gentoo-zh
-media-sound/qqmusic-::gentoo-zh
 app-alternatives/v2ray-geoip::gentoo-zh
 dev-libs/v2ray-geoip-bin::gentoo-zh
 net-proxy/v2rayA::gentoo-zh

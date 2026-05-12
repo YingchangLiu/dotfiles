@@ -1,6 +1,7 @@
 #dev-util/nvidia-cuda-toolkit:0/11.8.0
 dev-util/nvidia-cuda-toolkit
-sys-devel/gcc:11
+#sys-devel/gcc:11
+sys-devel/gcc
 sys-cluster/mpich
 dev-lang/julia-bin
 

@@ -6,3 +6,6 @@ kde-plasma/sddm-kcm
 kde-apps/ark
 kde-apps/konsole
 kde-apps/dolphin 
+kde-apps/okular
+kde-apps/gwenview
+
