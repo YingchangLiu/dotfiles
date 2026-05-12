@@ -9,7 +9,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 [[ -z "${LD_PRELOAD}" ]] && \
 export LD_PRELOAD="$(
     [[ -f "/usr/lib/libstdc++.so" ]] && echo "/usr/lib/libstdc++.so" || \
-    [[ -f "/usr/lib/gcc/x86_64-pc-linux-gnu/14/libstdc++.so" ]] && echo "/usr/lib/gcc/x86_64-pc-linux-gnu/14/libstdc++.so" || \
+    [[ -f "/usr/lib/gcc/x86_64-pc-linux-gnu/15/libstdc++.so" ]] && echo "/usr/lib/gcc/x86_64-pc-linux-gnu/15/libstdc++.so" || \
     echo ""
 )"
 

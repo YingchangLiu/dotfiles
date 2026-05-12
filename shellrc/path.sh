@@ -12,6 +12,7 @@ export OPTROOT=$HOME/opt
 
 export MAMBA_ROOT_PREFIX="${MAMBA_ROOT_PREFIX:-${OPTROOT}/miniforge3}"
 
+
 ## Enable conda in command line
 set_conda_env() {
     local __conda_optpaths=(
@@ -38,7 +39,7 @@ set_conda_env() {
     return 1  # 如果没有找到任何 Conda 环境，则返回非零值
 }
 set_conda_env
-
+eval "$(mamba shell hook --shell zsh)" 2>/dev/null
 
 # source /opt/intel/oneapi/setvars.sh >/dev/null 2>&1
 

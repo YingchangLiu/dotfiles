@@ -225,10 +225,15 @@ if [ -n "$_LOADED_ZSH_AUTOCOMPLETE" ]; then
 
   # stop completions with ...
   zstyle ':autocomplete:*' ignored-input 'pip3##'
+  zstyle ':autocomplete:*' ignored-input 'pip##'
+  zstyle ':autocomplete:*' ignored-input '_pip##'
 
 fi
 
 export ZSH_AUTOSUGGEST_COMPLETION_IGNORE=("pip3 *")
+export ZSH_AUTOSUGGEST_COMPLETION_IGNORE=("_pip *")
+
+
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20 
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan'

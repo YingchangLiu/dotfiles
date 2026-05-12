@@ -84,6 +84,12 @@ alias lt='ll -rt'                   # sort by date
 alias lm='la | more'
 alias l.='ls -d .* --color=auto'
 alias LS='ls'
+alias LA='la'
+alias La='la'
+alias LT='lt'
+alias LM='lm'
+alias LL='ll'
+
 
 # Privileged access
 if (( UID != 0 )); then
