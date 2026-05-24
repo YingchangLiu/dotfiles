@@ -32,6 +32,7 @@ alias hist='history 1 | grep'         # requires an argument
 alias openports='ss --all --numeric --processes --ipv4 --ipv6'
 alias pgg='ps -Af | grep'             # requires an argument
 alias wttr='curl wttr.in'
+alias wttrq='curl wttr.in/Qingdao'
 # alias ff='find . -name $1'
 
 # the fuck

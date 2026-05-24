@@ -6,6 +6,15 @@ export EDITOR='vim'
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
+
+
+#GBM_BACKEND=nvidia-drm
+#__GLX_VENDOR_LIBRARY_NAME=nvidia
+QT_QPA_PLATFORM=wayland:xcb
+
+
+
+
 [[ -z "${LD_PRELOAD}" ]] && \
 export LD_PRELOAD="$(
     [[ -f "/usr/lib/libstdc++.so" ]] && echo "/usr/lib/libstdc++.so" || \
